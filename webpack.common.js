@@ -1,32 +1,45 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	entry: {
-		'styling': './src/styling.js',
-		'info': './src/info/app.js',
-		'download': './src/download/download.js'
+		'app': [
+			'./src/styling.js',
+			'./src/app.js'
+		]
 	},
 	output: {
 		filename: '[name].js',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist'),
+		publicPath: '/'
 	},
-	plugins: [new MiniCssExtractPlugin(), new CopyPlugin([{from: 'src/images', to: 'assets/images'}])],
+	plugins: [
+		new VueLoaderPlugin(),
+		new HtmlWebpackPlugin({
+			title: 'Yukkuricraft Info',
+			filename: 'index.html',
+			template: 'src/index.html'
+		})
+	],
 	module: {
 		rules: [
 			{
 				test: /\.(scss)$/,
 				use: [
-					MiniCssExtractPlugin.loader,
+					process.env.NODE_ENV !== 'production' ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
 					'css-loader',
 					'postcss-loader',
-					'sass-loader'
+					{
+						loader: 'sass-loader',
+						options: {
+							sassOptions: {
+								functions: require('chromatic-sass')
+							}
+						}
+					}
 				]
-			},
-			{
-				test: /\.html$/i,
-				use: ['file-loader?name=[name].[ext]', 'extract-loader', 'html-loader'],
 			},
 			{
 				test: /\.(png|svg|jpg|gif)$/,
@@ -37,8 +50,26 @@ module.exports = {
 						outputPath: 'assets/images'
 					}
 				}
+			},
+			{
+				test: /\.vue$/,
+				loader: 'vue-loader'
+			},
+			{
+				resourceQuery: /blockType=i18n/,
+				type: 'javascript/auto',
+				loader: '@intlify/vue-i18n-loader'
 			}
 		]
+	},
+	resolve: {
+		alias: {
+			'vue$': 'vue/dist/vue.esm.js'
+		},
+		extensions: ['*', '.js', '.vue', '.json']
+	},
+	devServer: {
+		historyApiFallback: true
 	},
 	optimization: {
 		splitChunks: {
