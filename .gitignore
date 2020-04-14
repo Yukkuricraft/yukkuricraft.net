@@ -1,0 +1,10 @@
+vendors*
+not-really-vendors*
+prev_known_ip
+Config.php
+
+# Info page
+node_modules
+
+# IDEA
+.idea
