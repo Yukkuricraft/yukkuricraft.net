@@ -6,6 +6,8 @@ on:
       - master
       - dev
     paths:
+      - '*'
+      - '!README.md'
       - 'src/**'
       - '.github/workflows/main.yml'
 
@@ -23,13 +25,13 @@ jobs:
       uses: actions/checkout@master
 
     - name: Yarn Install
-      uses: borales/actions-yarn@v2.0.0
+      uses: ianwalter/puppeteer@v2.0.0
       with:
-        cmd: install
+        args: yarn install
     - name: Yarn Build
-      uses: borales/actions-yarn@v2.0.0
+      uses: ianwalter/puppeteer@v2.0.0
       with:
-        cmd: build
+        args: yarn build
 
     - name: Deploy-Info-Dev
       if: steps.extract_branch.outputs.branch == 'dev'
