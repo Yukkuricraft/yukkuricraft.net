@@ -13,9 +13,11 @@
 			</router-link>
 		</template>
 
-		<iframe class="mt-5" width="1120" height="630" src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
-				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen></iframe>
+		<div class="embed-responsive embed-responsive-16by9">
+			<iframe class="embed-responsive-item mt-5" src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
+					frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+		</div>
 
 		<span id="subdomains" class="anchor-offset"></span>
 		<h2 id="subdomains">Our Subdomains and Pages</h2>
