@@ -5,11 +5,13 @@
 		</template>
 
 
-		<h2 id="rules" class="scrolltarget">Rules</h2>
+		<span id="rules" class="anchor-offset"></span>
+		<h2 id="rules">Rules</h2>
 
 		<p><em>Rules are accessible in-game through /rules</em></p>
 
-		<h3 id="rulesGR" class="scrolltarget">GENERAL RULE-SET[GR]</h3>
+		<span id="rulesGR" class="anchor-offset"></span>
+		<h3 id="rulesGR">GENERAL RULE-SET[GR]</h3>
 		<p>Rules that apply across all of Yukkuricraft</p>
 		<ol class="decimal">
 			<li>
@@ -85,7 +87,8 @@
 			</li>
 		</ol>
 
-		<h3 id="rulesSR" class="scrolltarget">SERVER RULE-SET[SR]</h3>
+		<span id="rulesSR" class="anchor-offset"></span>
+		<h3 id="rulesSR">SERVER RULE-SET[SR]</h3>
 		<p>Rules that apply mostly to the Minecraft server.</p>
 		<ol class="decimal">
 			<li>
@@ -131,7 +134,8 @@
 			</li>
 		</ol>
 
-		<h4 id="remicare" class="scrolltarget">RemiCare</h4>
+		<span id="remicare" class="anchor-offset"></span>
+		<h4 id="remicare">RemiCare</h4>
 		<p>
 			The Remicare act is an active power provided to the community that allows them to claim abandoned builds
 			in the survival world.
@@ -155,7 +159,8 @@
 			and/or nagging staff for remicare will be denied and potentially punished.
 		</p>
 
-		<h3 id="rulesDR" class="scrolltarget">DISCORD RULE-SET[DR]</h3>
+		<span id="rulesDR" class="anchor-offset"></span>
+		<h3 id="rulesDR">DISCORD RULE-SET[DR]</h3>
 		<p>Rules that apply mostly to the Discord server</p>
 		<ol class="decimal">
 			<li>

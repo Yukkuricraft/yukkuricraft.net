@@ -6,12 +6,12 @@ $font-size-base: 1.2rem;
 @import "~bootstrap/scss/variables";
 @import "sidebar";
 
-.container {
-  .scrolltarget:before {
-    height: 54px;
-    content: "";
-    display: block;
-  }
+.anchor-offset {
+  margin-top: -61px; /* height of nav, in this case 54px */
+  display: block;
+  height: 61px; /* height of nav, in this case 54px */
+  visibility: hidden;
+  position: relative;
 }
 
 html {

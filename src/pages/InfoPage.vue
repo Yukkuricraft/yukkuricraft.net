@@ -17,7 +17,8 @@
 				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 				allowfullscreen></iframe>
 
-		<h2 id="subdomains" class="scrolltarget">Our Subdomains and Pages</h2>
+		<span id="subdomains" class="anchor-offset"></span>
+		<h2 id="subdomains">Our Subdomains and Pages</h2>
 		<h3>General</h3>
 		<ul>
 			<li><a href="https://yukkuricraft.net" target="_blank">https://yukkuricraft.net</a> - Our main forum and
@@ -56,7 +57,8 @@
 			</li>
 		</ul>
 
-		<h2 id="contact" class="scrolltarget">Contact Us</h2>
+		<span id="contact" class="anchor-offset"></span>
+		<h2 id="contact">Contact Us</h2>
 		<p>Honestly, there isn't much to say. This is Remi_Scarlet's contact information. Contact me with your
 			preferred
 			method.
