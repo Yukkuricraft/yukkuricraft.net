@@ -6,8 +6,9 @@ on:
       - master
       - dev
     paths:
-      - '**'
+      - '*'
       - '!README.md'
+      - 'src/**'
       - '.github/workflows/**'
 
 jobs:
@@ -24,13 +25,13 @@ jobs:
       uses: actions/checkout@master
 
     - name: Yarn Install
-      uses: borales/actions-yarn@v2.0.0
+      uses: ianwalter/puppeteer@v2.0.0
       with:
-        cmd: install
+        cmd: yarn install
     - name: Yarn Build
-      uses: borales/actions-yarn@v2.0.0
+      uses: ianwalter/puppeteer@v2.0.0
       with:
-        cmd: build
+        cmd: yarn build
 
     - name: Yarn Test
       run: echo "Where my tests at @katrix? :P"
