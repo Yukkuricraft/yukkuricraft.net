@@ -2,6 +2,7 @@
 	<nav id="top-navbar" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
 		<div v-if="inContainer" class="container">
 			<slot name="top"></slot>
+			<router-link class="navbar-brand" :to="{name: 'info'}">Yukkuricraft</router-link>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -15,6 +16,7 @@
 
 		<template v-else>
 			<slot name="top"></slot>
+			<router-link class="navbar-brand" :to="{name: 'info'}">Yukkuricraft</router-link>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
