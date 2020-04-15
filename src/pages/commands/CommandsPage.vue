@@ -13,8 +13,8 @@
 			<p>Find commonly used commands here</p>
 		</template>
 
-
-		<h2 id="commands" class="scrolltarget">Command List</h2>
+		<span id="commands" class="anchor-offset"></span>
+		<h2 id="commands">Command List</h2>
 		<div id="commandsSection">
 			<p style="font-size:18px;color:#aaafad">
 				Arguments in "[" and "]" are optional. Arguments in "&lt;" and "&gt;" are required for the
