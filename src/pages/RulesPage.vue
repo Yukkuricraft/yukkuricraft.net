@@ -10,6 +10,8 @@
 
 		<p><em>Rules are accessible in-game through /rules</em></p>
 
+		<p><em>If you have been previously banned, you can appeal your ban <a href="https://forms.gle/gwFiECrDKNiJwLzH8">here</a></em></p>
+
 		<span id="rulesGR" class="anchor-offset"></span>
 		<h3 id="rulesGR">GENERAL RULE-SET[GR]</h3>
 		<p>Rules that apply across all of Yukkuricraft</p>
