@@ -46,11 +46,11 @@
 	import CommandSidebarEntries from "./CommandSidebarEntries";
 	import SidebarPage from "../../layout/SidebarPage";
 
-	import generalCmds from "./general_commands";
-	import tpCmds from "./tp_commands";
-	import chatCmds from "./chat_commands";
-	import lwcCmds from "./lwc_commands";
-	import hshCmds from "./hsh_commands";
+	import generalCmds from "./general_commands.yaml";
+	import tpCmds from "./tp_commands.yaml";
+	import chatCmds from "./chat_commands.yaml";
+	import lwcCmds from "./lwc_commands.yaml";
+	import hshCmds from "./hsh_commands.yaml";
 
 	let allCommands = {...generalCmds, ...tpCmds, ...chatCmds, ...lwcCmds, ...hshCmds}
 

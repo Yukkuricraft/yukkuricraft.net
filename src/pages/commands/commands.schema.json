@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://info.yukkuricraft.net/schemas/commands.schema.json",
+  "title": "YukkuriCraft commands",
+  "description": "A schema for YukkuriCraft's command documents",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/definitions/commandGroup"
+  },
+  "definitions": {
+    "commandGroup": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "menuName": {
+          "type": "string"
+        },
+        "isGroup": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string",
+          "x-intellij-language-injection": {
+            "language": "Markdown"
+          }
+        },
+        "commands": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/command"
+          }
+        },
+        "subgroups": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/commandGroup"
+          }
+        }
+      },
+      "required": [
+        "displayName",
+        "menuName"
+      ],
+      "additionalProperties": false
+    },
+    "command": {
+      "type": "object",
+      "properties": {
+        "aliases": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "description": {
+          "type": "string",
+          "x-intellij-language-injection": {
+            "language": "Markdown"
+          }
+        },
+        "arguments": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "aliases",
+        "description"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
