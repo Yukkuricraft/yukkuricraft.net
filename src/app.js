@@ -26,6 +26,15 @@ Vue.use(VueI18n);
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false;
 
+const supportedLocales = ['en'];
+
+let preferredLanguage = window.navigator.language.slice(0, 2);
+let usedLocale = supportedLocales.includes(preferredLanguage) ? preferredLanguage : 'en';
+
+const i18n = new VueI18n({
+	locale: usedLocale
+})
+
 const router = new VueRouter({
 	base: '/',
 	mode: 'history',
@@ -60,13 +69,14 @@ const router = new VueRouter({
 			name: 'download_survival',
 			component: DownloadSurvival
 		},
-		...mdPages.map(({title, path, parallaxClass, content}) => ({
+		...mdPages.map(({title, path, parallaxClass, content, localizedContent}) => ({
 			path,
 			component: MarkdownPage,
 			props: {
 				title,
 				parallaxClass,
-				content
+				content,
+				localizedContent
 			}
 		}))
 	]
@@ -76,6 +86,7 @@ const app = new Vue({
 	el: '#app',
 	render: createElement => createElement(App),
 	router,
+	i18n,
 	mounted() {
 		// You'll need this for renderAfterDocumentEvent.
 		document.dispatchEvent(new Event('render-event'))

@@ -1,15 +1,17 @@
 <template>
-	<markdown-page parallaxClass="parallax-rules" title="Rules" :content="rules"></markdown-page>
+	<markdown-page parallaxClass="parallax-rules" title="Rules" :localized-content="rules"></markdown-page>
 </template>
 <script>
 	import MarkdownPage from "./markdown/MarkdownPage";
-	import rules from "./Rules.md"
+	import rulesEn from "./RulesEN.md"
 
 	export default {
 		components: {MarkdownPage},
 		computed: {
 			rules() {
-				return rules;
+				return {
+					en: rulesEn
+				}
 			}
 		}
 	}
