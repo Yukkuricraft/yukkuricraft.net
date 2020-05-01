@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
 	entry: {
@@ -21,7 +22,8 @@ module.exports = {
 			title: 'Yukkuricraft Info',
 			filename: 'index.html',
 			template: 'src/index.html'
-		})
+		}),
+		new BundleAnalyzerPlugin()
 	],
 	module: {
 		rules: [
@@ -55,6 +57,15 @@ module.exports = {
 				test: /\.ya?ml$/,
 				type: 'json', // Required by Webpack v4
 				use: 'yaml-loader'
+			},
+			{
+				test: /\.md$/i,
+				use: {
+					loader: 'raw-loader',
+					options: {
+						esModule: false,
+					}
+				}
 			},
 			{
 				test: /\.vue$/,

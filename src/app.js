@@ -9,7 +9,10 @@ import CommandsPage from './pages/commands/CommandsPage'
 import DownloadGenso from "./pages/downloads/Download";
 import DownloadSurvival from "./pages/downloads/DownloadSurvival";
 
+import mdPages from "./pages/markdown/pages"
+
 import App from './App.vue'
+import MarkdownPage from "./pages/markdown/MarkdownPage";
 
 Vue.use(VueRouter);
 Vue.use(VueI18n);
@@ -47,7 +50,16 @@ const router = new VueRouter({
 			path: '/downloads/survival',
 			name: 'download_survival',
 			component: DownloadSurvival
-		}
+		},
+		...mdPages.map(({title, path, parallaxClass, content}) => ({
+			path,
+			component: MarkdownPage,
+			props: {
+				title,
+				parallaxClass,
+				content
+			}
+		}))
 	]
 })
 
