@@ -109,7 +109,7 @@
 				<dl class="row">
 					<dt class="col-sm-3 col-md-2"><i> The [Owner] Title</i>:</dt>
 					<dd class="col-sm-9 col-md-10">
-						These people have access to the serverbox and have completely control over the
+						These people have access to the serverbox and have complete control over the
 						server's existence.
 					</dd>
 				</dl>
