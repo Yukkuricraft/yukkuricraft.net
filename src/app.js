@@ -2,6 +2,12 @@ import Vue from 'vue'
 import VueRouter from "vue-router";
 import VueI18n from "vue-i18n";
 
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import "./fontAwesomeLibrary";
+
+import "bootstrap";
+import "./scss/app.scss";
+
 import InfoPage from './pages/InfoPage'
 import RulesPage from './pages/RulesPage'
 import RanksStaffPage from './pages/RanksStaffPage'
@@ -16,6 +22,9 @@ import MarkdownPage from "./pages/markdown/MarkdownPage";
 
 Vue.use(VueRouter);
 Vue.use(VueI18n);
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.config.productionTip = false;
 
 const router = new VueRouter({
 	base: '/',

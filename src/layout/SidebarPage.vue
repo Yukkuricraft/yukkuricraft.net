@@ -9,7 +9,7 @@
 				<template v-slot:top>
 					<button @click="sidebarActive = !sidebarActive" class="btn" type="button" aria-controls="sidebar-nav"
 							aria-expanded="false" aria-label="Toggle sidebar">
-						<i class="text-white fas fa-align-left"></i>
+						<font-awesome-icon class="text-white" :icon="['fas', 'align-left']" />
 					</button>
 				</template>
 			</info-header>
