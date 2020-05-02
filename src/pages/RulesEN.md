@@ -24,17 +24,18 @@ Rules that apply across all of Yukkuricraft
    they attempt to consider all issues and disputes from as objective a viewpoint as possible.
    Staff members have the final say on most server matters.
 
-3. **Do not ero-rp (Erotic Roleplay)**
+3. **Do not create or share R18 content outside of designated spaces**
    
-   Do not link to NSFW material or engage in NSFW behavior in public channels. Furthermore, do not
-   engage in activity that is illegal in your nation and/or the USA while on Yukkuricraft. The
-   server has and will collaborate with authorities if any illegal activity is discovered in it.
+   YC's minimum age limit is 13, so be aware when minors are present. Furthermore,
+   ero-rp is strictly forbidden due to risks of activity with minors, which is against U.S. law.
+
 
 4. **Do not ask for promotions**
    
    Promotions to staff are administered as per the server's requirement. The highest non-staff rank
    attainable is Elder, which is obtained by being a continuing positive contributor to the
-   server's social development. Demanding a promotion will impact poorly on your character.
+   server's social development. While asking for information or offering to help is fine, demanding
+   a promotion will impact poorly on your character.
 
 5. **No account fraud/Ban evasion**
    
