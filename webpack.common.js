@@ -41,6 +41,14 @@ module.exports = (env, options) => {
 					]
 				},
 				{
+					test: /\.(css)$/,
+					use: [
+						options.mode !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+						'css-loader',
+						'postcss-loader'
+					]
+				},
+				{
 					test: /\.(png|svg|jpg|gif)$/,
 					use: [
 						{

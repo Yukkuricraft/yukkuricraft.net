@@ -6,12 +6,12 @@ $font-size-base: 1.2rem;
 @import "~bootstrap/scss/variables";
 @import "sidebar";
 
-.anchor-offset {
-  margin-top: -61px; /* height of nav, in this case 54px */
+*[id]:before {
   display: block;
-  height: 61px; /* height of nav, in this case 54px */
+  content: " ";
+  margin-top: -62px;
+  height: 62px;
   visibility: hidden;
-  position: relative;
 }
 
 html {

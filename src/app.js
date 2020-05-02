@@ -8,6 +8,8 @@ import "./fontAwesomeLibrary";
 import "bootstrap";
 import "./scss/app.scss";
 
+import "css.escape";
+
 import InfoPage from './pages/InfoPage'
 import RulesPage from './pages/RulesPage'
 import RanksStaffPage from './pages/RanksStaffPage'
@@ -79,7 +81,14 @@ const router = new VueRouter({
 				localizedContent
 			}
 		}))
-	]
+	],
+	scrollBehavior(to, from, savedPosition) {
+		if(to.hash.length) {
+			return { selector: '#' + CSS.escape(to.hash.substring(1)) }
+		} else {
+			return { x: 0, y: 0 }
+		}
+	}
 })
 
 const app = new Vue({

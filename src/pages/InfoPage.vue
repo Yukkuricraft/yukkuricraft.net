@@ -33,7 +33,6 @@
 
 		<div class="row mt-3">
 			<div class="col-md-8">
-				<span id="subdomains" class="anchor-offset"></span>
 				<h2 id="subdomains">Our Subdomains and Pages</h2>
 				<h3>General</h3>
 				<ul>
@@ -86,7 +85,6 @@
 			-->
 		</div>
 
-		<span id="contact" class="anchor-offset"></span>
 		<h2 id="contact">Contact Us</h2>
 		<p>Honestly, there isn't much to say. This is Remi_Scarlet's contact information. Contact me with your
 			preferred

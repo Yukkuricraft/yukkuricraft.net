@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<span :id="'commands-' + commandGroupId" class="anchor-offset"></span>
 		<heading :id="'commands-' + commandGroupId" :level="3 + depth">{{ commandGroup.displayName }}</heading>
 		<div v-html="description"></div>
 		<command-groups v-if="commandGroup.isGroup" :depth="depth + 1"
