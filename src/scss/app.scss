@@ -40,36 +40,6 @@ html {
   background-size: cover;
 }
 
-.parallax-info {
-  background-image: url('../images/hakurei.jpg');
-  height: 600px;
-}
-
-.parallax-download {
-  background-image: url('../images/hakurei_inside.jpg');
-  height: 600px;
-}
-
-.parallax-remicare {
-  background-image: url('../images/fallen_shrine.jpg');
-  height: 600px;
-}
-
-.parallax-people {
-  background-image: url('../images/people.jpg');
-  height: 600px;
-}
-
-.parallax-rules {
-  background-image: url('../images/rules.jpg');
-  height: 600px;
-}
-
-.parallax-commands {
-  background-image: url('../images/commands.jpg');
-  height: 600px;
-}
-
 .parallax-text {
   @extend .alert;
   background-color: #4C4C4C3f;

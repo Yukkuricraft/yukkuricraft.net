@@ -1,5 +1,5 @@
 <template>
-	<sidebar-page parallax-class="parallax-commands">
+	<sidebar-page :parallax-high-res-image="require('../../images/commands.png')" :parallax-low-res-image="require('../../images/commands_small.jpg')">
 		<template v-slot:sidebar>
 			<div class="sidebar-header">
 				<h2>Commands</h2>

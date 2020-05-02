@@ -1,5 +1,5 @@
 <template>
-	<normal-page parallax-class="parallax-info">
+	<normal-page :parallax-high-res-image="require('../images/hakurei.png')" :parallax-low-res-image="require('../images/hakurei_small.jpg')">
 		<template v-slot:parallax>
 			<h1>Yukkuricraft Info</h1>
 			<p>A collection of information so you don't have to go looking for it elsewhere.</p>
@@ -78,10 +78,12 @@
 					<li><a href="https://forms.gle/gwFiECrDKNiJwLzH8">Ban appeals</a></li>
 				</ul>
 			</div>
+			<!--
 			<div class="col-md-4">
 				<iframe src="https://discordapp.com/widget?id=201938197171798017&theme=light"
 						width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
 			</div>
+			-->
 		</div>
 
 		<span id="contact" class="anchor-offset"></span>

@@ -1,5 +1,5 @@
 <template>
-	<normal-page :parallax-class="parallaxClass">
+	<normal-page :parallax-high-res-image="parallaxHighResImage" :parallax-low-res-image="parallaxLowResImage">
 		<template v-slot:parallax>
 			<h1>{{ title }}</h1>
 		</template>
@@ -15,7 +15,9 @@
 	export default {
 		components: {Markdown, NormalPage},
 		props: {
-			parallaxClass: String,
+			parallaxHeight: Number,
+			parallaxLowResImage: String,
+			parallaxHighResImage: String,
 			title: String,
 			content: String,
 			localizedContent: Object

@@ -1,5 +1,5 @@
 <template>
-	<normal-page parallax-class="parallax-people">
+	<normal-page :parallax-high-res-image="require('../images/people.png')" :parallax-low-res-image="require('../images/people_small.jpg')">
 		<template v-slot:parallax>
 			<h1>Ranks and Staff</h1>
 		</template>
