@@ -19,13 +19,12 @@
 	export default {
 		props: {
 			content: {
-				type: String,
 				required: true
 			}
 		},
 		computed: {
 			htmlContent() {
-				return md.render(this.content);
+				return this.content ? md.render(this.content) : null;
 			}
 		}
 	}

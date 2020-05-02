@@ -1,7 +1,6 @@
 homesweethome:
   displayName: HomeSweetHome commands
   menuName: HomeSweetHome
-  isGroup: true
   description: >-
     So finally we have HomeSweetHome 2.0 (technically 2.2) on the server.
     So, what's special about this version of HSH, how do you use it, what cool features

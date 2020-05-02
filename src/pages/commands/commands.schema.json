@@ -17,9 +17,6 @@
         "menuName": {
           "type": "string"
         },
-        "isGroup": {
-          "type": "boolean"
-        },
         "description": {
           "type": "string",
           "x-intellij-language-injection": {

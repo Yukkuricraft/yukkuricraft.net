@@ -1,6 +1,6 @@
 <template>
 	<li>
-		<template v-if="subgroup.isGroup">
+		<template v-if="subgroup.subgroups">
 			<a data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
 			   :href="'#commandsSidebar-' + subgroupId">{{ subgroup.menuName }}</a>
 			<command-sidebar-entries :id="'commandsSidebar-' + subgroupId" class="collapse"

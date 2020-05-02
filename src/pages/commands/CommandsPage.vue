@@ -63,8 +63,7 @@
 		},
 		data() {
 			return {
-				filter: "",
-				sidebarActive: false
+				filter: ""
 			}
 		},
 		computed: {
@@ -86,7 +85,7 @@
 				}
 
 				function filterSubgroup(subgroup) {
-					if (typeof subgroup.isGroup !== 'undefined' && subgroup.isGroup) {
+					if (typeof subgroup.subgroups !== 'undefined' && Object.entries(subgroup.subgroups).length) {
 						let subsubgroups = filterSubgroups(subgroup.subgroups);
 
 						if (Object.entries(subsubgroups).length) {
@@ -96,15 +95,12 @@
 							return null
 						}
 					} else {
-						console.log(subgroup.commands)
 						let validCommands = subgroup.commands.filter(commandMatchesQuery);
-						console.log(validCommands)
 
 						if (validCommands.length) {
 							subgroup.commands = validCommands
 							return subgroup
 						} else {
-							console.log('Filtering out subgroup')
 							return null
 						}
 					}
@@ -126,7 +122,6 @@
 
 				let commandsCopy = JSON.parse(JSON.stringify(allCommands))
 
-				console.log('Starting filtering')
 				return this.filter.length ? filterSubgroups(commandsCopy) : commandsCopy
 			}
 		}
