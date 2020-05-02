@@ -42,13 +42,21 @@ module.exports = (env, options) => {
 				},
 				{
 					test: /\.(png|svg|jpg|gif)$/,
-					use: {
-						loader: 'file-loader',
-						options: {
-							esModule: false, //https://github.com/peerigon/extract-loader/issues/67
-							outputPath: 'assets/images'
+					use: [
+						{
+							loader: 'file-loader',
+							options: {
+								esModule: false, //https://github.com/peerigon/extract-loader/issues/67
+								outputPath: 'assets/images'
+							}
+						},
+						{
+							loader: "image-webpack-loader",
+							options: {
+								disable: options.mode !== 'production'
+							}
 						}
-					}
+					]
 				},
 				{
 					test: /\.ya?ml$/,
