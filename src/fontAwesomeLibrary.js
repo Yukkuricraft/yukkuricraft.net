@@ -1,7 +1,7 @@
 import { library, dom, config } from '@fortawesome/fontawesome-svg-core';
-import { faAlignLeft, faLink } from '@fortawesome/free-solid-svg-icons';
+import { faAlignLeft, faLink, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faAlignLeft, faLink);
+library.add(faAlignLeft, faLink, faSpinner);
 
 import css from "@fortawesome/fontawesome-svg-core/styles.css"
 

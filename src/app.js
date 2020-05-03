@@ -14,6 +14,8 @@ import InfoPage from './pages/InfoPage'
 import RulesPage from './pages/RulesPage'
 import RanksStaffPage from './pages/RanksStaffPage'
 import CommandsPage from './pages/commands/CommandsPage'
+import GensokyoLocationsPage from "./pages/gensokyo/LocationsPage";
+import GensokyoHelpPage from "./pages/gensokyo/HelpPage";
 import DownloadGenso from "./pages/downloads/Download";
 import DownloadSurvival from "./pages/downloads/DownloadSurvival";
 
@@ -60,6 +62,16 @@ const router = new VueRouter({
 			path: '/commands',
 			name: 'commands',
 			component: CommandsPage
+		},
+		{
+			path: '/gensokyo',
+			name: 'gensokyo',
+			component: GensokyoLocationsPage
+		},
+		{
+			path: '/gensokyo/help',
+			name: 'gensokyo_help',
+			component: GensokyoHelpPage
 		},
 		{
 			path: '/downloads/gensokyo',

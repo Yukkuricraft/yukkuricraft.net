@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://info.yukkuricraft.net/schemas/locations.schema.json",
+  "title": "YukkuriCraft locations",
+  "description": "A schema for YukkuriCraft's locations documents",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/definitions/location"
+  },
+  "definitions": {
+    "location": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "menuName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "x-intellij-language-injection": {
+            "language": "Markdown"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "large": {
+                "type": "string"
+              },
+              "small": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "image_taken_by": {
+                "type": "string"
+              }
+            },
+            "required": ["large", "small"],
+            "additionalProperties": false
+          }
+        },
+        "sublocations": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/location"
+          }
+        }
+      },
+      "required": [
+        "displayName",
+        "menuName"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

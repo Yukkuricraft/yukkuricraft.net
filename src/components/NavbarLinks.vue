@@ -21,6 +21,21 @@
 					<a class="nav-link" :href="href" @click="navigate">Commands</a>
 				</li>
 			</router-link>
+			<router-link :to="{name: 'gensokyo'}" v-slot="{ href, navigate, isExactActive, isActive }">
+				<li class="nav-item dropdown" :class="[isActive && 'active']">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarlink-gensokyo"
+					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gensokyo</a>
+
+					<div class="dropdown-menu" aria-labelledby="navbarlink-gensokyo">
+						<a class="dropdown-item" :class="[isExactActive && 'active']" :href="href"
+						   @click="navigate">Locations</a>
+						<router-link :to="{name: 'gensokyo_help'}" v-slot="{ href, navigate, isExactActive }">
+							<a class="dropdown-item" :class="[isExactActive && 'active']" :href="href"
+							   @click="navigate">Help us build!</a>
+						</router-link>
+					</div>
+				</li>
+			</router-link>
 			<template v-for="(page, menuName) in groupedMdPages">
 				<template v-if="hasDropdown(page)">
 					<router-link :to="{path: page.obj.path}" v-slot="{ href, navigate, isExactActive, isActive }">

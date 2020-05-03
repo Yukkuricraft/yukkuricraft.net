@@ -24,7 +24,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="embed-responsive embed-responsive-16by9">
-					<iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
+					<iframe v-if="pageLoaded" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
 							frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 							allowfullscreen></iframe>
 				</div>
@@ -114,6 +114,15 @@
 			NormalPage,
 			ParallaxImage,
 			InfoFooter
+		},
+		data() {
+			return {
+				pageLoaded: false
+			}
+		},
+		mounted() {
+			//Delay loading youtube video just a bit
+			this.pageLoaded = true;
 		}
 	}
 </script>
