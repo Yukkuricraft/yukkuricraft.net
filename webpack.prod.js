@@ -27,12 +27,14 @@ module.exports = (env, options) => {
 					'/ranks_staff',
 					'/commands',
 					'/downloads/gensokyo',
-					'/downloads/survival'
+					'/downloads/survival',
+					'/gensokyo',
+					'/gensokyo/help',
 				],
 				renderer: new Renderer({
 					headless: true,
 					renderAfterDocumentEvent: 'render-event',
-					executablePath: isCI ? 'google-chrome-unstable' : undefined
+					executablePath: isCI ? 'google-chrome-stable' : undefined
 				}),
 			}),
 			new MiniCssExtractPlugin(),
