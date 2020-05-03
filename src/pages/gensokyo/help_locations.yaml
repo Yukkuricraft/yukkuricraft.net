@@ -1,0 +1,67 @@
+eientei:
+  displayName: Eientei
+  menuName: Eientei
+  description: |-
+    The home of the lunarias deep within the Bamboo forest.
+
+    Our last build before the big trailer.
+
+  images:
+    - large: eientei.png
+      small: eientei_small.jpg
+      image_taken_by: Katrix
+
+lunar_capital:
+  displayName: Lunar Capital
+  menuName: Lunar Capital
+  description: |-
+    Foo
+
+  images:
+    - large: eientei.png
+      small: eientei_small.jpg
+      image_taken_by: Katrix
+
+mayohiga:
+  displayName: Mayohiga
+  menuName: Mayohiga
+  description: |-
+    A small abandoned village at the outskirts of Gensokyo.
+
+  images:
+    - large: mayohiga.png
+      small: mayohiga_small.jpg
+      image_taken_by: Katrix
+
+heaven:
+  displayName: Heaven
+  menuName: Heaven
+  description: |-
+    Home of those that have achieved Nirvana or otherwise have acended death.
+
+  images:
+    - large: heaven.png
+      small: heaven_small.jpg
+      image_taken_by: Katrix
+
+chireiden:
+  displayName: Chireiden
+  menuName: Chireiden
+  description: |-
+    A large mansion in the former hell. The home of the Satoris and their pets.
+
+  images:
+    - large: chireiden.png
+      small: chireiden_small.jpg
+      image_taken_by: Katrix
+
+voile:
+  displayName: Voile
+  menuName: Voile
+  description: |-
+    The large library found under the SDM.
+
+  images:
+    - large: voile.png
+      small: voile_small.jpg
+      image_taken_by: Katrix

@@ -1,0 +1,23 @@
+neogenso:
+  displayName: NeoGensokyo
+  menuName: NeoGensokyo
+  sublocations:
+    forest_magic:
+      displayName: Forest of Magic
+      menuName: Forest of Magic
+      images:
+        - large: neo/forest_magic/hakurei_shrine.png
+          small: neo/forest_magic/hakurei_shrine_small.jpg
+          image_taken_by: Katrix
+
+        - large: neo/forest_magic/alice.png
+          small: neo/forest_magic/alice_small.jpg
+          image_taken_by: Katrix
+
+        - large: neo/forest_magic/marisa.png
+          small: neo/forest_magic/marisa_small.jpg
+          image_taken_by: Katrix
+
+        - large: neo/forest_magic/kourindu.png
+          small: neo/forest_magic/kourindu_small.jpg
+          image_taken_by: Katrix

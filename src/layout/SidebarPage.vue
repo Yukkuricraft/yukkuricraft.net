@@ -9,12 +9,12 @@
 				<template v-slot:top>
 					<button @click="sidebarActive = !sidebarActive" class="btn" type="button" aria-controls="sidebar-nav"
 							aria-expanded="false" aria-label="Toggle sidebar">
-						<i class="text-white fas fa-align-left"></i>
+						<font-awesome-icon class="text-white" :icon="['fas', 'align-left']" />
 					</button>
 				</template>
 			</info-header>
 
-			<parallax-image :class="parallaxClass">
+			<parallax-image :height="parallaxHeight" :low-res-image="parallaxLowResImage" :high-res-image="parallaxHighResImage">
 				<slot name="parallax"></slot>
 			</parallax-image>
 
@@ -39,7 +39,9 @@
 			ParallaxImage
 		},
 		props: {
-			parallaxClass: String
+			parallaxHeight: Number,
+			parallaxLowResImage: String,
+			parallaxHighResImage: String,
 		},
 		data() {
 			return {

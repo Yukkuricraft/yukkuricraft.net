@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<info-header></info-header>
-		<parallax-image :class="parallaxClass">
+		<parallax-image :height="parallaxHeight" :low-res-image="parallaxLowResImage" :high-res-image="parallaxHighResImage">
 			<slot name="parallax"></slot>
 		</parallax-image>
 
@@ -24,7 +24,9 @@
 			ParallaxImage
 		},
 		props: {
-			parallaxClass: String
+			parallaxHeight: Number,
+			parallaxLowResImage: String,
+			parallaxHighResImage: String,
 		}
 	}
 </script>

@@ -1,0 +1,58 @@
+<template>
+	<sidebar-page :parallax-high-res-image="require('../../images/pond.png')"
+				  :parallax-low-res-image="require('../../images/pond.png')">
+		<template v-slot:sidebar>
+			<div class="sidebar-header">
+				<h2>Locations</h2>
+			</div>
+
+			<location-sidebar-entries class="sidebar-components" :locations="locations"></location-sidebar-entries>
+		</template>
+
+		<template v-slot:parallax>
+			<h1>Help us build Gensokyo</h1>
+			<p>We always need more hands to help us build Gensokyo. Here is a list of our ongoing projects.</p>
+		</template>
+
+		<h2>Meetings</h2>
+		<p>
+			Builders on YukkuriCraft meet twice a month to plan, give feedback, and build together.
+			The days these meetings happens on is the first and third Saturday of every month at 4PM EST(EDT if Daylight
+			saving applies). At those times you can find us on our Discord in the Building Room. No matter your skill,
+			Gensokyo is a community project so please come and build with us! You can also always contact a Lead Builder
+			at any time if you want to work on something.
+		</p>
+
+		<h2>Active locations</h2>
+		<p>
+			Here's a list of builds we are currently working on. If you see anything interesting, contact a Lead Builder
+			to get a rundown of the build and a way to contact the person leading it in order to help. Note: If a
+			location isn't on this list that doesn't mean you can't help with it. We most likely haven't started on it
+			yet.
+		</p>
+
+		<locations :locations="locations" :depth="0"></locations>
+
+	</sidebar-page>
+</template>
+
+<script>
+	import SidebarPage from "../../layout/SidebarPage";
+	import Locations from "./Locations";
+	import LocationSidebarEntries from "./LocationSidebarEntries"
+
+	import locations from "./help_locations.yaml";
+
+	export default {
+		components: {
+			SidebarPage,
+			Locations,
+			LocationSidebarEntries
+		},
+		computed: {
+			locations() {
+				return locations;
+			}
+		}
+	}
+</script>

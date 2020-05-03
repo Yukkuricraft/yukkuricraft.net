@@ -1,5 +1,5 @@
 <template>
-	<sidebar-page parallax-class="parallax-commands">
+	<sidebar-page :parallax-high-res-image="require('../../images/commands.png')" :parallax-low-res-image="require('../../images/commands_small.jpg')">
 		<template v-slot:sidebar>
 			<div class="sidebar-header">
 				<h2>Commands</h2>
@@ -13,7 +13,6 @@
 			<p>Find commonly used commands here</p>
 		</template>
 
-		<span id="commands" class="anchor-offset"></span>
 		<h2 id="commands">Command List</h2>
 		<div id="commandsSection">
 			<p style="font-size:18px;color:#aaafad">
@@ -46,11 +45,11 @@
 	import CommandSidebarEntries from "./CommandSidebarEntries";
 	import SidebarPage from "../../layout/SidebarPage";
 
-	import generalCmds from "./general_commands";
-	import tpCmds from "./tp_commands";
-	import chatCmds from "./chat_commands";
-	import lwcCmds from "./lwc_commands";
-	import hshCmds from "./hsh_commands";
+	import generalCmds from "./general_commands.yaml";
+	import tpCmds from "./tp_commands.yaml";
+	import chatCmds from "./chat_commands.yaml";
+	import lwcCmds from "./lwc_commands.yaml";
+	import hshCmds from "./hsh_commands.yaml";
 
 	let allCommands = {...generalCmds, ...tpCmds, ...chatCmds, ...lwcCmds, ...hshCmds}
 
@@ -64,8 +63,7 @@
 		},
 		data() {
 			return {
-				filter: "",
-				sidebarActive: false
+				filter: ""
 			}
 		},
 		computed: {
@@ -87,7 +85,7 @@
 				}
 
 				function filterSubgroup(subgroup) {
-					if (typeof subgroup.isGroup !== 'undefined' && subgroup.isGroup) {
+					if (typeof subgroup.subgroups !== 'undefined' && Object.entries(subgroup.subgroups).length) {
 						let subsubgroups = filterSubgroups(subgroup.subgroups);
 
 						if (Object.entries(subsubgroups).length) {
@@ -97,15 +95,12 @@
 							return null
 						}
 					} else {
-						console.log(subgroup.commands)
 						let validCommands = subgroup.commands.filter(commandMatchesQuery);
-						console.log(validCommands)
 
 						if (validCommands.length) {
 							subgroup.commands = validCommands
 							return subgroup
 						} else {
-							console.log('Filtering out subgroup')
 							return null
 						}
 					}
@@ -127,7 +122,6 @@
 
 				let commandsCopy = JSON.parse(JSON.stringify(allCommands))
 
-				console.log('Starting filtering')
 				return this.filter.length ? filterSubgroups(commandsCopy) : commandsCopy
 			}
 		}

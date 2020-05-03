@@ -1,5 +1,5 @@
 <template>
-	<normal-page parallax-class="parallax-download">
+	<normal-page :parallax-high-res-image="require('../../images/hakurei_inside.png')" :parallax-low-res-image="require('../../images/hakurei_inside_small.jpg')">
 		<template v-slot:parallax>
 			<h1>"Gensokyo ~ The Second Dream" Map download</h1>
 			<a class="btn btn-primary" href="https://mega.nz/#F!5hU2HCJC!IpwU8ZjpwSALOgLjoZtNlA">Downloads</a>

@@ -1,5 +1,5 @@
 <template>
-	<normal-page parallax-class="parallax-download">
+	<normal-page :parallax-high-res-image="require('../../images/hakurei_inside.png')" :parallax-low-res-image="require('../../images/hakurei_inside_small.jpg')">
 		<template v-slot:parallax>
 			<h1>Past Survival downloads</h1>
 			<p>Download the maps of past survival worlds</p>

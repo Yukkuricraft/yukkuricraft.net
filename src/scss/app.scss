@@ -6,12 +6,12 @@ $font-size-base: 1.2rem;
 @import "~bootstrap/scss/variables";
 @import "sidebar";
 
-.anchor-offset {
-  margin-top: -61px; /* height of nav, in this case 54px */
+*[id]:before {
   display: block;
-  height: 61px; /* height of nav, in this case 54px */
+  content: " ";
+  margin-top: -62px;
+  height: 62px;
   visibility: hidden;
-  position: relative;
 }
 
 html {
@@ -38,36 +38,6 @@ html {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.parallax-info {
-  background-image: url('../images/hakurei.jpg');
-  height: 600px;
-}
-
-.parallax-download {
-  background-image: url('../images/hakurei_inside.jpg');
-  height: 600px;
-}
-
-.parallax-remicare {
-  background-image: url('../images/fallen_shrine.jpg');
-  height: 600px;
-}
-
-.parallax-people {
-  background-image: url('../images/people.jpg');
-  height: 600px;
-}
-
-.parallax-rules {
-  background-image: url('../images/rules.jpg');
-  height: 600px;
-}
-
-.parallax-commands {
-  background-image: url('../images/commands.jpg');
-  height: 600px;
 }
 
 .parallax-text {

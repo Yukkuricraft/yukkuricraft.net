@@ -12,19 +12,13 @@
 <script>
 	export default {
 		data() {
-			let preferredLanguage = window.navigator.language.slice(0, 2);
-			if (typeof this.$i18n !== 'undefined') {
-				this.$i18n.locale = preferredLanguage;
-			}
 			return {
-				locale: preferredLanguage
+				locale: this.$i18n.locale
 			}
 		},
 		watch: {
 			locale(val) {
-				if (typeof this.$i18n != 'undefined') {
-					this.$i18n.locale = val
-				}
+				this.$i18n.locale = val;
 			}
 		},
 		computed: {

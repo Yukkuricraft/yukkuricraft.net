@@ -1,5 +1,5 @@
 <template>
-	<normal-page parallax-class="parallax-people">
+	<normal-page :parallax-high-res-image="require('../images/people.png')" :parallax-low-res-image="require('../images/people_small.jpg')">
 		<template v-slot:parallax>
 			<h1>Ranks and Staff</h1>
 		</template>
@@ -109,7 +109,7 @@
 				<dl class="row">
 					<dt class="col-sm-3 col-md-2"><i> The [Owner] Title</i>:</dt>
 					<dd class="col-sm-9 col-md-10">
-						These people have access to the serverbox and have completely control over the
+						These people have access to the serverbox and have complete control over the
 						server's existence.
 					</dd>
 				</dl>
@@ -148,16 +148,13 @@
 		<table class="table smaller-sm-text" v-for="staffGroup in staff">
 			<colgroup>
 				<col style="width: 20%;">
-				<template v-if="staffGroup.hasDescription">
-					<col style="width: 30%;">
-					<col style="width: 50%;">
-				</template>
-				<col v-else style="width: 80%;">
+				<col style="width: 30%;">
+				<col style="width: 50%;">
 			</colgroup>
 			<thead>
 			<tr>
 				<th colspan="1">{{ staffGroup.displayName }}</th>
-				<th :colspan="staffGroup.hasDescription ? 2 : 1">MC Accounts</th>
+				<th :colspan="2">MC Accounts</th>
 			</tr>
 			</thead>
 			<tr v-for="staff in staffGroup.members">
@@ -175,7 +172,8 @@
 						{{ staff.mcAccounts[0].name }}
 					</div>
 				</td>
-				<td v-if="staffGroup.hasDescription">{{ staff.description }}</td>
+				<td v-if="staff.description">{{ staff.description }}</td>
+				<td v-else></td>
 			</tr>
 		</table>
 
@@ -193,7 +191,7 @@
 	import InfoFooter from "../components/InfoFooter";
 	import ParallaxImage from "../components/ParallaxImage";
 
-	import {staff} from "./staff";
+	import staff from "./staff";
 	import NormalPage from "../layout/NormalPage";
 
 	export default {

@@ -1,5 +1,5 @@
 <template>
-	<normal-page parallax-class="parallax-info">
+	<normal-page :parallax-high-res-image="require('../images/hakurei.png')" :parallax-low-res-image="require('../images/hakurei_small.jpg')">
 		<template v-slot:parallax>
 			<h1>Yukkuricraft Info</h1>
 			<p>A collection of information so you don't have to go looking for it elsewhere.</p>
@@ -13,51 +13,78 @@
 			</router-link>
 		</template>
 
-		<iframe class="mt-5" width="1120" height="630" src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
-				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen></iframe>
+		<div class="row mt-5">
+			<div class="col-md-6">
+				<h3>Current events: Hisoutensoku tournament</h3>
+				The first YukkuriCraft Touhou 12.3 tournament in over half a decade.
 
-		<span id="subdomains" class="anchor-offset"></span>
-		<h2 id="subdomains">Our Subdomains and Pages</h2>
-		<h3>General</h3>
-		<ul>
-			<li><a href="https://yukkuricraft.net" target="_blank">https://yukkuricraft.net</a> - Our main forum and
-				page!
-			</li>
-			<li><a href="http://info.yukkuricraft.net" target="_blank">http://info.yukkuricraft.net</a> - You're
-				looking at
-				it right now!
-			</li>
-			<li>mc.yukkuricraft.net - Join this IP to play on our server!</li>
-			<li><a href="http://mc.yukkuricraft.net:18123" target="_blank">http://mc.yukkuricraft.net:18123</a> -
-				Our
-				dynmap!
-			</li>
-			<li><a href="http://bugs.yukkuricraft.net" target="_blank">http://bugs.yukkuricraft.net</a> - This will
-				take you
-				to a page where you can submit a bug report for anything that needs to be fixed! No login required!
-			</li>
-			<li><a href="http://discord.yukkuricraft.net/" target="_blank">http://discord.yukkuricraft.net/</a> -
-				Our
-				Discord server
-			</li>
-		</ul>
+				The tournament will take place on <strong>9th of May, 7:00 PM UTC</strong> and will be streamed by our lovely Yaffy at <a href="https://www.twitch.tv/yaffyfan">https://www.twitch.tv/yaffyfan</a>
 
-		<h3>Social media</h3>
-		<ul>
-			<li><a href="http://www.facebook.com/yukkuricraft" target="_blank">http://www.facebook.com/yukkuricraft</a>
-				-
-				Facebook Page
-			</li>
-			<li><a href="http://www.facebook.com/groups/yukkuricraft" target="_blank">http://www.facebook.com/groups/yukkuricraft</a>
-				- Facebook Group
-			</li>
-			<li><a href="http://steamcommunity.com/groups/yukkuricraft" target="_blank">http://steamcommunity.com/groups/yukkuricraft</a>
-				- Steam Group
-			</li>
-		</ul>
+				Sign up at <a href="https://challonge.com/YCHisouten2020">Challonge</a>
+			</div>
+			<div class="col-md-6">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe v-if="pageLoaded" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
+							frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
 
-		<span id="contact" class="anchor-offset"></span>
+		<div class="row mt-3">
+			<div class="col-md-8">
+				<h2 id="subdomains">Our Subdomains and Pages</h2>
+				<h3>General</h3>
+				<ul>
+					<li><a href="https://yukkuricraft.net" target="_blank">https://yukkuricraft.net</a> - Our main forum and
+						page!
+					</li>
+					<li><a href="http://info.yukkuricraft.net" target="_blank">http://info.yukkuricraft.net</a> - You're
+						looking at
+						it right now!
+					</li>
+					<li>mc.yukkuricraft.net - Join this IP to play on our server!</li>
+					<li><a href="http://mc.yukkuricraft.net:18123" target="_blank">http://mc.yukkuricraft.net:18123</a> -
+						Our
+						dynmap!
+					</li>
+					<li><a href="http://bugs.yukkuricraft.net" target="_blank">http://bugs.yukkuricraft.net</a> - This will
+						take you
+						to a page where you can submit a bug report for anything that needs to be fixed! No login required!
+					</li>
+					<li><a href="http://discord.yukkuricraft.net/" target="_blank">http://discord.yukkuricraft.net/</a> -
+						Our
+						Discord server
+					</li>
+				</ul>
+
+				<h3>Social media</h3>
+				<ul>
+					<li><a href="http://www.facebook.com/yukkuricraft" target="_blank">http://www.facebook.com/yukkuricraft</a>
+						-
+						Facebook Page
+					</li>
+					<li><a href="http://www.facebook.com/groups/yukkuricraft" target="_blank">http://www.facebook.com/groups/yukkuricraft</a>
+						- Facebook Group
+					</li>
+					<li><a href="http://steamcommunity.com/groups/yukkuricraft" target="_blank">http://steamcommunity.com/groups/yukkuricraft</a>
+						- Steam Group
+					</li>
+				</ul>
+
+				<h3>Other</h3>
+				<ul>
+					<li><a href="https://forms.gle/gwFiECrDKNiJwLzH8">Ban appeals</a></li>
+				</ul>
+			</div>
+			<!--
+			<div class="col-md-4">
+				<iframe src="https://discordapp.com/widget?id=201938197171798017&theme=light"
+						width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+			</div>
+			-->
+		</div>
+
 		<h2 id="contact">Contact Us</h2>
 		<p>Honestly, there isn't much to say. This is Remi_Scarlet's contact information. Contact me with your
 			preferred
@@ -87,6 +114,15 @@
 			NormalPage,
 			ParallaxImage,
 			InfoFooter
+		},
+		data() {
+			return {
+				pageLoaded: false
+			}
+		},
+		mounted() {
+			//Delay loading youtube video just a bit
+			this.pageLoaded = true;
 		}
 	}
 </script>

@@ -1,9 +1,8 @@
 <template>
 	<div>
-		<span :id="'commands-' + commandGroupId" class="anchor-offset"></span>
 		<heading :id="'commands-' + commandGroupId" :level="3 + depth">{{ commandGroup.displayName }}</heading>
-		<div v-html="description"></div>
-		<command-groups v-if="commandGroup.isGroup" :depth="depth + 1"
+		<markdown :content="commandGroup.description"></markdown>
+		<command-groups v-if="commandGroup.subgroups" :depth="depth + 1"
 						:subgroups="commandGroup.subgroups"></command-groups>
 		<ul v-else>
 			<li v-for="command in commandGroup.commands">
@@ -17,12 +16,11 @@
 	import Heading from "../../components/Heading";
 	import CommandNode from "./CommandNode";
 
-	import markdownIt from "markdown-it"
-
-	const md = markdownIt({linkify: true, typographer: true});
+	import Markdown from "../../components/Markdown";
 
 	export default {
 		components: {
+			Markdown,
 			CommandGroups: () => import("./CommandGroups.vue"),
 			CommandNode,
 			Heading
@@ -39,11 +37,6 @@
 			depth: {
 				type: Number,
 				required: true
-			}
-		},
-		computed: {
-			description() {
-				return typeof this.commandGroup.description !== 'undefined' ? md.render(this.commandGroup.description) : null;
 			}
 		}
 	}
