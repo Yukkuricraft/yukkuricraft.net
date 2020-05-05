@@ -83,12 +83,13 @@ const router = new VueRouter({
 			name: 'download_survival',
 			component: DownloadSurvival
 		},
-		...mdPages.map(({title, path, parallaxClass, content, localizedContent}) => ({
+		...mdPages.map(({title, path, parallaxHeight, parallaxImages, content, localizedContent}) => ({
 			path,
 			component: MarkdownPage,
 			props: {
+				parallaxHeight,
+				parallaxImages,
 				title,
-				parallaxClass,
 				content,
 				localizedContent
 			}

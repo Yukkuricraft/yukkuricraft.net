@@ -1,5 +1,5 @@
 <template>
-	<normal-page :parallax-high-res-image="require('../images/hakurei.png')" :parallax-low-res-image="require('../images/hakurei_small.jpg')">
+	<normal-page :parallax-images="images">
 		<template v-slot:parallax>
 			<h1>Yukkuricraft Info</h1>
 			<p>A collection of information so you don't have to go looking for it elsewhere.</p>
@@ -24,7 +24,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="embed-responsive embed-responsive-16by9">
-					<iframe v-if="pageLoaded" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
+					<iframe loading="lazy" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
 							frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 							allowfullscreen></iframe>
 				</div>
@@ -77,12 +77,6 @@
 					<li><a href="https://forms.gle/gwFiECrDKNiJwLzH8">Ban appeals</a></li>
 				</ul>
 			</div>
-			<!--
-			<div class="col-md-4">
-				<iframe src="https://discordapp.com/widget?id=201938197171798017&theme=light"
-						width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
-			</div>
-			-->
 		</div>
 
 		<h2 id="contact">Contact Us</h2>
@@ -108,6 +102,7 @@
 	import ParallaxImage from "../components/ParallaxImage";
 	import InfoFooter from "../components/InfoFooter";
 	import NormalPage from "../layout/NormalPage";
+	import {makeImage} from "../images";
 
 	export default {
 		components: {
@@ -115,14 +110,15 @@
 			ParallaxImage,
 			InfoFooter
 		},
-		data() {
-			return {
-				pageLoaded: false
+		computed: {
+			images() {
+				return makeImage(
+					require('../images/hakurei.png'),
+					require('../images/hakurei.webp'),
+					require('../images/hakurei_small.jpg'),
+					require('../images/hakurei_small.webp'),
+				)
 			}
-		},
-		mounted() {
-			//Delay loading youtube video just a bit
-			this.pageLoaded = true;
 		}
 	}
 </script>

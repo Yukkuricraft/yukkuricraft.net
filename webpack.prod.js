@@ -39,6 +39,7 @@ module.exports = (env, options) => {
 			}),
 			new MiniCssExtractPlugin(),
 			new CopyPlugin([{from: 'src/pages/commands/images', to: 'assets/images/commands'}]),
+			new CopyPlugin([{from: 'src/modernizr-custom.js', to: 'modernizr-custom.js'}]),
 			//new BundleAnalyzerPlugin()
 		],
 		optimization: {

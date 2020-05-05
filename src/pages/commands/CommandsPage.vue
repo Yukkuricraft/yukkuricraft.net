@@ -1,5 +1,5 @@
 <template>
-	<sidebar-page :parallax-high-res-image="require('../../images/commands.png')" :parallax-low-res-image="require('../../images/commands_small.jpg')">
+	<sidebar-page :parallax-images="images">
 		<template v-slot:sidebar>
 			<div class="sidebar-header">
 				<h2>Commands</h2>
@@ -50,6 +50,7 @@
 	import chatCmds from "./chat_commands.yaml";
 	import lwcCmds from "./lwc_commands.yaml";
 	import hshCmds from "./hsh_commands.yaml";
+	import {makeImage} from "../../images";
 
 	let allCommands = {...generalCmds, ...tpCmds, ...chatCmds, ...lwcCmds, ...hshCmds}
 
@@ -67,6 +68,14 @@
 			}
 		},
 		computed: {
+			images() {
+				return makeImage(
+					require('../../images/commands.png'),
+					require('../../images/commands.webp'),
+					require('../../images/commands_small.jpg'),
+					require('../../images/commands_small.webp'),
+				)
+			},
 			commands() {
 				let filter = this.filter;
 

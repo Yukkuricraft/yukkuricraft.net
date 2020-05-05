@@ -1,5 +1,5 @@
 <template>
-	<normal-page :parallax-high-res-image="parallaxHighResImage" :parallax-low-res-image="parallaxLowResImage">
+	<normal-page :parallax-images="parallaxImages">
 		<template v-slot:parallax>
 			<h1>{{ title }}</h1>
 		</template>
@@ -16,8 +16,7 @@
 		components: {Markdown, NormalPage},
 		props: {
 			parallaxHeight: Number,
-			parallaxLowResImage: String,
-			parallaxHighResImage: String,
+			parallaxImages: String,
 			title: String,
 			content: String,
 			localizedContent: Object

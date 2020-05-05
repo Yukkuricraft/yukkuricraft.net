@@ -1,5 +1,5 @@
 <template>
-	<normal-page :parallax-high-res-image="require('../images/people.png')" :parallax-low-res-image="require('../images/people_small.jpg')">
+	<normal-page :parallax-images="images">
 		<template v-slot:parallax>
 			<h1>Ranks and Staff</h1>
 		</template>
@@ -193,6 +193,7 @@
 
 	import staff from "./staff";
 	import NormalPage from "../layout/NormalPage";
+	import {makeImage} from "../images";
 
 	export default {
 		components: {
@@ -214,6 +215,16 @@
 						})
 					}
 				}
+			}
+		},
+		computed: {
+			images() {
+				return makeImage(
+					require('../images/people.png'),
+					require('../images/people.webp'),
+					require('../images/people_small.jpg'),
+					require('../images/people_small.webp'),
+				)
 			}
 		},
 		methods: {

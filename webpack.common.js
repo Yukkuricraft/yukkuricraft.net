@@ -19,7 +19,10 @@ module.exports = (env, options) => {
 			new HtmlWebpackPlugin({
 				title: 'Yukkuricraft Info',
 				filename: 'index.html',
-				template: 'src/index.html'
+				template: 'src/index.html',
+				links: [
+					'modernizr-custom.js'
+				]
 			})
 		],
 		module: {
@@ -49,7 +52,7 @@ module.exports = (env, options) => {
 					]
 				},
 				{
-					test: /\.(png|svg|jpg|gif)$/,
+					test: /\.(png|svg|jpe?g|gif|webp)$/,
 					use: [
 						{
 							loader: 'file-loader',

@@ -1,6 +1,5 @@
 <template>
-	<sidebar-page :parallax-high-res-image="require('../../images/pond.png')"
-				  :parallax-low-res-image="require('../../images/pond.png')">
+	<sidebar-page :parallax-images="images">
 		<template v-slot:sidebar>
 			<div class="sidebar-header">
 				<h2>Locations</h2>
@@ -42,6 +41,7 @@
 	import LocationSidebarEntries from "./LocationSidebarEntries"
 
 	import locations from "./help_locations.yaml";
+	import {makeImage} from "../../images";
 
 	export default {
 		components: {
@@ -50,6 +50,14 @@
 			LocationSidebarEntries
 		},
 		computed: {
+			images() {
+				return makeImage(
+					require('../../images/pond.png'),
+					require('../../images/pond.webp'),
+					require('../../images/pond_small.jpg'),
+					require('../../images/pond_small.webp'),
+				)
+			},
 			locations() {
 				return locations;
 			}
