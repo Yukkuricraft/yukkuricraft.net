@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = (env, options) => {
 
@@ -23,10 +24,38 @@ module.exports = (env, options) => {
 				links: [
 					'modernizr-custom.js'
 				]
+			}),
+			new FaviconsWebpackPlugin({
+				logo: './src/favicon_upscaled.png',
+				cache: true,
+				prefix: 'assets/favicon',
+				favicons: {
+					appName: 'YukkuriCraft Info',
+					appDescription: 'YukkuriCraft Info page',
+					developerName: 'Katrix',
+					developerURL: null,
+					background: '#fff',
+					theme_color: '#e56a00',
+					icons: {
+						coast: false,
+						firefox: false,
+						yandex: false
+					}
+				}
 			})
 		],
 		module: {
 			rules: [
+				{
+					test: /\.m?js$/,
+					exclude: /(node_modules|bower_components)/,
+					use: {
+						loader: 'babel-loader',
+						options: {
+							presets: ['@babel/preset-env']
+						}
+					}
+				},
 				{
 					test: /\.(scss)$/,
 					use: [
