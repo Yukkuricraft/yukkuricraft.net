@@ -1,5 +1,10 @@
 <template>
-	<normal-page :parallax-high-res-image="require('../images/hakurei.png')" :parallax-low-res-image="require('../images/hakurei_small.jpg')">
+	<normal-page :parallax-images="images">
+		<vue-headful title="YukkuriCraft Info"
+					 description="Everything you want to know about YukkuriCraft, from Gensokyo builds to commands."
+					 :image="require('../favicon_upscaled.png')"
+					 url="https://info.yukkuricraft.net/"/>
+
 		<template v-slot:parallax>
 			<h1>Yukkuricraft Info</h1>
 			<p>A collection of information so you don't have to go looking for it elsewhere.</p>
@@ -18,14 +23,19 @@
 				<h3>Current events: Hisoutensoku tournament</h3>
 				The first YukkuriCraft Touhou 12.3 tournament in over half a decade.
 
-				The tournament will take place on <strong>9th of May, 7:00 PM UTC</strong> and will be streamed by our lovely Yaffy at <a href="https://www.twitch.tv/yaffyfan">https://www.twitch.tv/yaffyfan</a>
+				The tournament will take place on <strong>9th of May, 7:00 PM UTC</strong> and will be streamed by our
+				lovely Yaffy at <a href="https://www.twitch.tv/yaffyfan">https://www.twitch.tv/yaffyfan</a>
 
 				Sign up at <a href="https://challonge.com/YCHisouten2020">Challonge</a>
 			</div>
 			<div class="col-md-6">
 				<div class="embed-responsive embed-responsive-16by9">
-					<iframe v-if="pageLoaded" class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
-							frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					<!-- https://css-tricks.com/lazy-load-embedded-youtube-videos/ -->
+					<iframe title="YC trailer" class="embed-responsive-item"
+							src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
+							srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/L6mD2zj8CGs?autoplay=1><img src=https://img.youtube.com/vi/L6mD2zj8CGs/hqdefault.jpg alt='Video 【Trailer】【Touhou Minecraft】Gensokyo ~ The Second Dream v2 Shortened Trailer Edition'><span>▶</span></a>"
+							frameborder="0"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 							allowfullscreen></iframe>
 				</div>
 			</div>
@@ -36,23 +46,30 @@
 				<h2 id="subdomains">Our Subdomains and Pages</h2>
 				<h3>General</h3>
 				<ul>
-					<li><a href="https://yukkuricraft.net" target="_blank">https://yukkuricraft.net</a> - Our main forum and
+					<li><a href="https://yukkuricraft.net" target="noopener">https://yukkuricraft.net</a> - Our main
+						forum and
 						page!
 					</li>
-					<li><a href="http://info.yukkuricraft.net" target="_blank">http://info.yukkuricraft.net</a> - You're
+					<li>
+						<router-link :to="{name: 'info'}">http://info.yukkuricraft.net</router-link>
+						- You're
 						looking at
 						it right now!
 					</li>
 					<li>mc.yukkuricraft.net - Join this IP to play on our server!</li>
-					<li><a href="http://mc.yukkuricraft.net:18123" target="_blank">http://mc.yukkuricraft.net:18123</a> -
+					<li><a href="http://mc.yukkuricraft.net:18123"
+						   target="noopener">http://mc.yukkuricraft.net:18123</a> -
 						Our
 						dynmap!
 					</li>
-					<li><a href="http://bugs.yukkuricraft.net" target="_blank">http://bugs.yukkuricraft.net</a> - This will
+					<li><a href="http://bugs.yukkuricraft.net" target="noopener">http://bugs.yukkuricraft.net</a> - This
+						will
 						take you
-						to a page where you can submit a bug report for anything that needs to be fixed! No login required!
+						to a page where you can submit a bug report for anything that needs to be fixed! No login
+						required!
 					</li>
-					<li><a href="http://discord.yukkuricraft.net/" target="_blank">http://discord.yukkuricraft.net/</a> -
+					<li><a href="http://discord.yukkuricraft.net/"
+						   target="noopener">http://discord.yukkuricraft.net/</a> -
 						Our
 						Discord server
 					</li>
@@ -60,14 +77,14 @@
 
 				<h3>Social media</h3>
 				<ul>
-					<li><a href="http://www.facebook.com/yukkuricraft" target="_blank">http://www.facebook.com/yukkuricraft</a>
+					<li><a href="http://www.facebook.com/yukkuricraft" target="noopener">http://www.facebook.com/yukkuricraft</a>
 						-
 						Facebook Page
 					</li>
-					<li><a href="http://www.facebook.com/groups/yukkuricraft" target="_blank">http://www.facebook.com/groups/yukkuricraft</a>
+					<li><a href="http://www.facebook.com/groups/yukkuricraft" target="noopener">http://www.facebook.com/groups/yukkuricraft</a>
 						- Facebook Group
 					</li>
-					<li><a href="http://steamcommunity.com/groups/yukkuricraft" target="_blank">http://steamcommunity.com/groups/yukkuricraft</a>
+					<li><a href="http://steamcommunity.com/groups/yukkuricraft" target="noopener">http://steamcommunity.com/groups/yukkuricraft</a>
 						- Steam Group
 					</li>
 				</ul>
@@ -77,12 +94,6 @@
 					<li><a href="https://forms.gle/gwFiECrDKNiJwLzH8">Ban appeals</a></li>
 				</ul>
 			</div>
-			<!--
-			<div class="col-md-4">
-				<iframe src="https://discordapp.com/widget?id=201938197171798017&theme=light"
-						width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
-			</div>
-			-->
 		</div>
 
 		<h2 id="contact">Contact Us</h2>
@@ -108,6 +119,7 @@
 	import ParallaxImage from "../components/ParallaxImage";
 	import InfoFooter from "../components/InfoFooter";
 	import NormalPage from "../layout/NormalPage";
+	import {makeImage} from "../images";
 
 	export default {
 		components: {
@@ -117,12 +129,18 @@
 		},
 		data() {
 			return {
-				pageLoaded: false
+				showEmbed: false
 			}
 		},
-		mounted() {
-			//Delay loading youtube video just a bit
-			this.pageLoaded = true;
+		computed: {
+			images() {
+				return makeImage(
+					require('../images/hakurei.png'),
+					require('../images/hakurei.webp'),
+					require('../images/hakurei_small.jpg'),
+					require('../images/hakurei_small.webp'),
+				)
+			}
 		}
 	}
 </script>

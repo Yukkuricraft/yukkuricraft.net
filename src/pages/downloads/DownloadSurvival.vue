@@ -1,5 +1,10 @@
 <template>
-	<normal-page :parallax-high-res-image="require('../../images/hakurei_inside.png')" :parallax-low-res-image="require('../../images/hakurei_inside_small.jpg')">
+	<normal-page :parallax-images="images">
+		<vue-headful title="YukkuriCraft Info - Survival Downloads"
+					 description="Download our survival maps."
+					 :image="require('../../favicon_upscaled.png')"
+					 url="https://info.yukkuricraft.net/downloads/survival"/>
+
 		<template v-slot:parallax>
 			<h1>Past Survival downloads</h1>
 			<p>Download the maps of past survival worlds</p>
@@ -30,7 +35,18 @@
 
 <script>
 	import NormalPage from "../../layout/NormalPage";
+	import {makeImage} from "../../images";
 	export default {
-		components: {NormalPage}
+		components: {NormalPage},
+		computed: {
+			images() {
+				return makeImage(
+					require('../../images/hakurei_inside.png'),
+					require('../../images/hakurei_inside.webp'),
+					require('../../images/hakurei_inside_small.jpg'),
+					require('../../images/hakurei_inside_small.webp'),
+				)
+			}
+		}
 	}
 </script>

@@ -1,5 +1,10 @@
 <template>
-	<normal-page :parallax-high-res-image="require('../../images/hakurei_inside.png')" :parallax-low-res-image="require('../../images/hakurei_inside_small.jpg')">
+	<normal-page :parallax-images="images">
+		<vue-headful title="YukkuriCraft Info - Downloads"
+					 description="Download our Gensokyo maps."
+					 :image="require('../../favicon_upscaled.png')"
+					 url="https://info.yukkuricraft.net/downloads/gensokyo"/>
+
 		<template v-slot:parallax>
 			<h1>"Gensokyo ~ The Second Dream" Map download</h1>
 			<a class="btn btn-primary" href="https://mega.nz/#F!5hU2HCJC!IpwU8ZjpwSALOgLjoZtNlA">Downloads</a>
@@ -47,12 +52,21 @@
 
 <script>
 	import NormalPage from "../../layout/NormalPage";
+	import {makeImage} from "../../images";
 
 	export default {
 		components: {NormalPage},
 		computed: {
 			showI18nExample() {
 				return false
+			},
+			images() {
+				return makeImage(
+					require('../../images/hakurei_inside.png'),
+					require('../../images/hakurei_inside.webp'),
+					require('../../images/hakurei_inside_small.jpg'),
+					require('../../images/hakurei_inside_small.webp'),
+				)
 			}
 		}
 	}

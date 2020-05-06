@@ -14,7 +14,7 @@
 				</template>
 			</info-header>
 
-			<parallax-image :height="parallaxHeight" :low-res-image="parallaxLowResImage" :high-res-image="parallaxHighResImage">
+			<parallax-image :height="parallaxHeight" :images="parallaxImages">
 				<slot name="parallax"></slot>
 			</parallax-image>
 
@@ -39,9 +39,8 @@
 			ParallaxImage
 		},
 		props: {
+			parallaxImages: Object,
 			parallaxHeight: Number,
-			parallaxLowResImage: String,
-			parallaxHighResImage: String,
 		},
 		data() {
 			return {

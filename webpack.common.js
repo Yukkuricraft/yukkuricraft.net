@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = (env, options) => {
 
@@ -19,11 +20,45 @@ module.exports = (env, options) => {
 			new HtmlWebpackPlugin({
 				title: 'Yukkuricraft Info',
 				filename: 'index.html',
-				template: 'src/index.html'
+				template: 'src/index.html',
+				links: [
+					'modernizr-custom.js'
+				],
+				meta: {
+					description: 'Everything you want to know about YukkuriCraft, from Gensokyo builds to commands.'
+				}
+			}),
+			new FaviconsWebpackPlugin({
+				logo: './src/favicon_upscaled.png',
+				cache: true,
+				prefix: 'assets/favicon',
+				favicons: {
+					appName: 'YukkuriCraft Info',
+					appDescription: 'YukkuriCraft Info page',
+					developerName: 'Katrix',
+					developerURL: null,
+					background: '#fff',
+					theme_color: '#e56a00',
+					icons: {
+						coast: false,
+						firefox: false,
+						yandex: false
+					}
+				}
 			})
 		],
 		module: {
 			rules: [
+				{
+					test: /\.m?js$/,
+					exclude: /(node_modules|bower_components)/,
+					use: {
+						loader: 'babel-loader',
+						options: {
+							presets: ['@babel/preset-env']
+						}
+					}
+				},
 				{
 					test: /\.(scss)$/,
 					use: [
@@ -49,7 +84,7 @@ module.exports = (env, options) => {
 					]
 				},
 				{
-					test: /\.(png|svg|jpg|gif)$/,
+					test: /\.(png|svg|jpe?g|gif|webp)$/,
 					use: [
 						{
 							loader: 'file-loader',
@@ -98,6 +133,7 @@ module.exports = (env, options) => {
 			extensions: ['*', '.js', '.vue', '.json']
 		},
 		devServer: {
+			compress: true,
 			historyApiFallback: true
 		},
 		optimization: {

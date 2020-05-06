@@ -1,5 +1,10 @@
 <template>
-	<normal-page :parallax-high-res-image="require('../images/people.png')" :parallax-low-res-image="require('../images/people_small.jpg')">
+	<normal-page :parallax-images="images">
+		<vue-headful title="YukkuriCraft Info - Ranks and Staff"
+					 description="The different ranks found on YukkuriCraft, together with the staff and their ranks."
+					 :image="require('../favicon_upscaled.png')"
+					 url="https://info.yukkuricraft.net/ranks_staff"/>
+
 		<template v-slot:parallax>
 			<h1>Ranks and Staff</h1>
 		</template>
@@ -193,6 +198,7 @@
 
 	import staff from "./staff";
 	import NormalPage from "../layout/NormalPage";
+	import {makeImage} from "../images";
 
 	export default {
 		components: {
@@ -214,6 +220,16 @@
 						})
 					}
 				}
+			}
+		},
+		computed: {
+			images() {
+				return makeImage(
+					require('../images/people.png'),
+					require('../images/people.webp'),
+					require('../images/people_small.jpg'),
+					require('../images/people_small.webp'),
+				)
 			}
 		},
 		methods: {
