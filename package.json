@@ -50,7 +50,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "bootstrap": "^4.4.1",
     "css.escape": "^1.5.1",
-    "jquery": "~3.4.1",
+    "jquery": "~3.5.0",
     "lodash": "^4.17.15",
     "markdown-it": "^10.0.0",
     "markdown-it-anchor": "^5.2.7",
