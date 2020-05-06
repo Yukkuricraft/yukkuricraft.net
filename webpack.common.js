@@ -23,7 +23,10 @@ module.exports = (env, options) => {
 				template: 'src/index.html',
 				links: [
 					'modernizr-custom.js'
-				]
+				],
+				meta: {
+					description: 'Everything you want to know about YukkuriCraft, from Gensokyo builds to commands.'
+				}
 			}),
 			new FaviconsWebpackPlugin({
 				logo: './src/favicon_upscaled.png',
@@ -130,6 +133,7 @@ module.exports = (env, options) => {
 			extensions: ['*', '.js', '.vue', '.json']
 		},
 		devServer: {
+			compress: true,
 			historyApiFallback: true
 		},
 		optimization: {

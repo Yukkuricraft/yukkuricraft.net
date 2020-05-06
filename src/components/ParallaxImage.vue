@@ -34,7 +34,6 @@
 		},
 		methods: {
 			switchImage(event) {
-				console.log(event);
 				if(typeof event.target.currentSrc === 'undefined') {
 					this.imageToUse = event.target.src;
 				}
