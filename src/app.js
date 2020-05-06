@@ -5,6 +5,8 @@ import VueI18n from "vue-i18n";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import "./fontAwesomeLibrary";
 
+import vueHeadful from 'vue-headful';
+
 import "bootstrap";
 import "./scss/app.scss";
 
@@ -29,6 +31,8 @@ Vue.use(VueI18n);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false;
+
+Vue.component('vue-headful', vueHeadful);
 
 const supportedLocales = ['en'];
 

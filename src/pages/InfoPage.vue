@@ -1,5 +1,10 @@
 <template>
 	<normal-page :parallax-images="images">
+		<vue-headful title="YukkuriCraft Info"
+					 description="Everything you want to know about YukkuriCraft, from Gensokyo builds to commands."
+					 :image="require('../favicon_upscaled.png')"
+					 url="https://info.yukkuricraft.net/"/>
+
 		<template v-slot:parallax>
 			<h1>Yukkuricraft Info</h1>
 			<p>A collection of information so you don't have to go looking for it elsewhere.</p>
@@ -25,6 +30,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="embed-responsive embed-responsive-16by9">
+					<!-- https://css-tricks.com/lazy-load-embedded-youtube-videos/ -->
 					<iframe title="YC trailer" class="embed-responsive-item"
 							src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
 							srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/L6mD2zj8CGs?autoplay=1><img src=https://img.youtube.com/vi/L6mD2zj8CGs/hqdefault.jpg alt='Video 【Trailer】【Touhou Minecraft】Gensokyo ~ The Second Dream v2 Shortened Trailer Edition'><span>▶</span></a>"

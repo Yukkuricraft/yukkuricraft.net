@@ -1,5 +1,10 @@
 <template>
 	<normal-page :parallax-images="images">
+		<vue-headful title="YukkuriCraft Info - Survival Downloads"
+					 description="Download our survival maps."
+					 :image="require('../../favicon_upscaled.png')"
+					 url="https://info.yukkuricraft.net/downloads/survival"/>
+
 		<template v-slot:parallax>
 			<h1>Past Survival downloads</h1>
 			<p>Download the maps of past survival worlds</p>

@@ -4,6 +4,8 @@
 			<h1>{{ title }}</h1>
 		</template>
 
+		<slot></slot>
+
 		<markdown :content="usedContent"></markdown>
 	</normal-page>
 </template>

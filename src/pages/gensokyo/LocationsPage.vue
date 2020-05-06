@@ -1,5 +1,10 @@
 <template>
 	<sidebar-page :parallax-images="images">
+		<vue-headful title="YukkuriCraft Info - Gensokyo"
+					 description="Look at all the different places in our Gensokyo."
+					 :image="require('../../favicon_upscaled.png')"
+					 url="https://info.yukkuricraft.net/gensokyo"/>
+
 		<template v-slot:sidebar>
 			<div class="sidebar-header">
 				<h2>Locations</h2>
