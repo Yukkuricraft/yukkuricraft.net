@@ -51,15 +51,33 @@
 		</dl>
 
 		<h3 id="staff-ranks">Staff ranks</h3>
+		<p>The staff are the ones that make all the decisions on the server, and name new staff and elders.</p>
+		
+		<h4>Titles</h4>
+		<p>
+			There are also special "Titles" within the staff ranks. "Titles" are just that. Titles. They're a way to
+			differentiate slightly different purposes within the same overall rank.
+		</p>
+		<dl class="row">
+			<dt class="col-sm-3 col-md-2"><i>The [Lead] Title</i>:</dt>
+			<dd class="col-sm-9 col-md-10">
+				Staff with this title are designated as the "heads" of their respective rank.
+				They're the gold standard for their teams and dedicate the most time.
+				While equal to other staff, their efforts definitely do not go without recognition.
+			</dd>
+			<dt class="col-sm-3 col-md-2"><i> The [Owner] Title</i>:</dt>
+			<dd class="col-sm-9 col-md-10">
+				These people have access to the serverbox and have complete control over the
+				server's existence.
+			</dd>
+		</dl>
+		<br />
+
+		<h4>Ranks</h4>
 		<p>
 			The following list consists of the main permission-tampering ranks that are most regularly seen. These
 			ranks are also allowed to hack their games so as long as they do not use the hacks for cheating in
 			survival mode.
-		</p>
-
-		<p>
-			There are also special "Titles" within the staff ranks. "Titles" are just that. Titles. They're a way to
-			differentiate slightly different purposes within the same overall rank.
 		</p>
 
 		<dl class="row">
@@ -74,17 +92,6 @@
 				Someone who has been assigned the privilege of building in Gensokyo, allowing them to modify and
 				change what they deem necessary. These peeps have some real building talent, and are responsible for
 				many of Gensokyo's structures.
-
-				<br/>
-				<br/>
-				<dl class="row">
-					<dt class="col-sm-3 col-md-2"><i>The [Lead] Title</i>:</dt>
-					<dd class="col-sm-9 col-md-10">
-						Staff with this title are designated as the "heads" of their respective rank.
-						They're the gold standard for their teams and dedicate the most time.
-						While equal to other staff, their efforts definitely do not go without recognition.
-					</dd>
-				</dl>
 			</dd>
 			<dt class="col-sm-3 col-md-2">Sysadmin:</dt>
 			<dd class="col-sm-9 col-md-10">
@@ -97,16 +104,6 @@
 				Yukkuri Admins are the highest roles on the server, they have access to every command and have the
 				final say in decisions. These admins are entrusted to handle or oversee almost any major issue
 				within the community overall and see it resolved amicably.
-
-				<br/>
-				<br/>
-				<dl class="row">
-					<dt class="col-sm-3 col-md-2"><i> The [Owner] Title</i>:</dt>
-					<dd class="col-sm-9 col-md-10">
-						These people have access to the serverbox and have complete control over the
-						server's existence.
-					</dd>
-				</dl>
 			</dd>
 		</dl>
 
