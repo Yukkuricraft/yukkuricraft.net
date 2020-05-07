@@ -68,17 +68,6 @@
 				Someone who has been assigned the privilege of moderating the server community. Their duty is to
 				look after everyone and make sure they're on their best behavior. They are capable of building in
 				Gensokyo but are not assigned to.
-
-				<br/>
-				<br/>
-				<dl class="row">
-					<dt class="col-sm-3 col-md-2"><i>The [Advisor] Title</i>:</dt>
-					<dd class="col-sm-9 col-md-10">
-						A mediator with extensive historical knowledge of the Yukkuricraft community. While equal to
-						other mediators, these members are respected within the staff body for having been around
-						since YC's early days (~2011) as a community.
-					</dd>
-				</dl>
 			</dd>
 			<dt class="col-sm-3 col-md-2">Youkai Builder:</dt>
 			<dd class="col-sm-9 col-md-10">
@@ -91,9 +80,9 @@
 				<dl class="row">
 					<dt class="col-sm-3 col-md-2"><i>The [Lead] Title</i>:</dt>
 					<dd class="col-sm-9 col-md-10">
-						Builders with this title are designated as the "heads" of the bunch. These builders are
-						generally willing to go the extra mile to organize and head large-scale projects for
-						Gensokyo.
+						Staff with this title are designated as the "heads" of their respective rank.
+						They're the gold standard for their teams and dedicate the most time.
+						While equal to other staff, their efforts definitely do not go without recognition.
 					</dd>
 				</dl>
 			</dd>
