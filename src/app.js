@@ -48,6 +48,8 @@ const i18n = new VueI18n({
 	locale: usedLocale
 })
 
+store.dispatch('server/loadServerInfo');
+
 const router = new VueRouter({
 	base: '/',
 	mode: 'history',
