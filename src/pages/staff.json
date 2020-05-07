@@ -155,8 +155,7 @@
             "uuid": "d068bbb4-6280-4ddf-8c59-f1ee0b1af927"
           }
         ],
-        "discordAccount": "168909421064355842",
-        "description": "Advisor"
+        "discordAccount": "168909421064355842"
       },
       {
         "name": "Luna",
@@ -170,7 +169,8 @@
             "uuid": "94ec4d00-abbf-40de-9258-66b027735131"
           }
         ],
-        "discordAccount": "97035222385700864"
+        "discordAccount": "97035222385700864",
+        "description": "Lead Mediator"
       }
     ]
   },
@@ -178,16 +178,6 @@
     "id": "builder",
     "displayName": "Builders",
     "members": [
-      {
-        "name": "Eiburine",
-        "mcAccounts": [
-          {
-            "name": "Eiburine",
-            "uuid": "c1f44a9f-f06c-4700-a78c-001074fb33f2"
-          }
-        ],
-        "discordAccount": "147909571430711296"
-      },
       {
         "name": "KokoNuttz",
         "mcAccounts": [
@@ -217,8 +207,7 @@
             "uuid": "a06791c1-5ccd-4894-9307-71818e119756"
           }
         ],
-        "discordAccount": "193195158898999316",
-        "description": "Lead builder"
+        "discordAccount": "193195158898999316"
       }
     ]
   },
