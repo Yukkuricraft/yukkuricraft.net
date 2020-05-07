@@ -2,8 +2,7 @@
 	<normal-page :parallax-images="images">
 		<vue-headful title="YukkuriCraft Info"
 					 description="Everything you want to know about YukkuriCraft, from Gensokyo builds to commands."
-					 :image="require('../favicon_upscaled.png')"
-					 url="https://info.yukkuricraft.net/"/>
+					 :image="require('../favicon_upscaled.png')" url="https://info.yukkuricraft.net/"/>
 
 		<template v-slot:parallax>
 			<h1>Yukkuricraft Info</h1>
@@ -41,60 +40,96 @@
 			</div>
 		</div>
 
-		<div class="row mt-3">
-			<div class="col-md-8">
-				<h2 id="subdomains">Our Subdomains and Pages</h2>
-				<h3>General</h3>
-				<ul>
-					<li><a href="https://yukkuricraft.net" target="noopener">https://yukkuricraft.net</a> - Our main
-						forum and
-						page!
-					</li>
-					<li>
-						<router-link :to="{name: 'info'}">http://info.yukkuricraft.net</router-link>
-						- You're
-						looking at
-						it right now!
-					</li>
-					<li>mc.yukkuricraft.net - Join this IP to play on our server!</li>
-					<li><a href="http://mc.yukkuricraft.net:18123"
-						   target="noopener">http://mc.yukkuricraft.net:18123</a> -
-						Our
-						dynmap!
-					</li>
-					<li><a href="http://bugs.yukkuricraft.net" target="noopener">http://bugs.yukkuricraft.net</a> - This
-						will
-						take you
-						to a page where you can submit a bug report for anything that needs to be fixed! No login
-						required!
-					</li>
-					<li><a href="http://discord.yukkuricraft.net/"
-						   target="noopener">http://discord.yukkuricraft.net/</a> -
-						Our
-						Discord server
-					</li>
-				</ul>
+		<h2>Server and Discord</h2>
+		<div class="row">
+			<div v-if="serverPing.description" class="col-md-8">
+				<div class="card" style="height: 100%">
+					<div class="card-header">
+						<pre style="display: inline">mc.yukkuricraft.net</pre> <span class="bg-success dot"></span> Online
+					</div>
+					<div class="card-body">
+						<h3 class="card-title h5" v-html="parseMCCodes(serverPing.description).raw"></h3>
+						<div class="card-text">
+							<font-awesome-icon :icon="['fas', 'signal']" /> Ping: {{ serverPing.latency }} ms
 
-				<h3>Social media</h3>
-				<ul>
-					<li><a href="http://www.facebook.com/yukkuricraft" target="noopener">http://www.facebook.com/yukkuricraft</a>
-						-
-						Facebook Page
-					</li>
-					<li><a href="http://www.facebook.com/groups/yukkuricraft" target="noopener">http://www.facebook.com/groups/yukkuricraft</a>
-						- Facebook Group
-					</li>
-					<li><a href="http://steamcommunity.com/groups/yukkuricraft" target="noopener">http://steamcommunity.com/groups/yukkuricraft</a>
-						- Steam Group
-					</li>
-				</ul>
-
-				<h3>Other</h3>
-				<ul>
-					<li><a href="https://forms.gle/gwFiECrDKNiJwLzH8">Ban appeals</a></li>
-				</ul>
+							<div>
+								<br />
+								Players: {{ serverPing.players.online }} / {{ serverPing.players.max }}
+								<div class="row">
+									<div class="col-md-4" v-for="playerChunk in chunk(serverPing.players.sample, 8)">
+										<li class="list-unstyled" v-for="player in playerChunk">
+											<img :src="'https://mc-heads.net/avatar/' + player.id + '/32'" :alt="player.name">
+											{{ player.name }}
+										</li>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div v-else class="col-md-8">
+				<div class="card">
+					<div class="card-header">
+						<pre style="display: inline">mc.yukkuricraft.net</pre> <span class="bg-danger dot"></span> Offline
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<iframe src="https://discordapp.com/widget?id=201938197171798017&theme=light" width="350" height="500"
+						allowtransparency="true" frameborder="0"></iframe>
 			</div>
 		</div>
+
+		<h2 id="subdomains">Our Subdomains and Pages</h2>
+		<h3>General</h3>
+		<ul>
+			<li><a href="https://yukkuricraft.net" target="noopener">https://yukkuricraft.net</a> - Our main
+				forum and
+				page!
+			</li>
+			<li>
+				<router-link :to="{name: 'info'}">http://info.yukkuricraft.net</router-link>
+				- You're
+				looking at
+				it right now!
+			</li>
+			<li>mc.yukkuricraft.net - Join this IP to play on our server!</li>
+			<li><a href="http://mc.yukkuricraft.net:18123" target="noopener">http://mc.yukkuricraft.net:18123</a> -
+				Our
+				dynmap!
+			</li>
+			<li><a href="http://bugs.yukkuricraft.net" target="noopener">http://bugs.yukkuricraft.net</a> - This
+				will
+				take you
+				to a page where you can submit a bug report for anything that needs to be fixed! No login
+				required!
+			</li>
+			<li><a href="http://discord.yukkuricraft.net/" target="noopener">http://discord.yukkuricraft.net/</a> -
+				Our
+				Discord server
+			</li>
+		</ul>
+
+		<h3>Social media</h3>
+		<ul>
+			<li><a href="http://www.facebook.com/yukkuricraft"
+				   target="noopener">http://www.facebook.com/yukkuricraft</a>
+				-
+				Facebook Page
+			</li>
+			<li><a href="http://www.facebook.com/groups/yukkuricraft" target="noopener">http://www.facebook.com/groups/yukkuricraft</a>
+				- Facebook Group
+			</li>
+			<li><a href="http://steamcommunity.com/groups/yukkuricraft" target="noopener">http://steamcommunity.com/groups/yukkuricraft</a>
+				- Steam Group
+			</li>
+		</ul>
+
+		<h3>Other</h3>
+		<ul>
+			<li><a href="https://forms.gle/gwFiECrDKNiJwLzH8">Ban appeals</a></li>
+		</ul>
 
 		<h2 id="contact">Contact Us</h2>
 		<p>Honestly, there isn't much to say. This is Remi_Scarlet's contact information. Contact me with your
@@ -115,11 +150,24 @@
 	</normal-page>
 </template>
 
+<style lang="scss">
+	.dot {
+		height: 15px;
+		width: 15px;
+		background-color: #bbb;
+		border-radius: 50%;
+		display: inline-block;
+	}
+</style>
+
 <script>
 	import ParallaxImage from "../components/ParallaxImage";
 	import InfoFooter from "../components/InfoFooter";
 	import NormalPage from "../layout/NormalPage";
 	import {makeImage} from "../images";
+	import {parseMCCodes} from "../colorFormatter";
+	import {mapState} from 'vuex';
+	import chunk from "lodash/chunk"
 
 	export default {
 		components: {
@@ -140,7 +188,14 @@
 					require('../images/hakurei_small.jpg'),
 					require('../images/hakurei_small.webp'),
 				)
-			}
+			},
+			...mapState('server', {
+				serverPing: 'ping',
+			})
+		},
+		methods: {
+			parseMCCodes,
+			chunk
 		}
 	}
 </script>

@@ -51,15 +51,33 @@
 		</dl>
 
 		<h3 id="staff-ranks">Staff ranks</h3>
+		<p>The staff are the ones that make all the decisions on the server, and name new staff and elders.</p>
+		
+		<h4>Titles</h4>
+		<p>
+			There are also special "Titles" within the staff ranks. "Titles" are just that. Titles. They're a way to
+			differentiate slightly different purposes within the same overall rank.
+		</p>
+		<dl class="row">
+			<dt class="col-sm-3 col-md-2"><i>The [Lead] Title</i>:</dt>
+			<dd class="col-sm-9 col-md-10">
+				Staff with this title are designated as the "heads" of their respective rank.
+				They're the gold standard for their teams and dedicate the most time.
+				While equal to other staff, their efforts definitely do not go without recognition.
+			</dd>
+			<dt class="col-sm-3 col-md-2"><i> The [Owner] Title</i>:</dt>
+			<dd class="col-sm-9 col-md-10">
+				These people have access to the serverbox and have complete control over the
+				server's existence.
+			</dd>
+		</dl>
+		<br />
+
+		<h4>Ranks</h4>
 		<p>
 			The following list consists of the main permission-tampering ranks that are most regularly seen. These
 			ranks are also allowed to hack their games so as long as they do not use the hacks for cheating in
 			survival mode.
-		</p>
-
-		<p>
-			There are also special "Titles" within the staff ranks. "Titles" are just that. Titles. They're a way to
-			differentiate slightly different purposes within the same overall rank.
 		</p>
 
 		<dl class="row">
@@ -68,34 +86,12 @@
 				Someone who has been assigned the privilege of moderating the server community. Their duty is to
 				look after everyone and make sure they're on their best behavior. They are capable of building in
 				Gensokyo but are not assigned to.
-
-				<br/>
-				<br/>
-				<dl class="row">
-					<dt class="col-sm-3 col-md-2"><i>The [Advisor] Title</i>:</dt>
-					<dd class="col-sm-9 col-md-10">
-						A mediator with extensive historical knowledge of the Yukkuricraft community. While equal to
-						other mediators, these members are respected within the staff body for having been around
-						since YC's early days (~2011) as a community.
-					</dd>
-				</dl>
 			</dd>
 			<dt class="col-sm-3 col-md-2">Youkai Builder:</dt>
 			<dd class="col-sm-9 col-md-10">
 				Someone who has been assigned the privilege of building in Gensokyo, allowing them to modify and
 				change what they deem necessary. These peeps have some real building talent, and are responsible for
 				many of Gensokyo's structures.
-
-				<br/>
-				<br/>
-				<dl class="row">
-					<dt class="col-sm-3 col-md-2"><i>The [Lead] Title</i>:</dt>
-					<dd class="col-sm-9 col-md-10">
-						Builders with this title are designated as the "heads" of the bunch. These builders are
-						generally willing to go the extra mile to organize and head large-scale projects for
-						Gensokyo.
-					</dd>
-				</dl>
 			</dd>
 			<dt class="col-sm-3 col-md-2">Sysadmin:</dt>
 			<dd class="col-sm-9 col-md-10">
@@ -108,16 +104,6 @@
 				Yukkuri Admins are the highest roles on the server, they have access to every command and have the
 				final say in decisions. These admins are entrusted to handle or oversee almost any major issue
 				within the community overall and see it resolved amicably.
-
-				<br/>
-				<br/>
-				<dl class="row">
-					<dt class="col-sm-3 col-md-2"><i> The [Owner] Title</i>:</dt>
-					<dd class="col-sm-9 col-md-10">
-						These people have access to the serverbox and have complete control over the
-						server's existence.
-					</dd>
-				</dl>
 			</dd>
 		</dl>
 
@@ -212,15 +198,7 @@
 			}
 		},
 		created() {
-			for(let staffGroup of this.staff) {
-				for(let staffMember of staffGroup.members) {
-					for(let mcAccount of staffMember.mcAccounts) {
-						this.mcUsername(mcAccount.uuid, mcAccount.name).then(res => {
-							mcAccount.name = res;
-						})
-					}
-				}
-			}
+			this.$store.dispatch('staff/loadRealNames')
 		},
 		computed: {
 			images() {
@@ -230,33 +208,9 @@
 					require('../images/people_small.jpg'),
 					require('../images/people_small.webp'),
 				)
-			}
-		},
-		methods: {
-			async mcUsername(uuid, fallback) {
-				let errorMsg = `Failed to get name for uuid ${uuid}, using fallback ${fallback} instead`;
-
-				try {
-					let res = await fetch('https://api.minetools.eu/profile/' + uuid.replaceAll('-', ''));
-
-					if (res.status !== 200) {
-						console.warn(errorMsg);
-						return fallback;
-					} else {
-						let profile = await res.json();
-
-						if(typeof profile.error !== 'undefined') {
-							console.warn(errorMsg + '. Error: ' + profile.error);
-							return fallback;
-						}
-						else {
-							return profile.decoded.profileName
-						}
-					}
-				} catch (e) {
-					console.warn(errorMsg + '. Error: ' + e);
-					return fallback
-				}
+			},
+			mcNames() {
+				return this.$store.state['staff/mcNames']
 			}
 		}
 	}

@@ -18,7 +18,7 @@
 		components: {Markdown, NormalPage},
 		props: {
 			parallaxHeight: Number,
-			parallaxImages: String,
+			parallaxImages: Object,
 			title: String,
 			content: String,
 			localizedContent: Object

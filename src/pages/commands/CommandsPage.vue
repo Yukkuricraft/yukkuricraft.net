@@ -50,6 +50,8 @@
 	import CommandSidebarEntries from "./CommandSidebarEntries";
 	import SidebarPage from "../../layout/SidebarPage";
 
+	import queryString from "query-string";
+
 	import generalCmds from "./general_commands.yaml";
 	import tpCmds from "./tp_commands.yaml";
 	import chatCmds from "./chat_commands.yaml";
@@ -137,6 +139,18 @@
 				let commandsCopy = JSON.parse(JSON.stringify(allCommands))
 
 				return this.filter.length ? filterSubgroups(commandsCopy) : commandsCopy
+			}
+		},
+		created() {
+			Object.entries(queryString.parse(location.search)).forEach(([key, value]) => this.$set(this, key, value));
+		},
+		watch: {
+			filter(oldVal, val) {
+				if(oldVal !== val) {
+					let query = queryString.stringify({filter: this.filter ? this.filter : undefined});
+					let full = query !== "" ? "?" + query : "/commands";
+					window.history.replaceState(null, null, full);
+				}
 			}
 		}
 	}

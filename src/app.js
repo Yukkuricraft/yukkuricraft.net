@@ -1,6 +1,9 @@
+import "regenerator-runtime/runtime.js";
+
 import Vue from 'vue'
 import VueRouter from "vue-router";
 import VueI18n from "vue-i18n";
+import Vuex from 'vuex';
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import "./fontAwesomeLibrary";
@@ -26,6 +29,8 @@ import mdPages from "./pages/markdown/pages"
 import App from './App.vue'
 import MarkdownPage from "./pages/markdown/MarkdownPage";
 
+import {store} from "./stores/index";
+
 Vue.use(VueRouter);
 Vue.use(VueI18n);
 
@@ -42,6 +47,8 @@ let usedLocale = supportedLocales.includes(preferredLanguage) ? preferredLanguag
 const i18n = new VueI18n({
 	locale: usedLocale
 })
+
+store.dispatch('server/loadServerInfo');
 
 const router = new VueRouter({
 	base: '/',
@@ -113,6 +120,7 @@ const app = new Vue({
 	render: createElement => createElement(App),
 	router,
 	i18n,
+	store,
 	mounted() {
 		// You'll need this for renderAfterDocumentEvent.
 		document.dispatchEvent(new Event('render-event'))
