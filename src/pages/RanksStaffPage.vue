@@ -198,15 +198,7 @@
 			}
 		},
 		created() {
-			for(let staffGroup of this.staff) {
-				for(let staffMember of staffGroup.members) {
-					for(let mcAccount of staffMember.mcAccounts) {
-						this.mcUsername(mcAccount.uuid, mcAccount.name).then(res => {
-							mcAccount.name = res;
-						})
-					}
-				}
-			}
+			this.$store.dispatch('staff/loadRealNames')
 		},
 		computed: {
 			images() {
@@ -216,33 +208,9 @@
 					require('../images/people_small.jpg'),
 					require('../images/people_small.webp'),
 				)
-			}
-		},
-		methods: {
-			async mcUsername(uuid, fallback) {
-				let errorMsg = `Failed to get name for uuid ${uuid}, using fallback ${fallback} instead`;
-
-				try {
-					let res = await fetch('https://api.minetools.eu/profile/' + uuid.replaceAll('-', ''));
-
-					if (res.status !== 200) {
-						console.warn(errorMsg);
-						return fallback;
-					} else {
-						let profile = await res.json();
-
-						if(typeof profile.error !== 'undefined') {
-							console.warn(errorMsg + '. Error: ' + profile.error);
-							return fallback;
-						}
-						else {
-							return profile.decoded.profileName
-						}
-					}
-				} catch (e) {
-					console.warn(errorMsg + '. Error: ' + e);
-					return fallback
-				}
+			},
+			mcNames() {
+				return this.$store.state['staff/mcNames']
 			}
 		}
 	}
