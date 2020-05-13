@@ -9,6 +9,7 @@ on:
       - '*'
       - '!README.md'
       - 'src/**'
+      - 'dist/**'
       - '.github/workflows/main.yml'
 
 jobs:
