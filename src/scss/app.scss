@@ -16,6 +16,8 @@ $font-size-base: 1.2rem;
 
 html {
   scroll-behavior: smooth;
+  position: relative;
+  min-height: 100%;
 }
 
 .command {
@@ -55,6 +57,25 @@ html {
 @media only screen and (max-device-width: 1366px) {
   .parallax {
     background-attachment: scroll;
+  }
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}
+
+.container-error {
+  margin-top: 5%;
+  text-align: center;
+  img {
+    display: block;
+    margin: 0 auto;
   }
 }
 

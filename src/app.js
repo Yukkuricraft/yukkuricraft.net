@@ -23,6 +23,7 @@ import GensokyoLocationsPage from "./pages/gensokyo/LocationsPage";
 import GensokyoHelpPage from "./pages/gensokyo/HelpPage";
 import DownloadGenso from "./pages/downloads/Download";
 import DownloadSurvival from "./pages/downloads/DownloadSurvival";
+import _404Page from "./pages/404Page";
 
 import mdPages from "./pages/markdown/pages"
 
@@ -104,7 +105,12 @@ const router = new VueRouter({
 				content,
 				localizedContent
 			}
-		}))
+		})),
+		{
+			path: '*',
+			name: '404',
+			component: _404Page
+		},
 	],
 	scrollBehavior(to, from, savedPosition) {
 		if(to.hash.length) {
