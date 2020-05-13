@@ -30,12 +30,20 @@ module.exports = (env, options) => {
 					'/downloads/survival',
 					'/gensokyo',
 					'/gensokyo/help',
+					'/404',
 				],
 				renderer: new Renderer({
 					headless: true,
 					renderAfterDocumentEvent: 'render-event',
 					executablePath: isCI ? 'google-chrome-stable' : undefined
 				}),
+				postProcess(context) {
+					if(context.route === '/404') {
+						context.outputPath = 'dist/404.html'
+					}
+
+					return context
+				}
 			}),
 			new MiniCssExtractPlugin(),
 			new CopyPlugin([{from: 'src/pages/commands/images', to: 'assets/images/commands'}]),

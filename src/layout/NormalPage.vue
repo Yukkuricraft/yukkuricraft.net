@@ -1,14 +1,18 @@
 <template>
-	<div>
+	<div class="site">
 		<info-header></info-header>
-		<parallax-image :height="parallaxHeight" :images="parallaxImages">
-			<slot name="parallax"></slot>
-		</parallax-image>
 
-		<div class="container">
-			<slot></slot>
-			<info-footer></info-footer>
+		<div class="site-content">
+			<parallax-image v-if="parallaxImages" :height="parallaxHeight" :images="parallaxImages">
+				<slot name="parallax"></slot>
+			</parallax-image>
+
+			<div class="container" :class="isError ? 'container-error' : ''">
+				<slot></slot>
+			</div>
 		</div>
+
+		<info-footer></info-footer>
 	</div>
 </template>
 
@@ -26,6 +30,7 @@
 		props: {
 			parallaxImages: Object,
 			parallaxHeight: Number,
+			isError: Boolean
 		}
 	}
 </script>
