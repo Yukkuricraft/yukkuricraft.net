@@ -22,7 +22,7 @@ module.exports = (env, options) => {
 				filename: 'index.html',
 				template: 'src/index.html',
 				links: [
-					'/modernizr-custom.js'
+					'modernizr-custom.js'
 				],
 				meta: {
 					description: 'Everything you want to know about YukkuriCraft, from Gensokyo builds to commands.'
