@@ -3,7 +3,7 @@
 		<vue-headful title="YukkuriCraft Info - Rules"
 					 description="All the different rules for YukkuriCraft on it's different platforms."
 					 :image="require('../favicon_upscaled.png')"
-					 url="https://info.yukkuricraft.net/rules"/>
+					 url="https://info.yukkuricraft.net/rules/"/>
 	</markdown-page>
 </template>
 <script>

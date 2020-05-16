@@ -3,7 +3,7 @@
 		<vue-headful title="YukkuriCraft Info - Commands"
 					 description="Search through the commands found on YukkuriCraft."
 					 :image="require('../../favicon_upscaled.png')"
-					 url="https://info.yukkuricraft.net/commands"/>
+					 url="https://info.yukkuricraft.net/commands/"/>
 
 		<template v-slot:sidebar>
 			<div class="sidebar-header">

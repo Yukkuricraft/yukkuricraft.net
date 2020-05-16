@@ -3,7 +3,7 @@
 		<vue-headful title="YukkuriCraft Info - Ranks and Staff"
 					 description="The different ranks found on YukkuriCraft, together with the staff and their ranks."
 					 :image="require('../favicon_upscaled.png')"
-					 url="https://info.yukkuricraft.net/ranks_staff"/>
+					 url="https://info.yukkuricraft.net/ranks_staff/"/>
 
 		<template v-slot:parallax>
 			<h1>Ranks and Staff</h1>

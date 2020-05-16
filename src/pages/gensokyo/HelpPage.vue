@@ -3,7 +3,7 @@
 		<vue-headful title="YukkuriCraft Info - Help us build!"
 					 description="Take a look at our ongoing projects in Gensokyo."
 					 :image="require('../../favicon_upscaled.png')"
-					 url="https://info.yukkuricraft.net/gensokyo/help"/>
+					 url="https://info.yukkuricraft.net/gensokyo/help/"/>
 
 		<template v-slot:sidebar>
 			<div class="sidebar-header">
