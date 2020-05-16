@@ -1,6 +1,6 @@
 <template>
 	<sidebar-page :parallax-images="images">
-		<vue-headful title="YukkuriCraft Info - Commands"
+		<vue-headful title="YukkuriCraft - Commands"
 					 description="Search through the commands found on YukkuriCraft."
 					 :image="require('../../favicon_upscaled.png')"
 					 url="https://info.yukkuricraft.net/commands/"/>
@@ -44,8 +44,6 @@
 </template>
 
 <script>
-	import InfoFooter from "../../components/InfoFooter";
-	import ParallaxImage from "../../components/ParallaxImage";
 	import CommandGroups from "./CommandGroups";
 	import CommandSidebarEntries from "./CommandSidebarEntries";
 	import SidebarPage from "../../layout/SidebarPage";
@@ -65,8 +63,6 @@
 		components: {
 			SidebarPage,
 			CommandSidebarEntries,
-			InfoFooter,
-			ParallaxImage,
 			CommandGroups,
 		},
 		data() {

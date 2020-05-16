@@ -3,7 +3,7 @@
 		<ul class="navbar-nav mr-auto">
 			<router-link :to="{name: 'info'}" v-slot="{ href, navigate, isExactActive }">
 				<li class="nav-item" :class="[isExactActive && 'active']">
-					<a class="nav-link" :href="href" @click="navigate">Info</a>
+					<a class="nav-link" :href="href" @click="navigate">Home</a>
 				</li>
 			</router-link>
 			<router-link :to="{name: 'ranks_staff'}" v-slot="{ href, navigate, isExactActive }">

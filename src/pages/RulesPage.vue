@@ -1,6 +1,6 @@
 <template>
 	<markdown-page :parallax-images="images" title="Rules" :localized-content="rules">
-		<vue-headful title="YukkuriCraft Info - Rules"
+		<vue-headful title="YukkuriCraft - Rules"
 					 description="All the different rules for YukkuriCraft on it's different platforms."
 					 :image="require('../favicon_upscaled.png')"
 					 url="https://info.yukkuricraft.net/rules/"/>

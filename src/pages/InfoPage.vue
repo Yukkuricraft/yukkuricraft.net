@@ -1,12 +1,12 @@
 <template>
 	<normal-page :parallax-images="images">
-		<vue-headful title="YukkuriCraft Info"
+		<vue-headful title="YukkuriCraft"
 					 description="Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of Touhou Project fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all players to join the fun!"
 					 :image="require('../favicon_upscaled.png')" url="https://info.yukkuricraft.net/"/>
 
 		<template v-slot:parallax>
 			<h1>Yukkuricraft</h1>
-			<p>A collection of information so you don't have to go looking for it elsewhere.</p>
+			<p>The largest english Touhou Minecraft server.</p>
 			<p class="lead">Server IP: mc.yukkuricraft.net</p>
 
 			<router-link :to="{'name': 'download_genso'}" v-slot="{ href, navigate }">
@@ -166,8 +166,6 @@
 </style>
 
 <script>
-	import ParallaxImage from "../components/ParallaxImage";
-	import InfoFooter from "../components/InfoFooter";
 	import NormalPage from "../layout/NormalPage";
 	import {makeImage} from "../images";
 	import {parseMCCodes} from "../colorFormatter";
@@ -177,8 +175,6 @@
 	export default {
 		components: {
 			NormalPage,
-			ParallaxImage,
-			InfoFooter
 		},
 		data() {
 			return {
