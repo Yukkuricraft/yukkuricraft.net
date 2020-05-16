@@ -1,9 +1,9 @@
 <template>
 	<normal-page :parallax-images="images">
-		<vue-headful title="YukkuriCraft Info - Ranks and Staff"
+		<vue-headful title="YukkuriCraft - Ranks and Staff"
 					 description="The different ranks found on YukkuriCraft, together with the staff and their ranks."
 					 :image="require('../favicon_upscaled.png')"
-					 url="https://info.yukkuricraft.net/ranks_staff"/>
+					 url="https://info.yukkuricraft.net/ranks_staff/"/>
 
 		<template v-slot:parallax>
 			<h1>Ranks and Staff</h1>
@@ -179,9 +179,6 @@
 </template>
 
 <script>
-	import InfoFooter from "../components/InfoFooter";
-	import ParallaxImage from "../components/ParallaxImage";
-
 	import staff from "./staff";
 	import NormalPage from "../layout/NormalPage";
 	import {makeImage} from "../images";
@@ -189,8 +186,6 @@
 	export default {
 		components: {
 			NormalPage,
-			InfoFooter,
-			ParallaxImage
 		},
 		data() {
 			return {

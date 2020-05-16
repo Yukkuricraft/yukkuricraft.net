@@ -41,7 +41,7 @@ module.exports = (env, options) => {
 					if(context.route === '/404') {
 						context.outputPath = 'dist/404.html'
 					}
-					context.html = context.html.replace('id="home"', 'id="home" data-server-rendered="true"')
+					context.html = context.html.replace('id="app"', 'id="app" data-server-rendered="true"')
 
 					return context
 				}

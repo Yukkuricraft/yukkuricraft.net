@@ -58,42 +58,50 @@ const router = new VueRouter({
 		{
 			path: '/',
 			name: 'info',
-			component: InfoPage
+			component: InfoPage,
+			pathToRegexpOptions: { strict: true }
 		},
 		{
-			path: '/rules',
+			path: '/rules/',
 			name: 'rules',
-			component: RulesPage
+			component: RulesPage,
+			pathToRegexpOptions: { strict: true }
 		},
 		{
-			path: '/ranks_staff',
+			path: '/ranks_staff/',
 			name: 'ranks_staff',
-			component: RanksStaffPage
+			component: RanksStaffPage,
+			pathToRegexpOptions: { strict: true }
 		},
 		{
-			path: '/commands',
+			path: '/commands/',
 			name: 'commands',
-			component: CommandsPage
+			component: CommandsPage,
+			pathToRegexpOptions: { strict: true }
 		},
 		{
-			path: '/gensokyo',
+			path: '/gensokyo/',
 			name: 'gensokyo',
-			component: GensokyoLocationsPage
+			component: GensokyoLocationsPage,
+			pathToRegexpOptions: { strict: true }
 		},
 		{
-			path: '/gensokyo/help',
+			path: '/gensokyo/help/',
 			name: 'gensokyo_help',
-			component: GensokyoHelpPage
+			component: GensokyoHelpPage,
+			pathToRegexpOptions: { strict: true }
 		},
 		{
-			path: '/downloads/gensokyo',
+			path: '/downloads/gensokyo/',
 			name: 'download_genso',
-			component: DownloadGenso
+			component: DownloadGenso,
+			pathToRegexpOptions: { strict: true }
 		},
 		{
-			path: '/downloads/survival',
+			path: '/downloads/survival/',
 			name: 'download_survival',
-			component: DownloadSurvival
+			component: DownloadSurvival,
+			pathToRegexpOptions: { strict: true }
 		},
 		...mdPages.map(({title, path, parallaxHeight, parallaxImages, content, localizedContent}) => ({
 			path,

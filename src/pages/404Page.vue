@@ -1,8 +1,9 @@
 <template>
 	<normal-page :is-error="true">
-		<vue-headful title="YukkuriCraft Info - 404 Not found"
+		<vue-headful title="YukkuriCraft - 404 Not found"
 					 description="We couldn't find what you were looing for."
-					 :image="require('../favicon_upscaled.png')"/>
+					 :image="require('../favicon_upscaled.png')"
+					 url=""/>
 
 		<img src="./confused_remi_yukkuri.png" alt="Lost Yukkuri">
 		<h1>404 Not Found</h1>

@@ -1,12 +1,12 @@
 <template>
 	<normal-page :parallax-images="images">
-		<vue-headful title="YukkuriCraft Info"
-					 description="Everything you want to know about YukkuriCraft, from Gensokyo builds to commands."
+		<vue-headful title="YukkuriCraft"
+					 description="Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of Touhou Project fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all players to join the fun!"
 					 :image="require('../favicon_upscaled.png')" url="https://info.yukkuricraft.net/"/>
 
 		<template v-slot:parallax>
-			<h1>Yukkuricraft Info</h1>
-			<p>A collection of information so you don't have to go looking for it elsewhere.</p>
+			<h1>Yukkuricraft</h1>
+			<p>The largest english Touhou Minecraft server.</p>
 			<p class="lead">Server IP: mc.yukkuricraft.net</p>
 
 			<router-link :to="{'name': 'download_genso'}" v-slot="{ href, navigate }">
@@ -19,13 +19,12 @@
 
 		<div class="row mt-5">
 			<div class="col-md-6">
-				<h3>Current events: Hisoutensoku tournament</h3>
-				The first YukkuriCraft Touhou 12.3 tournament in over half a decade.
-
-				The tournament will take place on <strong>9th of May, 7:00 PM UTC</strong> and will be streamed by our
-				lovely Yaffy at <a href="https://www.twitch.tv/yaffyfan">https://www.twitch.tv/yaffyfan</a>
-
-				Sign up at <a href="https://challonge.com/YCHisouten2020">Challonge</a>
+				<h2>Who are we</h2>
+				<p>
+					Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of
+					Touhou Project fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all
+					players to join the fun!
+				</p>
 			</div>
 			<div class="col-md-6">
 				<div class="embed-responsive embed-responsive-16by9">
@@ -45,22 +44,27 @@
 			<div v-if="serverPing.description" class="col-md-8">
 				<div class="card" style="height: 100%">
 					<div class="card-header">
-						<pre style="display: inline">mc.yukkuricraft.net</pre> <span class="bg-success dot"></span> Online
+						<pre style="display: inline">mc.yukkuricraft.net</pre>
+						<span class="bg-success dot"></span> Online
 					</div>
 					<div class="card-body">
 						<h3 class="card-title h5" v-html="parseMCCodes(serverPing.description).raw"></h3>
 						<div class="card-text">
-							<font-awesome-icon :icon="['fas', 'signal']" /> Ping: {{ serverPing.latency }} ms
+							<font-awesome-icon :icon="['fas', 'signal']"/>
+							Ping: {{ serverPing.latency }} ms
 
 							<div>
-								<br />
+								<br/>
 								Players: {{ serverPing.players.online }} / {{ serverPing.players.max }}
 								<div class="row">
 									<div class="col-md-4" v-for="playerChunk in chunk(serverPing.players.sample, 8)">
-										<li class="list-unstyled" v-for="player in playerChunk">
-											<img :src="'https://mc-heads.net/avatar/' + player.id + '/32'" :alt="player.name">
-											{{ player.name }}
-										</li>
+										<ul class="list-unstyled">
+											<li v-for="player in playerChunk">
+												<img :src="'https://mc-heads.net/avatar/' + player.id + '/32'"
+													 :alt="player.name">
+												{{ player.name }}
+											</li>
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -71,7 +75,8 @@
 			<div v-else class="col-md-8">
 				<div class="card">
 					<div class="card-header">
-						<pre style="display: inline">mc.yukkuricraft.net</pre> <span class="bg-danger dot"></span> Offline
+						<pre style="display: inline">mc.yukkuricraft.net</pre>
+						<span class="bg-danger dot"></span> Offline
 					</div>
 				</div>
 			</div>
@@ -161,8 +166,6 @@
 </style>
 
 <script>
-	import ParallaxImage from "../components/ParallaxImage";
-	import InfoFooter from "../components/InfoFooter";
 	import NormalPage from "../layout/NormalPage";
 	import {makeImage} from "../images";
 	import {parseMCCodes} from "../colorFormatter";
@@ -172,8 +175,6 @@
 	export default {
 		components: {
 			NormalPage,
-			ParallaxImage,
-			InfoFooter
 		},
 		data() {
 			return {

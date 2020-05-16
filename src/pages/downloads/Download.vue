@@ -1,9 +1,9 @@
 <template>
 	<normal-page :parallax-images="images">
-		<vue-headful title="YukkuriCraft Info - Downloads"
+		<vue-headful title="YukkuriCraft - Downloads"
 					 description="Download our Gensokyo maps."
 					 :image="require('../../favicon_upscaled.png')"
-					 url="https://info.yukkuricraft.net/downloads/gensokyo"/>
+					 url="https://info.yukkuricraft.net/downloads/gensokyo/"/>
 
 		<template v-slot:parallax>
 			<h1>"Gensokyo ~ The Second Dream" Map download</h1>
