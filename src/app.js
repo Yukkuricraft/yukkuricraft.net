@@ -127,16 +127,18 @@ const router = new VueRouter({
 			return { x: 0, y: 0 }
 		}
 	}
-})
+});
 
-const app = new Vue({
-	el: '#app',
-	render: createElement => createElement(App),
-	router,
-	i18n,
-	store,
-	mounted() {
-		// You'll need this for renderAfterDocumentEvent.
-		document.dispatchEvent(new Event('render-event'))
-	}
+document.addEventListener('DOMContentLoaded', () => {
+	const app = new Vue({
+		el: '#app',
+		render: createElement => createElement(App),
+		router,
+		i18n,
+		store,
+		mounted() {
+			// You'll need this for renderAfterDocumentEvent.
+			document.dispatchEvent(new Event('render-event'))
+		}
+	});
 });
