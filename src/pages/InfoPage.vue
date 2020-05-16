@@ -176,11 +176,6 @@
 		components: {
 			NormalPage,
 		},
-		data() {
-			return {
-				showEmbed: false
-			}
-		},
 		computed: {
 			images() {
 				return makeImage(

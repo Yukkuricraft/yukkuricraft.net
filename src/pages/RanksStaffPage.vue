@@ -187,15 +187,13 @@
 		components: {
 			NormalPage,
 		},
-		data() {
-			return {
-				staff: staff
-			}
-		},
 		created() {
 			this.$store.dispatch('staff/loadRealNames')
 		},
 		computed: {
+			staff() {
+				return staff
+			},
 			images() {
 				return makeImage(
 					require('../images/people.png'),
