@@ -1,7 +1,7 @@
 <template>
 	<normal-page :parallax-images="images">
 		<vue-headful title="YukkuriCraft Info"
-					 description="Everything you want to know about YukkuriCraft, from Gensokyo builds to commands."
+					 description="Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of Touhou Project fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all players to join the fun!"
 					 :image="require('../favicon_upscaled.png')" url="https://info.yukkuricraft.net/"/>
 
 		<template v-slot:parallax>
@@ -45,20 +45,23 @@
 			<div v-if="serverPing.description" class="col-md-8">
 				<div class="card" style="height: 100%">
 					<div class="card-header">
-						<pre style="display: inline">mc.yukkuricraft.net</pre> <span class="bg-success dot"></span> Online
+						<pre style="display: inline">mc.yukkuricraft.net</pre>
+						<span class="bg-success dot"></span> Online
 					</div>
 					<div class="card-body">
 						<h3 class="card-title h5" v-html="parseMCCodes(serverPing.description).raw"></h3>
 						<div class="card-text">
-							<font-awesome-icon :icon="['fas', 'signal']" /> Ping: {{ serverPing.latency }} ms
+							<font-awesome-icon :icon="['fas', 'signal']"/>
+							Ping: {{ serverPing.latency }} ms
 
 							<div>
-								<br />
+								<br/>
 								Players: {{ serverPing.players.online }} / {{ serverPing.players.max }}
 								<div class="row">
 									<div class="col-md-4" v-for="playerChunk in chunk(serverPing.players.sample, 8)">
 										<li class="list-unstyled" v-for="player in playerChunk">
-											<img :src="'https://mc-heads.net/avatar/' + player.id + '/32'" :alt="player.name">
+											<img :src="'https://mc-heads.net/avatar/' + player.id + '/32'"
+												 :alt="player.name">
 											{{ player.name }}
 										</li>
 									</div>
@@ -71,7 +74,8 @@
 			<div v-else class="col-md-8">
 				<div class="card">
 					<div class="card-header">
-						<pre style="display: inline">mc.yukkuricraft.net</pre> <span class="bg-danger dot"></span> Offline
+						<pre style="display: inline">mc.yukkuricraft.net</pre>
+						<span class="bg-danger dot"></span> Offline
 					</div>
 				</div>
 			</div>
