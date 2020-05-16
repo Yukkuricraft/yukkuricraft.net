@@ -19,10 +19,12 @@
 </template>
 
 <script>
+	import {mapState} from 'vuex';
+
 	export default {
 		data() {
 			return {
-				imageToUse: Modernizr.webp ? this.images.lowResWebp : this.images.lowRes
+				imageToUse: Modernizr.webp ? this.images.lowResWebp : this.images.lowRes,
 			}
 		},
 		props: {
@@ -34,11 +36,12 @@
 		},
 		methods: {
 			switchImage(event) {
-				if(typeof event.target.currentSrc === 'undefined') {
-					this.imageToUse = event.target.src;
-				}
-				else {
-					this.imageToUse = event.target.currentSrc;
+				if(!window.__PRERENDER_INJECTED || !window.__PRERENDER_INJECTED.prerendered) {
+					if (typeof event.target.currentSrc === 'undefined') {
+						this.imageToUse = event.target.src;
+					} else {
+						this.imageToUse = event.target.currentSrc;
+					}
 				}
 			}
 		}

@@ -35,12 +35,17 @@ module.exports = (env, options) => {
 				renderer: new Renderer({
 					headless: true,
 					renderAfterDocumentEvent: 'render-event',
+					injectProperty: '__PRERENDER_INJECTED',
+					inject: {
+						prerendered: true
+					},
 					executablePath: isCI ? 'google-chrome-stable' : undefined
 				}),
 				postProcess(context) {
 					if(context.route === '/404') {
 						context.outputPath = 'dist/404.html'
 					}
+					context.html = context.html.replace('http://localhost:8000', 'https://info.yukkuricraft.net')
 					context.html = context.html.replace('id="app"', 'id="app" data-server-rendered="true"')
 
 					return context
