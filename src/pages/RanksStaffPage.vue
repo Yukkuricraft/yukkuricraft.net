@@ -182,13 +182,16 @@
 	import staff from "./staff";
 	import NormalPage from "../layout/NormalPage";
 	import {makeImage} from "../images";
+	import {mapState} from "vuex";
 
 	export default {
 		components: {
 			NormalPage,
 		},
 		created() {
-			this.$store.dispatch('staff/loadRealNames')
+			if(!window.__PRERENDER_INJECTED || !window.__PRERENDER_INJECTED.prerendered) {
+				this.$store.dispatch('staff/loadRealNames')
+			}
 		},
 		computed: {
 			staff() {
@@ -202,9 +205,7 @@
 					require('../images/people_small.webp'),
 				)
 			},
-			mcNames() {
-				return this.$store.state['staff/mcNames']
-			}
+			...mapState('staff', ['mcNames'])
 		}
 	}
 </script>
