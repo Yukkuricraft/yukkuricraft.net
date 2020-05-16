@@ -5,7 +5,7 @@
 					 :image="require('../favicon_upscaled.png')" url="https://info.yukkuricraft.net/"/>
 
 		<template v-slot:parallax>
-			<h1>Yukkuricraft Info</h1>
+			<h1>Yukkuricraft</h1>
 			<p>A collection of information so you don't have to go looking for it elsewhere.</p>
 			<p class="lead">Server IP: mc.yukkuricraft.net</p>
 
@@ -19,13 +19,12 @@
 
 		<div class="row mt-5">
 			<div class="col-md-6">
-				<h3>Current events: Hisoutensoku tournament</h3>
-				The first YukkuriCraft Touhou 12.3 tournament in over half a decade.
-
-				The tournament will take place on <strong>9th of May, 7:00 PM UTC</strong> and will be streamed by our
-				lovely Yaffy at <a href="https://www.twitch.tv/yaffyfan">https://www.twitch.tv/yaffyfan</a>
-
-				Sign up at <a href="https://challonge.com/YCHisouten2020">Challonge</a>
+				<h2>Who are we</h2>
+				<p>
+					Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of
+					Touhou Project fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all
+					players to join the fun!
+				</p>
 			</div>
 			<div class="col-md-6">
 				<div class="embed-responsive embed-responsive-16by9">
@@ -59,11 +58,13 @@
 								Players: {{ serverPing.players.online }} / {{ serverPing.players.max }}
 								<div class="row">
 									<div class="col-md-4" v-for="playerChunk in chunk(serverPing.players.sample, 8)">
-										<li class="list-unstyled" v-for="player in playerChunk">
-											<img :src="'https://mc-heads.net/avatar/' + player.id + '/32'"
-												 :alt="player.name">
-											{{ player.name }}
-										</li>
+										<ul class="list-unstyled">
+											<li v-for="player in playerChunk">
+												<img :src="'https://mc-heads.net/avatar/' + player.id + '/32'"
+													 :alt="player.name">
+												{{ player.name }}
+											</li>
+										</ul>
 									</div>
 								</div>
 							</div>
