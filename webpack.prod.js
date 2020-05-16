@@ -46,7 +46,6 @@ module.exports = (env, options) => {
 						context.outputPath = 'dist/404.html'
 					}
 					context.html = context.html.replace('http://localhost:8000', 'https://info.yukkuricraft.net')
-					context.html = context.html.replace('id="app"', 'id="app" data-server-rendered="true"')
 
 					return context
 				}
