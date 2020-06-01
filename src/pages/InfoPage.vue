@@ -8,6 +8,7 @@
 			<h1>Yukkuricraft</h1>
 			<p>The largest english Touhou Minecraft server.</p>
 			<p class="lead">Server IP: mc.yukkuricraft.net</p>
+            <p>MC Version: 1.14 or 1.15</p>
 
 			<router-link :to="{'name': 'download_genso'}" v-slot="{ href, navigate }">
 				<a class="btn btn-primary" :href="href" @click="navigate">Map download</a>
