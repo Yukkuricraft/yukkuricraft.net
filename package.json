@@ -16,6 +16,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
+    "@fullhuman/postcss-purgecss": "^2.2.0",
     "@intlify/vue-i18n-loader": "^1.0.0",
     "autoprefixer": "^9.7.4",
     "babel-loader": "^8.1.0",

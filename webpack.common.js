@@ -64,7 +64,16 @@ module.exports = (env, options) => {
 					use: [
 						options.mode !== 'production' ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
 						'css-loader',
-						'postcss-loader',
+						{
+							loader: 'postcss-loader',
+							options: {
+								config: {
+									ctx: {
+										mode: options.mode
+									}
+								}
+							}
+						},
 						{
 							loader: 'sass-loader',
 							options: {
@@ -80,7 +89,16 @@ module.exports = (env, options) => {
 					use: [
 						options.mode !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
 						'css-loader',
-						'postcss-loader'
+						{
+							loader: 'postcss-loader',
+							options: {
+								config: {
+									ctx: {
+										mode: options.mode
+									}
+								}
+							}
+						},
 					]
 				},
 				{
