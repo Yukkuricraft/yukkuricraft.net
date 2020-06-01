@@ -4,7 +4,7 @@
 		<markdown :content="location.description"></markdown>
 		<locations v-if="location.sublocations" :depth="depth + 1" :locations="location.sublocations"></locations>
 		<div v-if="location.images">
-			<h4>Images</h4>
+			<h5>Images</h5>
 			<!-- https://startbootstrap.com/snippets/thumbnail-gallery/ -->
 			<!-- https://css-tricks.com/creating-a-modal-image-gallery-with-bootstrap-components/ -->
 			<div class="row" data-toggle="modal" :data-target="'#locationModal-' + locationId">

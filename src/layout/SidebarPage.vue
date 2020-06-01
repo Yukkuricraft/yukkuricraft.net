@@ -18,7 +18,7 @@
 				<slot name="parallax"></slot>
 			</parallax-image>
 
-			<div class="container">
+			<div class="container container-pad">
 				<slot></slot>
 
 				<info-footer></info-footer>

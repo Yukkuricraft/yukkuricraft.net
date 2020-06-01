@@ -18,12 +18,6 @@
 			<p>Explore our builds in Gensokyo.</p>
 		</template>
 
-		<h2>Locations</h2>
-		<p>
-			While a lot of Gensokyo isn't finished yet, you can explore various images taken of taken if over it's
-			lifetime.
-		</p>
-
 		<locations :locations="locations" :depth="0"></locations>
 
 	</sidebar-page>

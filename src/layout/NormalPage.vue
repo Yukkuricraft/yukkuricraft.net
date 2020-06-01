@@ -7,7 +7,7 @@
 				<slot name="parallax"></slot>
 			</parallax-image>
 
-			<div class="container" :class="isError ? 'container-error' : ''">
+			<div class="container container-pad" :class="isError ? 'container-error' : ''">
 				<slot></slot>
 			</div>
 		</div>

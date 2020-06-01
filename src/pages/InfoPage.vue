@@ -94,23 +94,23 @@
 				page!
 			</li>
 			<li>
-				<router-link :to="{name: 'info'}">http://info.yukkuricraft.net</router-link>
+				<router-link :to="{name: 'info'}">https://info.yukkuricraft.net</router-link>
 				- You're
 				looking at
 				it right now!
 			</li>
 			<li>mc.yukkuricraft.net - Join this IP to play on our server!</li>
-			<li><a href="http://mc.yukkuricraft.net:18123" target="noopener">http://mc.yukkuricraft.net:18123</a> -
+			<li><a href="http://mc.yukkuricraft.net:18123" target="noopener">https://mc.yukkuricraft.net:18123</a> -
 				Our
 				dynmap!
 			</li>
-			<li><a href="http://bugs.yukkuricraft.net" target="noopener">http://bugs.yukkuricraft.net</a> - This
+			<li><a href="https://bugs.yukkuricraft.net" target="noopener">https://bugs.yukkuricraft.net</a> - This
 				will
 				take you
 				to a page where you can submit a bug report for anything that needs to be fixed! No login
 				required!
 			</li>
-			<li><a href="http://discord.yukkuricraft.net/" target="noopener">http://discord.yukkuricraft.net/</a> -
+			<li><a href="https://discord.yukkuricraft.net/" target="noopener">https://discord.yukkuricraft.net/</a> -
 				Our
 				Discord server
 			</li>
@@ -118,15 +118,15 @@
 
 		<h3>Social media</h3>
 		<ul>
-			<li><a href="http://www.facebook.com/yukkuricraft"
-				   target="noopener">http://www.facebook.com/yukkuricraft</a>
+			<li><a href="https://www.facebook.com/yukkuricraft"
+				   target="noopener">https://www.facebook.com/yukkuricraft</a>
 				-
 				Facebook Page
 			</li>
-			<li><a href="http://www.facebook.com/groups/yukkuricraft" target="noopener">http://www.facebook.com/groups/yukkuricraft</a>
+			<li><a href="https://www.facebook.com/groups/yukkuricraft" target="noopener">https://www.facebook.com/groups/yukkuricraft</a>
 				- Facebook Group
 			</li>
-			<li><a href="http://steamcommunity.com/groups/yukkuricraft" target="noopener">http://steamcommunity.com/groups/yukkuricraft</a>
+			<li><a href="https://steamcommunity.com/groups/yukkuricraft" target="noopener">https://steamcommunity.com/groups/yukkuricraft</a>
 				- Steam Group
 			</li>
 		</ul>
@@ -147,7 +147,7 @@
 			<li><strong>Steam: </strong>Mr. Bromilia Amatsukaze Scarlet</li>
 		</ol>
 
-		<p>Also consider joining our <a href="http://steamcommunity.com/groups/yukkuricraft">Steam Group</a> and
+		<p>Also consider joining our <a href="https://steamcommunity.com/groups/yukkuricraft">Steam Group</a> and
 			liking our
 			<a href="https://facebook.com/yukkuricraft">Facebook Page</a>!
 		</p>
@@ -175,11 +175,6 @@
 	export default {
 		components: {
 			NormalPage,
-		},
-		data() {
-			return {
-				showEmbed: false
-			}
 		},
 		computed: {
 			images() {

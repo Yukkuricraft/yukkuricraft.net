@@ -5,6 +5,7 @@ $font-size-base: 1.2rem;
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "sidebar";
+@import "~bootstrap/scss/bootstrap";
 
 *[id]:before {
   display: block;
@@ -70,6 +71,12 @@ html {
   flex: 1;
 }
 
+.container-pad {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+}
+
 .container-error {
   margin-top: 5%;
   text-align: center;
@@ -78,5 +85,3 @@ html {
     margin: 0 auto;
   }
 }
-
-@import "~bootstrap/scss/bootstrap";
