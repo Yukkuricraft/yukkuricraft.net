@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js --mode=production",
     "start": "webpack-dev-server --open --hot --config webpack.dev.js",
+    "start-remidev": "webpack-dev-server --open --hot --config webpack.dev.js --host 0.0.0.0 --public remi.takamo.to",
     "start-prod": "webpack-dev-server --open --config webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

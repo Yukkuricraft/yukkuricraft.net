@@ -2,9 +2,7 @@ eientei:
   displayName: Eientei
   menuName: Eientei
   description: |-
-    The home of the lunarias deep within the Bamboo forest.
-
-    Our last build before the big trailer.
+    The home of Gensokyo's local Lunarians deep within the Bamboo forest.
 
   images:
     - large: eientei.png
@@ -15,7 +13,7 @@ lunar_capital:
   displayName: Lunar Capital
   menuName: Lunar Capital
   description: |-
-    Foo
+    Home of the Lunarians on the Moon. Featured prominently within works like Silent Sinner in Blue and related works.
 
   images:
     - large: eientei.png
