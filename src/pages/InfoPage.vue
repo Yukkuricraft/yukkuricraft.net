@@ -8,6 +8,7 @@
 			<h1>Yukkuricraft</h1>
 			<p>The largest english Touhou Minecraft server.</p>
 			<p class="lead">Server IP: mc.yukkuricraft.net</p>
+            <p>MC Version: 1.14 or 1.15</p>
 
 			<b-button :to="{'name': 'download_genso'}" variant="primary">Map download</b-button>
 			<b-button :to="{'name': 'download_survival'}" variant="primary">Survival download</b-button>
