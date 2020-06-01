@@ -10,14 +10,14 @@
 			<p>Download the maps of past survival worlds</p>
 		</template>
 
-		<div class="alert alert-warning mt-3" role="alert" style="font-size: 85%">
+		<b-alert show variant="warning" class="mt-3" style="font-size: 85%">
 			<h2 class="alert-heading h5">Compatability and old versions</h2>
 			<p class="mb-2">
 				These maps have never been taken to a newer Minecraft version than what we list here. It might work just
 				fine, it might go absolutely terrible. For the best experience, play the map on the version it was intended
 				for.
 			</p>
-		</div>
+		</b-alert>
 
 		<ul>
 			<li><a href="https://mega.nz/file/4kdnXZxB#m3v01SsD_ZKmjRdQBxnCdHBnvaG8wzcXKZuciJ1z7hw">Survival 1: 1.6 (2012-2014)</a></li>
@@ -34,10 +34,12 @@
 </template>
 
 <script>
+	import {BAlert} from "bootstrap-vue"
+
 	import NormalPage from "../../layout/NormalPage";
 	import {makeImage} from "../../images";
 	export default {
-		components: {NormalPage},
+		components: {NormalPage, BAlert},
 		computed: {
 			images() {
 				return makeImage(

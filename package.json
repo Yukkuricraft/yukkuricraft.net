@@ -51,6 +51,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "bootstrap": "^4.5.0",
+    "bootstrap-vue": "^2.15.0",
     "css.escape": "^1.5.1",
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",

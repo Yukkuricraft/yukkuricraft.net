@@ -7,10 +7,10 @@
 		<div class="sidebar-content" :class="{active: sidebarActive}">
 			<info-header :in-container="false">
 				<template v-slot:top>
-					<button @click="sidebarActive = !sidebarActive" class="btn" type="button" aria-controls="sidebar-nav"
-							aria-expanded="false" aria-label="Toggle sidebar">
-						<font-awesome-icon class="text-white" :icon="['fas', 'align-left']" />
-					</button>
+					<b-button aria-controls="sidebar-nav" type="button" variant="none"
+							  @click="sidebarActive = !sidebarActive" aria-expanded="false" aria-label="Toggle sidebar">
+						<font-awesome-icon class="text-white" :icon="['fas', 'align-left']"/>
+					</b-button>
 				</template>
 			</info-header>
 
@@ -18,16 +18,18 @@
 				<slot name="parallax"></slot>
 			</parallax-image>
 
-			<div class="container container-pad">
+			<b-container class="container-pad">
 				<slot></slot>
 
 				<info-footer></info-footer>
-			</div>
+			</b-container>
 		</div>
 	</div>
 </template>
 
 <script>
+	import {BContainer, BButton} from "bootstrap-vue"
+
 	import InfoHeader from "../components/InfoHeader";
 	import InfoFooter from "../components/InfoFooter";
 	import ParallaxImage from "../components/ParallaxImage";
@@ -36,7 +38,9 @@
 		components: {
 			InfoHeader,
 			InfoFooter,
-			ParallaxImage
+			ParallaxImage,
+			BContainer,
+			BButton
 		},
 		props: {
 			parallaxImages: Object,

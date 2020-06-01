@@ -1,10 +1,10 @@
 <template>
 	<li>
 		<template v-if="location.sublocations">
-			<a data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
-			   :href="'#locationsSidebar-' + locationId">{{ location.menuName }}</a>
-			<location-sidebar-entries :id="'locationsSidebar-' + locationId" class="collapse"
-									 :locations="location.sublocations"></location-sidebar-entries>
+			<a v-b-toggle :href="'#locationsSidebar-' + locationId" class="dropdown-toggle" @click.prevent>{{ location.menuName }}</a>
+			<b-collapse :id="'locationsSidebar-' + locationId">
+				<location-sidebar-entries :locations="location.sublocations"></location-sidebar-entries>
+			</b-collapse>
 		</template>
 		<template v-else>
 			<a :href="'#location-' + locationId">{{ location.menuName }}</a>
@@ -13,10 +13,15 @@
 </template>
 
 <script>
+	import { VBToggle, BCollapse } from 'bootstrap-vue'
 
 	export default {
 		components: {
+			BCollapse,
 			LocationSidebarEntries: () => import("./LocationSidebarEntries")
+		},
+		directives: {
+			'b-toggle': VBToggle
 		},
 		props: {
 			location: {

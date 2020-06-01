@@ -9,55 +9,52 @@
 			<p>The largest english Touhou Minecraft server.</p>
 			<p class="lead">Server IP: mc.yukkuricraft.net</p>
 
-			<router-link :to="{'name': 'download_genso'}" v-slot="{ href, navigate }">
-				<a class="btn btn-primary" :href="href" @click="navigate">Map download</a>
-			</router-link>
-			<router-link :to="{'name': 'download_survival'}" v-slot="{ href, navigate }">
-				<a class="btn btn-primary" :href="href" @click="navigate">Survival download</a>
-			</router-link>
+			<b-button :to="{'name': 'download_genso'}" variant="primary">Map download</b-button>
+			<b-button :to="{'name': 'download_survival'}" variant="primary">Survival download</b-button>
 		</template>
 
-		<div class="row mt-5">
-			<div class="col-md-6">
+		<b-row class="mt-5">
+			<b-col md="6">
 				<h2>Who are we</h2>
 				<p>
 					Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of
 					Touhou Project fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all
 					players to join the fun!
 				</p>
-			</div>
-			<div class="col-md-6">
-				<div class="embed-responsive embed-responsive-16by9">
-					<!-- https://css-tricks.com/lazy-load-embedded-youtube-videos/ -->
-					<iframe title="YC trailer" class="embed-responsive-item"
-							src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
-							srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/L6mD2zj8CGs?autoplay=1><img src=https://img.youtube.com/vi/L6mD2zj8CGs/hqdefault.jpg alt='Video 【Trailer】【Touhou Minecraft】Gensokyo ~ The Second Dream v2 Shortened Trailer Edition'><span>▶</span></a>"
-							frameborder="0"
-							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen></iframe>
-				</div>
-			</div>
-		</div>
+			</b-col>
+			<b-col md="6">
+				<!-- https://css-tricks.com/lazy-load-embedded-youtube-videos/ -->
+				<b-embed type="iframe"
+						 aspect="16by9"
+						 title="YC trailer"
+						 src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
+						 srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/L6mD2zj8CGs?autoplay=1><img src=https://img.youtube.com/vi/L6mD2zj8CGs/hqdefault.jpg alt='Video 【Trailer】【Touhou Minecraft】Gensokyo ~ The Second Dream v2 Shortened Trailer Edition'><span>▶</span></a>"
+						 frameborder="0"
+						 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						 allowfullscreen
+				/>
+			</b-col>
+		</b-row>
 
 		<h2>Server and Discord</h2>
-		<div class="row">
-			<div v-if="serverPing.description" class="col-md-8">
-				<div class="card" style="height: 100%">
-					<div class="card-header">
+		<b-row>
+			<b-col md="8" v-if="serverPing.description">
+				<b-card no-body style="height: 100%">
+					<b-card-header>
 						<pre style="display: inline">mc.yukkuricraft.net</pre>
 						<span class="bg-success dot"></span> Online
-					</div>
-					<div class="card-body">
-						<h3 class="card-title h5" v-html="parseMCCodes(serverPing.description).raw"></h3>
-						<div class="card-text">
+					</b-card-header>
+					<b-card-body>
+						<b-card-title class="h5" v-html="parseMCCodes(serverPing.description).raw"></b-card-title>
+						<b-card-text>
 							<font-awesome-icon :icon="['fas', 'signal']"/>
 							Ping: {{ serverPing.latency }} ms
 
 							<div>
 								<br/>
 								Players: {{ serverPing.players.online }} / {{ serverPing.players.max }}
-								<div class="row">
-									<div class="col-md-4" v-for="playerChunk in chunk(serverPing.players.sample, 8)">
+								<b-row>
+									<b-col md="4" v-for="playerChunk in chunk(serverPing.players.sample, 8)" :key="playerChunk[0].id">
 										<ul class="list-unstyled">
 											<li v-for="player in playerChunk">
 												<img :src="'https://mc-heads.net/avatar/' + player.id + '/32'"
@@ -65,26 +62,26 @@
 												{{ player.name }}
 											</li>
 										</ul>
-									</div>
-								</div>
+									</b-col>
+								</b-row>
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div v-else class="col-md-8">
-				<div class="card">
-					<div class="card-header">
+						</b-card-text>
+					</b-card-body>
+				</b-card>
+			</b-col>
+			<b-col md="8" v-else>
+				<b-card no-body>
+					<b-card-header>
 						<pre style="display: inline">mc.yukkuricraft.net</pre>
 						<span class="bg-danger dot"></span> Offline
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
+					</b-card-header>
+				</b-card>
+			</b-col>
+			<b-col md="4">
 				<iframe src="https://discordapp.com/widget?id=201938197171798017&theme=light" width="350" height="500"
 						allowtransparency="true" frameborder="0"></iframe>
-			</div>
-		</div>
+			</b-col>
+		</b-row>
 
 		<h2 id="subdomains">Our Subdomains and Pages</h2>
 		<h3>General</h3>
@@ -166,6 +163,8 @@
 </style>
 
 <script>
+	import {BButton, BRow, BCol, BEmbed, BCard, BCardHeader, BCardBody, BCardTitle, BCardText} from "bootstrap-vue"
+
 	import NormalPage from "../layout/NormalPage";
 	import {makeImage} from "../images";
 	import {parseMCCodes} from "../colorFormatter";
@@ -175,6 +174,15 @@
 	export default {
 		components: {
 			NormalPage,
+			BButton,
+			BRow,
+			BCol,
+			BEmbed,
+			BCard,
+			BCardHeader,
+			BCardBody,
+			BCardTitle,
+			BCardText
 		},
 		computed: {
 			images() {

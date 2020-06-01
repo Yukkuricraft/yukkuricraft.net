@@ -4,13 +4,11 @@ import Vue from 'vue'
 import VueRouter from "vue-router";
 import VueI18n from "vue-i18n";
 import Vuex from 'vuex';
+import vueHeadful from 'vue-headful';
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import "./fontAwesomeLibrary";
 
-import vueHeadful from 'vue-headful';
-
-import "bootstrap";
 import "./scss/app.scss";
 
 import "css.escape";

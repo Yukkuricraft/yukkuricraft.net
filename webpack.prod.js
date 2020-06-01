@@ -57,7 +57,7 @@ module.exports = (env, options) => {
 					{from: 'src/modernizr-custom.js', to: 'modernizr-custom.js'}
 				]
 			}),
-			new BundleAnalyzerPlugin()
+			//new BundleAnalyzerPlugin()
 		],
 		optimization: {
 			minimizer: [

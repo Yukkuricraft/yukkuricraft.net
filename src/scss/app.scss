@@ -4,8 +4,43 @@ $font-size-base: 1.2rem;
 
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 @import "sidebar";
-@import "~bootstrap/scss/bootstrap";
+
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/utilities/background";
+@import "~bootstrap/scss/utilities/display";
+@import "~bootstrap/scss/utilities/embed";
+@import "~bootstrap/scss/utilities/flex";
+@import "~bootstrap/scss/utilities/position";
+@import "~bootstrap/scss/utilities/screenreaders";
+@import "~bootstrap/scss/utilities/sizing";
+@import "~bootstrap/scss/utilities/spacing";
+@import "~bootstrap/scss/utilities/text";
+@import "~bootstrap/scss/utilities/visibility";
+
+@import '~bootstrap-vue/src/variables';
+@import '~bootstrap-vue/src/utilities';
+@import '~bootstrap-vue/src/custom-controls';
+@import '~bootstrap-vue/src/components/dropdown/index';
+@import '~bootstrap-vue/src/components/form-input/form-input';
+@import '~bootstrap-vue/src/components/modal/modal';
 
 *[id]:before {
   display: block;

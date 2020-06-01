@@ -6,22 +6,28 @@
 
 			<img v-show="false" :src="images.highRes" @load="switchImage" alt="High res background">
 		</picture>
-		<div class="container h-100">
-			<div class="row text-center align-items-center h-100">
-				<div class="col-md-2"></div>
-				<div class="col parallax-text">
+		<b-container class="h-100">
+			<b-row class="text-center align-items-center h-100">
+				<b-col md="2"></b-col>
+				<b-col class="parallax-text">
 					<slot></slot>
-				</div>
-				<div class="col-md-2"></div>
-			</div>
-		</div>
+				</b-col>
+				<b-col md="2"></b-col>
+			</b-row>
+		</b-container>
 	</div>
 </template>
 
 <script>
 	import {mapState} from 'vuex';
+	import {BContainer, BRow, BCol} from "bootstrap-vue";
 
 	export default {
+		components: {
+			BContainer,
+			BRow,
+			BCol
+		},
 		data() {
 			return {
 				imageToUse: Modernizr.webp ? this.images.lowResWebp : this.images.lowRes,
