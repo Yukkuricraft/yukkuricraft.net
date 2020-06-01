@@ -16,7 +16,6 @@ import "./scss/app.scss";
 import "css.escape";
 
 import InfoPage from './pages/InfoPage'
-import RulesPage from './pages/RulesPage'
 import RanksStaffPage from './pages/RanksStaffPage'
 import CommandsPage from './pages/commands/CommandsPage'
 import GensokyoLocationsPage from "./pages/gensokyo/LocationsPage";
@@ -62,12 +61,6 @@ const router = new VueRouter({
 			pathToRegexpOptions: { strict: true }
 		},
 		{
-			path: '/rules/',
-			name: 'rules',
-			component: RulesPage,
-			pathToRegexpOptions: { strict: true }
-		},
-		{
 			path: '/ranks_staff/',
 			name: 'ranks_staff',
 			component: RanksStaffPage,
@@ -103,16 +96,16 @@ const router = new VueRouter({
 			component: DownloadSurvival,
 			pathToRegexpOptions: { strict: true }
 		},
-		...mdPages.map(({title, path, parallaxHeight, parallaxImages, content, localizedContent}) => ({
-			path,
+		...mdPages.map(({component, localizedComponents, parallaxImages}) => ({
+			path: component.attributes.path,
+			name: component.attributes.vueRouterName,
 			component: MarkdownPage,
 			props: {
-				parallaxHeight,
+				component,
+				localizedComponents,
 				parallaxImages,
-				title,
-				content,
-				localizedContent
-			}
+			},
+			pathToRegexpOptions: { strict: true }
 		})),
 		{
 			path: '*',

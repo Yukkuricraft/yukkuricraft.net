@@ -1,3 +1,11 @@
+---
+title: Rules
+description: All the different rules for YukkuriCraft on it's different platforms.
+canonicalUrl: https://info.yukkuricraft.net/rules/
+path: '/rules/'
+vueRouterName: rules
+---
+
 ## Rules
 *Rules are accessible in-game through /rules*
 

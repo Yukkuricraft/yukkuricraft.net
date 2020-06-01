@@ -4,6 +4,9 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
+const markdownIt = require('markdown-it');
+const markdownItAnchor = require('markdown-it-anchor');
+
 module.exports = (env, options) => {
 
 	return {
@@ -126,11 +129,20 @@ module.exports = (env, options) => {
 				},
 				{
 					test: /\.md$/i,
-					use: {
-						loader: 'raw-loader',
-						options: {
-							esModule: false,
-						}
+					loader: 'frontmatter-markdown-loader',
+					options: {
+						mode: [
+							'vue-component',
+						],
+						markdownIt: markdownIt({linkify: true, typographer: true})
+							.use(markdownItAnchor, {
+								slugify(s) {
+									return String(s).trim().toLowerCase().replace(/\s+/g, '-')
+								},
+								permalink: true,
+								permalinkBefore: true,
+								permalinkSymbol: '<i class="fas fa-link" style="font-size: 0.5em"></i>'
+							})
 					}
 				},
 				{
