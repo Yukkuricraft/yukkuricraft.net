@@ -1,15 +1,15 @@
 <template>
 	<div>
 		<span class="command"><strong>{{ commandStr }}</strong></span>
-		<markdown :content="command.description" />
+		<markdown-lazy :content="command.description" />
 	</div>
 </template>
 
 <script>
-	import Markdown from "../../components/Markdown";
+	import MarkdownLazy from "../../components/MarkdownLazy";
 
 	export default {
-		components: {Markdown},
+		components: {MarkdownLazy},
 		props: {
 			command: {
 				type: Object,

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<heading :id="'commands-' + commandGroupId" :level="3 + depth">{{ commandGroup.displayName }}</heading>
-		<markdown :content="commandGroup.description"></markdown>
+		<markdown-lazy :content="commandGroup.description"></markdown-lazy>
 		<command-groups v-if="commandGroup.subgroups" :depth="depth + 1"
 						:subgroups="commandGroup.subgroups"></command-groups>
 		<ul v-else>
@@ -16,11 +16,11 @@
 	import Heading from "../../components/Heading";
 	import CommandNode from "./CommandNode";
 
-	import Markdown from "../../components/Markdown";
+	import MarkdownLazy from "../../components/MarkdownLazy";
 
 	export default {
 		components: {
-			Markdown,
+			MarkdownLazy,
 			CommandGroups: () => import("./CommandGroups.vue"),
 			CommandNode,
 			Heading

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<heading :id="'location-' + locationId" :level="3 + depth">{{ location.displayName }}</heading>
-		<markdown :content="location.description"></markdown>
+		<markdown-lazy :content="location.description"></markdown-lazy>
 		<locations v-if="location.sublocations" :depth="depth + 1" :locations="location.sublocations"></locations>
 		<div v-if="location.images">
 			<h5>Images</h5>
@@ -35,13 +35,13 @@
 	import {BRow, BCol, BImg, BModal, VBModal, BCarousel, BCarouselSlide} from "bootstrap-vue"
 
 	import Heading from "../../components/Heading";
-	import Markdown from "../../components/Markdown";
+	import MarkdownLazy from "../../components/MarkdownLazy";
 
 	import chunk from "lodash/chunk"
 
 	export default {
 		components: {
-			Markdown,
+			MarkdownLazy,
 			Locations: () => import("./Locations.vue"),
 			Heading,
 			BRow,
