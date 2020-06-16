@@ -23,9 +23,15 @@ export default [
 	},
 	{
 		to: {
-			name: 'ranks_staff'
+			name: 'ranks'
 		},
-		name: 'Ranks and Staff'
+		name: 'Ranks'
+	},
+	{
+		to: {
+			name: 'staff'
+		},
+		name: 'Staff'
 	},
 	{
 		to: {

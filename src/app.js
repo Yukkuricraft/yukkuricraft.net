@@ -14,7 +14,8 @@ import "./scss/app.scss";
 import "css.escape";
 
 import InfoPage from './pages/InfoPage'
-import RanksStaffPage from './pages/RanksStaffPage'
+import RanksPage from './pages/RanksPage'
+import StaffPage from "./pages/StaffPage";
 import CommandsPage from './pages/commands/CommandsPage'
 import GensokyoLocationsPage from "./pages/gensokyo/LocationsPage";
 import GensokyoHelpPage from "./pages/gensokyo/HelpPage";
@@ -59,9 +60,15 @@ const router = new VueRouter({
 			pathToRegexpOptions: { strict: true }
 		},
 		{
-			path: '/ranks_staff/',
-			name: 'ranks_staff',
-			component: RanksStaffPage,
+			path: '/ranks/',
+			name: 'ranks',
+			component: RanksPage,
+			pathToRegexpOptions: { strict: true }
+		},
+		{
+			path: '/staff/',
+			name: 'staff',
+			component: StaffPage,
 			pathToRegexpOptions: { strict: true }
 		},
 		{

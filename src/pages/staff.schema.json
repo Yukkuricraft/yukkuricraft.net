@@ -52,6 +52,9 @@
                 }
               ]
             },
+            "avatar": {
+              "type": "string"
+            },
             "description": {
               "type": "string"
             }

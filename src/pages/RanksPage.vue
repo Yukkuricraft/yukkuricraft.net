@@ -1,12 +1,12 @@
 <template>
 	<normal-page :parallax-images="images">
 		<vue-headful title="YukkuriCraft - Ranks and Staff"
-					 description="The different ranks found on YukkuriCraft, together with the staff and their ranks."
+					 description="The different ranks found on YukkuriCraft."
 					 :image="require('../favicon_upscaled.png')"
-					 url="https://info.yukkuricraft.net/ranks_staff/"/>
+					 url="https://info.yukkuricraft.net/ranks/"/>
 
 		<template v-slot:parallax>
-			<h1>Ranks and Staff</h1>
+			<h1>Ranks</h1>
 		</template>
 
 		<h2 id="ranks">Ranks</h2>
@@ -135,39 +135,6 @@
 			</b-col>
 		</b-row>
 
-		<h2 id="staff">Our Staff</h2>
-		<table class="table smaller-sm-text" v-for="staffGroup in staff">
-			<colgroup>
-				<col style="width: 20%;">
-				<col style="width: 30%;">
-				<col style="width: 50%;">
-			</colgroup>
-			<thead>
-			<tr>
-				<th colspan="1">{{ staffGroup.displayName }}</th>
-				<th :colspan="2">MC Accounts</th>
-			</tr>
-			</thead>
-			<tr v-for="staff in staffGroup.members">
-				<td>{{ staff.name }}</td>
-				<td>
-					<ul v-if="staff.mcAccounts.length > 1" class="list-unstyled">
-						<li v-for="mcAccount in staff.mcAccounts">
-							<img :src="'https://mc-heads.net/avatar/' + mcAccount.uuid + '/32'" :alt="mcAccount.name">
-							{{ mcAccount.name }}
-						</li>
-					</ul>
-					<div v-else>
-						<img :src="'https://mc-heads.net/avatar/' + staff.mcAccounts[0].uuid + '/32'"
-							 :alt="staff.mcAccounts[0].name">
-						{{ staff.mcAccounts[0].name }}
-					</div>
-				</td>
-				<td v-if="staff.description">{{ staff.description }}</td>
-				<td v-else></td>
-			</tr>
-		</table>
-
 		<p>
 			<strong><span style="font-size: xx-large; color: #ff0000;">DISCLAIMER:</span></strong> Mediators <em>do
 			not</em> have authority over builders, they are completely even ranks that do not overpower each other
@@ -181,10 +148,8 @@
 <script>
 	import {BRow, BCol} from "bootstrap-vue"
 
-	import staff from "./staff";
 	import NormalPage from "../layout/NormalPage";
 	import {makeImage} from "../images";
-	import {mapState} from "vuex";
 
 	export default {
 		components: {
@@ -192,15 +157,7 @@
 			BRow,
 			BCol
 		},
-		created() {
-			if(!window.__PRERENDER_INJECTED || !window.__PRERENDER_INJECTED.prerendered) {
-				this.$store.dispatch('staff/loadRealNames')
-			}
-		},
 		computed: {
-			staff() {
-				return staff
-			},
 			images() {
 				return makeImage(
 					require('../images/people.png'),
@@ -208,8 +165,7 @@
 					require('../images/people_small.jpg'),
 					require('../images/people_small.webp'),
 				)
-			},
-			...mapState('staff', ['mcNames'])
+			}
 		}
 	}
 </script>
