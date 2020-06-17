@@ -24,7 +24,8 @@ module.exports = (env, options) => {
 				routes: [
 					'/',
 					'/rules/',
-					'/ranks_staff/',
+					'/ranks/',
+					'/staff/',
 					'/commands/',
 					'/downloads/gensokyo/',
 					'/downloads/survival/',
