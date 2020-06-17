@@ -7,9 +7,9 @@
 				<slot name="parallax"></slot>
 			</parallax-image>
 
-			<div class="container container-pad" :class="isError ? 'container-error' : ''">
+			<b-container class="container-pad" :class="isError ? 'container-error' : ''">
 				<slot></slot>
-			</div>
+			</b-container>
 		</div>
 
 		<info-footer></info-footer>
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+	import {BContainer} from "bootstrap-vue";
+
 	import InfoHeader from "../components/InfoHeader";
 	import InfoFooter from "../components/InfoFooter";
 	import ParallaxImage from "../components/ParallaxImage";
@@ -25,7 +27,8 @@
 		components: {
 			InfoHeader,
 			InfoFooter,
-			ParallaxImage
+			ParallaxImage,
+			BContainer
 		},
 		props: {
 			parallaxImages: Object,

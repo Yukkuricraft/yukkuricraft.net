@@ -7,10 +7,10 @@
 
 		<template v-slot:parallax>
 			<h1>"Gensokyo ~ The Second Dream" Map download</h1>
-			<a class="btn btn-primary" href="https://mega.nz/#F!5hU2HCJC!IpwU8ZjpwSALOgLjoZtNlA">Downloads</a>
+			<b-button variant="primary" href="https://mega.nz/#F!5hU2HCJC!IpwU8ZjpwSALOgLjoZtNlA">Downloads</b-button>
 		</template>
 
-		<div class="alert alert-warning mt-3" role="alert" style="font-size: 85%">
+		<b-alert show variant="warning" class="mt-3" style="font-size: 85%">
 			<h2 class="alert-heading h5">Missing and broken features in Vanilla</h2>
 			<p class="mb-2">
 				While we try as best we can to give you a great experience, some things might not work correctly. Our
@@ -25,7 +25,7 @@
 				<li>Portals/teleportation not working</li>
 				<li>Vegetation growing</li>
 			</ul>
-		</div>
+		</b-alert>
 
 		<p v-if="showI18nExample">message: {{ $t('hello') }}</p>
 
@@ -51,11 +51,17 @@
 </i18n>
 
 <script>
+	import {BButton, BAlert} from "bootstrap-vue"
+
 	import NormalPage from "../../layout/NormalPage";
 	import {makeImage} from "../../images";
 
 	export default {
-		components: {NormalPage},
+		components: {
+			NormalPage,
+			BButton,
+			BAlert
+		},
 		computed: {
 			showI18nExample() {
 				return false

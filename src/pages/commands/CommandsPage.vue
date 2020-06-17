@@ -30,11 +30,10 @@
 				This is nowhere near a complete list of commands, just some of the basics!
 			</p>
 
-			<div class="form-group">
+			<b-form-group>
 				<label for="commandsSearch">Search:</label>
-				<input id="commandsSearch" type="text" class="form-control" placeholder="Search commands..."
-					   v-model="filter">
-			</div>
+				<b-form-input id="commandsSearch" type="text" placeholder="Search commands..." v-model="filter" />
+			</b-form-group>
 
 			<div id="commandGroups">
 				<command-groups :subgroups="commands" :depth="0"/>
@@ -44,6 +43,8 @@
 </template>
 
 <script>
+	import {BFormGroup, BFormInput} from "bootstrap-vue"
+
 	import CommandGroups from "./CommandGroups";
 	import CommandSidebarEntries from "./CommandSidebarEntries";
 	import SidebarPage from "../../layout/SidebarPage";
@@ -64,6 +65,8 @@
 			SidebarPage,
 			CommandSidebarEntries,
 			CommandGroups,
+			BFormGroup,
+			BFormInput
 		},
 		data() {
 			return {

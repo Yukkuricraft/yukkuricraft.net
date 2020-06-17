@@ -1,16 +1,21 @@
 <template>
 	<div class="navbar-text">
-		<div class="form-inline">
+		<b-form inline>
 			<label class="m-1" for="locale">Locale: </label>
-			<select class="form-control p-0 h-100" id="locale" v-model="locale">
-				<option v-for="(locale, localeValue) in supportedLocales" :value="localeValue">{{ locale }}</option>
-			</select>
-		</div>
+			<b-form-select plain :select-size="null" class="p-0 h-100" id="locale" v-model="locale" :options="supportedLocales" />
+		</b-form>
 	</div>
 </template>
 
 <script>
+	import {BNavText, BForm, BFormSelect} from "bootstrap-vue"
+
 	export default {
+		components: {
+			BNavText,
+			BForm,
+			BFormSelect
+		},
 		data() {
 			return {
 				locale: this.$i18n.locale
@@ -23,11 +28,19 @@
 		},
 		computed: {
 			supportedLocales() {
-				return {
-					'en': 'English',
+				return [
+					{
+						value: 'en',
+						text: 'English'
+					},
 					//Remi, please localize stuff
-					//'ja': 'Japanese'
-				}
+					/*
+					{
+						value: 'ja',
+						text: 'Japanese'
+					},
+					 */
+				]
 			}
 		}
 	}

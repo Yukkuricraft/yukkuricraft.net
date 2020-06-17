@@ -1,43 +1,50 @@
 <template>
-	<nav id="top-navbar" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-		<div v-if="inContainer" class="container">
+	<b-navbar toggleable="lg" type="dark" variant="primary" sticky id="top-navbar">
+		<b-container v-if="inContainer">
 			<slot name="top"></slot>
-			<router-link class="navbar-brand" :to="{name: 'info'}">Yukkuricraft</router-link>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<navbar-links id="navbarSupportedContent"></navbar-links>
+			<router-link :to="{name: 'info'}" v-slot="{href, navigate}">
+				<b-navbar-brand :href="href" @click="navigate">Yukkuricraft</b-navbar-brand>
+			</router-link>
+			<b-navbar-toggle target="navbarSupportedContent" />
+			<b-collapse is-nav id="navbarSupportedContent">
+				<navbar-links></navbar-links>
+			</b-collapse>
 
 			<navbar-locale-changer></navbar-locale-changer>
 			<slot name="bottom"></slot>
-		</div>
+		</b-container>
 
 		<template v-else>
 			<slot name="top"></slot>
-			<router-link class="navbar-brand" :to="{name: 'info'}">Yukkuricraft</router-link>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<navbar-links id="navbarSupportedContent"></navbar-links>
+			<router-link :to="{name: 'info'}" v-slot="{href, navigate}">
+				<b-navbar-brand :href="href" @click="navigate">Yukkuricraft</b-navbar-brand>
+			</router-link>
+			<b-navbar-toggle target="navbarSupportedContent" />
+			<b-collapse is-nav id="navbarSupportedContent">
+				<navbar-links></navbar-links>
+			</b-collapse>
 
 			<navbar-locale-changer></navbar-locale-changer>
 			<slot name="bottom"></slot>
 		</template>
-	</nav>
+	</b-navbar>
 </template>
 
 <script>
+	import {BNavbar, BContainer, BNavbarBrand, BNavbarToggle, BCollapse} from "bootstrap-vue"
+
 	import NavbarLinks from "./NavbarLinks"
 	import NavbarLocaleChanger from "./NavbarLocaleChanger"
 
 	export default {
 		components: {
+			BNavbar,
+			BContainer,
+			BNavbarBrand,
+			BNavbarToggle,
+			BCollapse,
 			NavbarLinks,
-			NavbarLocaleChanger
+			NavbarLocaleChanger,
 		},
 		props: {
 			inContainer: {

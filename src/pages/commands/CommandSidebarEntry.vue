@@ -1,10 +1,10 @@
 <template>
 	<li>
 		<template v-if="subgroup.subgroups">
-			<a data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"
-			   :href="'#commandsSidebar-' + subgroupId">{{ subgroup.menuName }}</a>
-			<command-sidebar-entries :id="'commandsSidebar-' + subgroupId" class="collapse"
-									 :subgroups="subgroup.subgroups"></command-sidebar-entries>
+			<a v-b-toggle :href="'#commandsSidebar-' + subgroupId" class="dropdown-toggle" @click.prevent>{{ subgroup.menuName }}</a>
+			<b-collapse :id="'commandsSidebar-' + subgroupId">
+				<command-sidebar-entries :subgroups="subgroup.subgroups"></command-sidebar-entries>
+			</b-collapse>
 		</template>
 		<template v-else>
 			<a :href="'#commands-' + subgroupId">{{ subgroup.menuName }}</a>
@@ -13,10 +13,15 @@
 </template>
 
 <script>
+	import { VBToggle, BCollapse } from 'bootstrap-vue'
 
 	export default {
 		components: {
+			BCollapse,
 			CommandSidebarEntries: () => import("./CommandSidebarEntries")
+		},
+		directives: {
+			'b-toggle': VBToggle
 		},
 		props: {
 			subgroup: {

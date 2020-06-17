@@ -4,20 +4,18 @@ import Vue from 'vue'
 import VueRouter from "vue-router";
 import VueI18n from "vue-i18n";
 import Vuex from 'vuex';
+import vueHeadful from 'vue-headful';
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import "./fontAwesomeLibrary";
 
-import vueHeadful from 'vue-headful';
-
-import "bootstrap";
 import "./scss/app.scss";
 
 import "css.escape";
 
 import InfoPage from './pages/InfoPage'
-import RulesPage from './pages/RulesPage'
-import RanksStaffPage from './pages/RanksStaffPage'
+import RanksPage from './pages/RanksPage'
+import StaffPage from "./pages/StaffPage";
 import CommandsPage from './pages/commands/CommandsPage'
 import GensokyoLocationsPage from "./pages/gensokyo/LocationsPage";
 import GensokyoHelpPage from "./pages/gensokyo/HelpPage";
@@ -62,15 +60,15 @@ const router = new VueRouter({
 			pathToRegexpOptions: { strict: true }
 		},
 		{
-			path: '/rules/',
-			name: 'rules',
-			component: RulesPage,
+			path: '/ranks/',
+			name: 'ranks',
+			component: RanksPage,
 			pathToRegexpOptions: { strict: true }
 		},
 		{
-			path: '/ranks_staff/',
-			name: 'ranks_staff',
-			component: RanksStaffPage,
+			path: '/staff/',
+			name: 'staff',
+			component: StaffPage,
 			pathToRegexpOptions: { strict: true }
 		},
 		{
@@ -103,16 +101,16 @@ const router = new VueRouter({
 			component: DownloadSurvival,
 			pathToRegexpOptions: { strict: true }
 		},
-		...mdPages.map(({title, path, parallaxHeight, parallaxImages, content, localizedContent}) => ({
-			path,
+		...mdPages.map(({component, localizedComponents, parallaxImages}) => ({
+			path: component.attributes.path,
+			name: component.attributes.vueRouterName,
 			component: MarkdownPage,
 			props: {
-				parallaxHeight,
+				component,
+				localizedComponents,
 				parallaxImages,
-				title,
-				content,
-				localizedContent
-			}
+			},
+			pathToRegexpOptions: { strict: true }
 		})),
 		{
 			path: '*',

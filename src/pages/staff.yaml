@@ -1,0 +1,226 @@
+- id: owner
+  displayName: Owner
+  members:
+    - name: Remi
+      mcAccounts:
+        - name: Remi_Scarlet
+          uuid: 7e55e238-6225-4b32-9a49-5ad7676ba121
+        - name: DivineAquaSama
+          uuid: 2100d93b-87e4-46f0-9479-affde3e5b02f
+        - name: 7h3d4rkw0lf
+          uuid: 9f3ee4af-34de-4943-9a84-45d713778b4c
+        - name: Kanzaki_Ranran
+          uuid: 0e359afb-770e-4f6f-9e64-ab4633f8b91c
+      discordAccount: '71481644896235520'
+      avatar: 'remi_avatar.png'
+      description: >-
+        Hi, Remi here. I've been around the Touhou Minecraft communities for about a decade now
+        and helped found Yukkuricraft. These days, I mostly work on the tech side of things
+        along with the help of a team of amazing staff. I'm not as responsive on Discord as some others,
+        but feel free to shoot me a message if you ever have questions! (Remi#5619)
+
+- id: admin
+  displayName: Admins
+  members:
+    - name: Cyros
+      mcAccounts:
+        - name: Cyros_Lugoth
+          uuid: e48a9755-b091-4b2c-a3ae-98da341924f6
+        - name: Komeiji_Koishi
+          uuid: 675b6e35-0147-4cf9-9709-daf6fa8ac972
+        - name: Seija_Kijin
+          uuid: 47515849-e82d-4412-b25e-b4d76b4b5443
+      discordAccount: '243006975493931008'
+      avatar: 'cyros_avatar.png'
+      description: >-
+        Cyros here. I do a little bit of everything to help the community.
+        Whether it's helping users with some issues, working on the Gensokyo project,
+        dealing with problematic people, or just being a chill guy to chat with.
+        I'm mostly on our Minecraft server, but feel free to DM me on Discord anytime.
+        I will more than likely respond.
+
+    - name: Teshno
+      mcAccounts:
+        - name: Teshno
+          uuid: 225895ef-fdaf-4403-ba6c-d4fe6fd6bdbc
+      discordAccount: '206917136373907456'
+      avatar: 'teshno_avatar.png'
+      description: >-
+        Heya, I'm the local nyadmin Teshno. For the most part, I lurk around and try to remain playful and friendly,
+        but I won't hesitate to deal with troublemakers, so please remain on your best behavior.
+        I strive to keep our community moving forward, so I do what I can to oversee the server and its staff.
+        If you need to ask me anything, I'm open for DM's. Otherwise, I hope you enjoy your stay~!
+
+- id: sysadmin
+  displayName: Sysadmins
+  members:
+    - name: Tsunko
+      mcAccounts:
+        - name: Hinanawi__Tenshi
+          uuid: 434d8cf1-3fa2-43bf-9e12-dbeb485d90a8
+        - name: TsunkoH
+          uuid: 27028066-b53a-4c0d-9aca-14f29a51e111
+        - name: JohnnyPussyFists
+          uuid: 49c7b314-3164-423c-8e66-182839f6f7a7
+      discordAccount: '141402947266281473'
+      avatar: 'tsunko_avatar.png'
+      description: >-
+        Hi - I'm your resident pepega that primarily deals with plugins. I don't usually appear,
+        but when I do, it's probably beacuse I broke something. If no one else is online and the
+        server is on fire for the 64th time in the hour, chances are that I'm online,
+        so shoot me a DM on Discord! (tsunko#0001 - I'm usually set to invisible.)
+
+    - name: Katrix
+      mcAccounts:
+        - name: Kogasa_Tatara
+          uuid: 9c36eef0-c7ed-4eaf-99f7-984ff7c0a794
+        - name: Clownpiece_
+          uuid: 6611d165-54bb-4007-8dc5-cd4f6b168745
+        - name: Komeiji_Satori
+          uuid: a8c472e6-6d23-4122-8a49-3d44ac770364
+        - name: Okina_Matara
+          uuid: 144337f3-85b8-4547-9721-a30f882d19bd
+      discordAccount: '109755047914573824'
+      avatar: 'katrix_avatar.png'
+      description: >-
+        Hi, I'm Katrix, the one that deal with the daily technical side of YukkuriCraft. Whether
+        it's server plugins, the Minecraft version of the server or this website you're looking at right
+        now. I'm the one that for the most part deals with it. I rarely peek out of my lurker den, but
+        just tag me and I'll answer your question.
+
+- id: mediator
+  displayName: Mediators
+  members:
+    - name: Luna
+      mcAccounts:
+        - name: TRXD
+          uuid: 06526838-2df6-425a-a418-b12c5bb6f524
+        - name: Trista_Lundin
+          uuid: 94ec4d00-abbf-40de-9258-66b027735131
+      discordAccount: '97035222385700864'
+      avatar: 'luna_avatar.png'
+      description: >-
+        Hello, I am Luna. I'm in charge of the mediator team in Yukkuricraft. I love flowers, cuddles,
+        things that shine in the night sky, and just having fun. You'll see me swing by the server to
+        check up on what may be going down, build something in creative or for Gensokyo, or simply hang
+        out. Feel free to message me if you need any help on the server or if you just want to chat.
+
+    - name: PhantomNerifes
+      mcAccounts:
+        - name: PhantomNerifes
+          uuid: 458c0c72-fdec-4f95-859e-e3e475efb226
+      discordAccount: '147985568280608768'
+      avatar: 'phantom_avatar.png'
+      description: >-
+        I'm phantom, one of the mediators. I play mostly co-op games and outdoor activities.
+        I'm not the easiest person to approach but I'm not inherently mean to everyone,
+        just wary of people/things I'm not familiar with. If you are confused feel free to ask
+        questions but please be direct, it makes answering questions easier and quicker.
+
+    - name: Alorai
+      mcAccounts:
+        - name: Aloraichium_Z
+          uuid: 051a4113-9e57-4c9d-a7b7-084d63e15996
+      discordAccount: '164176051294044161'
+      avatar: 'alorai_avatar.png'
+      description: >-
+        Zip zap. Hello! Name's Aloraichium_Z, but folks here generally call me Alorai. I do a lot of
+        illager raids, mining, and just mainly slacking around when nothing happens much. Oh, I
+        wield a squeaky banhammer! For the most part, just have a good time,  chat with me if you wish,
+        and do not do anything too stupid!
+
+    - name: Tony
+      mcAccounts:
+        - name: TexasTony
+          uuid: 773534dd-1c03-4408-9ae7-b40460034f18
+      discordAccount: '282393922171437067'
+      avatar: 'tony_avatar.png'
+      description: >-
+        Hey, TexasTony here. I'm one of the Mediators on the server and deal with moderating and helping the community.
+        I enjoy building and occasionally help out with official server builds,
+        such as Paintball and Gensokyo. I'm also the only Mediator to be situated near SEA,
+        so if you're a player from that region, you'll most likely be encountering me quite a lot.
+        If there's any questions or issues, feel free to notify me, I'll be happy to help.
+        Enjoy your stay and remember to take it easy!
+
+        P.S. As contrary to popular belief, no, I am not from the Texas.
+
+- id: builder
+  displayName: Builders
+  members:
+    - name: KokoNuttz
+      mcAccounts:
+        - name: KokoNuttz
+          uuid: e18aa899-1c62-41ad-acc4-2ef50e46114a
+      discordAccount: '201939654239322113'
+      avatar: 'koko_avatar.png'
+      description: >-
+        Hi I'm Koko. I'm the Lead Builder on Yukkuricraft. I basically make sure
+        the temp builders and the builders are doing their jobs. Along with that,
+        I would say I'm one of the driving forces behind Gensokyo 3 (still a W.I.P).
+        If you ever want to work on Gensokyo don't feel afraid to step up.
+        It doesn't matter if you're good or not good at building there's a place
+        for everyone in the project here. Anyways, if you're ever interested in
+        working on Gensokyo or becoming a Temp Builder just ask me or one of the builders! \o/
+
+    - name: qscgukp
+      mcAccounts:
+        - name: qscgukp
+          uuid: 04fdd713-7153-40a3-a6a5-f7d69be4f63b
+      discordAccount: '217449039447195649'
+      avatar: 'qsc_avatar.png'
+      description: >-
+        Hello I am qscgukp or qsc, iku, quasi etc.  I am a builder here on Yukuricraft.
+        I am willing to help anyone out who needs it so if I’m online and you need anything let me know.
+
+    - name: Redleaf64
+      mcAccounts:
+        - name: Redleaf64
+          uuid: a06791c1-5ccd-4894-9307-71818e119756
+      discordAccount: '193195158898999316'
+      avatar: 'redleaf_avatar.png'
+      description: >-
+        I'm Redleaf, an old builder of the server. I'm a builder for Gensokyo and other things,
+        manager of the paintball minigame, and weird artist person.
+        When on the server I'm probably working on things, in survival, or just hanging around.
+        I'm usually around on discord too so if you have questions regarding Genso or anything
+        else feel free to ask.
+
+    - name: Birb
+      mcAccounts:
+        - name: wanderingAviator
+          uuid: daded0ae-3e92-4c0d-868f-35187fff5c4e
+      discordAccount: '206892131590078464'
+      avatar: 'birb_avatar.png'
+      description: >-
+        Hi! I'm Birb, a builder on YukkuriCraft! I like Warframe, music things,
+        and shenanigans with people \o<o/ if you want to hang out on the server, or just chat,
+        don't be afraid to say hey!
+
+    - name: Purp
+      mcAccounts:
+        - name: purpleFinatic
+          uuid: 0093a48d-b26a-4e01-b090-f44ada97573e
+      discordAccount: '206905958838960128'
+      avatar: 'purp_avatar.png'
+      description: >-
+        Hey yall! I'm Purp, another builder on YukkuriCraft! I'm Birb's twin, so if you see one of us online,
+        the other probably won't be very far away. I like vibing with people, Warframe, drawing,
+        and a wide variety of other things! Feel free to come hang out if you want!
+
+- id: misc
+  displayName: Misc
+  members:
+    - name: S121
+      mcAccounts:
+        - name: S_121
+          uuid: 10e9a380-6524-44b4-88b1-ee25514b5cf9
+      discordAccount: '265758981094506497'
+      description: >-
+        Hi there!
+
+        I'm S121, but most people call me S1.  I am the Roleplay Moderator of the YC community,
+        which means I usually organize the RP threads and resolve issues when they arise.
+        I generally can be found playing Warframe, Minecraft, Halo, or whatever else catches my fancy.
+        Tend to spend most of my time on Discord and am pretty easy to get along with.
+        If you ever have a question, just give me a holler.

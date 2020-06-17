@@ -4,6 +4,9 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
+const markdownIt = require('markdown-it');
+const markdownItAnchor = require('markdown-it-anchor');
+
 module.exports = (env, options) => {
 
 	return {
@@ -12,6 +15,7 @@ module.exports = (env, options) => {
 		},
 		output: {
 			filename: '[name].js',
+			chunkFilename: '[name].js',
 			path: path.resolve(__dirname, 'dist'),
 			publicPath: '/'
 		},
@@ -64,7 +68,16 @@ module.exports = (env, options) => {
 					use: [
 						options.mode !== 'production' ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
 						'css-loader',
-						'postcss-loader',
+						{
+							loader: 'postcss-loader',
+							options: {
+								config: {
+									ctx: {
+										mode: options.mode
+									}
+								}
+							}
+						},
 						{
 							loader: 'sass-loader',
 							options: {
@@ -80,7 +93,16 @@ module.exports = (env, options) => {
 					use: [
 						options.mode !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
 						'css-loader',
-						'postcss-loader'
+						{
+							loader: 'postcss-loader',
+							options: {
+								config: {
+									ctx: {
+										mode: options.mode
+									}
+								}
+							}
+						},
 					]
 				},
 				{
@@ -108,11 +130,20 @@ module.exports = (env, options) => {
 				},
 				{
 					test: /\.md$/i,
-					use: {
-						loader: 'raw-loader',
-						options: {
-							esModule: false,
-						}
+					loader: 'frontmatter-markdown-loader',
+					options: {
+						mode: [
+							'vue-component',
+						],
+						markdownIt: markdownIt({linkify: true, typographer: true})
+							.use(markdownItAnchor, {
+								slugify(s) {
+									return String(s).trim().toLowerCase().replace(/\s+/g, '-')
+								},
+								permalink: true,
+								permalinkBefore: true,
+								permalinkSymbol: '<i class="fas fa-link" style="font-size: 0.5em"></i>'
+							})
 					}
 				},
 				{
@@ -128,7 +159,7 @@ module.exports = (env, options) => {
 		},
 		resolve: {
 			alias: {
-				'vue$': 'vue/dist/vue.esm.js'
+				'vue$': 'vue/dist/vue.runtime.esm.js'
 			},
 			extensions: ['*', '.js', '.vue', '.json']
 		},

@@ -4,31 +4,44 @@
 			<h1>{{ title }}</h1>
 		</template>
 
+		<vue-headful :title="'YukkuriCraft - ' + title"
+					 :description="description"
+					 :image="require('../../favicon_upscaled.png')"
+					 :url="canonicalUrl"/>
+
 		<slot></slot>
 
-		<markdown :content="usedContent"></markdown>
+		<component :is="usedComponent.vue.component"></component>
 	</normal-page>
 </template>
 
 <script>
 	import NormalPage from "../../layout/NormalPage";
-	import Markdown from "../../components/Markdown";
 
 	export default {
-		components: {Markdown, NormalPage},
+		components: {
+			NormalPage,
+		},
 		props: {
-			parallaxHeight: Number,
-			parallaxImages: Object,
-			title: String,
-			content: String,
-			localizedContent: Object
+			component: Object,
+			localizedComponents: Object,
+			parallaxImages: Object
 		},
 		computed: {
-			defaultContent() {
-				return this.content ? this.content : this.localizedContent['en']
+			usedComponent() {
+				return this.localizedComponents && this.localizedComponents[this.$i18n.locale] || this.component
 			},
-			usedContent() {
-				return this.localizedContent && this.localizedContent[this.$i18n.locale] || this.defaultContent;
+			parallaxHeight() {
+				return this.component.attributes.parallaxHeight
+			},
+			title() {
+				return this.component.attributes.title
+			},
+			description() {
+				return this.component.attributes.description
+			},
+			canonicalUrl() {
+				return this.component.attributes.canonicalUrl
 			}
 		}
 	}

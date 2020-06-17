@@ -1,5 +1,7 @@
-module.exports = {
-	plugins: {
-		'autoprefixer': true
-	}
-};
+module.exports = (ctx) => {
+	return {
+		plugins: [
+			require('autoprefixer')
+		]
+	};
+}
