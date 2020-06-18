@@ -33,6 +33,27 @@
 				</b-media>
 			</ul>
 		</template>
+
+		<template v-if="sakores">
+			<h3 id="sakores" class="mt-5">Sakores</h3>
+
+			<b-media class="mt-5">
+				<template v-slot:aside>
+					<b-avatar variant="primary" size="96" text="S"></b-avatar>
+				</template>
+				<h4>Sakores</h4>
+
+				<p>Sakores</p>
+
+				<h5>Minecraft accounts</h5>
+				<ul class="list-unstyled">
+					<li>
+						<img :src="'https://mc-heads.net/avatar/5c395d66-8b15-49c1-957a-3b0b41f9eeba/32'" alt="Sakores">
+						Sakores
+					</li>
+				</ul>
+			</b-media>
+		</template>
 	</normal-page>
 </template>
 
@@ -54,7 +75,10 @@
 		},
 		data() {
 			return {
-				staffAvatars: {}
+				staffAvatars: {},
+				sakores: false,
+				sakoresHandler: null,
+				sakoresIdx: 0
 			}
 		},
 		created() {
@@ -62,8 +86,32 @@
 				this.$store.dispatch('staff/loadRealNames')
 			}
 			this.loadAvatars();
+
+			if(!this.sakoresHandler) {
+				this.sakoresHandler = document.addEventListener('keydown', this.processSakores)
+			}
+		},
+		beforeDestroy() {
+			if(this.sakoresHandler) {
+				document.removeEventListener('keydown', this.sakoresHandler);
+				this.sakoresHandler = null;
+			}
 		},
 		methods: {
+			processSakores(event) {
+				if (event.isComposing || event.keyCode === 229 || this.sakores) {
+					return;
+				}
+
+				if('sakores'.charAt(this.sakoresIdx) === event.key) {
+					this.sakoresIdx++;
+				}
+				else {
+					this.sakoresIdx = 0;
+				}
+
+				this.sakores = 'sakores'.length === this.sakoresIdx;
+			},
 			loadAvatars() {
 				for (let staffGroup of staff) {
 					for (let staffMember of staffGroup.members) {
