@@ -143,7 +143,7 @@
         If there's any questions or issues, feel free to notify me, I'll be happy to help.
         Enjoy your stay and remember to take it easy!
 
-        P.S. As contrary to popular belief, no, I am not from the Texas.
+        P.S. As contrary to popular belief, no, I am not from Texas.
 
 - id: builder
   displayName: Builders
@@ -216,6 +216,7 @@
         - name: S_121
           uuid: 10e9a380-6524-44b4-88b1-ee25514b5cf9
       discordAccount: '265758981094506497'
+      avatar: 's121_avatar.png'
       description: >-
         Hi there!
 

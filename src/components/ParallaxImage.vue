@@ -1,7 +1,6 @@
 <template>
-	<div :style="{height: '600px'}">
-		<!-- Two divs here to try to get around flash when the image switches -->
-		<div class="parallax" :style="{height: '600px', 'background-image': 'url(' + lowResImageToUse + ')' }" v-show="!imageLoaded">
+	<div :style="{height: height + 'px'}">
+		<div class="parallax" :style="{height: height + 'px', 'background-image': 'url(' + imageToUse + ')'}">
 			<b-container class="h-100">
 				<b-row class="text-center align-items-center h-100">
 					<b-col md="2"></b-col>
@@ -12,20 +11,9 @@
 				</b-row>
 			</b-container>
 		</div>
-		<div class="parallax" :style="{height: '600px', 'background-image': 'url(' + imageToUse + ')' }" v-show="imageLoaded">
-			<b-container class="h-100">
-				<b-row class="text-center align-items-center h-100">
-					<b-col md="2"></b-col>
-					<b-col class="parallax-text">
-						<slot></slot>
-					</b-col>
-					<b-col md="2"></b-col>
-				</b-row>
-			</b-container>
-		</div>
-		<picture @load="switchImage">
-			<source :srcset="images.highResWebp" type="image/webp" @load="switchImage">
-			<source :srcset="images.highRes" :type="images.type" @load="switchImage">
+		<picture>
+			<source :srcset="images.highResWebp" type="image/webp">
+			<source :srcset="images.highRes" :type="images.type">
 
 			<img v-show="false" :src="images.highRes" @load="switchImage" alt="High res background">
 		</picture>
@@ -33,7 +21,6 @@
 </template>
 
 <script>
-	import {mapState} from 'vuex';
 	import {BContainer, BRow, BCol} from "bootstrap-vue";
 
 	export default {
@@ -44,7 +31,6 @@
 		},
 		data() {
 			return {
-				imageLoaded: false,
 				imageToUse: Modernizr.webp ? this.images.lowResWebp : this.images.lowRes,
 			}
 		},
@@ -55,18 +41,9 @@
 				default: 600
 			}
 		},
-		computed: {
-			lowResImageToUse() {
-				return Modernizr.webp ? this.images.lowResWebp : this.images.lowRes
-			}
-		},
-		watch: {
-			imageToUse() {
-				this.imageLoaded = true;
-			}
-		},
 		methods: {
 			switchImage(event) {
+				console.log(event)
 				if(!window.__PRERENDER_INJECTED || !window.__PRERENDER_INJECTED.prerendered) {
 					if (typeof event.target.currentSrc === 'undefined') {
 						this.imageToUse = event.target.src;

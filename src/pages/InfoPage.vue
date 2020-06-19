@@ -140,7 +140,7 @@
 			method.
 		</p>
 		<ol>
-			<li><strong>Email: </strong>scarletjaeger (@) gmail.com</li>
+			<li><strong>Email: </strong>remi (@) yukkuricraft.net</li>
 			<li><strong>Discord: </strong>Remi#5619</li>
 			<li><strong>Steam: </strong>Mr. Bromilia Amatsukaze Scarlet</li>
 		</ol>
