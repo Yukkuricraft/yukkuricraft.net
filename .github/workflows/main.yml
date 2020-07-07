@@ -46,6 +46,11 @@ jobs:
       with:
         args: yarn build
 
+    - name: Yarn Create sitemap
+      uses: ianwalter/puppeteer@3.0.0
+      with:
+        args: yarn run create-sitemap
+
     - name: Deploy-Info-Dev
       if: steps.extract_branch.outputs.branch == 'dev'
       uses: s0/git-publish-subdir-action@v2.0.0

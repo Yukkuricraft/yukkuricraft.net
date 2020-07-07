@@ -9,6 +9,9 @@ const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+let pages = require('./pages')
+pages.map(p => p.url)
+
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
 let isCI = typeof process.env.CI !== 'undefined' && process.env.CI;
@@ -21,18 +24,7 @@ module.exports = (env, options) => {
 			new PrerenderSPAPlugin({
 				staticDir: path.join(__dirname, 'dist'),
 				indexPath: path.join(__dirname, 'dist', 'index.html'),
-				routes: [
-					'/',
-					'/rules/',
-					'/ranks/',
-					'/staff/',
-					'/commands/',
-					'/downloads/gensokyo/',
-					'/downloads/survival/',
-					'/gensokyo/',
-					'/gensokyo/help/',
-					'/404',
-				],
+				routes: pages.map(p => p.url),
 				renderer: new Renderer({
 					headless: true,
 					renderAfterDocumentEvent: 'render-event',
