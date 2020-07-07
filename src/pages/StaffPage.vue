@@ -13,8 +13,8 @@
 		<template v-for="staffGroup in staff">
 			<h3 :id="staffGroup.id" class="mt-5">{{ staffGroup.displayName }}</h3>
 
-			<ul class="list-unstyled" v-for="staffMember in staffGroup.members">
-				<b-media tag="li" class="mt-5">
+			<ul class="list-unstyled">
+				<b-media tag="li" class="mt-5" v-for="staffMember in staffGroup.members" :key="staffGroup.id + staffMember.name">
 					<template v-slot:aside>
 						<b-avatar variant="primary" size="96" :text="staffMember.name.substring(0, 1)"
 								  :src="staffAvatars[staffGroup.id + '-' + staffMember.name].avatar"></b-avatar>
