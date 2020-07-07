@@ -54,22 +54,6 @@
 - id: sysadmin
   displayName: Sysadmins
   members:
-    - name: Tsunko
-      mcAccounts:
-        - name: Hinanawi__Tenshi
-          uuid: 434d8cf1-3fa2-43bf-9e12-dbeb485d90a8
-        - name: TsunkoH
-          uuid: 27028066-b53a-4c0d-9aca-14f29a51e111
-        - name: JohnnyPussyFists
-          uuid: 49c7b314-3164-423c-8e66-182839f6f7a7
-      discordAccount: '141402947266281473'
-      avatar: 'tsunko_avatar.png'
-      description: >-
-        Hi - I'm your resident pepega that primarily deals with plugins. I don't usually appear,
-        but when I do, it's probably beacuse I broke something. If no one else is online and the
-        server is on fire for the 64th time in the hour, chances are that I'm online,
-        so shoot me a DM on Discord! (tsunko#0001 - I'm usually set to invisible.)
-
     - name: Katrix
       mcAccounts:
         - name: Kogasa_Tatara
