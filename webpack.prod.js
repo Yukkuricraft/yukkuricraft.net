@@ -10,7 +10,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 let pages = require('./pages')
-pages.map(p => p.url)
 
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 

@@ -6,7 +6,6 @@ let nowTime = new Date().toISOString();
 function makeEntry(obj) {
 	let time = nowTime;
 	if(obj.mainContent) {
-		console.log(obj.mainContent)
 		time = obj.mainContent.map(path => fs.statSync(path).mtime).sort()[0].toISOString();
 	}
 
