@@ -54,7 +54,7 @@
 	import {BButton, BAlert} from "bootstrap-vue"
 
 	import NormalPage from "../../layout/NormalPage";
-	import {makeImage} from "../../images";
+	import {autoImage} from "../../images";
 
 	export default {
 		components: {
@@ -67,12 +67,7 @@
 				return false
 			},
 			images() {
-				return makeImage(
-					require('../../images/hakurei_inside.png'),
-					require('../../images/hakurei_inside.webp'),
-					require('../../images/hakurei_inside_small.jpg'),
-					require('../../images/hakurei_inside_small.webp'),
-				)
+				return autoImage('hakurei_inside')
 			}
 		}
 	}

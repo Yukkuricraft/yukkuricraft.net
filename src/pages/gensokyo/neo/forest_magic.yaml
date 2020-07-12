@@ -6,18 +6,14 @@ neogenso:
       displayName: Forest of Magic
       menuName: Forest of Magic
       images:
-        - large: neo/forest_magic/hakurei_shrine.png
-          small: neo/forest_magic/hakurei_shrine_small.jpg
+        - name: neo/forest_magic/hakurei_shrine
           image_taken_by: Katrix
 
-        - large: neo/forest_magic/alice.png
-          small: neo/forest_magic/alice_small.jpg
+        - name: neo/forest_magic/alice
           image_taken_by: Katrix
 
-        - large: neo/forest_magic/marisa.png
-          small: neo/forest_magic/marisa_small.jpg
+        - name: neo/forest_magic/marisa
           image_taken_by: Katrix
 
-        - large: neo/forest_magic/kourindu.png
-          small: neo/forest_magic/kourindu_small.jpg
+        - name: neo/forest_magic/kourindu
           image_taken_by: Katrix

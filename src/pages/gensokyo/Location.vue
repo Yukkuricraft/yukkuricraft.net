@@ -10,7 +10,12 @@
 			<b-row v-b-modal="'locationModal-' + locationId">
 				<b-col md="4" sm="6" cols="12" v-for="(image, i) in loadedImages" :key="i">
 					<div v-if="image.loaded" class="d-block mb-4 h-100" @click="slide = i">
-						<b-img loading="lazy" fluid thumbnail :src="image.small"></b-img>
+						<picture>
+							<source :srcset="image.lowResWebp" type="image/webp">
+							<source :srcset="image.lowRes" type="image/jpeg">
+
+							<img class="img-fluid img-thumbnail" loading="lazy" :src="image.lowRes" :alt="image.name">
+						</picture>
 					</div>
 					<div v-else class="d-block mb-4 h-100">
 						<font-awesome-icon :icon="['fas', 'spinner']" spin size="2x"/>
@@ -21,10 +26,18 @@
 			<b-modal :id="'locationModal-' + locationId" ok-only ok-variant="secondary" ok-title="Close" title="Images" size="xl" centered>
 				<b-carousel :id="'locationCarousel-' + locationId" controls class="mt-5" :interval="0" v-model="slide">
 					<b-carousel-slide v-for="image in loadedImages"
-									  :key="image.large"
-									  :img-src="image.large"
+									  :key="image.name"
 									  :caption="image.title"
-									  :text="image.description"/>
+									  :text="image.description">
+						<template v-slot:img>
+							<picture>
+								<source :srcset="image.highResWebp" type="image/webp">
+								<source :srcset="image.highRes" type="image/jpeg">
+
+								<img class="d-block img-fluid w-100" loading="lazy" :src="image.highRes" :alt="image.name">
+							</picture>
+						</template>
+					</b-carousel-slide>
 				</b-carousel>
 			</b-modal>
 		</div>
@@ -32,12 +45,12 @@
 </template>
 
 <script>
-	import {BRow, BCol, BImg, BModal, VBModal, BCarousel, BCarouselSlide} from "bootstrap-vue"
+	import {BRow, BCol, BModal, VBModal, BCarousel, BCarouselSlide} from "bootstrap-vue"
 
 	import Heading from "../../components/Heading";
 	import MarkdownLazy from "../../components/MarkdownLazy";
 
-	import chunk from "lodash/chunk"
+	import {makeImage} from "../../images";
 
 	export default {
 		components: {
@@ -46,7 +59,6 @@
 			Heading,
 			BRow,
 			BCol,
-			BImg,
 			BModal,
 			BCarousel,
 			BCarouselSlide
@@ -78,18 +90,26 @@
 			this.loadImages()
 		},
 		methods: {
+			autoBuildImage(name) {
+
+				return Promise.all([
+					import(/* webpackMode: "eager" */ `../../../generated/builds/${name}.jpeg`),
+					import(/* webpackMode: "eager" */ `../../../generated/builds/${name}_thumbnail.jpeg`),
+					import(/* webpackMode: "eager" */ `../../../generated/builds/${name}.webp`),
+					import(/* webpackMode: "eager" */ `../../../generated/builds/${name}_thumbnail.webp`),
+				]).then(([big, small, bigWebp, smallWebp]) => {
+					return makeImage(big.default, bigWebp.default, small.default, smallWebp.default)
+				});
+			},
 			loadImages() {
 				if (this.location.images) {
 					for (let [i, image] of this.location.images.entries()) {
-						this.$set(this.loadedImages, i, {loaded: false})
+						this.$set(this.loadedImages, i, {loaded: false});
 
-						let smallImg = import(/* webpackMode: "eager" */ './images/' + image.small);
-						let largeImg = import(/* webpackMode: "eager" */ './images/' + image.large);
-						Promise.all([smallImg, largeImg]).then(([small, large]) => {
+						this.autoBuildImage(image.name).then(obj => {
 							this.$set(this.loadedImages, i, {
 								...image,
-								small: small.default,
-								large: large.default,
+								...obj,
 								loaded: true
 							})
 						})

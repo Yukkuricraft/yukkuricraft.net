@@ -46,7 +46,7 @@
 	import LocationSidebarEntries from "./LocationSidebarEntries"
 
 	import locations from "./help_locations.yaml";
-	import {makeImage} from "../../images";
+	import {autoImage} from "../../images";
 
 	export default {
 		components: {
@@ -56,12 +56,7 @@
 		},
 		computed: {
 			images() {
-				return makeImage(
-					require('../../images/pond.png'),
-					require('../../images/pond.webp'),
-					require('../../images/pond_small.jpg'),
-					require('../../images/pond_small.webp'),
-				)
+				return autoImage('pond')
 			},
 			locations() {
 				return locations;

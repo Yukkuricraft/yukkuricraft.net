@@ -7,25 +7,20 @@ neogenso:
       menuName: SDM
       description: Home to the scarlet devil, Remilia Scarlet, and her servants
       images:
-        - large: neo/sdm/front.png
-          small: neo/sdm/front_small.jpg
+        - name: neo/sdm/front
           image_taken_by: Katrix
 
-        - large: neo/sdm/front_side.png
-          small: neo/sdm/front_side_small.jpg
+        - name: neo/sdm/front_side
           image_taken_by: Katrix
 
-        - large: neo/sdm/center.png
-          small: neo/sdm/center_small.jpg
+        - name: neo/sdm/center
           image_taken_by: Katrix
 
-        - large: neo/sdm/kitchen.png
-          small: neo/sdm/kitchen_small.jpg
+        - name: neo/sdm/kitchen
           image_taken_by: Katrix
 
-        - large: neo/sdm/greenhouse.png
-          small: neo/sdm/greenhouse_small.jpg
+        - name: neo/sdm/greenhouse
           image_taken_by: Katrix
 
-        - large: neo/sdm/back.png
-          small: neo/sdm/back_small.jpg
+        - name: neo/sdm/back
+          image_taken_by: Katrix

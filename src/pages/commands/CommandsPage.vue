@@ -56,7 +56,7 @@
 	import chatCmds from "./chat_commands.yaml";
 	import lwcCmds from "./lwc_commands.yaml";
 	import hshCmds from "./hsh_commands.yaml";
-	import {makeImage} from "../../images";
+	import {autoImage} from "../../images";
 
 	let allCommands = {...generalCmds, ...tpCmds, ...chatCmds, ...lwcCmds, ...hshCmds}
 
@@ -75,12 +75,7 @@
 		},
 		computed: {
 			images() {
-				return makeImage(
-					require('../../images/commands.png'),
-					require('../../images/commands.webp'),
-					require('../../images/commands_small.jpg'),
-					require('../../images/commands_small.webp'),
-				)
+				return autoImage('commands')
 			},
 			commands() {
 				let filter = this.filter;

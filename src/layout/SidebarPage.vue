@@ -43,7 +43,7 @@
 			BButton
 		},
 		props: {
-			parallaxImages: Object,
+			parallaxImages: [Object, Promise],
 			parallaxHeight: Number,
 		},
 		data() {

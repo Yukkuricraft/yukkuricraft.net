@@ -167,7 +167,7 @@
 	import {BButton, BRow, BCol, BEmbed, BCard, BCardHeader, BCardBody, BCardTitle, BCardText} from "bootstrap-vue"
 
 	import NormalPage from "../layout/NormalPage";
-	import {makeImage} from "../images";
+	import {autoImage} from "../images";
 	import {parseMCCodes} from "../colorFormatter";
 	import {mapState} from 'vuex';
 	import chunk from "lodash/chunk"
@@ -187,12 +187,7 @@
 		},
 		computed: {
 			images() {
-				return makeImage(
-					require('../images/hakurei.png'),
-					require('../images/hakurei.webp'),
-					require('../images/hakurei_small.jpg'),
-					require('../images/hakurei_small.webp'),
-				)
+				return autoImage('hakurei')
 			},
 			...mapState('server', {
 				serverPing: 'ping',

@@ -5,8 +5,7 @@ eientei:
     The home of Gensokyo's local Lunarians deep within the Bamboo forest.
 
   images:
-    - large: eientei.png
-      small: eientei_small.jpg
+    - name: eientei
       image_taken_by: Katrix
 
 lunar_capital:
@@ -16,8 +15,7 @@ lunar_capital:
     Home of the Lunarians on the Moon. Featured prominently within works like Silent Sinner in Blue and related works.
 
   images:
-    - large: eientei.png
-      small: eientei_small.jpg
+    - name: lunar_capital
       image_taken_by: Katrix
 
 mayohiga:
@@ -27,8 +25,7 @@ mayohiga:
     A small abandoned village at the outskirts of Gensokyo.
 
   images:
-    - large: mayohiga.png
-      small: mayohiga_small.jpg
+    - name: mayohiga
       image_taken_by: Katrix
 
 heaven:
@@ -38,8 +35,7 @@ heaven:
     Home of those that have achieved Nirvana or otherwise have acended death.
 
   images:
-    - large: heaven.png
-      small: heaven_small.jpg
+    - name: heaven
       image_taken_by: Katrix
 
 chireiden:
@@ -49,8 +45,7 @@ chireiden:
     A large mansion in the former hell. The home of the Satoris and their pets.
 
   images:
-    - large: chireiden.png
-      small: chireiden_small.jpg
+    - name: chireiden
       image_taken_by: Katrix
 
 voile:
@@ -60,6 +55,5 @@ voile:
     The large library found under the SDM.
 
   images:
-    - large: voile.png
-      small: voile_small.jpg
+    - name: voile
       image_taken_by: Katrix

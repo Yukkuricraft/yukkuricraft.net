@@ -6,22 +6,17 @@ neogenso:
       displayName: Untrodden Valley
       menuName: Untrodden Valley
       images:
-        - large: neo/untrodden_valley/valley.png
-          small: neo/untrodden_valley/valley_small.jpg
+        - name: neo/untrodden_valley/valley
           image_taken_by: Katrix
 
-        - large: neo/untrodden_valley/aki_farm.png
-          small: neo/untrodden_valley/aki_farm_small.jpg
+        - name: neo/untrodden_valley/aki_farm
           image_taken_by: Katrix
 
-        - large: neo/untrodden_valley/river_1.png
-          small: neo/untrodden_valley/river_1_small.jpg
+        - name: neo/untrodden_valley/river_1
           image_taken_by: Katrix
 
-        - large: neo/untrodden_valley/river_2.png
-          small: neo/untrodden_valley/river_2_small.jpg
+        - name: neo/untrodden_valley/river_2
           image_taken_by: Katrix
 
-        - large: neo/untrodden_valley/waterfall.png
-          small: neo/untrodden_valley/waterfall_small.jpg
+        - name: neo/untrodden_valley/waterfall
           image_taken_by: Katrix

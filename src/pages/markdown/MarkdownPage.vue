@@ -25,7 +25,7 @@
 		props: {
 			component: Object,
 			localizedComponents: Object,
-			parallaxImages: Object
+			parallaxImages: [Object, Promise]
 		},
 		computed: {
 			usedComponent() {

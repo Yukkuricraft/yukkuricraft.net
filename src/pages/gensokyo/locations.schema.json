@@ -28,10 +28,7 @@
           "items": {
             "type": "object",
             "properties": {
-              "large": {
-                "type": "string"
-              },
-              "small": {
+              "name": {
                 "type": "string"
               },
               "title": {
@@ -44,7 +41,7 @@
                 "type": "string"
               }
             },
-            "required": ["large", "small"],
+            "required": ["name"],
             "additionalProperties": false
           }
         },

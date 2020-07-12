@@ -6,26 +6,20 @@ neogenso:
       displayName: Youkai Mountain
       menuName: Youkai Mountain
       images:
-        - large: neo/youkai_mnt/mountain.png
-          small: neo/youkai_mnt/mountain_small.jpg
+        - name: neo/youkai_mnt/mountain
           image_taken_by: Katrix
 
-        - large: neo/youkai_mnt/bridge.png
-          small: neo/youkai_mnt/bridge_small.jpg
+        - name: neo/youkai_mnt/bridge
           image_taken_by: Katrix
 
-        - large: neo/youkai_mnt/entrance.png
-          small: neo/youkai_mnt/entrance_small.jpg
+        - name: neo/youkai_mnt/entrance
           image_taken_by: Katrix
 
-        - large: neo/youkai_mnt/shrine.png
-          small: neo/youkai_mnt/shrine_small.jpg
+        - name: neo/youkai_mnt/shrine
           image_taken_by: Katrix
 
-        - large: neo/youkai_mnt/lake.png
-          small: neo/youkai_mnt/lake_small.jpg
+        - name: neo/youkai_mnt/lake
           image_taken_by: Katrix
 
-        - large: neo/youkai_mnt/pond.png
-          small: neo/youkai_mnt/pond_small.jpg
+        - name: neo/youkai_mnt/pond
           image_taken_by: Katrix

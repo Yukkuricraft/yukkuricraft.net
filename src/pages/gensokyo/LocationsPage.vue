@@ -36,8 +36,7 @@
 	import neoYoukaiMnt from "./neo/youkai_mnt.yaml";
 	import neoHumanVillage from "./neo/human_village.yaml";
 	import neoForestMagic from "./neo/forest_magic.yaml"
-	import {makeImage} from "../../images";
-
+	import {autoImage} from "../../images";
 
 	let allLocations = merge({}, neoGenso, neoSdm, neoUntroddenValley, neoYoukaiMnt, neoHumanVillage, neoForestMagic);
 
@@ -49,12 +48,7 @@
 		},
 		computed: {
 			images() {
-				return makeImage(
-					require('../../images/greenhouse.png'),
-					require('../../images/greenhouse.webp'),
-					require('../../images/greenhouse_small.jpg'),
-					require('../../images/greenhouse_small.webp'),
-				)
+				return autoImage('greenhouse')
 			},
 			locations() {
 				return allLocations

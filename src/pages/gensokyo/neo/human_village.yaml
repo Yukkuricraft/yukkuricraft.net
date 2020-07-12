@@ -6,14 +6,11 @@ neogenso:
       displayName: Human Village
       menuName: Human Village
       images:
-        - large: neo/human_village/top.png
-          small: neo/human_village/top_small.jpg
+        - name: neo/human_village/top
           image_taken_by: Katrix
 
-        - large: neo/human_village/statue.png
-          small: neo/human_village/statue_small.jpg
+        - name: neo/human_village/statue
           image_taken_by: Katrix
 
-        - large: neo/human_village/fighting_stage.png
-          small: neo/human_village/fighting_stage_small.jpg
+        - name: neo/human_village/fighting_stage
           image_taken_by: Katrix
