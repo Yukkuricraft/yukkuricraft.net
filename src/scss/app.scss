@@ -64,6 +64,15 @@ html {
   color: #70707f; /*#60606f*/
 }
 
+.byline {
+  color: #70707f;
+  font-size: 0.9rem;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 .yc-footer {
   text-align: center;
   font-size: 1rem;

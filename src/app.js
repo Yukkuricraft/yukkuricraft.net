@@ -14,6 +14,9 @@ import "./scss/app.scss";
 import "css.escape";
 
 import InfoPage from './pages/InfoPage'
+import AnnouncementsPage from "./pages/announcements/AnnouncementsPage";
+import AnnouncementPostPage from "./pages/announcements/AnnouncementPostPage";
+import announcementList from "./pages/announcements/announcementList.yaml";
 import RanksPage from './pages/RanksPage'
 import StaffPage from "./pages/StaffPage";
 import CommandsPage from './pages/commands/CommandsPage'
@@ -61,6 +64,12 @@ const router = new VueRouter({
 			pathToRegexpOptions: { strict: true }
 		},
 		{
+			path: '/announcements/',
+			name: 'announcements',
+			component: AnnouncementsPage,
+			pathToRegexpOptions: { strict: true }
+		},
+		{
 			path: '/ranks/',
 			name: 'ranks',
 			component: RanksPage,
@@ -102,14 +111,26 @@ const router = new VueRouter({
 			component: DownloadSurvival,
 			pathToRegexpOptions: { strict: true }
 		},
-		...mdPagesResolve.keys().map(mdPagesResolve).filter(p => !p.attributes.isLocalization).map(page => {
+		...mdPagesResolve.keys().map(mdPagesResolve).filter(p => !p.attributes.isLocalization).map(page => ({
+			path: page.attributes.path,
+			name: page.attributes.vueRouterName,
+			component: MarkdownPage,
+			props: {
+				component: page,
+				localizedComponents: {},
+				parallaxImages: page.attributes.parallaxImages && autoImage(page.attributes.parallaxImages),
+			},
+			pathToRegexpOptions: { strict: true }
+		})),
+		...announcementList.posts.map(post => {
+			let name = post.file.endsWith('.md') ? post.file.substring(0, post.file.length - 3) : post.file;
+			let slug = post.slug || name;
+
 			return {
-				path: page.attributes.path,
-				name: page.attributes.vueRouterName,
-				component: MarkdownPage,
+				path: `/announcements/${slug}/`,
+				component: AnnouncementPostPage,
 				props: {
-					localizedComponents: {},
-					parallaxImages: page.attributes.parallaxImages && autoImage(page.attributes.parallaxImages),
+					postName: name
 				},
 				pathToRegexpOptions: { strict: true }
 			}

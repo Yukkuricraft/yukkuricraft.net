@@ -37,6 +37,17 @@
 			</b-col>
 		</b-row>
 
+		<h2>Latest announcements</h2>
+		<div class="mb-5">
+			<ul class="list-unstyled">
+				<li v-for="(post, idx) in posts" class="mb-3" :key="idx">
+					<announcement-excerpt v-if="post" :headingLevel="3" :post="post.post" :post-slug="post.slug"></announcement-excerpt>
+				</li>
+			</ul>
+
+			<router-link class="btn btn-primary" :to="{name: 'announcements'}">More announcements</router-link>
+		</div>
+
 		<h2>Server and Discord</h2>
 		<b-row>
 			<b-col md="8" v-if="serverPing.description">
@@ -167,14 +178,18 @@
 	import {BButton, BRow, BCol, BEmbed, BCard, BCardHeader, BCardBody, BCardTitle, BCardText} from "bootstrap-vue"
 
 	import NormalPage from "../layout/NormalPage";
+	import AnnouncementExcerpt from "./announcements/AnnouncementExcerpt";
 	import {autoImage} from "../images";
 	import {parseMCCodes} from "../colorFormatter";
 	import {mapState} from 'vuex';
-	import chunk from "lodash/chunk"
+	import chunk from "lodash/chunk";
+
+	import announcementList from "./announcements/announcementList.yaml";
 
 	export default {
 		components: {
 			NormalPage,
+			AnnouncementExcerpt,
 			BButton,
 			BRow,
 			BCol,
@@ -191,6 +206,19 @@
 			},
 			...mapState('server', {
 				serverPing: 'ping',
+			})
+		},
+		data() {
+			return {
+				posts: []
+			}
+		},
+		created() {
+			announcementList.posts.slice(0, 3).forEach((post, idx) => {
+				let name = post.file.endsWith('.md') ? post.file.substring(0, post.file.length - 3) : post.file;
+				import(`./announcements/${name}.md`).then(mod => {
+					this.$set(this.posts, idx, {post: mod.default, slug: post.slug || name});
+				})
 			})
 		},
 		methods: {

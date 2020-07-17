@@ -24,6 +24,12 @@ export default [
 	},
 	{
 		to: {
+			name: 'announcements'
+		},
+		name: 'Announcements'
+	},
+	{
+		to: {
 			name: 'ranks'
 		},
 		name: 'Ranks'
