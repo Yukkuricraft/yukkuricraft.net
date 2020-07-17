@@ -41,6 +41,12 @@ jobs:
       uses: ianwalter/puppeteer@3.0.0
       with:
         args: yarn install --frozen-lockfile
+
+    - name: Yarn Setup
+      uses: ianwalter/puppeteer@3.0.0
+      with:
+        args: yarn run setup
+
     - name: Yarn Build
       uses: ianwalter/puppeteer@3.0.0
       with:

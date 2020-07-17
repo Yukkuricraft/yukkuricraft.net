@@ -8,7 +8,7 @@
 			<h1>Yukkuricraft</h1>
 			<p>The largest english Touhou Minecraft server.</p>
 			<p class="lead">Server IP: mc.yukkuricraft.net</p>
-            <p>MC Version: 1.14 or 1.15</p>
+            <p>MC Version: 1.14 - 1.16</p>
 
 			<b-button :to="{'name': 'download_genso'}" variant="primary">Map download</b-button>
 			<b-button :to="{'name': 'download_survival'}" variant="primary">Survival download</b-button>
@@ -36,6 +36,17 @@
 				/>
 			</b-col>
 		</b-row>
+
+		<h2>Latest announcements</h2>
+		<div class="mb-5">
+			<ul class="list-unstyled">
+				<li v-for="(post, idx) in posts" class="mb-3" :key="idx">
+					<announcement-excerpt v-if="post" :headingLevel="3" :post="post.post" :post-slug="post.slug"></announcement-excerpt>
+				</li>
+			</ul>
+
+			<router-link class="btn btn-primary" :to="{name: 'announcements'}">More announcements</router-link>
+		</div>
 
 		<h2>Server and Discord</h2>
 		<b-row>
@@ -87,7 +98,7 @@
 		<h2 id="subdomains">Our Subdomains and Pages</h2>
 		<h3>General</h3>
 		<ul>
-			<li><a href="https://yukkuricraft.net" target="noopener">https://yukkuricraft.net</a> - Our main
+			<li><a href="https://forums.yukkuricraft.net" target="noopener">https://forums.yukkuricraft.net</a> - Our main
 				forum and
 				page!
 			</li>
@@ -167,14 +178,18 @@
 	import {BButton, BRow, BCol, BEmbed, BCard, BCardHeader, BCardBody, BCardTitle, BCardText} from "bootstrap-vue"
 
 	import NormalPage from "../layout/NormalPage";
-	import {makeImage} from "../images";
+	import AnnouncementExcerpt from "./announcements/AnnouncementExcerpt";
+	import {autoImage} from "../images";
 	import {parseMCCodes} from "../colorFormatter";
 	import {mapState} from 'vuex';
-	import chunk from "lodash/chunk"
+	import chunk from "lodash/chunk";
+
+	import announcementList from "../../content/announcements/announcementList.yaml";
 
 	export default {
 		components: {
 			NormalPage,
+			AnnouncementExcerpt,
 			BButton,
 			BRow,
 			BCol,
@@ -187,15 +202,23 @@
 		},
 		computed: {
 			images() {
-				return makeImage(
-					require('../images/hakurei.png'),
-					require('../images/hakurei.webp'),
-					require('../images/hakurei_small.jpg'),
-					require('../images/hakurei_small.webp'),
-				)
+				return autoImage('hakurei')
 			},
 			...mapState('server', {
 				serverPing: 'ping',
+			})
+		},
+		data() {
+			return {
+				posts: []
+			}
+		},
+		created() {
+			announcementList.posts.slice(0, 3).forEach((post, idx) => {
+				let name = post.file.endsWith('.md') ? post.file.substring(0, post.file.length - 3) : post.file;
+				import(`../../content/announcements/${name}.md`).then(mod => {
+					this.$set(this.posts, idx, {post: mod.default, slug: post.slug || name});
+				})
 			})
 		},
 		methods: {

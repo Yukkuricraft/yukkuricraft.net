@@ -149,7 +149,7 @@
 	import {BRow, BCol} from "bootstrap-vue"
 
 	import NormalPage from "../layout/NormalPage";
-	import {makeImage} from "../images";
+	import {autoImage} from "../images";
 
 	export default {
 		components: {
@@ -159,12 +159,7 @@
 		},
 		computed: {
 			images() {
-				return makeImage(
-					require('../images/people.png'),
-					require('../images/people.webp'),
-					require('../images/people_small.jpg'),
-					require('../images/people_small.webp'),
-				)
+				return autoImage('people')
 			}
 		}
 	}

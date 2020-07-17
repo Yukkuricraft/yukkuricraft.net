@@ -1,0 +1,26 @@
+neogenso:
+  displayName: NeoGensokyo
+  menuName: NeoGensokyo
+  sublocations:
+    sdm:
+      displayName: Scarlet Devil Mansion
+      menuName: SDM
+      description: Home to the scarlet devil, Remilia Scarlet, and her servants
+      images:
+        - name: neo/sdm/front
+          image_taken_by: Katrix
+
+        - name: neo/sdm/front_side
+          image_taken_by: Katrix
+
+        - name: neo/sdm/center
+          image_taken_by: Katrix
+
+        - name: neo/sdm/kitchen
+          image_taken_by: Katrix
+
+        - name: neo/sdm/greenhouse
+          image_taken_by: Katrix
+
+        - name: neo/sdm/back
+          image_taken_by: Katrix

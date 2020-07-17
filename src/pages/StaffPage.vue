@@ -13,8 +13,8 @@
 		<template v-for="staffGroup in staff">
 			<h3 :id="staffGroup.id" class="mt-5">{{ staffGroup.displayName }}</h3>
 
-			<ul class="list-unstyled" v-for="staffMember in staffGroup.members">
-				<b-media tag="li" class="mt-5">
+			<ul class="list-unstyled">
+				<b-media tag="li" class="mt-5" v-for="staffMember in staffGroup.members" :key="staffGroup.id + staffMember.name">
 					<template v-slot:aside>
 						<b-avatar variant="primary" size="96" :text="staffMember.name.substring(0, 1)"
 								  :src="staffAvatars[staffGroup.id + '-' + staffMember.name].avatar"></b-avatar>
@@ -61,9 +61,9 @@
 	import {BAvatar, BImg, BMedia} from "bootstrap-vue"
 
 	import NormalPage from "../layout/NormalPage";
-	import {makeImage} from "../images";
+	import {autoImage} from "../images";
 
-	import staff from "./staff.yaml";
+	import staff from "../../content/staff.yaml";
 	import {mapState} from "vuex";
 
 	export default {
@@ -123,7 +123,7 @@
 							continue;
 						}
 
-						import(/* webpackMode: "eager" */ '../images/staffAvatars/' + staffMember.avatar).then(img => {
+						import(/* webpackMode: "eager" */ '../../content/images/avatars/' + staffMember.avatar).then(img => {
 							this.$set(this.staffAvatars, key, {loaded: true, avatar: img.default})
 						})
 					}
@@ -132,12 +132,7 @@
 		},
 		computed: {
 			images() {
-				return makeImage(
-					require('../images/people.png'),
-					require('../images/people.webp'),
-					require('../images/people_small.jpg'),
-					require('../images/people_small.webp'),
-				)
+				return autoImage('people')
 			},
 			staff() {
 				return staff;

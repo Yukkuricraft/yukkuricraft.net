@@ -1,0 +1,19 @@
+neogenso:
+  displayName: NeoGensokyo
+  menuName: NeoGensokyo
+  sublocations:
+    forest_magic:
+      displayName: Forest of Magic
+      menuName: Forest of Magic
+      images:
+        - name: neo/forest_magic/hakurei_shrine
+          image_taken_by: Katrix
+
+        - name: neo/forest_magic/alice
+          image_taken_by: Katrix
+
+        - name: neo/forest_magic/marisa
+          image_taken_by: Katrix
+
+        - name: neo/forest_magic/kourindu
+          image_taken_by: Katrix

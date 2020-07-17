@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import staff from '../pages/staff.yaml';
+import staff from '../../content/staff.yaml';
 
 const mcNames = {};
 

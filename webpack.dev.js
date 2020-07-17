@@ -11,7 +11,7 @@ module.exports = (env, options) => {
 		plugins: [
 			new CopyPlugin({
 				patterns: [
-					{from: 'src/pages/commands/images', to: 'assets/images/commands'},
+					{from: 'content/images/commands', to: 'assets/images/commands'},
 					{from: 'src/modernizr-custom.js', to: 'modernizr-custom.js'}
 				]
 			}),

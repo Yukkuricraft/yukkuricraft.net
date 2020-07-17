@@ -1,11 +1,12 @@
-import mdPages from "../pages/markdown/pages"
-import set from "lodash/set"
+import set from "lodash/set";
+
+const mdPagesResolve = require.context('../../content/pages', true, /\.md$/);
 
 let acc = {};
 
 //TODO: Do this in one pass someday
-for(let page of mdPages) {
-	let attr = page.component.attributes;
+for(let page of mdPagesResolve.keys().map(mdPagesResolve)) {
+	let attr = page.attributes;
 	if(!attr.menuName) {
 		continue;
 	}
@@ -20,6 +21,12 @@ export default [
 			name: 'info'
 		},
 		name: 'Home'
+	},
+	{
+		to: {
+			name: 'announcements'
+		},
+		name: 'Announcements'
 	},
 	{
 		to: {

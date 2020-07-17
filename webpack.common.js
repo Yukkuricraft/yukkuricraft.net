@@ -112,13 +112,8 @@ module.exports = (env, options) => {
 							loader: 'file-loader',
 							options: {
 								esModule: false, //https://github.com/peerigon/extract-loader/issues/67
-								outputPath: 'assets/images'
-							}
-						},
-						{
-							loader: "image-webpack-loader",
-							options: {
-								disable: options.mode !== 'production'
+								outputPath: 'assets/images',
+								name: '[name]-[contenthash].[ext]'
 							}
 						}
 					]

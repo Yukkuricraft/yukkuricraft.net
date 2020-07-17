@@ -1,0 +1,25 @@
+neogenso:
+  displayName: NeoGensokyo
+  menuName: NeoGensokyo
+  sublocations:
+    youkai_mnt:
+      displayName: Youkai Mountain
+      menuName: Youkai Mountain
+      images:
+        - name: neo/youkai_mnt/mountain
+          image_taken_by: Katrix
+
+        - name: neo/youkai_mnt/bridge
+          image_taken_by: Katrix
+
+        - name: neo/youkai_mnt/entrance
+          image_taken_by: Katrix
+
+        - name: neo/youkai_mnt/shrine
+          image_taken_by: Katrix
+
+        - name: neo/youkai_mnt/lake
+          image_taken_by: Katrix
+
+        - name: neo/youkai_mnt/pond
+          image_taken_by: Katrix

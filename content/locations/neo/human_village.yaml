@@ -1,0 +1,16 @@
+neogenso:
+  displayName: NeoGensokyo
+  menuName: NeoGensokyo
+  sublocations:
+    human_village:
+      displayName: Human Village
+      menuName: Human Village
+      images:
+        - name: neo/human_village/top
+          image_taken_by: Katrix
+
+        - name: neo/human_village/statue
+          image_taken_by: Katrix
+
+        - name: neo/human_village/fighting_stage
+          image_taken_by: Katrix
