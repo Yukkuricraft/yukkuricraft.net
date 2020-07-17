@@ -23,12 +23,13 @@ import DownloadGenso from "./pages/downloads/Download";
 import DownloadSurvival from "./pages/downloads/DownloadSurvival";
 import _404Page from "./pages/404Page";
 
-import mdPages from "./pages/markdown/pages"
-
 import App from './App.vue'
-import MarkdownPage from "./pages/markdown/MarkdownPage";
+import MarkdownPage from "./pages/MarkdownPage";
 
 import {store} from "./stores/index";
+import {autoImage} from "./images";
+
+const mdPagesResolve = require.context('./pages/markdown', true, /\.md$/);
 
 Vue.use(VueRouter);
 Vue.use(VueI18n);
@@ -101,17 +102,18 @@ const router = new VueRouter({
 			component: DownloadSurvival,
 			pathToRegexpOptions: { strict: true }
 		},
-		...mdPages.map(({component, localizedComponents, parallaxImages}) => ({
-			path: component.attributes.path,
-			name: component.attributes.vueRouterName,
-			component: MarkdownPage,
-			props: {
-				component,
-				localizedComponents,
-				parallaxImages,
-			},
-			pathToRegexpOptions: { strict: true }
-		})),
+		...mdPagesResolve.keys().map(mdPagesResolve).filter(p => !p.attributes.isLocalization).map(page => {
+			return {
+				path: page.attributes.path,
+				name: page.attributes.vueRouterName,
+				component: MarkdownPage,
+				props: {
+					localizedComponents: {},
+					parallaxImages: page.attributes.parallaxImages && autoImage(page.attributes.parallaxImages),
+				},
+				pathToRegexpOptions: { strict: true }
+			}
+		}),
 		{
 			path: '*',
 			name: '404',

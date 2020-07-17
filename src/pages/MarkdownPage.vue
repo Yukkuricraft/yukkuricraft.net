@@ -6,7 +6,7 @@
 
 		<vue-headful :title="'YukkuriCraft - ' + title"
 					 :description="description"
-					 :image="require('../../favicon_upscaled.png')"
+					 :image="require('../favicon_upscaled.png')"
 					 :url="canonicalUrl"/>
 
 		<slot></slot>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-	import NormalPage from "../../layout/NormalPage";
+	import NormalPage from "../layout/NormalPage";
 
 	export default {
 		components: {
@@ -24,12 +24,22 @@
 		},
 		props: {
 			component: Object,
-			localizedComponents: Object,
+			localizedComponents: [Object, Promise],
 			parallaxImages: [Object, Promise]
+		},
+		data() {
+			return {
+				nowLocalizedComponents: {}
+			}
+		},
+		created() {
+			Promise.resolve(this.localizedComponents || {}).then(localized => {
+				this.nowLocalizedComponents = localized;
+			})
 		},
 		computed: {
 			usedComponent() {
-				return this.localizedComponents && this.localizedComponents[this.$i18n.locale] || this.component
+				return this.nowLocalizedComponents[this.$i18n.locale] || this.component;
 			},
 			parallaxHeight() {
 				return this.component.attributes.parallaxHeight

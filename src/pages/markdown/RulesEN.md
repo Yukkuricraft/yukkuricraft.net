@@ -4,6 +4,7 @@ description: All the different rules for YukkuriCraft on it's different platform
 canonicalUrl: https://info.yukkuricraft.net/rules/
 path: '/rules/'
 vueRouterName: rules
+parallaxImages: rules
 ---
 
 ## Rules

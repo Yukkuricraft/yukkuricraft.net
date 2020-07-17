@@ -19,7 +19,6 @@
 	import {BCollapse, BNavbarNav, BNavItem, BNavItemDropdown, BDropdownItem} from "bootstrap-vue";
 
 	import navlinks from "./navlinks";
-	console.log(navlinks)
 
 	export default {
 		components: {
