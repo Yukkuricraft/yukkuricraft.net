@@ -123,7 +123,7 @@
 							continue;
 						}
 
-						import(/* webpackMode: "eager" */ '../images/staffAvatars/' + staffMember.avatar).then(img => {
+						import(/* webpackMode: "eager" */ '../images/avatars/' + staffMember.avatar).then(img => {
 							this.$set(this.staffAvatars, key, {loaded: true, avatar: img.default})
 						})
 					}

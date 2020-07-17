@@ -75,7 +75,7 @@
 				let posterName = this.post.attributes.poster;
 				if (posters[posterName] && posters[posterName].avatar) {
 					let avatarName = posters[posterName].avatar;
-					import(`../../images/staffAvatars/${avatarName}`).then(mod => {
+					import(`../../images/avatars/${avatarName}`).then(mod => {
 						this.posterAvatar = mod.default;
 					})
 				}
