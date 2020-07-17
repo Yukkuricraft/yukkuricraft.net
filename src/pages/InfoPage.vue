@@ -98,7 +98,7 @@
 		<h2 id="subdomains">Our Subdomains and Pages</h2>
 		<h3>General</h3>
 		<ul>
-			<li><a href="https://yukkuricraft.net" target="noopener">https://yukkuricraft.net</a> - Our main
+			<li><a href="https://forums.yukkuricraft.net" target="noopener">https://yukkuricraft.net</a> - Our main
 				forum and
 				page!
 			</li>

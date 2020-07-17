@@ -11,7 +11,6 @@
 			</b-nav-item-dropdown>
 			<b-nav-item v-else :class="[isExactActive && 'active']" :href="href" @click="navigate">{{ navlink.name }}</b-nav-item>
 		</router-link>
-		<b-nav-item href="https://yukkuricraft.net">Forums</b-nav-item>
 	</b-navbar-nav>
 </template>
 
