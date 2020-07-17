@@ -95,7 +95,8 @@ export const router = new VueRouter({
 				path: `/announcements/${slug}/`,
 				component: AnnouncementPostPage,
 				props: {
-					postName: name
+					postName: name,
+					postSlug: slug
 				},
 				pathToRegexpOptions: { strict: true }
 			}

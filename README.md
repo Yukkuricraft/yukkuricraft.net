@@ -21,13 +21,23 @@ This is a github hosted page parked on our subdomain.
    * `title`: The title of your post. Do not include a heading in the announcement itself.
    * `time`: When the post was created. This is an ISO-8601 date. Get the current 
      ISO date [here](https://greenwichmeantime.com/articles/clocks/iso/).
-   * `poster`: This is you,
+   * `poster`: This is you.
    
    You should also add these fields, but they are not required.
    * `excerpt`: A summary/excerpt of the post that users see before they click on the post itself.
    * **NOT YET IMPLEMENTED** `comments`: If you want to allow comments on the announcements,
      mark this as true. A post will automatically be created on the forums with the content
-     of this post. A comment field will appear under the post. 
+     of this post. A comment field will appear under the post.
+     
+   Here is an example of a valid frontmatter:
+   ```md
+   ---
+   title: 'PSA: Addressing a Change in Standards'
+   time: '2020-07-17T19:03:00Z'
+   poster: Teshno
+   excerpt: Our recent internal workings amongst Staff have raised our standards, both for ourselves and for the community.
+   ---
+   ```
 
 4. Check that the name you wrote in the `poster` field of the frontmatter 
    is also in `src/pages/announcements/posters.yaml` and that the avatar is correct. 

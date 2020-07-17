@@ -1,21 +1,27 @@
 <template>
 	<normal-page v-if="post">
-		<h1>{{ attributes.title }}</h1>
-		<div class="byline">
-			<p>
-				By: {{ attributes.poster }}
-				<b-avatar variant="primary" size="32" :text="attributes.poster.substring(0, 1)"
-						  :src="posterAvatar"></b-avatar>
-			</p>
-			<p>Posted: {{ localizedPostedTime }}</p>
-		</div>
+		<vue-headful :title="'YukkuriCraft - ' + attributes.title" :description="attributes.excerpt || null"
+					 :image="require('../../favicon_upscaled.png')"
+					 :url="`https://info.yukkuricraft.net/announcements/${postSlug}/`"/>
 
 		<article>
+			<header>
+				<h1>{{ attributes.title }}</h1>
+				<div class="byline">
+					<p>
+						By: {{ attributes.poster }}
+						<b-avatar variant="primary" size="32" :text="attributes.poster.substring(0, 1)"
+								  :src="posterAvatar"></b-avatar>
+					</p>
+					<p>Posted: {{ localizedPostedTime }}</p>
+				</div>
+			</header>
+
 			<component :is="post.vue.component"></component>
 		</article>
 	</normal-page>
 	<normal-page v-else>
-		<font-awesome-icon :icon="['fa', 'spinner']" spin size="4x" />
+		<font-awesome-icon :icon="['fa', 'spinner']" spin size="4x"/>
 	</normal-page>
 </template>
 
@@ -31,7 +37,8 @@
 			BAvatar
 		},
 		props: {
-			postName: String
+			postName: String,
+			postSlug: String
 		},
 		data() {
 			return {
@@ -46,7 +53,7 @@
 		},
 		watch: {
 			post() {
-				if(this.post) {
+				if (this.post) {
 					this.loadPosterAvatar();
 				}
 			}

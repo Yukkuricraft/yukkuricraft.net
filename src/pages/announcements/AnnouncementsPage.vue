@@ -1,9 +1,13 @@
 <template>
 	<normal-page>
-		<h1>Announcements</h1>
+		<vue-headful title="YukkuriCraft - Announcements"
+					 description="See what's happening in the community."
+					 :image="require('../../favicon_upscaled.png')"
+					 url="https://info.yukkuricraft.net/announcements/"/>
 
+		<h1>Announcements</h1>
 		<ul class="list-unstyled">
-			<li v-for="(post, idx) in posts" class="mb-3">
+			<li v-for="post in posts" class="mb-3">
 				<announcement-excerpt v-if="post" :headingLevel="2" :post="post.post" :post-slug="post.slug"></announcement-excerpt>
 			</li>
 		</ul>
