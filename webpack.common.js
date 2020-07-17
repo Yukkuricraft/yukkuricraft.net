@@ -112,7 +112,8 @@ module.exports = (env, options) => {
 							loader: 'file-loader',
 							options: {
 								esModule: false, //https://github.com/peerigon/extract-loader/issues/67
-								outputPath: 'assets/images'
+								outputPath: 'assets/images',
+								name: '[name]-[contenthash].[ext]'
 							}
 						}
 					]

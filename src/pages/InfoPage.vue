@@ -184,7 +184,7 @@
 	import {mapState} from 'vuex';
 	import chunk from "lodash/chunk";
 
-	import announcementList from "./announcements/announcementList.yaml";
+	import announcementList from "../../content/announcements/announcementList.yaml";
 
 	export default {
 		components: {
@@ -216,7 +216,7 @@
 		created() {
 			announcementList.posts.slice(0, 3).forEach((post, idx) => {
 				let name = post.file.endsWith('.md') ? post.file.substring(0, post.file.length - 3) : post.file;
-				import(`./announcements/${name}.md`).then(mod => {
+				import(`../../content/announcements/${name}.md`).then(mod => {
 					this.$set(this.posts, idx, {post: mod.default, slug: post.slug || name});
 				})
 			})

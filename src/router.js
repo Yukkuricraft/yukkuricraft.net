@@ -14,9 +14,9 @@ import _404Page from "./pages/404Page";
 import AnnouncementPostPage from "./pages/announcements/AnnouncementPostPage";
 
 import {autoImage} from "./images";
-import announcementList from "./pages/announcements/announcementList.yaml";
+import announcementList from "../content/announcements/announcementList.yaml";
 
-const mdPagesResolve = require.context('./pages/markdown', true, /\.md$/);
+const mdPagesResolve = require.context('../content/pages', true, /\.md$/);
 
 export const router = new VueRouter({
 	base: '/',

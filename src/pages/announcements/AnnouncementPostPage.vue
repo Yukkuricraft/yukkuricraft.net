@@ -37,7 +37,7 @@
 	import {BAvatar} from "bootstrap-vue";
 
 	import NormalPage from "../../layout/NormalPage";
-	import posters from "./posters.yaml";
+	import posters from "../../../content/announcements/posters.yaml";
 
 	//Discourse information
 	let discourseUrl = 'https://forums.yukkuricraft.net';
@@ -59,7 +59,7 @@
 			}
 		},
 		created() {
-			import(`./${this.postName}.md`).then(p => {
+			import(`../../../content/announcements/${this.postName}.md`).then(p => {
 				this.post = p.default;
 			});
 			window.addEventListener('message', this.postMessageReceived, false);
@@ -108,13 +108,14 @@
 				return top;
 			},
 			normalizeUrl(url) {
+				console.log(url);
 				return url.replace(/^https?(\:\/\/)?/, '');
 			},
 			postMessageReceived(e) {
 				if (!e) {
 					return;
 				}
-				if (this.normalizeUrl(discourseUrl).indexOf(this.normalizeUrl(e.origin)) === -1) {
+				if (!e.origin || this.normalizeUrl(discourseUrl).indexOf(this.normalizeUrl(e.origin)) === -1) {
 					return;
 				}
 
@@ -136,7 +137,7 @@
 				let posterName = this.post.attributes.poster;
 				if (posters[posterName] && posters[posterName].avatar) {
 					let avatarName = posters[posterName].avatar;
-					import(`../../images/avatars/${avatarName}`).then(mod => {
+					import(`../../../content/images/avatars/${avatarName}`).then(mod => {
 						this.posterAvatar = mod.default;
 					})
 				}

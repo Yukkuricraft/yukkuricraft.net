@@ -1,6 +1,6 @@
 import set from "lodash/set";
 
-const mdPagesResolve = require.context('../pages/markdown', true, /\.md$/);
+const mdPagesResolve = require.context('../../content/pages', true, /\.md$/);
 
 let acc = {};
 

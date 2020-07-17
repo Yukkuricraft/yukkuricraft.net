@@ -10,7 +10,7 @@ This is a github hosted page parked on our subdomain.
 - Workflow deploys to branch `gh-pages-dev` if commit is pushed to `dev`.
 
 ## How to add an announcement
-1. Create a markdown (`.md`) file with a fitting filename in `src/pages/announcements`.
+1. Create a markdown (`.md`) file with a fitting filename in `content/announcements`.
    What is markdown? Markdown is mostly the same formatting options we use on Discord.
    What we use on Discord is however pretty limited. For the markdown you can use 
    in the announcements, you have a lot more options. If you want to learn markdown, 
@@ -44,10 +44,10 @@ This is a github hosted page parked on our subdomain.
    ```
 
 4. Check that the name you wrote in the `poster` field of the frontmatter 
-   is also in `src/pages/announcements/posters.yaml` and that the avatar is correct. 
-   The avatar can be found in `src/images/avatars`. If it's not present/correct, 
+   is also in `content/announcements/posters.yaml` and that the avatar is correct. 
+   The avatar can be found in `content/images/avatars`. If it's not present/correct, 
    add/correct it.
 6. Add your post's filename to the top of the list found 
-   in `src/pages/announcements/announcementList.yaml`. If you want a different slug 
+   in `content/announcements/announcementList.yaml`. If you want a different slug 
    than the filename for your announcement, specify your desired slug as another field `slug`.
 7. Congrats on posting your announcement.

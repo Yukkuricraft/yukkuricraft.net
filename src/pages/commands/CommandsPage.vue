@@ -1,9 +1,7 @@
 <template>
 	<sidebar-page :parallax-images="images">
-		<vue-headful title="YukkuriCraft - Commands"
-					 description="Search through the commands found on YukkuriCraft."
-					 :image="require('../../favicon_upscaled.png')"
-					 url="https://info.yukkuricraft.net/commands/"/>
+		<vue-headful title="YukkuriCraft - Commands" description="Search through the commands found on YukkuriCraft."
+					 :image="require('../../favicon_upscaled.png')" url="https://info.yukkuricraft.net/commands/"/>
 
 		<template v-slot:sidebar>
 			<div class="sidebar-header">
@@ -32,7 +30,7 @@
 
 			<b-form-group>
 				<label for="commandsSearch">Search:</label>
-				<b-form-input id="commandsSearch" type="text" placeholder="Search commands..." v-model="filter" />
+				<b-form-input id="commandsSearch" type="text" placeholder="Search commands..." v-model="filter"/>
 			</b-form-group>
 
 			<div id="commandGroups">
@@ -51,14 +49,9 @@
 
 	import queryString from "query-string";
 
-	import generalCmds from "./general_commands.yaml";
-	import tpCmds from "./tp_commands.yaml";
-	import chatCmds from "./chat_commands.yaml";
-	import lwcCmds from "./lwc_commands.yaml";
-	import hshCmds from "./hsh_commands.yaml";
 	import {autoImage} from "../../images";
 
-	let allCommands = {...generalCmds, ...tpCmds, ...chatCmds, ...lwcCmds, ...hshCmds}
+	import commandList from "../../../content/commands/commandList.yaml";
 
 	export default {
 		components: {
@@ -70,7 +63,35 @@
 		},
 		data() {
 			return {
-				filter: ""
+				filter: "",
+				allCommands: [],
+				hasScrolledToHash: false
+			}
+		},
+		created() {
+			Object.entries(queryString.parse(location.search)).forEach(([key, value]) => this.$set(this, key, value));
+
+			let allCommandGroups = commandList.commands.map((entry, idx) => {
+				let name = entry.endsWith('.yaml') ? entry.substring(0, entry.length - 5) : entry;
+				return import(/* webpackMode: "eager" */ `../../../content/commands/${name}.yaml`).then(commands => ({
+					commands,
+					idx
+				}))
+			});
+
+			//We get them all together to hopefully only update the DOM once
+			Promise.all(allCommandGroups).then(allGroups => {
+				allGroups.forEach(({commands, idx}) => {
+					this.$set(this.allCommands, idx, commands.default);
+				})
+			})
+		},
+		updated() {
+			if (this.allCommands.length === commandList.commands.length && !this.hasScrolledToHash && location.hash) {
+				this.$nextTick(() => {
+					document.getElementById(location.hash.substr(1)).scrollIntoView();
+					this.hasScrolledToHash = true;
+				})
 			}
 		},
 		computed: {
@@ -130,19 +151,17 @@
 					return subgroups
 				}
 
-				let commandsCopy = JSON.parse(JSON.stringify(allCommands))
+				//We throw out all the getters and such
+				let commandsCopy = JSON.parse(JSON.stringify(Object.fromEntries(this.allCommands.flatMap(Object.entries))));
 
 				return this.filter.length ? filterSubgroups(commandsCopy) : commandsCopy
 			}
 		},
-		created() {
-			Object.entries(queryString.parse(location.search)).forEach(([key, value]) => this.$set(this, key, value));
-		},
 		watch: {
 			filter(oldVal, val) {
-				if(oldVal !== val) {
+				if (oldVal !== val) {
 					let query = queryString.stringify({filter: this.filter ? this.filter : undefined});
-					let full = query !== "" ? "?" + query : "/commands";
+					let full = query !== "" ? "?" + query : "/commands/";
 					window.history.replaceState(null, null, full);
 				}
 			}

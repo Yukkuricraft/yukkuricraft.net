@@ -63,7 +63,7 @@
 	import NormalPage from "../layout/NormalPage";
 	import {autoImage} from "../images";
 
-	import staff from "./staff.yaml";
+	import staff from "../../content/staff.yaml";
 	import {mapState} from "vuex";
 
 	export default {
@@ -123,7 +123,7 @@
 							continue;
 						}
 
-						import(/* webpackMode: "eager" */ '../images/avatars/' + staffMember.avatar).then(img => {
+						import(/* webpackMode: "eager" */ '../../content/images/avatars/' + staffMember.avatar).then(img => {
 							this.$set(this.staffAvatars, key, {loaded: true, avatar: img.default})
 						})
 					}

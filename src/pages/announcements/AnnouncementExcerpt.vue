@@ -27,7 +27,7 @@
 
 <script>
 	import {BCard, BMedia, BAvatar} from "bootstrap-vue";
-	import posters from "./posters.yaml";
+	import posters from "../../../content/announcements/posters.yaml";
 
 	export default {
 		components: {
@@ -75,7 +75,7 @@
 				let posterName = this.post.attributes.poster;
 				if (posters[posterName] && posters[posterName].avatar) {
 					let avatarName = posters[posterName].avatar;
-					import(`../../images/avatars/${avatarName}`).then(mod => {
+					import(`../../../content/images/avatars/${avatarName}`).then(mod => {
 						this.posterAvatar = mod.default;
 					})
 				}

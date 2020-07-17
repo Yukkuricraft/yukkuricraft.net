@@ -45,7 +45,7 @@
 	import Locations from "./Locations";
 	import LocationSidebarEntries from "./LocationSidebarEntries"
 
-	import locations from "./help_locations.yaml";
+	import locations from "../../../content/locations/help_locations.yaml";
 	import {autoImage} from "../../images";
 
 	export default {

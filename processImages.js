@@ -4,8 +4,8 @@ const path = require('path');
 const glob = require('glob');
 
 let work = [];
-let backgroundDir = './src/images/backgrounds/';
-let buildsDir = './src/pages/gensokyo/images/';
+let backgroundDir = './content/images/backgrounds/';
+let buildsDir = './content/images/locations/';
 let backgroundOutDir = './generated/backgrounds/';
 let buildsOutDir = './generated/builds/';
 

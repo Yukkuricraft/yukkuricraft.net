@@ -1,0 +1,6 @@
+commands:
+  - general.yaml
+  - tp.yaml
+  - chat.yaml
+  - lwc.yaml
+  - hsh.yaml

@@ -30,15 +30,9 @@
 
 	import merge from "lodash/merge"
 
-	import neoGenso from "./neo/neo_genso.yaml"
-	import neoSdm from "./neo/sdm.yaml";
-	import neoUntroddenValley from "./neo/untrodden_valley.yaml";
-	import neoYoukaiMnt from "./neo/youkai_mnt.yaml";
-	import neoHumanVillage from "./neo/human_village.yaml";
-	import neoForestMagic from "./neo/forest_magic.yaml"
 	import {autoImage} from "../../images";
 
-	let allLocations = merge({}, neoGenso, neoSdm, neoUntroddenValley, neoYoukaiMnt, neoHumanVillage, neoForestMagic);
+	import locationList from "../../../content/locations/locationList.yaml";
 
 	export default {
 		components: {
@@ -46,12 +40,34 @@
 			LocationSidebarEntries,
 			Locations
 		},
+		data() {
+			return {
+				allLocations: []
+			}
+		},
+		created() {
+			let allLocations = locationList.locations.map((entry, idx) => {
+				let name = entry.endsWith('.yaml') ? entry.substring(0, entry.length - 5) : entry;
+				return import(/* webpackMode: "eager" */ `../../../content/locations/${name}.yaml`).then(commands => ({
+					commands,
+					idx
+				}))
+			});
+
+			//We get them all together to hopefully only update the DOM once
+			Promise.all(allLocations).then(all => {
+				all.forEach(({commands, idx}) => {
+					this.$set(this.allLocations, idx, commands.default);
+				})
+			})
+		},
 		computed: {
 			images() {
 				return autoImage('greenhouse')
 			},
 			locations() {
-				return allLocations
+				//We throw out all the getters and such
+				return JSON.parse(JSON.stringify(merge({}, ...this.allLocations)));
 			}
 		}
 	}
