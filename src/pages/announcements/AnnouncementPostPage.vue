@@ -19,6 +19,14 @@
 
 			<component :is="post.vue.component"></component>
 		</article>
+
+		<div v-if="attributes.comments && false">
+			<h2>Comments</h2>
+			<div>
+				<iframe ref="comments" :src="discourseSrc" width="100%" frameborder="0"
+						scrolling="no" :height="comments.height"></iframe>
+			</div>
+		</div>
 	</normal-page>
 	<normal-page v-else>
 		<font-awesome-icon :icon="['fa', 'spinner']" spin size="4x"/>
@@ -30,6 +38,10 @@
 
 	import NormalPage from "../../layout/NormalPage";
 	import posters from "./posters.yaml";
+
+	//Discourse information
+	let discourseUrl = 'https://forums.yukkuricraft.net';
+	let defaultPoster = 'YukkuriBot';
 
 	export default {
 		components: {
@@ -49,7 +61,11 @@
 		created() {
 			import(`./${this.postName}.md`).then(p => {
 				this.post = p.default;
-			})
+			});
+			window.addEventListener('message', this.postMessageReceived, false);
+		},
+		destroyed() {
+			window.removeEventListener('message', this.postMessageReceived, false);
 		},
 		watch: {
 			post() {
@@ -70,6 +86,50 @@
 					day: 'numeric'
 				})
 			},
+			discourseSrc() {
+				let embedUrl = `https://yukkuricraft.net/announcements/${this.postSlug}/`;
+				let posterName = this.post.attributes.poster;
+				let poster = posters[posterName] && posters[posterName].discourseUser || defaultPoster;
+				return `${discourseUrl}/embed/comments?embed_url=${embedUrl}&discourse_username=${poster}`
+			},
+			//Taken from https://meta.discourse.org/javascripts/embed.js
+			findPosY(obj) {
+				var top = 0;
+				if (obj.offsetParent) {
+					while (1) {
+						top += obj.offsetTop;
+						if (!obj.offsetParent)
+							break;
+						obj = obj.offsetParent;
+					}
+				} else if (obj.y) {
+					top += obj.y;
+				}
+				return top;
+			},
+			normalizeUrl(url) {
+				return url.replace(/^https?(\:\/\/)?/, '');
+			},
+			postMessageReceived(e) {
+				if (!e) {
+					return;
+				}
+				if (this.normalizeUrl(discourseUrl).indexOf(this.normalizeUrl(e.origin)) === -1) {
+					return;
+				}
+
+				if (e.data) {
+					if (e.data.type === 'discourse-resize' && e.data.height) {
+						this.$refs.comments = e.data.height + "px";
+					}
+
+					if (e.data.type === 'discourse-scroll' && e.data.top) {
+						// find iframe offset
+						let destY = this.findPosY(this.$refs.comments) + e.data.top;
+						window.scrollTo(0, destY);
+					}
+				}
+			}
 		},
 		methods: {
 			loadPosterAvatar() {
