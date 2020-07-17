@@ -10,7 +10,11 @@ This is a github hosted page parked on our subdomain.
 - Workflow deploys to branch `gh-pages-dev` if commit is pushed to `dev`.
 
 ## How to add an announcement
-1. Create a markdown (`.md`) file with a fitting filename in `src/pages/announcements`
+1. Create a markdown (`.md`) file with a fitting filename in `src/pages/announcements`.
+   What is markdown? Markdown is mostly the same formatting options we use on Discord.
+   What we use on Discord is however pretty limited. For the markdown you can use 
+   in the announcements, you have a lot more options. If you want to learn markdown, 
+   check out [this site](https://www.markdowntutorial.com/).
 2. Write your announcement using normal markdown
 3. Add the frontmatter.
 
