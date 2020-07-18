@@ -12,38 +12,46 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "The id of this rank group. This should be unique in the whole document."
         },
         "displayName": {
-          "type": "string"
+          "type": "string",
+          "description": "The string shown to the user for this rank group."
         },
         "description": {
           "type": "string",
           "x-intellij-language-injection": {
             "language": "Markdown"
-          }
+          },
+          "description": "A summarization of the rank group."
         },
         "ranks": {
           "type": "array",
+          "description": "The ranks in this rank group",
           "items": {
             "type": "object",
             "properties": {
               "name": {
-                "type": "string"
+                "type": "string",
+                "description": "The name of the rank, as shown to the user."
               },
               "italics": {
                 "type": "boolean",
-                "default": false
+                "default": false,
+                "description": "If the name should be shown with italics."
               },
               "bold": {
                 "type": "boolean",
-                "default": false
+                "default": false,
+                "description": "If the name should be shown in bold."
               },
               "description": {
-                "type": "string"
-              },
-              "x-intellij-language-injection": {
-                "language": "Markdown"
+                "type": "string",
+                "description": "A description of this rank.",
+                "x-intellij-language-injection": {
+                  "language": "Markdown"
+                }
               }
             },
             "required": ["name", "description"],

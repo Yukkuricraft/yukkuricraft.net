@@ -12,16 +12,19 @@
       "type": "object",
       "properties": {
         "displayName": {
-          "type": "string"
+          "type": "string",
+          "description": "The name shown to the user on the main page."
         },
         "menuName": {
-          "type": "string"
+          "type": "string",
+          "description": "The name shown to the user in the side menu."
         },
         "description": {
           "type": "string",
           "x-intellij-language-injection": {
             "language": "Markdown"
-          }
+          },
+          "description": "A description for this command group."
         },
         "commands": {
           "type": "array",
@@ -46,6 +49,7 @@
       "type": "object",
       "properties": {
         "aliases": {
+          "description": "The names of this command.",
           "oneOf": [
             {
               "type": "string"
@@ -60,19 +64,22 @@
         },
         "description": {
           "type": "string",
+          "description": "A brief description of what this command does.",
           "x-intellij-language-injection": {
             "language": "Markdown"
           }
         },
         "arguments": {
-          "type": "string"
+          "type": "string",
+          "description": "The arguments this command takes."
         },
         "tags": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "uniqueItems": true
+          "uniqueItems": true,
+          "description": "A bunch of tags to add when searching for commands."
         }
       },
       "required": [
