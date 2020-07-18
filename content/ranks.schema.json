@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://info.yukkuricraft.net/schemas/ranks.schema.json",
+  "title": "YukkuriCraft ranks",
+  "description": "A schema for YukkuriCraft's rank document",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/rankGroup"
+  },
+  "definitions": {
+    "rankGroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "x-intellij-language-injection": {
+            "language": "Markdown"
+          }
+        },
+        "ranks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "italics": {
+                "type": "boolean",
+                "default": false
+              },
+              "bold": {
+                "type": "boolean",
+                "default": false
+              },
+              "description": {
+                "type": "string"
+              },
+              "x-intellij-language-injection": {
+                "language": "Markdown"
+              }
+            },
+            "required": ["name", "description"],
+            "additionalProperties": false
+          }
+        },
+        "childGroups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/rankGroup"
+          }
+        }
+      },
+      "required": ["id", "displayName"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -2,7 +2,7 @@ import VueRouter from "vue-router";
 
 import InfoPage from "./pages/InfoPage";
 import AnnouncementsPage from "./pages/announcements/AnnouncementsPage";
-import RanksPage from "./pages/RanksPage";
+import RanksPage from "./pages/ranks/RanksPage";
 import StaffPage from "./pages/StaffPage";
 import CommandsPage from "./pages/commands/CommandsPage";
 import GensokyoLocationsPage from "./pages/gensokyo/LocationsPage";

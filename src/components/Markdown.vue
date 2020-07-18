@@ -20,11 +20,31 @@
 		props: {
 			content: {
 				required: true
-			}
+			},
+			noParagraph: Boolean
 		},
 		computed: {
 			htmlContent() {
-				return this.content ? md.render(this.content) : null;
+				if(this.content) {
+					let rendered = md.render(this.content);
+
+					return this.noParagraph ? this.extractParagraph(rendered) : rendered;
+				}
+				else {
+					return null
+				}
+			}
+		},
+		methods: {
+			extractParagraph(rendered) {
+				let parser = new DOMParser();
+				let doc = parser.parseFromString(rendered, 'text/html');
+				if(doc.body.children.length === 1) {
+					return doc.body.children[0].innerHTML
+				}
+				else {
+					return rendered
+				}
 			}
 		}
 	}
