@@ -29,7 +29,7 @@
 		</div>
 	</normal-page>
 	<normal-page v-else>
-		<font-awesome-icon :icon="['fa', 'spinner']" spin size="4x"/>
+		<font-awesome-icon :icon="['fas', 'spinner']" spin size="4x"/>
 	</normal-page>
 </template>
 
