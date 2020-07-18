@@ -59,9 +59,6 @@
 					<b-card-body>
 						<b-card-title class="h5" v-html="parseMCCodes(serverPing.description).raw"></b-card-title>
 						<b-card-text>
-							<font-awesome-icon :icon="['fas', 'signal']"/>
-							Ping: {{ serverPing.latency }} ms
-
 							<div>
 								<br/>
 								Players: {{ serverPing.players.online }} / {{ serverPing.players.max }}

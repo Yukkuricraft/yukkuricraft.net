@@ -1,7 +1,6 @@
 const state = {
 	ping: {
 		description: null,
-		latency: null,
 		players: {
 			max: null,
 			online: null,
@@ -16,7 +15,6 @@ const state = {
 const mutations = {
 	setPingData(state, payload) {
 		state.ping.description = payload.description;
-		state.ping.latency = payload.latency;
 		state.ping.players.max = payload.players.max;
 		state.ping.players.online = payload.players.online;
 		state.ping.players.sample = payload.players.sample;
