@@ -1,16 +1,15 @@
 <template>
 	<sidebar-page :parallax-images="images">
-		<vue-headful title="YukkuriCraft - Gensokyo"
-					 description="Look at all the different places in our Gensokyo."
-					 :image="require('../../favicon_upscaled.png')"
-					 url="https://info.yukkuricraft.net/gensokyo/"/>
+		<vue-headful title="YukkuriCraft - Gensokyo" description="Look at all the different places in our Gensokyo."
+					 :image="require('../../favicon_upscaled.png')" url="https://info.yukkuricraft.net/gensokyo/"/>
 
 		<template v-slot:sidebar>
 			<div class="sidebar-header">
 				<h2>Locations</h2>
 			</div>
 
-			<location-sidebar-entries class="sidebar-components" :locations="locations"></location-sidebar-entries>
+			<sidebar-entries class="sidebar-components" href-prefix="location" :subgroups="locations"
+							 subgroup-children-name="sublocations" />
 		</template>
 
 		<template v-slot:parallax>
@@ -18,15 +17,16 @@
 			<p>Explore our builds in Gensokyo.</p>
 		</template>
 
-		<locations :locations="locations" :depth="0"></locations>
+		<location v-for="(location, locationId) in locations" :depth="0" :location-id="locationId" :location="location"
+				  :key="locationId"/>
 
 	</sidebar-page>
 </template>
 
 <script>
 	import SidebarPage from "../../layout/SidebarPage";
-	import LocationSidebarEntries from "./LocationSidebarEntries";
-	import Locations from "./Locations";
+	import SidebarEntries from "../../components/SidebarEntries";
+	import Location from "./Location";
 
 	import merge from "lodash/merge"
 
@@ -37,8 +37,8 @@
 	export default {
 		components: {
 			SidebarPage,
-			LocationSidebarEntries,
-			Locations
+			SidebarEntries,
+			Location
 		},
 		data() {
 			return {

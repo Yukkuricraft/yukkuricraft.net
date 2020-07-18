@@ -2,8 +2,12 @@
 	<div>
 		<heading :id="'commands-' + commandGroupId" :level="3 + depth">{{ commandGroup.displayName }}</heading>
 		<markdown-lazy :content="commandGroup.description"></markdown-lazy>
-		<command-groups v-if="commandGroup.subgroups" :depth="depth + 1"
-						:subgroups="commandGroup.subgroups"></command-groups>
+
+		<template v-if="commandGroup.subgroups">
+			<command-group v-for="(commandGroup, commandGroupId) in commandGroup.subgroups"
+						   :depth="depth + 1" :command-group-id="commandGroupId" :command-group="commandGroup"
+						   :key="commandGroupId"/>
+		</template>
 		<ul v-else>
 			<li v-for="command in commandGroup.commands">
 				<command-node :command="command"></command-node>
@@ -19,9 +23,9 @@
 	import MarkdownLazy from "../../components/MarkdownLazy";
 
 	export default {
+		name: 'command-group',
 		components: {
 			MarkdownLazy,
-			CommandGroups: () => import("./CommandGroups.vue"),
 			CommandNode,
 			Heading
 		},
