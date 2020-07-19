@@ -3,7 +3,7 @@
 		<vue-headful title="YukkuriCraft - Announcements"
 					 description="See what's happening in the community."
 					 :image="require('../../favicon_upscaled.png')"
-					 url="https://info.yukkuricraft.net/announcements/"/>
+					 url="https://yukkuricraft.net/announcements/"/>
 
 		<h1>Announcements</h1>
 		<ul class="list-unstyled">

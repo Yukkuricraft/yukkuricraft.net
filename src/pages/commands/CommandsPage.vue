@@ -1,7 +1,7 @@
 <template>
 	<sidebar-page :parallax-images="images">
 		<vue-headful title="YukkuriCraft - Commands" description="Search through the commands found on YukkuriCraft."
-					 :image="require('../../favicon_upscaled.png')" url="https://info.yukkuricraft.net/commands/"/>
+					 :image="require('../../favicon_upscaled.png')" url="https://yukkuricraft.net/commands/"/>
 
 		<template v-slot:sidebar>
 			<div class="sidebar-header">

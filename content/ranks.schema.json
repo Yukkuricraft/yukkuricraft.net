@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://info.yukkuricraft.net/schemas/ranks.schema.json",
+  "$id": "https://yukkuricraft.net/schemas/ranks.schema.json",
   "title": "YukkuriCraft ranks",
   "description": "A schema for YukkuriCraft's rank document",
   "type": "array",

@@ -2,7 +2,7 @@
 	<sidebar-page :parallax-images="images">
 		<vue-headful title="YukkuriCraft - Help us build!"
 					 description="Take a look at our ongoing projects in Gensokyo."
-					 :image="require('../../favicon_upscaled.png')" url="https://info.yukkuricraft.net/gensokyo/help/"/>
+					 :image="require('../../favicon_upscaled.png')" url="https://yukkuricraft.net/gensokyo/help/"/>
 
 		<template v-slot:sidebar>
 			<div class="sidebar-header">

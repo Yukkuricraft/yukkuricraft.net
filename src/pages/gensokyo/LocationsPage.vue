@@ -1,7 +1,7 @@
 <template>
 	<sidebar-page :parallax-images="images">
 		<vue-headful title="YukkuriCraft - Gensokyo" description="Look at all the different places in our Gensokyo."
-					 :image="require('../../favicon_upscaled.png')" url="https://info.yukkuricraft.net/gensokyo/"/>
+					 :image="require('../../favicon_upscaled.png')" url="https://yukkuricraft.net/gensokyo/"/>
 
 		<template v-slot:sidebar>
 			<div class="sidebar-header">

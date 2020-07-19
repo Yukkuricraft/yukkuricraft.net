@@ -1,5 +1,5 @@
 # Yukkuricraft's Info Page
-Can be found at [info.yukkuricraft.net](https://info.yukkuricraft.net)
+Can be found at [yukkuricraft.net](https://yukkuricraft.net)
 
 This is a github hosted page parked on our subdomain.
 

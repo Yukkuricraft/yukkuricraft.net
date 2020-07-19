@@ -2,7 +2,7 @@
 	<normal-page :parallax-images="images">
 		<vue-headful title="YukkuriCraft"
 					 description="Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of Touhou Project fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all players to join the fun!"
-					 :image="require('../favicon_upscaled.png')" url="https://info.yukkuricraft.net/"/>
+					 :image="require('../favicon_upscaled.png')" url="https://yukkuricraft.net/"/>
 
 		<template v-slot:parallax>
 			<h1>Yukkuricraft</h1>
@@ -100,7 +100,7 @@
 				page!
 			</li>
 			<li>
-				<router-link :to="{name: 'info'}">https://info.yukkuricraft.net</router-link>
+				<router-link :to="{name: 'info'}">https://yukkuricraft.net</router-link>
 				- You're
 				looking at
 				it right now!

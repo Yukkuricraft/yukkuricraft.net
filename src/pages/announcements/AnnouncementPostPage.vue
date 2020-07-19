@@ -2,7 +2,7 @@
 	<normal-page v-if="post">
 		<vue-headful :title="'YukkuriCraft - ' + attributes.title" :description="attributes.excerpt || null"
 					 :image="require('../../favicon_upscaled.png')"
-					 :url="`https://info.yukkuricraft.net/announcements/${postSlug}/`"/>
+					 :url="`https://yukkuricraft.net/announcements/${postSlug}/`"/>
 
 		<article>
 			<header>
