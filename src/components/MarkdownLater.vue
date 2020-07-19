@@ -3,16 +3,15 @@
 </template>
 
 <script>
-	import TextLoadingComponent from "./TextLoadingComponent"
-	import TextErrorComponent from "./TextErrorComponent"
+	import TextShowComponent from "./TextShowComponent";
 
 	export default {
 		components: {
 			'markdown': () => ({
 				component: import(/* webpackChunkName: "markdown" */ "./Markdown"),
-				loading: TextLoadingComponent,
-				error: TextErrorComponent,
-			}),
+				loading: TextShowComponent,
+				error: TextShowComponent,
+			})
 		},
 		props: {
 			content: {

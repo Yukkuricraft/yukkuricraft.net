@@ -10,7 +10,7 @@ function makeEntry(obj) {
 	}
 
 	return {
-		loc: `https://info.yukkuricraft.net${obj.url}`,
+		loc: `https://yukkuricraft.net${obj.url}`,
 		lastmod: time,
 		priority: obj.priority
 	}

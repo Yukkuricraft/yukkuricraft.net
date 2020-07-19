@@ -1,7 +1,7 @@
 <template>
 	<normal-page :parallax-images="images">
 		<vue-headful title="YukkuriCraft - Staff" description="The staff of YukkuriCraft."
-					 :image="require('../favicon_upscaled.png')" url="https://info.yukkuricraft.net/staff/"/>
+					 :image="require('../favicon_upscaled.png')" url="https://yukkuricraft.net/staff/"/>
 
 		<template v-slot:parallax>
 			<h1>Staff</h1>

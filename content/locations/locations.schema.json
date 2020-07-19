@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://info.yukkuricraft.net/schemas/locations.schema.json",
+  "$id": "https://yukkuricraft.net/schemas/locations.schema.json",
   "title": "YukkuriCraft locations",
   "description": "A schema for YukkuriCraft's locations documents",
   "type": "object",
@@ -12,33 +12,41 @@
       "type": "object",
       "properties": {
         "displayName": {
-          "type": "string"
+          "type": "string",
+          "description": "The name shown to the user on the main page."
         },
         "menuName": {
-          "type": "string"
+          "type": "string",
+          "description": "The name shown to the user in the sidebar menu."
         },
         "description": {
           "type": "string",
           "x-intellij-language-injection": {
             "language": "Markdown"
-          }
+          },
+          "description": "A brief description of this location."
         },
         "images": {
           "type": "array",
+          "description": "Images of this location.",
           "items": {
             "type": "object",
             "properties": {
               "name": {
-                "type": "string"
+                "type": "string",
+                "description": "The filename of this image."
               },
               "title": {
-                "type": "string"
+                "type": "string",
+                "description": "A title assigned to this image."
               },
               "description": {
-                "type": "string"
+                "type": "string",
+                "description": "A brief description to follow with the image."
               },
               "image_taken_by": {
-                "type": "string"
+                "type": "string",
+                "description": "Credits to the one that took the image."
               }
             },
             "required": ["name"],
@@ -47,6 +55,7 @@
         },
         "sublocations": {
           "type": "object",
+          "description": "More locations within this location",
           "additionalProperties": {
             "$ref": "#/definitions/location"
           }

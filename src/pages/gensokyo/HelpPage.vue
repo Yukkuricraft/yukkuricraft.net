@@ -2,15 +2,15 @@
 	<sidebar-page :parallax-images="images">
 		<vue-headful title="YukkuriCraft - Help us build!"
 					 description="Take a look at our ongoing projects in Gensokyo."
-					 :image="require('../../favicon_upscaled.png')"
-					 url="https://info.yukkuricraft.net/gensokyo/help/"/>
+					 :image="require('../../favicon_upscaled.png')" url="https://yukkuricraft.net/gensokyo/help/"/>
 
 		<template v-slot:sidebar>
 			<div class="sidebar-header">
 				<h2>Locations</h2>
 			</div>
 
-			<location-sidebar-entries class="sidebar-components" :locations="locations"></location-sidebar-entries>
+			<sidebar-entries class="sidebar-components" href-prefix="locations" :subgroups="locations"
+							 subgroup-children-name="sublocations"/>
 		</template>
 
 		<template v-slot:parallax>
@@ -43,7 +43,7 @@
 <script>
 	import SidebarPage from "../../layout/SidebarPage";
 	import Locations from "./Locations";
-	import LocationSidebarEntries from "./LocationSidebarEntries"
+	import SidebarEntries from "../../components/SidebarEntries"
 
 	import locations from "../../../content/locations/help_locations.yaml";
 	import {autoImage} from "../../images";
@@ -52,7 +52,7 @@
 		components: {
 			SidebarPage,
 			Locations,
-			LocationSidebarEntries
+			SidebarEntries
 		},
 		computed: {
 			images() {

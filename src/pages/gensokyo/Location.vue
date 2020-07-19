@@ -2,7 +2,10 @@
 	<div>
 		<heading :id="'location-' + locationId" :level="3 + depth">{{ location.displayName }}</heading>
 		<markdown-lazy :content="location.description"></markdown-lazy>
-		<locations v-if="location.sublocations" :depth="depth + 1" :locations="location.sublocations"></locations>
+
+		<location v-for="(location, locationId) in location.sublocations" :depth="depth + 1"
+				  :location-id="locationId" :location="location"
+				  :key="locationId" />
 		<div v-if="location.images">
 			<h5>Images</h5>
 			<!-- https://startbootstrap.com/snippets/thumbnail-gallery/ -->
@@ -53,9 +56,9 @@
 	import {makeImage} from "../../images";
 
 	export default {
+		name: 'location',
 		components: {
 			MarkdownLazy,
-			Locations: () => import("./Locations.vue"),
 			Heading,
 			BRow,
 			BCol,

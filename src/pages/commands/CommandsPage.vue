@@ -1,14 +1,14 @@
 <template>
 	<sidebar-page :parallax-images="images">
 		<vue-headful title="YukkuriCraft - Commands" description="Search through the commands found on YukkuriCraft."
-					 :image="require('../../favicon_upscaled.png')" url="https://info.yukkuricraft.net/commands/"/>
+					 :image="require('../../favicon_upscaled.png')" url="https://yukkuricraft.net/commands/"/>
 
 		<template v-slot:sidebar>
 			<div class="sidebar-header">
 				<h2>Commands</h2>
 			</div>
 
-			<command-sidebar-entries class="sidebar-components" :subgroups="commands"></command-sidebar-entries>
+			<sidebar-entries class="sidebar-components" href-prefix="commands" :subgroups="commands" subgroup-children-name="subgroups" />
 		</template>
 
 		<template v-slot:parallax>
@@ -34,7 +34,9 @@
 			</b-form-group>
 
 			<div id="commandGroups">
-				<command-groups :subgroups="commands" :depth="0"/>
+				<command-group v-for="(commandGroup, commandGroupId) in commands" :depth="0"
+							   :command-group-id="commandGroupId" :command-group="commandGroup"
+							   :key="commandGroupId"  />
 			</div>
 		</div>
 	</sidebar-page>
@@ -43,8 +45,8 @@
 <script>
 	import {BFormGroup, BFormInput} from "bootstrap-vue"
 
-	import CommandGroups from "./CommandGroups";
-	import CommandSidebarEntries from "./CommandSidebarEntries";
+	import CommandGroup from "./CommandGroup";
+	import SidebarEntries from "../../components/SidebarEntries";
 	import SidebarPage from "../../layout/SidebarPage";
 
 	import queryString from "query-string";
@@ -56,8 +58,8 @@
 	export default {
 		components: {
 			SidebarPage,
-			CommandSidebarEntries,
-			CommandGroups,
+			SidebarEntries,
+			CommandGroup,
 			BFormGroup,
 			BFormInput
 		},

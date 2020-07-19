@@ -11,7 +11,11 @@ function removeMdSuffix(file) {
 
 module.exports = [
 	{url: '/', priority: '1.0', mainContent: ['./src/pages/InfoPage.vue']},
-	{url: '/ranks/', priority: '0.80', mainContent: ['./src/pages/RanksPage.vue']},
+	{
+		url: '/ranks/',
+		priority: '0.80',
+		mainContent: ['./src/pages/ranks/RanksPage.vue', './src/pages/ranks/RankGroup.vue', './content/ranks.yaml']
+	},
 	{url: '/staff/', priority: '0.80', mainContent: ['./src/pages/StaffPage.vue', './content/staff.yaml']},
 	{url: '/rules/', priority: '0.80', mainContent: ['./content/pages/RulesEN.md']},
 	{url: '/commands/', priority: '0.60', mainContent: glob.sync('./src/pages/commands/**.*')},

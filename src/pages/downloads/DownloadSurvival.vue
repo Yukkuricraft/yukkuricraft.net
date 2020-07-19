@@ -3,7 +3,7 @@
 		<vue-headful title="YukkuriCraft - Survival Downloads"
 					 description="Download our survival maps."
 					 :image="require('../../favicon_upscaled.png')"
-					 url="https://info.yukkuricraft.net/downloads/survival/"/>
+					 url="https://yukkuricraft.net/downloads/survival/"/>
 
 		<template v-slot:parallax>
 			<h1>Past Survival downloads</h1>

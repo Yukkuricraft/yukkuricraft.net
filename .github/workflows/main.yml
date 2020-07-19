@@ -14,7 +14,7 @@ on:
 
 jobs:
   deploy:
-    name: Build and deploy info.yukkuricraft.net
+    name: Build and deploy yukkuricraft.net
     runs-on: ubuntu-latest
     steps:
     - name: Extract branch name

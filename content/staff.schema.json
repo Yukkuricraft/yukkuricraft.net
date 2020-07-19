@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://info.yukkuricraft.net/schemas/staff.schema.json",
+  "$id": "https://yukkuricraft.net/schemas/staff.schema.json",
   "title": "YukkuriCraft staff",
   "description": "A schema for YukkuriCraft's staff document",
   "type": "array",
@@ -8,10 +8,12 @@
     "type": "object",
     "properties": {
       "id": {
-        "type": "string"
+        "type": "string",
+        "description": "The id of this staff group. This should be unique in the whole document."
       },
       "displayName": {
-        "type": "string"
+        "type": "string",
+        "description": "The name of this staff group, as shown to the user."
       },
       "members": {
         "type": "array",
@@ -19,18 +21,22 @@
           "type": "object",
           "properties": {
             "name": {
-              "type": "string"
+              "type": "string",
+              "description": "The name of this staff member."
             },
             "mcAccounts": {
               "type": "array",
+              "description": "All the Minecraft accounts of this staff member.",
               "items": {
                 "type": "object",
                 "properties": {
                   "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The last known name of this account."
                   },
                   "uuid": {
                     "type": "string",
+                    "description": "The UUID of this account.",
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
                   }
                 },
@@ -42,6 +48,7 @@
               }
             },
             "discordAccount": {
+              "description": "The Discord account id of this staff member.",
               "oneOf": [
                 {
                   "type": "string",
@@ -53,10 +60,12 @@
               ]
             },
             "avatar": {
-              "type": "string"
+              "type": "string",
+              "description": "The filename of the avatar of this staff member."
             },
             "description": {
-              "type": "string"
+              "type": "string",
+              "description": "A short introduction from the staff member."
             }
           },
           "required": [
