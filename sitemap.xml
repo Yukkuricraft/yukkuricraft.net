@@ -2,67 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://yukkuricraft.net/</loc>
-    <lastmod>2020-07-19T22:35:04.849Z</lastmod>
+    <lastmod>2020-07-20T03:10:33.801Z</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://yukkuricraft.net/ranks/</loc>
-    <lastmod>2020-07-19T22:35:04.849Z</lastmod>
+    <lastmod>2020-07-20T03:10:33.805Z</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://yukkuricraft.net/staff/</loc>
-    <lastmod>2020-07-19T22:35:04.849Z</lastmod>
+    <lastmod>2020-07-20T03:10:33.801Z</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://yukkuricraft.net/rules/</loc>
-    <lastmod>2020-07-19T22:35:04.845Z</lastmod>
+    <lastmod>2020-07-20T03:10:33.797Z</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://yukkuricraft.net/commands/</loc>
-    <lastmod>2020-07-19T22:35:04.849Z</lastmod>
+    <lastmod>2020-07-20T03:10:33.801Z</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://yukkuricraft.net/downloads/gensokyo/</loc>
-    <lastmod>2020-07-19T22:35:04.849Z</lastmod>
+    <lastmod>2020-07-20T03:10:33.801Z</lastmod>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://yukkuricraft.net/downloads/survival/</loc>
-    <lastmod>2020-07-19T22:35:04.849Z</lastmod>
+    <lastmod>2020-07-20T03:10:33.801Z</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://yukkuricraft.net/gensokyo/</loc>
-    <lastmod>2020-07-19T22:35:04.849Z</lastmod>
+    <lastmod>2020-07-20T03:10:33.801Z</lastmod>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://yukkuricraft.net/gensokyo/help/</loc>
-    <lastmod>2020-07-19T22:35:04.849Z</lastmod>
+    <lastmod>2020-07-20T03:10:33.801Z</lastmod>
     <priority>0.65</priority>
   </url>
   <url>
     <loc>https://yukkuricraft.net/announcements/</loc>
-    <lastmod>2020-07-19T22:35:03.629Z</lastmod>
+    <lastmod>2020-07-20T03:10:32.597Z</lastmod>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://yukkuricraft.net/announcements/PSA-Addressing-a-Change-in-Standards</loc>
-    <lastmod>2020-07-19T22:35:03.629Z</lastmod>
+    <lastmod>2020-07-20T03:10:32.597Z</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://yukkuricraft.net/announcements/YCShowdown2</loc>
-    <lastmod>2020-07-19T22:35:03.629Z</lastmod>
+    <lastmod>2020-07-20T03:10:32.597Z</lastmod>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://yukkuricraft.net/announcements/TsunkoSteppedDown</loc>
-    <lastmod>2020-07-19T22:35:03.629Z</lastmod>
+    <lastmod>2020-07-20T03:10:32.597Z</lastmod>
     <priority>0.60</priority>
   </url>
 </urlset>
