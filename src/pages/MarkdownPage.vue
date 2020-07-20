@@ -1,5 +1,5 @@
 <template>
-	<normal-page :parallax-images="parallaxImages">
+	<normal-page :parallax-images="realParallaxImages">
 		<template v-slot:parallax>
 			<h1>{{ title }}</h1>
 		</template>
@@ -25,14 +25,16 @@
 		props: {
 			component: Object,
 			localizedComponents: [Object, Promise],
-			parallaxImages: [Object, Promise]
+			parallaxImages: Function
 		},
 		data() {
 			return {
-				nowLocalizedComponents: {}
+				nowLocalizedComponents: {},
+				realParallaxImages: null
 			}
 		},
 		created() {
+			this.realParallaxImages = this.parallaxImages();
 			Promise.resolve(this.localizedComponents || {}).then(localized => {
 				this.nowLocalizedComponents = localized;
 			})

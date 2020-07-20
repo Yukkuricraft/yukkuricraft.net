@@ -99,10 +99,13 @@ export const router = new VueRouter({
 			component: MarkdownPage,
 			props: {
 				component: page,
-				localizedComponents: {},
-				parallaxImages: page.attributes.parallaxImages && autoImage(page.attributes.parallaxImages),
+				localizedComponents: page.attributes.localizations && page.attributes.localizations.map((
+					file,
+					locale
+				) => [locale, mdPagesResolve(file)]) || {},
+				parallaxImages: () => page.attributes.parallaxImages && autoImage(page.attributes.parallaxImages),
 			},
-			pathToRegexpOptions: { strict: true }
+			pathToRegexpOptions: {strict: true}
 		})),
 		...announcementList.posts.map(post => {
 			let name = post.file.endsWith('.md') ? post.file.substring(0, post.file.length - 3) : post.file;

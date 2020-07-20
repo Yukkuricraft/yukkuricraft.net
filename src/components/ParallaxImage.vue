@@ -34,6 +34,7 @@
 			return {
 				loadedImages: null,
 				imageToUse: null,
+				switched: false
 			}
 		},
 		props: {
@@ -46,12 +47,20 @@
 		created() {
 			Promise.resolve(this.images).then(images => {
 				this.loadedImages = images
-				this.imageToUse = Modernizr.webp ? images.lowResWebp : images.lowRes
+
+				if(images.loaded) {
+					console.log('InstantSwitch');
+					this.switched = true;
+					this.imageToUse = Modernizr.webp ? images.highResWebp : images.highRes
+				}
+				else {
+					this.imageToUse = Modernizr.webp ? images.lowResWebp : images.lowRes
+				}
 			});
 		},
 		methods: {
 			switchImage(event) {
-				if (!window.__PRERENDER_INJECTED || !window.__PRERENDER_INJECTED.prerendered) {
+				if (!window.__PRERENDER_INJECTED || !window.__PRERENDER_INJECTED.prerendered &&  !this.switched) {
 					if (typeof event.target.currentSrc === 'undefined') {
 						this.imageToUse = event.target.src;
 					} else {
