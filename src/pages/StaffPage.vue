@@ -62,6 +62,7 @@
 
 	import NormalPage from "../layout/NormalPage";
 	import {autoImage} from "../images";
+	import {isPrerender} from "../prerender";
 
 	import staff from "../../content/staff.yaml";
 
@@ -86,26 +87,20 @@
 			return {
 				staffAvatars: {},
 				sakores: false,
-				sakoresHandler: null,
 				sakoresIdx: 0,
 				mcNames
 			}
 		},
 		created() {
-			if(!window.__PRERENDER_INJECTED || !window.__PRERENDER_INJECTED.prerendered) {
+			if(!isPrerender) {
 				this.loadRealNames();
 			}
 			this.loadAvatars();
 
-			if(!this.sakoresHandler) {
-				this.sakoresHandler = document.addEventListener('keydown', this.processSakores)
-			}
+			document.addEventListener('keydown', this.processSakores)
 		},
-		beforeDestroy() {
-			if(this.sakoresHandler) {
-				document.removeEventListener('keydown', this.sakoresHandler);
-				this.sakoresHandler = null;
-			}
+		destroyed() {
+			document.removeEventListener('keydown', this.processSakores);
 		},
 		methods: {
 			processSakores(event) {

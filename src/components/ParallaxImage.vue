@@ -23,6 +23,7 @@
 
 <script>
 	import {BContainer, BRow, BCol} from "bootstrap-vue";
+	import {isPrerender} from "../prerender";
 
 	export default {
 		components: {
@@ -49,18 +50,17 @@
 				this.loadedImages = images
 
 				if(images.loaded) {
-					console.log('InstantSwitch');
 					this.switched = true;
-					this.imageToUse = Modernizr.webp ? images.highResWebp : images.highRes
+					this.imageToUse = Modernizr.webp && !isPrerender ? images.highResWebp : images.highRes
 				}
 				else {
-					this.imageToUse = Modernizr.webp ? images.lowResWebp : images.lowRes
+					this.imageToUse = Modernizr.webp && !isPrerender ? images.lowResWebp : images.lowRes
 				}
 			});
 		},
 		methods: {
 			switchImage(event) {
-				if (!window.__PRERENDER_INJECTED || !window.__PRERENDER_INJECTED.prerendered &&  !this.switched) {
+				if (!isPrerender &&  !this.switched) {
 					if (typeof event.target.currentSrc === 'undefined') {
 						this.imageToUse = event.target.src;
 					} else {
