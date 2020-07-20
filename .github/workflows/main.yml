@@ -38,19 +38,13 @@ jobs:
           ${{ runner.os }}-yarn-
 
     - name: Yarn Install
-      uses: ianwalter/puppeteer@3.0.0
-      with:
-        args: yarn install --frozen-lockfile
+      run: yarn install --frozen-lockfile
 
     - name: Yarn Setup
-      uses: ianwalter/puppeteer@3.0.0
-      with:
-        args: yarn run setup
+      run: yarn run setup
 
     - name: Yarn Build
-      uses: ianwalter/puppeteer@3.0.0
-      with:
-        args: yarn build
+      run: yarn build
 
     - name: Deploy-Info-Dev
       if: steps.extract_branch.outputs.branch == 'dev'

@@ -31,7 +31,7 @@ module.exports = (env, options) => {
 					inject: {
 						prerendered: true
 					},
-					executablePath: isCI ? 'google-chrome-stable' : undefined
+					//executablePath: isCI ? 'google-chrome-stable' : undefined
 				}),
 				postProcess(context) {
 					if(context.route === '/404') {
