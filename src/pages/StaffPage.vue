@@ -63,6 +63,7 @@
 	import NormalPage from "../layout/NormalPage";
 	import {autoImage} from "../images";
 	import {isPrerender} from "../prerender";
+	import {removeExtension} from "../files";
 
 	import staff from "../../content/staff.yaml";
 
@@ -128,7 +129,10 @@
 							continue;
 						}
 
-						import(/* webpackMode: "eager" */ '../../content/images/avatars/' + staffMember.avatar).then(img => {
+						let fileName = removeExtension(staffMember.avatar, '.png');
+						let extension = Modernizr.webp ? '.webp' : '.png';
+
+						import(/* webpackMode: "eager" */ '../../generated/avatars/' + fileName + extension).then(img => {
 							this.$set(this.staffAvatars, key, {loaded: true, avatar: img.default})
 						})
 					}

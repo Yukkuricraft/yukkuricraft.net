@@ -20,6 +20,7 @@
 	import AnnouncementExcerpt from "./AnnouncementExcerpt";
 
 	import debounce from "lodash/debounce";
+	import {removeExtension} from "../../files";
 
 	export default {
 		components: {
@@ -53,7 +54,7 @@
 
 				let currentpostsLoaded = this.postsLoaded;
 				announcementList.posts.slice(this.postsLoaded, newPostCount).forEach((post, idx) => {
-					let name = post.file.endsWith('.md') ? post.file.substring(0, post.file.length - 3) : post.file;
+					let name = removeExtension(post.file, '.md');
 					import(/* webpackChunkName: "announcement" */ `../../../content/announcements/${name}.md`).then(mod => {
 						this.$set(this.posts, currentpostsLoaded + idx, {post: mod.default, slug: post.slug || name});
 					})

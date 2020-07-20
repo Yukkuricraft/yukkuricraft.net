@@ -31,6 +31,7 @@
 	import merge from "lodash/merge"
 
 	import {autoImage} from "../../images";
+	import {removeExtension} from "../../files";
 
 	import locationList from "../../../content/locations/locationList.yaml";
 
@@ -47,7 +48,7 @@
 		},
 		created() {
 			let allLocations = locationList.locations.map((entry, idx) => {
-				let name = entry.endsWith('.yaml') ? entry.substring(0, entry.length - 5) : entry;
+				let name = removeExtension(entry, '.yaml');
 				return import(/* webpackMode: "eager" */ `../../../content/locations/${name}.yaml`).then(commands => ({
 					commands,
 					idx

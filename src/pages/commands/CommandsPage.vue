@@ -52,6 +52,7 @@
 	import queryString from "query-string";
 
 	import {autoImage} from "../../images";
+	import {removeExtension} from "../../files";
 
 	import commandList from "../../../content/commands/commandList.yaml";
 
@@ -74,7 +75,7 @@
 			Object.entries(queryString.parse(location.search)).forEach(([key, value]) => this.$set(this, key, value));
 
 			let allCommandGroups = commandList.commands.map((entry, idx) => {
-				let name = entry.endsWith('.yaml') ? entry.substring(0, entry.length - 5) : entry;
+				let name = removeExtension(entry, '.yaml');
 				return import(/* webpackMode: "eager" */ `../../../content/commands/${name}.yaml`).then(commands => ({
 					commands,
 					idx

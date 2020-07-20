@@ -5,9 +5,13 @@ const glob = require('glob');
 
 let work = [];
 let backgroundDir = './content/images/backgrounds/';
-let buildsDir = './content/images/locations/';
 let backgroundOutDir = './generated/backgrounds/';
+
+let buildsDir = './content/images/locations/';
 let buildsOutDir = './generated/builds/';
+
+let avatarsDir = './content/images/avatars/';
+let avatarsOutDir = './generated/avatars/';
 
 function processBackground(image) {
 	let file = path.parse(path.relative(backgroundDir, image));
@@ -43,23 +47,32 @@ function processBuild(image) {
 	];
 }
 
-function processBackgrounds() {
-	fs.mkdirSync(backgroundOutDir, {recursive: true});
-	let files = glob.sync(backgroundDir + '**/*.png');
+function processAvatar(image) {
+	let file = path.parse(path.relative(backgroundDir, image));
+	let outputFile = backgroundOutDir + file.dir + '/' + file.name;
+	fs.mkdirSync(buildsOutDir + file.dir, {recursive: true});
 
-	work.push(...files.flatMap(processBackground));
+	return [
+		sharp(image).png().resize(192).toFile(outputFile + '.png'),
+		sharp(image).webp({lossless: true}).resize(192).toFile(outputFile + '.webp'),
+		sharp(image).png().resize(64).toFile(outputFile + '_author.png'),
+		sharp(image).webp({lossless: true}).resize(64).toFile(outputFile + '_author.webp'),
+		sharp(image).png().resize(32).toFile(outputFile + '_icon.png'),
+		sharp(image).webp({lossless: true}).resize(32).toFile(outputFile + '_icon.webp'),
+	];
 }
 
-function processBuilds() {
-	fs.mkdirSync(buildsOutDir, {recursive: true});
-	let files = glob.sync(buildsDir + '**/*!(_small).png');
+function processFiles(processor, outDir, pattern) {
+	fs.mkdirSync(outDir, {recursive: true});
+	let files = glob.sync(pattern);
 
-	work.push(...files.flatMap(processBuild));
+	work.push(...files.flatMap(processor));
 }
 
 module.exports = function() {
-	processBackgrounds();
-	processBuilds();
+	processFiles(processBackground, backgroundOutDir, backgroundDir + '**/*.png')
+	processFiles(processBuild, buildsOutDir, buildsDir + '**/*.png')
+	processFiles(processAvatar, avatarsOutDir, avatarsDir + '**/*.png')
 
 	Promise.all(work).then(() => console.log('Image processing done')).catch(err => console.error('Image processing failed: ', err))
 }
