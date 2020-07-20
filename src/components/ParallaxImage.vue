@@ -1,6 +1,6 @@
 <template>
 	<div :style="{height: height + 'px'}">
-		<div class="parallax" :style="{height: height + 'px', 'background-image': `url(${imageToUse})`}">
+		<div class="parallax" :style="{height: height + 'px', 'background-image': imageToUse && `url(${imageToUse})`}">
 			<b-container class="h-100">
 				<b-row class="text-center align-items-center h-100">
 					<b-col md="2"></b-col>
