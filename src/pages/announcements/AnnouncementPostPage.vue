@@ -59,7 +59,7 @@
 			}
 		},
 		created() {
-			import(`../../../content/announcements/${this.postName}.md`).then(p => {
+			import(/* webpackChunkName: "announcement" */ `../../../content/announcements/${this.postName}.md`).then(p => {
 				this.post = p.default;
 			});
 			window.addEventListener('message', this.postMessageReceived, false);
@@ -137,7 +137,7 @@
 				let posterName = this.post.attributes.poster;
 				if (posters[posterName] && posters[posterName].avatar) {
 					let avatarName = posters[posterName].avatar;
-					import(`../../../content/images/avatars/${avatarName}`).then(mod => {
+					import(/* webpackMode: "eager" */ `../../../content/images/avatars/${avatarName}`).then(mod => {
 						this.posterAvatar = mod.default;
 					})
 				}

@@ -178,7 +178,6 @@
 	import AnnouncementExcerpt from "./announcements/AnnouncementExcerpt";
 	import {autoImage} from "../images";
 	import {parseMCCodes} from "../colorFormatter";
-	import {mapState} from 'vuex';
 	import chunk from "lodash/chunk";
 
 	import announcementList from "../../content/announcements/announcementList.yaml";
@@ -200,27 +199,72 @@
 		computed: {
 			images() {
 				return autoImage('hakurei')
-			},
-			...mapState('server', {
-				serverPing: 'ping',
-			})
+			}
 		},
 		data() {
 			return {
-				posts: []
+				posts: [],
+				serverPing: {
+					description: null,
+					players: {
+						max: null,
+						online: null,
+						sample: null
+					},
+					version: {
+						name: null
+					}
+				}
 			}
 		},
 		created() {
 			announcementList.posts.slice(0, 3).forEach((post, idx) => {
 				let name = post.file.endsWith('.md') ? post.file.substring(0, post.file.length - 3) : post.file;
-				import(`../../content/announcements/${name}.md`).then(mod => {
+				import(/* webpackChunkName: "announcement" */ `../../content/announcements/${name}.md`).then(mod => {
 					this.$set(this.posts, idx, {post: mod.default, slug: post.slug || name});
 				})
-			})
+			});
+			this.loadServerInfo();
 		},
 		methods: {
 			parseMCCodes,
-			chunk
+			chunk,
+			async mcPing() {
+				let errorMsg = `Failed to get YC server info`;
+
+				try {
+					let res = await fetch('https://api.minetools.eu/ping/mc.yukkuricraft.net/25565');
+
+					if (res.status !== 200) {
+						console.warn(errorMsg);
+						return null;
+					} else {
+						let json = await res.json();
+
+						if(typeof json.error !== 'undefined') {
+							console.warn(errorMsg + '. Error: ' + json.error);
+							return null;
+						}
+						else {
+							return json
+						}
+					}
+				} catch (e) {
+					console.warn(errorMsg + '. Error: ' + e);
+					return null
+				}
+			},
+			loadServerInfo() {
+				this.mcPing().then(ping => {
+					if(ping !== null) {
+						this.serverPing.description = ping.description;
+						this.serverPing.players.max = ping.players.max;
+						this.serverPing.players.online = ping.players.online;
+						this.serverPing.players.sample = ping.players.sample;
+						this.serverPing.version.name = ping.version.name
+					}
+				})
+			}
 		}
 	}
 </script>

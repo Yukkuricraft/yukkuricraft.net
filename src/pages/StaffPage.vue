@@ -64,7 +64,6 @@
 	import {autoImage} from "../images";
 
 	import staff from "../../content/staff.yaml";
-	import {mapState} from "vuex";
 
 	export default {
 		components: {
@@ -74,16 +73,27 @@
 			BImg
 		},
 		data() {
+			let mcNames = {};
+
+			for(let staffGroup of staff) {
+				for(let member of staffGroup.members) {
+					for(let mcAccount of member.mcAccounts) {
+						mcNames[mcAccount.uuid] = mcAccount.name;
+					}
+				}
+			}
+
 			return {
 				staffAvatars: {},
 				sakores: false,
 				sakoresHandler: null,
-				sakoresIdx: 0
+				sakoresIdx: 0,
+				mcNames
 			}
 		},
 		created() {
 			if(!window.__PRERENDER_INJECTED || !window.__PRERENDER_INJECTED.prerendered) {
-				this.$store.dispatch('staff/loadRealNames')
+				this.loadRealNames();
 			}
 			this.loadAvatars();
 
@@ -128,6 +138,38 @@
 						})
 					}
 				}
+			},
+			async mcUsername(uuid, fallback) {
+				let errorMsg = `Failed to get name for uuid ${uuid}, using fallback ${fallback} instead`;
+
+				try {
+					let res = await fetch('https://api.minetools.eu/uuid/' + uuid.replaceAll('-', ''));
+
+					if (res.status !== 200) {
+						console.warn(errorMsg);
+						return fallback;
+					} else {
+						let profile = await res.json();
+
+						if(typeof profile.error !== 'undefined') {
+							console.warn(errorMsg + '. Error: ' + profile.error);
+							return fallback;
+						}
+						else {
+							return profile.name
+						}
+					}
+				} catch (e) {
+					console.warn(errorMsg + '. Error: ' + e);
+					return fallback
+				}
+			},
+			loadRealNames() {
+				for(let uuid of Object.keys(this.mcNames)) {
+					this.mcUsername(uuid, this.mcNames[uuid]).then(name => {
+						this.$set(this.mcNames, uuid, name)
+					})
+				}
 			}
 		},
 		computed: {
@@ -136,8 +178,7 @@
 			},
 			staff() {
 				return staff;
-			},
-			...mapState('staff', ['mcNames'])
+			}
 		}
 	}
 </script>

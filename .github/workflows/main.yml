@@ -38,7 +38,7 @@ jobs:
           ${{ runner.os }}-yarn-
 
     - name: Yarn Install
-      run: yarn install --frozen-lockfile
+      run: yarn install --frozen-lockfile --prefer-offline
 
     - name: Yarn Setup
       run: yarn run setup

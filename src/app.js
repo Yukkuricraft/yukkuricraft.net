@@ -14,7 +14,6 @@ import "css.escape";
 
 import App from './App.vue'
 
-import {store} from "./stores/index";
 import {router} from "./router";
 
 Vue.use(VueRouter);
@@ -33,15 +32,12 @@ const i18n = new VueI18n({
 	locale: usedLocale
 })
 
-store.dispatch('server/loadServerInfo');
-
 document.addEventListener('DOMContentLoaded', () => {
 	const app = new Vue({
 		el: '#app',
 		render: createElement => createElement(App),
 		router,
 		i18n,
-		store,
 		mounted() {
 			// You'll need this for renderAfterDocumentEvent.
 			document.dispatchEvent(new Event('render-event'))

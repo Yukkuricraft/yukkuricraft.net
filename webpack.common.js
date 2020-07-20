@@ -177,6 +177,13 @@ module.exports = (env, options) => {
 						chunks: "initial",
 						minChunks: 2,
 					},
+					backdrops: {
+						name: 'backdrops',
+						test: /[\\/]generated[\\/]backgrounds[\\/]/,
+						chunks: "async",
+						priority: 10,
+						enforce: true
+					}
 				}
 			}
 		}

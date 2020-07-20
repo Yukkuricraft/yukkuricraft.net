@@ -17,8 +17,8 @@ function processBackground(image) {
 	return [
 		sharp(image).jpeg({quality: 60}).resize(1920).toFile(outputFile + '.jpeg'),
 		sharp(image).webp({quality: 60}).resize(1920).toFile(outputFile + '.webp'),
-		sharp(image).jpeg({quality: 10}).resize(1920 / 4).blur(2).toFile(outputFile + '_small.jpeg'),
-		sharp(image).webp({quality: 10}).resize(1920 / 4).blur(1).toFile(outputFile + '_small.webp'),
+		sharp(image).jpeg({quality: 7}).resize(1920 / 4).blur(2).toFile(outputFile + '_small.jpeg'),
+		sharp(image).webp({quality: 1}).resize(1920 / 4).blur(1).toFile(outputFile + '_small.webp'),
 	];
 }
 
