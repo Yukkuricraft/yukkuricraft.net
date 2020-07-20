@@ -1,3 +1,5 @@
+import {isPrerender} from "./prerender";
+
 let addedPreload = [];
 
 let extraLargeSize = window.matchMedia('(min-width: 1200px)');
@@ -31,7 +33,7 @@ export function makeImage(big, bigWebp, small, smallWebp, preload) {
 
 	if(preload) {
 		//Check explicitly for undefined in case info isn't around yet
-		if(typeof Modernizr.webp === 'undefined') {
+		if(typeof Modernizr.webp === 'undefined' || isPrerender) {
 			addPreload(bigWebp, 'image/webp');
 			addPreload(big, 'image/jpeg');
 		}

@@ -1,6 +1,7 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const path = require('path');
+const JSDOM = require("jsdom").JSDOM;
 
 const CopyPlugin = require('copy-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
@@ -13,7 +14,21 @@ let pages = require('./pages')
 
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
-let isCI = typeof process.env.CI !== 'undefined' && process.env.CI;
+function processRendered(content) {
+	let htmlContent = content;
+	htmlContent = htmlContent.replace('http://localhost:8000', 'https://yukkuricraft.net');
+
+	let dom = new JSDOM(htmlContent);
+	dom.window.document.children[0].classList.remove('webp', 'webp-alpha', 'webp-animation', 'webp-lossless');
+
+	let scripts = dom.window.document.head.querySelectorAll('script');
+	for(let script of scripts) {
+		script.defer = true;
+		dom.window.document.body.appendChild(script);
+	}
+
+	return dom.serialize();
+}
 
 module.exports = (env, options) => {
 	return merge(common(env, options), {
@@ -30,14 +45,14 @@ module.exports = (env, options) => {
 					injectProperty: '__PRERENDER_INJECTED',
 					inject: {
 						prerendered: true
-					},
-					//executablePath: isCI ? 'google-chrome-stable' : undefined
+					}
 				}),
 				postProcess(context) {
-					if(context.route === '/404') {
+					if (context.route === '/404') {
 						context.outputPath = 'dist/404.html'
 					}
-					context.html = context.html.replace('http://localhost:8000', 'https://yukkuricraft.net')
+
+					context.html = processRendered(context.html);
 
 					return context
 				}
