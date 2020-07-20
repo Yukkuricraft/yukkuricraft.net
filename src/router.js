@@ -11,6 +11,7 @@ import LoadingPage from "./pages/LoadingPage";
 import ErrorPage from "./pages/ErrorPage";
 
 import {autoImage} from "./images";
+import {removeExtension} from "./files";
 import announcementList from "../content/announcements/announcementList.yaml";
 
 const mdPagesResolve = require.context('../content/pages', true, /\.md$/);
@@ -35,7 +36,7 @@ export const router = new VueRouter({
 			path: '/ranks/',
 			name: 'ranks',
 			component: () => ({
-				component: import(/* webpackChunkName: "staffPage" */ "./pages/StaffPage"),
+				component: import(/* webpackChunkName: "ranksPage" */ "./pages/ranks/RanksPage"),
 				loading: LoadingPage,
 				error: ErrorPage
 			}),
@@ -45,7 +46,7 @@ export const router = new VueRouter({
 			path: '/staff/',
 			name: 'staff',
 			component: () => ({
-				component: import(/* webpackChunkName: "ranksPage" */ "./pages/ranks/RanksPage"),
+				component: import(/* webpackChunkName: "staffPage" */ "./pages/StaffPage"),
 				loading: LoadingPage,
 				error: ErrorPage
 			}),
@@ -99,13 +100,16 @@ export const router = new VueRouter({
 			component: MarkdownPage,
 			props: {
 				component: page,
-				localizedComponents: {},
-				parallaxImages: page.attributes.parallaxImages && autoImage(page.attributes.parallaxImages),
+				localizedComponents: page.attributes.localizations && page.attributes.localizations.map((
+					file,
+					locale
+				) => [locale, mdPagesResolve(file)]) || {},
+				parallaxImages: () => page.attributes.parallaxImages && autoImage(page.attributes.parallaxImages),
 			},
-			pathToRegexpOptions: { strict: true }
+			pathToRegexpOptions: {strict: true}
 		})),
 		...announcementList.posts.map(post => {
-			let name = post.file.endsWith('.md') ? post.file.substring(0, post.file.length - 3) : post.file;
+			let name = removeExtension(post.file, '.md');
 			let slug = post.slug || name;
 
 			return {

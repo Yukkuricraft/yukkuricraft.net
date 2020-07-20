@@ -5,7 +5,7 @@
 				subgroup.menuName }}</a>
 			<b-collapse :id="`${hrefPrefix}Sidebar-${subgroupId}`">
 				<sidebar-entries :subgroups="subgroup[subgroupChildrenName]" :href-prefix="hrefPrefix"
-								 :subgroup-children="subgroupChildrenName"></sidebar-entries>
+								 :subgroup-children-name="subgroupChildrenName"></sidebar-entries>
 			</b-collapse>
 		</template>
 		<template v-else>

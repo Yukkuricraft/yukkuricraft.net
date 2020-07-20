@@ -1,6 +1,6 @@
 <template>
 	<div :style="{height: height + 'px'}">
-		<div class="parallax" :style="{height: height + 'px', 'background-image': `url(${imageToUse})`}">
+		<div class="parallax" :style="{height: height + 'px', 'background-image': imageToUse && `url(${imageToUse})`}">
 			<b-container class="h-100">
 				<b-row class="text-center align-items-center h-100">
 					<b-col md="2"></b-col>
@@ -23,6 +23,7 @@
 
 <script>
 	import {BContainer, BRow, BCol} from "bootstrap-vue";
+	import {isPrerender} from "../prerender";
 
 	export default {
 		components: {
@@ -34,6 +35,7 @@
 			return {
 				loadedImages: null,
 				imageToUse: null,
+				switched: false
 			}
 		},
 		props: {
@@ -46,12 +48,19 @@
 		created() {
 			Promise.resolve(this.images).then(images => {
 				this.loadedImages = images
-				this.imageToUse = Modernizr.webp ? images.lowResWebp : images.lowRes
+
+				if(images.loaded) {
+					this.switched = true;
+					this.imageToUse = Modernizr.webp && !isPrerender ? images.highResWebp : images.highRes
+				}
+				else {
+					this.imageToUse = Modernizr.webp && !isPrerender ? images.lowResWebp : images.lowRes
+				}
 			});
 		},
 		methods: {
 			switchImage(event) {
-				if (!window.__PRERENDER_INJECTED || !window.__PRERENDER_INJECTED.prerendered) {
+				if (!isPrerender &&  !this.switched) {
 					if (typeof event.target.currentSrc === 'undefined') {
 						this.imageToUse = event.target.src;
 					} else {

@@ -38,6 +38,7 @@
 
 	import NormalPage from "../../layout/NormalPage";
 	import posters from "../../../content/announcements/posters.yaml";
+	import {removeExtension} from "../../files";
 
 	//Discourse information
 	let discourseUrl = 'https://forums.yukkuricraft.net';
@@ -136,8 +137,10 @@
 			loadPosterAvatar() {
 				let posterName = this.post.attributes.poster;
 				if (posters[posterName] && posters[posterName].avatar) {
-					let avatarName = posters[posterName].avatar;
-					import(/* webpackMode: "eager" */ `../../../content/images/avatars/${avatarName}`).then(mod => {
+					let fileName = removeExtension(posters[posterName].avatar, '.png');
+					let extension = Modernizr.webp ? '.webp' : '.png';
+
+					import(/* webpackMode: "eager" */ `../../../generated/avatars/${fileName}_icon${extension}`).then(mod => {
 						this.posterAvatar = mod.default;
 					})
 				}

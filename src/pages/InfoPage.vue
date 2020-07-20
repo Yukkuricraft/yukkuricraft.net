@@ -177,6 +177,7 @@
 	import NormalPage from "../layout/NormalPage";
 	import AnnouncementExcerpt from "./announcements/AnnouncementExcerpt";
 	import {autoImage} from "../images";
+	import {removeExtension} from "../files";
 	import {parseMCCodes} from "../colorFormatter";
 	import chunk from "lodash/chunk";
 
@@ -219,7 +220,7 @@
 		},
 		created() {
 			announcementList.posts.slice(0, 3).forEach((post, idx) => {
-				let name = post.file.endsWith('.md') ? post.file.substring(0, post.file.length - 3) : post.file;
+				let name = removeExtension(post.file, '.md');
 				import(/* webpackChunkName: "announcement" */ `../../content/announcements/${name}.md`).then(mod => {
 					this.$set(this.posts, idx, {post: mod.default, slug: post.slug || name});
 				})

@@ -29,6 +29,7 @@
 	import {BCard, BMedia, BAvatar} from "bootstrap-vue";
 	import posters from "../../../content/announcements/posters.yaml";
 	import Heading from "../../components/Heading";
+	import {removeExtension} from "../../files";
 
 	export default {
 		components: {
@@ -76,8 +77,10 @@
 			loadPosterAvatar() {
 				let posterName = this.post.attributes.poster;
 				if (posters[posterName] && posters[posterName].avatar) {
-					let avatarName = posters[posterName].avatar;
-					import(/* webpackMode: "eager" */ `../../../content/images/avatars/${avatarName}`).then(mod => {
+					let fileName = removeExtension(posters[posterName].avatar, '.png');
+					let extension = Modernizr.webp ? '.webp' : '.png';
+
+					import(/* webpackMode: "eager" */ `../../../generated/avatars/${fileName}_author${extension}`).then(mod => {
 						this.posterAvatar = mod.default;
 					})
 				}

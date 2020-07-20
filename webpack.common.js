@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
@@ -31,6 +32,9 @@ module.exports = (env, options) => {
 				meta: {
 					description: 'Everything you want to know about YukkuriCraft, from Gensokyo builds to commands.'
 				}
+			}),
+			new ScriptExtHtmlWebpackPlugin({
+				defaultAttribute: 'defer'
 			}),
 			new FaviconsWebpackPlugin({
 				logo: './src/favicon_upscaled.png',
