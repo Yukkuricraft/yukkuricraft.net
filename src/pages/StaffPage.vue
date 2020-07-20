@@ -16,8 +16,15 @@
 			<ul class="list-unstyled">
 				<b-media tag="li" class="mt-5" v-for="staffMember in staffGroup.members" :key="staffGroup.id + staffMember.name">
 					<template v-slot:aside>
-						<b-avatar variant="primary" size="96" :text="staffMember.name.substring(0, 1)"
-								  :src="staffAvatars[staffGroup.id + '-' + staffMember.name].avatar"></b-avatar>
+						<b-avatar variant="primary" size="96" :text="staffMember.name.substring(0, 1)">
+							<img v-if="staffAvatars[staffGroup.id + '-' + staffMember.name] && staffAvatars[staffGroup.id + '-' + staffMember.name].loaded"
+								 loading="lazy"
+								 class="b-avatar-img"
+								 :src="staffAvatars[staffGroup.id + '-' + staffMember.name].avatar" :alt="staffMember.name" />
+							<span v-else class="b-avatar-text" style="font-size: 40px;">
+								{{ staffMember.name.substring(0, 1) }}
+							</span>
+						</b-avatar>
 					</template>
 					<h4>{{ staffMember.name }}</h4>
 
@@ -26,7 +33,7 @@
 					<h5>Minecraft accounts</h5>
 					<ul class="list-unstyled">
 						<li v-for="mcAccount in staffMember.mcAccounts">
-							<img :src="'https://mc-heads.net/avatar/' + mcAccount.uuid + '/32'" :alt="mcAccount.name">
+							<img loading="lazy" :src="'https://mc-heads.net/avatar/' + mcAccount.uuid + '/32'" :alt="mcAccount.name">
 							{{ mcNames[mcAccount.uuid] }}
 						</li>
 					</ul>
