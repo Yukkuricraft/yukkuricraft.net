@@ -35,7 +35,7 @@ export const router = new VueRouter({
 			path: '/ranks/',
 			name: 'ranks',
 			component: () => ({
-				component: import(/* webpackChunkName: "staffPage" */ "./pages/StaffPage"),
+				component: import(/* webpackChunkName: "ranksPage" */ "./pages/ranks/RanksPage"),
 				loading: LoadingPage,
 				error: ErrorPage
 			}),
@@ -45,7 +45,7 @@ export const router = new VueRouter({
 			path: '/staff/',
 			name: 'staff',
 			component: () => ({
-				component: import(/* webpackChunkName: "ranksPage" */ "./pages/ranks/RanksPage"),
+				component: import(/* webpackChunkName: "staffPage" */ "./pages/StaffPage"),
 				loading: LoadingPage,
 				error: ErrorPage
 			}),
