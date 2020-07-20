@@ -2,16 +2,13 @@ import VueRouter from "vue-router";
 
 import InfoPage from "./pages/InfoPage";
 import AnnouncementsPage from "./pages/announcements/AnnouncementsPage";
-import RanksPage from "./pages/ranks/RanksPage";
-import StaffPage from "./pages/StaffPage";
-import CommandsPage from "./pages/commands/CommandsPage";
-import GensokyoLocationsPage from "./pages/gensokyo/LocationsPage";
-import GensokyoHelpPage from "./pages/gensokyo/HelpPage";
 import DownloadGenso from "./pages/downloads/Download";
 import DownloadSurvival from "./pages/downloads/DownloadSurvival";
 import MarkdownPage from "./pages/MarkdownPage";
 import _404Page from "./pages/404Page";
 import AnnouncementPostPage from "./pages/announcements/AnnouncementPostPage";
+import LoadingPage from "./pages/LoadingPage";
+import ErrorPage from "./pages/ErrorPage";
 
 import {autoImage} from "./images";
 import announcementList from "../content/announcements/announcementList.yaml";
@@ -37,31 +34,51 @@ export const router = new VueRouter({
 		{
 			path: '/ranks/',
 			name: 'ranks',
-			component: RanksPage,
+			component: () => ({
+				component: import(/* webpackChunkName: "staffPage" */ "./pages/StaffPage"),
+				loading: LoadingPage,
+				error: ErrorPage
+			}),
 			pathToRegexpOptions: { strict: true }
 		},
 		{
 			path: '/staff/',
 			name: 'staff',
-			component: StaffPage,
+			component: () => ({
+				component: import(/* webpackChunkName: "ranksPage" */ "./pages/ranks/RanksPage"),
+				loading: LoadingPage,
+				error: ErrorPage
+			}),
 			pathToRegexpOptions: { strict: true }
 		},
 		{
 			path: '/commands/',
 			name: 'commands',
-			component: CommandsPage,
+			component: () => ({
+				component: import(/* webpackChunkName: "commandsPage" */ "./pages/commands/CommandsPage"),
+				loading: LoadingPage,
+				error: ErrorPage
+			}),
 			pathToRegexpOptions: { strict: true }
 		},
 		{
 			path: '/gensokyo/',
 			name: 'gensokyo',
-			component: GensokyoLocationsPage,
+			component: () => ({
+				component: import(/* webpackChunkName: "gensokyoPage" */ "./pages/gensokyo/LocationsPage"),
+				loading: LoadingPage,
+				error: ErrorPage
+			}),
 			pathToRegexpOptions: { strict: true }
 		},
 		{
 			path: '/gensokyo/help/',
 			name: 'gensokyo_help',
-			component: GensokyoHelpPage,
+			component: () => ({
+				component: import(/* webpackChunkName: "gensokyoHelpPage" */ "./pages/gensokyo/HelpPage"),
+				loading: LoadingPage,
+				error: ErrorPage
+			}),
 			pathToRegexpOptions: { strict: true }
 		},
 		{

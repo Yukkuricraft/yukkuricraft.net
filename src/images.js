@@ -11,8 +11,8 @@ export function autoImage(name) {
 
 	return Promise.all([
 		import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}.jpeg`),
-		import(/* webpackMode: "eager" */ `!url-loader!../generated/backgrounds/${name}_small.jpeg`),
+		import(/* webpackPreload: true */ `!url-loader!../generated/backgrounds/${name}_small.jpeg`),
 		import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}.webp`),
-		import(/* webpackMode: "eager" */ `!url-loader!../generated/backgrounds/${name}_small.webp`),
+		import(/* webpackPreload: true */ `!url-loader!../generated/backgrounds/${name}_small.webp`),
 	]).then(([big, small, bigWebp, smallWebp]) => makeImage(big.default, bigWebp.default, small.default, smallWebp.default))
 }

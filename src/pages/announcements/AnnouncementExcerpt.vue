@@ -28,12 +28,14 @@
 <script>
 	import {BCard, BMedia, BAvatar} from "bootstrap-vue";
 	import posters from "../../../content/announcements/posters.yaml";
+	import Heading from "../../components/Heading";
 
 	export default {
 		components: {
 			BCard,
 			BMedia,
-			BAvatar
+			BAvatar,
+			Heading
 		},
 		props: {
 			headingLevel: Number,
@@ -75,7 +77,7 @@
 				let posterName = this.post.attributes.poster;
 				if (posters[posterName] && posters[posterName].avatar) {
 					let avatarName = posters[posterName].avatar;
-					import(`../../../content/images/avatars/${avatarName}`).then(mod => {
+					import(/* webpackMode: "eager" */ `../../../content/images/avatars/${avatarName}`).then(mod => {
 						this.posterAvatar = mod.default;
 					})
 				}
