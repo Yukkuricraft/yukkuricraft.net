@@ -1,6 +1,8 @@
 <template>
-	<div :style="{height: height + 'px'}">
-		<div class="parallax" :style="{height: height + 'px', 'background-image': imageToUse && `url(${imageToUse})`}">
+	<div class="parallax-wrapper" :style="{height: height + 'px'}">
+		<div class="parallax" :class="{'parallax-blur': !switched}" :style="{height: height + 'px', 'background-image': imageToUse && `url(${imageToUse})`}"></div>
+
+		<div :style="{height: height + 'px'}" class="parallax-foreground">
 			<b-container class="h-100">
 				<b-row class="text-center align-items-center h-100">
 					<b-col md="2"></b-col>
@@ -66,6 +68,7 @@
 					} else {
 						this.imageToUse = event.target.currentSrc;
 					}
+					this.switched = true;
 				}
 			}
 		}

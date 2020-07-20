@@ -29,8 +29,8 @@ function processBackground(image) {
 		sharp(image).webp({quality: 75}).resize(768).toFile(outputFile + '_sm.webp'),
 		sharp(image).jpeg({quality: 80}).resize(576).toFile(outputFile + '_xs.jpeg'),
 		sharp(image).webp({quality: 80}).resize(576).toFile(outputFile + '_xs.webp'),
-		sharp(image).jpeg({quality: 7}).resize(1920 / 4).blur(2).toFile(outputFile + '_data.jpeg'),
-		sharp(image).webp({quality: 1}).resize(1920 / 4).blur(1).toFile(outputFile + '_data.webp'),
+		sharp(image).jpeg({quality: 10}).resize(1920 / 8).toFile(outputFile + '_data.jpeg'),
+		sharp(image).webp({quality: 1}).resize(1920 / 8).toFile(outputFile + '_data.webp'),
 	];
 }
 
