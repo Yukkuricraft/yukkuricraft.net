@@ -29,7 +29,7 @@ module.exports = [
 		mainContent: [...glob.sync('./src/pages/announcements/**.*'), ...glob.sync('./content/announcements/**.*')]
 	},
 	...announcementList.posts.map(post => ({
-		url: `/announcements/${post.slug || removeMdSuffix(post.file)}`,
+		url: `/announcements/${post.slug || removeMdSuffix(post.file)}/`,
 		priority: '0.60',
 		mainContent: [`./content/announcements/${removeMdSuffix(post.file)}.md`]
 	})),
