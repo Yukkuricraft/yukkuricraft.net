@@ -17,8 +17,16 @@ function processBackground(image) {
 	return [
 		sharp(image).jpeg({quality: 60}).resize(1920).toFile(outputFile + '.jpeg'),
 		sharp(image).webp({quality: 60}).resize(1920).toFile(outputFile + '.webp'),
-		sharp(image).jpeg({quality: 7}).resize(1920 / 4).blur(2).toFile(outputFile + '_small.jpeg'),
-		sharp(image).webp({quality: 1}).resize(1920 / 4).blur(1).toFile(outputFile + '_small.webp'),
+		sharp(image).jpeg({quality: 65}).resize(1200).toFile(outputFile + '_lg.jpeg'),
+		sharp(image).webp({quality: 65}).resize(1200).toFile(outputFile + '_lg.webp'),
+		sharp(image).jpeg({quality: 70}).resize(992).toFile(outputFile + '_md.jpeg'),
+		sharp(image).webp({quality: 70}).resize(992).toFile(outputFile + '_md.webp'),
+		sharp(image).jpeg({quality: 75}).resize(768).toFile(outputFile + '_sm.jpeg'),
+		sharp(image).webp({quality: 75}).resize(768).toFile(outputFile + '_sm.webp'),
+		sharp(image).jpeg({quality: 80}).resize(576).toFile(outputFile + '_xs.jpeg'),
+		sharp(image).webp({quality: 80}).resize(576).toFile(outputFile + '_xs.webp'),
+		sharp(image).jpeg({quality: 7}).resize(1920 / 4).blur(2).toFile(outputFile + '_data.jpeg'),
+		sharp(image).webp({quality: 1}).resize(1920 / 4).blur(1).toFile(outputFile + '_data.webp'),
 	];
 }
 
