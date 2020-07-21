@@ -10,6 +10,8 @@ on:
       - '!README.md'
       - 'src/**'
       - 'dist/**'
+      - 'avatars_original/**'
+      - 'content/**'
       - '.github/workflows/main.yml'
 
 jobs:
