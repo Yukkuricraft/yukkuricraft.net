@@ -48,15 +48,13 @@
 				posterAvatar: null
 			}
 		},
-		created() {
-			if(this.post) {
-				this.loadPosterAvatar();
-			}
-		},
 		watch: {
-			post() {
-				if(this.post) {
-					this.loadPosterAvatar();
+			post: {
+				immediate: true,
+				handler(val) {
+					if(val) {
+						this.loadPosterAvatar();
+					}
 				}
 			}
 		},

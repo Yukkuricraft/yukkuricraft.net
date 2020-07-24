@@ -33,11 +33,21 @@
 				realParallaxImages: null
 			}
 		},
-		created() {
-			this.realParallaxImages = this.parallaxImages();
-			Promise.resolve(this.localizedComponents || {}).then(localized => {
-				this.nowLocalizedComponents = localized;
-			})
+		watch: {
+			parallaxImages: {
+				immediate: true,
+				handler(val) {
+					this.realParallaxImages = val();
+				}
+			},
+			localizedComponents: {
+				immediate: true,
+				handler(val) {
+					Promise.resolve(val || {}).then(localized => {
+						this.nowLocalizedComponents = localized;
+					})
+				}
+			}
 		},
 		computed: {
 			usedComponent() {

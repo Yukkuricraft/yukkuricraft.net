@@ -89,8 +89,13 @@
 				required: true
 			}
 		},
-		created() {
-			this.loadImages()
+		watch: {
+			location: {
+				immediate: true,
+				handler() {
+					this.loadImages()
+				}
+			}
 		},
 		methods: {
 			autoBuildImage(name) {

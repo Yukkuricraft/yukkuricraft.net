@@ -100,15 +100,22 @@
 			}
 		},
 		created() {
-			if(!isPrerender) {
-				this.loadRealNames();
-			}
 			this.loadAvatars();
 
 			document.addEventListener('keydown', this.processSakores)
 		},
 		destroyed() {
 			document.removeEventListener('keydown', this.processSakores);
+		},
+		watch: {
+			mcNames: {
+				immediate: true,
+				handler() {
+					if(!isPrerender) {
+						this.loadRealNames();
+					}
+				}
+			}
 		},
 		methods: {
 			processSakores(event) {

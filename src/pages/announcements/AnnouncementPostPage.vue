@@ -60,15 +60,20 @@
 			}
 		},
 		created() {
-			import(/* webpackChunkName: "announcement" */ `../../../content/announcements/${this.postName}.md`).then(p => {
-				this.post = p.default;
-			});
 			window.addEventListener('message', this.postMessageReceived, false);
 		},
 		destroyed() {
 			window.removeEventListener('message', this.postMessageReceived, false);
 		},
 		watch: {
+			postName: {
+				immediate: true,
+				handler(val) {
+					import(/* webpackChunkName: "announcement" */ `../../../content/announcements/${val}.md`).then(p => {
+						this.post = p.default;
+					});
+				}
+			},
 			post() {
 				if (this.post) {
 					this.loadPosterAvatar();

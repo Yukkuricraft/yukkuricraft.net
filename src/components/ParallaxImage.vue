@@ -47,18 +47,23 @@
 				default: 600
 			}
 		},
-		created() {
-			Promise.resolve(this.images).then(images => {
-				this.loadedImages = images
+		watch: {
+			images: {
+				immediate: true,
+				handler(val) {
+					Promise.resolve(val).then(images => {
+						this.loadedImages = images
 
-				if(images.loaded) {
-					this.switched = true;
-					this.imageToUse = Modernizr.webp && !isPrerender ? images.highResWebp : images.highRes
+						if(images.loaded) {
+							this.switched = true;
+							this.imageToUse = Modernizr.webp && !isPrerender ? images.highResWebp : images.highRes
+						}
+						else {
+							this.imageToUse = Modernizr.webp && !isPrerender ? images.lowResWebp : images.lowRes
+						}
+					});
 				}
-				else {
-					this.imageToUse = Modernizr.webp && !isPrerender ? images.lowResWebp : images.lowRes
-				}
-			});
+			}
 		},
 		methods: {
 			switchImage(event) {
