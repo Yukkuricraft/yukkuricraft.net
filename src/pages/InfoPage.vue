@@ -95,15 +95,15 @@
 		<h2 id="subdomains">Our Subdomains and Pages</h2>
 		<h3>General</h3>
 		<ul>
-			<li><a href="https://forums.yukkuricraft.net" target="noopener">https://forums.yukkuricraft.net</a> - Our main
-				forum and
-				page!
-			</li>
 			<li>
 				<router-link :to="{name: 'info'}">https://yukkuricraft.net</router-link>
 				- You're
 				looking at
 				it right now!
+			</li>
+			<li><a href="https://forums.yukkuricraft.net" target="noopener">https://forums.yukkuricraft.net</a> - Our main
+				forum and
+				page!
 			</li>
 			<li>mc.yukkuricraft.net - Join this IP to play on our server!</li>
 			<li><a href="http://mc.yukkuricraft.net:18123" target="noopener">https://mc.yukkuricraft.net:18123</a> -
@@ -126,8 +126,7 @@
 		<ul>
 			<li><a href="https://www.facebook.com/yukkuricraft"
 				   target="noopener">https://www.facebook.com/yukkuricraft</a>
-				-
-				Facebook Page
+				- Facebook Page
 			</li>
 			<li><a href="https://www.facebook.com/groups/yukkuricraft" target="noopener">https://www.facebook.com/groups/yukkuricraft</a>
 				- Facebook Group
