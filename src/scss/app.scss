@@ -157,3 +157,22 @@ html {
     width: 100%;
   }
 }
+
+@include media-breakpoint-up(xs) {
+  .frontmatter-markdown {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .frontmatter-markdown {
+    img {
+      width: 50%;
+    }
+  }
+}
+
+
+

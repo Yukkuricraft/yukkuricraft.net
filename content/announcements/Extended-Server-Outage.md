@@ -11,3 +11,5 @@ Unfortunately this means our server is out of commission until the upstream ISP 
 We will post another short announcement when the issue has been resolved.
 
 P.S. Unfortunately our Discord server's Miko bot also runs on the same server and thus will also be out of commission until ISP issues are fixed.
+
+![Optimum outage map](./images/Extended-Server-Outage-OptimumMap.png)
