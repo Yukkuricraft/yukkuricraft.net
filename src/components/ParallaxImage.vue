@@ -1,6 +1,8 @@
 <template>
-	<div :style="{height: height + 'px'}">
-		<div class="parallax" :style="{height: height + 'px', 'background-image': imageToUse && `url(${imageToUse})`}">
+	<div class="parallax-wrapper" :style="{height: height + 'px'}">
+		<div class="parallax" :class="{'parallax-blur': !switched}" :style="{height: height + 'px', 'background-image': imageToUse && `url(${imageToUse})`}"></div>
+
+		<div :style="{height: height + 'px'}" class="parallax-foreground">
 			<b-container class="h-100">
 				<b-row class="text-center align-items-center h-100">
 					<b-col md="2"></b-col>
@@ -45,18 +47,23 @@
 				default: 600
 			}
 		},
-		created() {
-			Promise.resolve(this.images).then(images => {
-				this.loadedImages = images
+		watch: {
+			images: {
+				immediate: true,
+				handler(val) {
+					Promise.resolve(val).then(images => {
+						this.loadedImages = images
 
-				if(images.loaded) {
-					this.switched = true;
-					this.imageToUse = Modernizr.webp && !isPrerender ? images.highResWebp : images.highRes
+						if(images.loaded) {
+							this.switched = true;
+							this.imageToUse = Modernizr.webp && !isPrerender ? images.highResWebp : images.highRes
+						}
+						else {
+							this.imageToUse = Modernizr.webp && !isPrerender ? images.lowResWebp : images.lowRes
+						}
+					});
 				}
-				else {
-					this.imageToUse = Modernizr.webp && !isPrerender ? images.lowResWebp : images.lowRes
-				}
-			});
+			}
 		},
 		methods: {
 			switchImage(event) {
@@ -66,6 +73,7 @@
 					} else {
 						this.imageToUse = event.target.currentSrc;
 					}
+					this.switched = true;
 				}
 			}
 		}

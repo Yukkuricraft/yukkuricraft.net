@@ -83,6 +83,10 @@ html {
   float: right;
 }
 
+.parallax-wrapper {
+  position: relative;
+}
+
 //https://www.w3schools.com/howto/howto_css_parallax.asp
 .parallax {
   background-attachment: fixed;
@@ -90,6 +94,19 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: gray;
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.parallax-blur {
+  filter: blur(10px);
+}
+
+.parallax-foreground {
+  z-index: 10;
 }
 
 .parallax-text {
@@ -140,3 +157,22 @@ html {
     width: 100%;
   }
 }
+
+@include media-breakpoint-up(xs) {
+  .frontmatter-markdown {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .frontmatter-markdown {
+    img {
+      width: 50%;
+    }
+  }
+}
+
+
+
