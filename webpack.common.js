@@ -70,7 +70,7 @@ module.exports = (env, options) => {
 				{
 					test: /\.(scss)$/,
 					use: [
-						options.mode !== 'production' ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+						options.mode !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
 						'css-loader',
 						{
 							loader: 'postcss-loader',
