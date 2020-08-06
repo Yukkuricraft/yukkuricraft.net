@@ -16,22 +16,22 @@ jobs:
     name: Test PR with yarn
     runs-on: ubuntu-latest
     steps:
-    - name: Extract branch name
-      shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      id: extract_branch
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
 
-    - name: Checkout
-      uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@master
 
-    - name: Yarn Install
-      uses: ianwalter/puppeteer@v2.0.0
-      with:
-        cmd: yarn install
-    - name: Yarn Build
-      uses: ianwalter/puppeteer@v2.0.0
-      with:
-        cmd: yarn build
+      - name: Yarn Install
+        uses: ianwalter/puppeteer@v2.0.0
+        with:
+          cmd: yarn install
+      - name: Yarn Build
+        uses: ianwalter/puppeteer@v2.0.0
+        with:
+          cmd: yarn build
 
-    - name: Yarn Test
-      run: echo "Where my tests at @katrix? :P"
+      - name: Yarn Test
+        run: echo "Where my tests at @katrix? :P"

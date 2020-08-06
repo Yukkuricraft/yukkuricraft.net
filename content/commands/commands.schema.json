@@ -39,10 +39,7 @@
           }
         }
       },
-      "required": [
-        "displayName",
-        "menuName"
-      ],
+      "required": ["displayName", "menuName"],
       "additionalProperties": false
     },
     "command": {
@@ -82,10 +79,7 @@
           "description": "A bunch of tags to add when searching for commands."
         }
       },
-      "required": [
-        "aliases",
-        "description"
-      ],
+      "required": ["aliases", "description"],
       "additionalProperties": false
     }
   }

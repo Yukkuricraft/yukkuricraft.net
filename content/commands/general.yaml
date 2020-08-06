@@ -15,6 +15,7 @@ general:
       tags: [ping, lag]
 
     - aliases: hat
-      arguments: "<block>"
-      description: Hat yourself with the block you gave! Only works in creative worlds!
+      arguments: '<block>'
+      description:
+        Hat yourself with the block you gave! Only works in creative worlds!
       tags: [fun]

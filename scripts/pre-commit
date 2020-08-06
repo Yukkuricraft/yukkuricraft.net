@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+yarn run fixlint:js
+yarn run format
+yarn run yaml-validate

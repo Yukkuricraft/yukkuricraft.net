@@ -61,10 +61,7 @@
           }
         }
       },
-      "required": [
-        "displayName",
-        "menuName"
-      ],
+      "required": ["displayName", "menuName"],
       "additionalProperties": false
     }
   }

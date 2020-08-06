@@ -40,10 +40,7 @@
                     "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
                   }
                 },
-                "required": [
-                  "name",
-                  "uuid"
-                ],
+                "required": ["name", "uuid"],
                 "additionalProperties": false
               }
             },
@@ -68,20 +65,12 @@
               "description": "A short introduction from the staff member."
             }
           },
-          "required": [
-            "name",
-            "mcAccounts",
-            "discordAccount"
-          ],
+          "required": ["name", "mcAccounts", "discordAccount"],
           "additionalProperties": false
         }
       }
     },
-    "required": [
-      "id",
-      "displayName",
-      "members"
-    ],
+    "required": ["id", "displayName", "members"],
     "additionalProperties": false
   }
 }

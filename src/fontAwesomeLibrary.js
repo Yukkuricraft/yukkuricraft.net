@@ -1,12 +1,13 @@
-import { library, dom, config } from '@fortawesome/fontawesome-svg-core';
-import { faAlignLeft, faLink, faSpinner, faSignal, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { library, dom, config } from '@fortawesome/fontawesome-svg-core'
+import { faAlignLeft, faLink, faSpinner, faSignal, faTimes } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faAlignLeft, faLink, faSpinner, faSignal, faTimes);
+import css from '@fortawesome/fontawesome-svg-core/styles.css'
 
-import css from "@fortawesome/fontawesome-svg-core/styles.css"
+library.add(faAlignLeft, faLink, faSpinner, faSignal, faTimes)
 
-void(css);
+// eslint-disable-next-line no-void
+void css
 
-config.autoAddCss = false;
+config.autoAddCss = false
 
-dom.watch();
+dom.watch()

@@ -1,16 +1,13 @@
-import Vue from "vue";
+import Vue from 'vue'
 
-export default Vue.component('heading', {
-	render(createElement, context) {
-		return createElement(
-			'h' + this.level,
-			this.$slots.default
-		)
-	},
-	props: {
-		level: {
-			type: Number,
-			required: true
-		}
-	}
+export default Vue.component('Heading', {
+  props: {
+    level: {
+      type: Number,
+      required: true,
+    },
+  },
+  render(createElement) {
+    return createElement('h' + this.level, this.$slots.default)
+  },
 })

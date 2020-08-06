@@ -19,49 +19,90 @@ jobs:
     name: Build and deploy yukkuricraft.net
     runs-on: ubuntu-latest
     steps:
-    - name: Extract branch name
-      shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      id: extract_branch
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
 
-    - name: Checkout
-      uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@master
 
-    - name: Get yarn cache directory path
-      id: yarn-cache-dir-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
-    - uses: actions/cache@v1
-      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-      with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
+      - uses: actions/cache@v1
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
-    - name: Yarn Install
-      run: yarn install --frozen-lockfile --prefer-offline
+      - name: Yarn Install
+        run: yarn install --frozen-lockfile --prefer-offline
 
-    - name: Yarn Setup
-      run: yarn run setup
+      - name: Yarn Setup
+        run: yarn run setup
 
-    - name: Yarn Build
-      run: yarn build
+      - name: Yarn Build
+        run: yarn build
 
-    - name: Deploy-Info-Dev
-      if: steps.extract_branch.outputs.branch == 'dev'
-      uses: s0/git-publish-subdir-action@v2.0.0
-      env:
-        REPO: self
-        BRANCH: gh-pages-dev
-        FOLDER: dist
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy-Info-Dev
+        if: steps.extract_branch.outputs.branch == 'dev'
+        uses: s0/git-publish-subdir-action@v2.0.0
+        env:
+          REPO: self
+          BRANCH: gh-pages-dev
+          FOLDER: dist
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Deploy-Info-Prod
-      if: steps.extract_branch.outputs.branch == 'master'
-      uses: s0/git-publish-subdir-action@v2.0.0
-      env:
-        REPO: self
-        BRANCH: gh-pages
-        FOLDER: dist
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy-Info-Prod
+        if: steps.extract_branch.outputs.branch == 'master'
+        uses: s0/git-publish-subdir-action@v2.0.0
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: dist
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  lint:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [12, 14]
+
+    name: Linting (Node ${{ matrix.node }})
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        working-directory: ${{env.client-dir}}
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v1
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Yarn Install
+        run: yarn install --frozen-lockfile --prefer-offline
+
+      - name: Run linting
+        run: yarn run lint:js
+
+      - name: Run format check
+        run: yarn run format-check
+
+      - name: Run YAML verification
+        run: yarn run yaml-validate
