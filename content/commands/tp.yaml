@@ -2,7 +2,7 @@ tp:
   displayName: Teleport commands
   menuName: Teleport
   commands:
-    - aliases: call
+    - aliases: [call]
       arguments: '<user>'
       description:
         Request to teleport **to** the specified player. Said player will have

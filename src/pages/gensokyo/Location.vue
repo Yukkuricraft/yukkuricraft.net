@@ -1,7 +1,7 @@
 <template>
   <div>
     <heading :id="'location-' + locationId" :level="3 + depth">{{ location.displayName }}</heading>
-    <markdown-lazy :content="location.description"></markdown-lazy>
+    <markdown-lazy v-if="location.description" :content="location.description"></markdown-lazy>
 
     <location
       v-for="(subLocation, subLocationId) in location.sublocations"

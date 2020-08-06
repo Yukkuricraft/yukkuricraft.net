@@ -12,7 +12,7 @@ chat:
       description: Shortcut command to reply to private messages.
       tags: [chat, pm, msg]
 
-    - aliases: me
+    - aliases: [me]
       arguments: '<message...>'
       description: Send an action message.
       tags: [chat, action, fun]

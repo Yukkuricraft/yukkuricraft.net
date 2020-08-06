@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     commandStr() {
-      const aliasesStr = Array.isArray(this.command.aliases) ? this.command.aliases.join(' | ') : this.command.aliases
+      const aliasesStr = this.command.aliases.join(' | ')
       const args = typeof this.command.arguments !== 'undefined' ? ' ' + this.command.arguments : ''
       return '/' + aliasesStr + args
     },

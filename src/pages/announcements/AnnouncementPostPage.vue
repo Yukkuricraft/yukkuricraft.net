@@ -96,25 +96,6 @@ export default {
       const poster = posters[posterName]?.discourseUser ?? defaultPoster
       return `${discourseUrl}/embed/comments?embed_url=${embedUrl}&discourse_username=${poster}`
     },
-    // Taken from https://meta.discourse.org/javascripts/embed.js
-    findPosY(obj) {
-      let top = 0
-      if (obj.offsetParent) {
-        while (1) {
-          top += obj.offsetTop
-          if (!obj.offsetParent) {
-            break
-          }
-          obj = obj.offsetParent
-        }
-      } else if (obj.y) {
-        top += obj.y
-      }
-      return top
-    },
-    normalizeUrl(url) {
-      return url.replace(/^https?(:\/\/)?/, '')
-    },
   },
   watch: {
     postName: {
@@ -148,6 +129,25 @@ export default {
           await import(/* webpackMode: "eager" */ `../../../generated/avatars/${fileName}_icon${extension}`)
         ).default
       }
+    },
+    // Taken from https://meta.discourse.org/javascripts/embed.js
+    findPosY(obj) {
+      let top = 0
+      if (obj.offsetParent) {
+        while (1) {
+          top += obj.offsetTop
+          if (!obj.offsetParent) {
+            break
+          }
+          obj = obj.offsetParent
+        }
+      } else if (obj.y) {
+        top += obj.y
+      }
+      return top
+    },
+    normalizeUrl(url) {
+      return url.replace(/^https?(:\/\/)?/, '')
     },
     postMessageReceived(e) {
       if (!e) {

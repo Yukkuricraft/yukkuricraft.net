@@ -47,17 +47,10 @@
       "properties": {
         "aliases": {
           "description": "The names of this command.",
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "description": {
           "type": "string",

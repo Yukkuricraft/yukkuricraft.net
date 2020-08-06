@@ -56,6 +56,9 @@
 import { BFormGroup, BFormInput } from 'bootstrap-vue'
 
 import queryString from 'query-string'
+import orderBy from 'lodash/orderBy'
+import merge from 'lodash/merge'
+
 import SidebarEntries from '../../components/SidebarEntries'
 import SidebarPage from '../../layout/SidebarPage'
 
@@ -76,7 +79,7 @@ export default {
   data() {
     return {
       filter: '',
-      allCommands: [],
+      allCommands: {},
       hasScrolledToHash: false,
     }
   },
@@ -91,15 +94,9 @@ export default {
         return str.toLowerCase().includes(filter.toLowerCase())
       }
 
-      function commandAliases(command) {
-        return Array.isArray(command.aliases) ? command.aliases : [command.aliases]
-      }
-
       function commandMatchesQuery(command) {
         return (
-          commandAliases(command).some(matchesQuery) ||
-          command.tags.some(matchesQuery) ||
-          matchesQuery(command.description)
+          command.aliases.some(matchesQuery) || command.tags.some(matchesQuery) || matchesQuery(command.description)
         )
       }
 
@@ -138,10 +135,7 @@ export default {
         return subgroups
       }
 
-      // We throw out all the getters and such
-      const commandsCopy = JSON.parse(JSON.stringify(Object.fromEntries(this.allCommands.flatMap(Object.entries))))
-
-      return this.filter.length ? filterSubgroups(commandsCopy) : commandsCopy
+      return this.filter.length ? filterSubgroups({ ...this.allCommands }) : this.allCommands
     },
   },
   watch: {
@@ -153,7 +147,7 @@ export default {
       }
     },
   },
-  created() {
+  async created() {
     Object.entries(queryString.parse(location.search)).forEach(([key, value]) => this.$set(this, key, value))
 
     const allCommandGroups = commandList.commands.map((entry, idx) => {
@@ -165,14 +159,11 @@ export default {
     })
 
     // We get them all together to hopefully only update the DOM once
-    Promise.all(allCommandGroups).then((allGroups) => {
-      allGroups.forEach(({ commands, idx }) => {
-        this.$set(this.allCommands, idx, commands.default)
-      })
-    })
+    const allGroups = await Promise.all(allCommandGroups)
+    this.allCommands = merge({}, ...orderBy(allGroups, 'idx').map((c) => c.commands.default))
   },
   updated() {
-    if (this.allCommands.length === commandList.commands.length && !this.hasScrolledToHash && location.hash) {
+    if (Object.entries(this.allCommands).length && !this.hasScrolledToHash && location.hash) {
       this.$nextTick(() => {
         document.getElementById(location.hash.substr(1)).scrollIntoView()
         this.hasScrolledToHash = true

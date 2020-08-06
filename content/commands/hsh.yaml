@@ -18,7 +18,7 @@ homesweethome:
         teleport to that home, delete it, and see the list of all, homes, in
         addition to going over the interface.
       commands:
-        - aliases: home set
+        - aliases: [home set]
           arguments: '<homeName>'
           description: >-
             Use this command to set some home at your current location with
@@ -28,7 +28,7 @@ homesweethome:
             move that home to your new location.
           tags: [home, sethome]
 
-        - aliases: home
+        - aliases: [home]
           arguments: '[homeName]'
           description: >-
             Use this command to actually go to your home. You can autocomplete
@@ -36,7 +36,7 @@ homesweethome:
             home interface (`/home list`).
           tags: [home]
 
-        - aliases: home
+        - aliases: [home]
           arguments: '<homeName> delete'
           description:
             Use this command to delete a home. Note that this is not reversible.
@@ -84,7 +84,7 @@ homesweethome:
         might not want that). Both invites (unless you are a resident, more
         bellow) and requests can only be used when the home owner is online.
       commands:
-        - aliases: home
+        - aliases: [home]
           arguments: '<home> invite <player>'
           description: >-
             Use this to invite another player to your home. Once they use the
@@ -92,7 +92,7 @@ homesweethome:
             again.
           tags: [home, invite]
 
-        - aliases: home goto
+        - aliases: [home goto]
           arguments: '<user> <home>'
           description: >-
             This command has two specific meanings, depending on if you have
@@ -111,7 +111,7 @@ homesweethome:
             request for `HakureiNew` would no longer be valid).
           tags: [home, invite, goto, request]
 
-        - aliases: home accept
+        - aliases: [home accept]
           arguments: '<player>'
           description:
             If you have received a request from a player, you can use this to
@@ -129,26 +129,26 @@ homesweethome:
         residents of the home, they use the goto command just like as if it was
         another invite.
       commands:
-        - aliases: home residents
+        - aliases: [home residents]
           description: >-
             Residents also have a seperate interface similar to the home
             interface. If you do not specify a home name, you get a overview of
             all of your homes and their residents.
           tags: [home, residents]
 
-        - aliases: home
+        - aliases: [home]
           arguments: '<home> residents'
           description: >-
             If you specify a home, you get a list off all the residents in that
             home, in addition to buttons to manipulate this info.
           tags: [home, residents]
 
-        - aliases: home
+        - aliases: [home]
           arguments: '<home> residents add <player>'
           description: Add a player as a resident to a home
           tags: [home, residents, addresident]
 
-        - aliases: home
+        - aliases: [home]
           arguments: '<home> residents remove <player>'
           description: Remove a player as a resident from a home
           tags: [home, residents, removeresident]

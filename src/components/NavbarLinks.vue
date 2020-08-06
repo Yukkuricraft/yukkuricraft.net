@@ -12,7 +12,7 @@
         </b-dropdown-item>
         <router-link
           v-for="subpage in navlink.subpages.slice(1)"
-          :key="subpage.to"
+          :key="subpage.to.name || subpage.to.path || JSON.stringify(subpage.to)"
           v-slot="{ href, navigate, isExactActive } /* eslint-disable-line vue/no-template-shadow*/"
           :to="subpage.to"
         >

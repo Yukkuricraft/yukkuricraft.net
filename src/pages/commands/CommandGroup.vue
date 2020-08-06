@@ -1,7 +1,7 @@
 <template>
   <div>
     <heading :id="'commands-' + commandGroupId" :level="3 + depth">{{ commandGroup.displayName }}</heading>
-    <markdown-lazy :content="commandGroup.description"></markdown-lazy>
+    <markdown-lazy v-if="commandGroup.description" :content="commandGroup.description"></markdown-lazy>
 
     <template v-if="commandGroup.subgroups">
       <command-group
@@ -13,7 +13,7 @@
       />
     </template>
     <ul v-else>
-      <li v-for="command in commandGroup.commands" :key="command.aliases.join(' | ')">
+      <li v-for="command in commandGroup.commands" :key="command.aliases.join(' | ') + (command.arguments || '')">
         <command-node :command="command"></command-node>
       </li>
     </ul>
