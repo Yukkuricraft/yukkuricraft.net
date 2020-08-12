@@ -59,42 +59,7 @@
 
     <h2>Server and Discord</h2>
     <b-row>
-      <b-col v-if="serverPing.description" md="8">
-        <b-card no-body style="height: 100%;">
-          <b-card-header>
-            <pre style="display: inline;">mc.yukkuricraft.net</pre>
-            <span class="bg-success dot"></span> Online
-          </b-card-header>
-          <b-card-body>
-            <!-- eslint-disable-next-line vue/no-v-html -->
-            <b-card-title class="h5" v-html="parseMCCodes(serverPing.description).raw"></b-card-title>
-            <b-card-text>
-              <div>
-                <br />
-                Players: {{ serverPing.players.online }} / {{ serverPing.players.max }}
-                <b-row>
-                  <b-col v-for="playerChunk in chunk(serverPing.players.sample, 8)" :key="playerChunk[0].id" md="4">
-                    <ul class="list-unstyled">
-                      <li v-for="player in playerChunk" :key="player.id">
-                        <img :src="'https://mc-heads.net/avatar/' + player.id + '/32'" :alt="player.name" />
-                        {{ player.name }}
-                      </li>
-                    </ul>
-                  </b-col>
-                </b-row>
-              </div>
-            </b-card-text>
-          </b-card-body>
-        </b-card>
-      </b-col>
-      <b-col v-else md="8">
-        <b-card no-body>
-          <b-card-header>
-            <pre style="display: inline;">mc.yukkuricraft.net</pre>
-            <span class="bg-danger dot"></span> Offline
-          </b-card-header>
-        </b-card>
-      </b-col>
+      <server-widget ip="mc.yukkuricraft.net" />
       <b-col md="4">
         <iframe
           src="https://discordapp.com/widget?id=201938197171798017&theme=light"
@@ -176,45 +141,29 @@
 </template>
 
 <script>
-import { BButton, BRow, BCol, BEmbed, BCard, BCardHeader, BCardBody, BCardTitle, BCardText } from 'bootstrap-vue'
+import { BButton, BRow, BCol, BEmbed } from 'bootstrap-vue'
 
-import chunk from 'lodash/chunk'
 import NormalPage from '../layout/NormalPage'
 import { autoImage } from '../images'
 import { removeExtension } from '../files'
-import { parseMCCodes } from '../colorFormatter'
 
 import announcementList from '../../content/announcements/announcementList.yaml'
+import ServerWidget from '../components/ServerWidget'
 import AnnouncementExcerpt from './announcements/AnnouncementExcerpt'
 
 export default {
   components: {
+    ServerWidget,
     NormalPage,
     AnnouncementExcerpt,
     BButton,
     BRow,
     BCol,
     BEmbed,
-    BCard,
-    BCardHeader,
-    BCardBody,
-    BCardTitle,
-    BCardText,
   },
   data() {
     return {
       posts: [],
-      serverPing: {
-        description: null,
-        players: {
-          max: null,
-          online: null,
-          sample: null,
-        },
-        version: {
-          name: null,
-        },
-      },
     }
   },
   computed: {
@@ -229,58 +178,6 @@ export default {
         .default
       this.$set(this.posts, idx, { post, slug: postObj.slug ?? name })
     }
-    await this.loadServerInfo()
-  },
-  methods: {
-    parseMCCodes,
-    chunk,
-    async mcPing() {
-      const errorMsg = `Failed to get YC server info`
-
-      try {
-        const res = await fetch('https://api.minetools.eu/ping/mc.yukkuricraft.net/25565')
-
-        if (res.status !== 200) {
-          // eslint-disable-next-line no-console
-          console.warn(errorMsg)
-          return null
-        } else {
-          const json = await res.json()
-
-          if (typeof json.error !== 'undefined') {
-            // eslint-disable-next-line no-console
-            console.warn(errorMsg + '. Error: ' + json.error)
-            return null
-          } else {
-            return json
-          }
-        }
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        console.warn(errorMsg + '. Error: ' + e)
-        return null
-      }
-    },
-    async loadServerInfo() {
-      const ping = await this.mcPing()
-      if (ping !== null) {
-        this.serverPing.description = ping.description
-        this.serverPing.players.max = ping.players.max
-        this.serverPing.players.online = ping.players.online
-        this.serverPing.players.sample = ping.players.sample
-        this.serverPing.version.name = ping.version.name
-      }
-    },
   },
 }
 </script>
-
-<style lang="scss">
-.dot {
-  height: 15px;
-  width: 15px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-}
-</style>
