@@ -36,7 +36,7 @@
                 :src="staffAvatars[staffGroup.id + '-' + staffMember.name].avatar"
                 :alt="staffMember.name"
               />
-              <span v-else class="b-avatar-text" style="font-size: 40px;">
+              <span v-else class="b-avatar-text" style="font-size: 40px">
                 {{ staffMember.name.substring(0, 1) }}
               </span>
             </b-avatar>

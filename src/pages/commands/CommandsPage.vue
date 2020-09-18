@@ -27,10 +27,10 @@
 
     <h2 id="commands">Command List</h2>
     <div id="commandsSection">
-      <p style="font-size: 18px; color: #aaafad;">
+      <p style="font-size: 18px; color: #aaafad">
         Arguments in "[" and "]" are optional. Arguments in "&lt;" and "&gt;" are required for the command to work!
       </p>
-      <p style="font-size: 12px; color: #aaafad;">
+      <p style="font-size: 12px; color: #aaafad">
         This is nowhere near a complete list of commands, just some of the basics!
       </p>
 

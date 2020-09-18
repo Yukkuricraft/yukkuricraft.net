@@ -1,7 +1,7 @@
 <template>
   <div>
     <heading :id="group.id" :level="headingLevel">
-      <a :href="'#' + group.id"><font-awesome-icon :icon="['fas', 'link']" style="font-size: 0.5em;" /></a>
+      <a :href="'#' + group.id"><font-awesome-icon :icon="['fas', 'link']" style="font-size: 0.5em" /></a>
       {{ group.displayName }}
     </heading>
     <markdown-later v-if="group.description" :content="group.description"></markdown-later>

@@ -2,7 +2,7 @@
   <div class="col-md-8">
     <b-card no-body :style="{ height: hasServerPing ? '100%;' : undefined }">
       <b-card-header>
-        <pre style="display: inline;">{{ ip }}</pre>
+        <pre style="display: inline">{{ ip }}</pre>
         <span class="bg-success dot" :class="hasServerPing ? 'bg-success' : 'bg-danger'"></span>
         {{ hasServerPing ? 'Online' : 'Offline' }}
       </b-card-header>

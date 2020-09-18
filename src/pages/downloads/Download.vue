@@ -12,7 +12,7 @@
       <b-button variant="primary" href="https://mega.nz/#F!5hU2HCJC!IpwU8ZjpwSALOgLjoZtNlA">Downloads</b-button>
     </template>
 
-    <b-alert show variant="warning" class="mt-3" style="font-size: 85%;">
+    <b-alert show variant="warning" class="mt-3" style="font-size: 85%">
       <h2 class="alert-heading h5">Missing and broken features in Vanilla</h2>
       <p class="mb-2">
         While we try as best we can to give you a great experience, some things might not work correctly. Our

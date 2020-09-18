@@ -12,7 +12,7 @@
       <p>Download the maps of past survival worlds</p>
     </template>
 
-    <b-alert show variant="warning" class="mt-3" style="font-size: 85%;">
+    <b-alert show variant="warning" class="mt-3" style="font-size: 85%">
       <h2 class="alert-heading h5">Compatability and old versions</h2>
       <p class="mb-2">
         These maps have never been taken to a newer Minecraft version than what we list here. It might work just fine,
