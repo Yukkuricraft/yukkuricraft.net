@@ -101,8 +101,5 @@ jobs:
       - name: Run linting
         run: yarn run lint:js
 
-      - name: Run format check
-        run: yarn run format-check
-
       - name: Run YAML verification
         run: yarn run yaml-validate
