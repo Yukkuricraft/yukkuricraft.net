@@ -1,16 +1,11 @@
 <template>
-  <div v-if="post">
-    <b-card>
-      <b-media>
-        <template #aside>
-          <b-avatar
-            variant="primary"
-            size="64"
-            :text="attributes.poster.substring(0, 1)"
-            :src="posterAvatar"
-          ></b-avatar>
-        </template>
+  <b-card>
+    <b-media>
+      <template v-if="post && postSlug" #aside>
+        <b-avatar variant="primary" size="64" :text="attributes.poster.substring(0, 1)" :src="posterAvatar"></b-avatar>
+      </template>
 
+      <template v-if="post && postSlug">
         <heading :level="headingLevel" class="h3">
           <router-link :to="{ path: `/announcements/${postSlug}/` }">{{ attributes.title }}</router-link>
         </heading>
@@ -21,12 +16,12 @@
         <p>
           {{ attributes.excerpt }}
         </p>
-      </b-media>
-    </b-card>
-  </div>
-  <div v-else>
-    <font-awesome-icon :icon="['fas', 'spinner']" spin size="4x" />
-  </div>
+      </template>
+      <template v-else>
+        <font-awesome-icon class="d-block m-auto" :icon="['fas', 'spinner']" spin size="4x" />
+      </template>
+    </b-media>
+  </b-card>
 </template>
 
 <script>
@@ -49,11 +44,11 @@ export default {
     },
     post: {
       type: Object,
-      required: true,
+      required: false,
     },
     postSlug: {
       type: String,
-      required: true,
+      required: false,
     },
   },
   data() {

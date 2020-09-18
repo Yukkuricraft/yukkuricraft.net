@@ -9,11 +9,9 @@
 
     <h1>Announcements</h1>
     <ul class="list-unstyled">
-      <template v-for="post in posts">
-        <li v-if="post" :key="post.slug || post.attributes.title" class="mb-3">
-          <announcement-excerpt :heading-level="2" :post="post.post" :post-slug="post.slug"></announcement-excerpt>
-        </li>
-      </template>
+      <li v-for="(post, idx) in posts" :key="(post && (post.slug || post.attributes.title)) || idx" class="mb-3">
+        <announcement-excerpt :heading-level="2" :post="post && post.post" :post-slug="post && post.slug" />
+      </li>
     </ul>
   </normal-page>
 </template>

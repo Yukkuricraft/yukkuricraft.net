@@ -45,12 +45,7 @@
     <div class="mb-5">
       <ul class="list-unstyled">
         <li v-for="(post, idx) in posts" :key="idx" class="mb-3">
-          <announcement-excerpt
-            v-if="post"
-            :heading-level="3"
-            :post="post.post"
-            :post-slug="post.slug"
-          ></announcement-excerpt>
+          <announcement-excerpt :heading-level="3" :post="post.post" :post-slug="post.slug" />
         </li>
       </ul>
 
