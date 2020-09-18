@@ -69,16 +69,7 @@ module.exports = (env, options) => {
           use: [
             options.mode !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
             'css-loader',
-            {
-              loader: 'postcss-loader',
-              options: {
-                config: {
-                  ctx: {
-                    mode: options.mode,
-                  },
-                },
-              },
-            },
+            'postcss-loader',
             {
               loader: 'sass-loader',
               options: {
@@ -94,16 +85,7 @@ module.exports = (env, options) => {
           use: [
             options.mode !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
             'css-loader',
-            {
-              loader: 'postcss-loader',
-              options: {
-                config: {
-                  ctx: {
-                    mode: options.mode,
-                  },
-                },
-              },
-            },
+            'postcss-loader',
           ],
         },
         {
