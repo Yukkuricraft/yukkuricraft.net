@@ -19,3 +19,13 @@ tp:
     - aliases: [return, back]
       description: Return to the last location before your last teleport.
       tags: [teleport, tp, return, back]
+
+    - aliases: [warp]
+      arguments: '<warp-name>'
+      description: Warps you to the warp with the given name
+      tags: [warp, warps, magicalwarps]
+
+    - aliases: [warps]
+      arguments: '[category]'
+      description: Shows all the warps of the given category
+      tags: [warp, warps, magicalwarps]
