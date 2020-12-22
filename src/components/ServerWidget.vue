@@ -15,12 +15,12 @@
           <div class="row">
             <div
               v-for="playerChunk in chunk(serverPing.players.sample, 8)"
-              :key="playerChunk[0].id"
+              :key="playerChunk[0].name"
               class="col-xl-4 col-lg-6 col-md-12"
             >
               <ul class="list-unstyled">
                 <li v-for="player in playerChunk" :key="player.id">
-                  <img :src="'https://mc-heads.net/avatar/' + player.id + '/32'" :alt="player.name" />
+                  <img :src="'https://mc-heads.net/avatar/' + player.name + '/32'" :alt="player.name" />
                   {{ player.name }}
                 </li>
               </ul>
@@ -120,7 +120,7 @@ export default {
         this.serverPing.description = ping.description
         this.serverPing.players.max = ping.players.max
         this.serverPing.players.online = ping.players.online
-        this.serverPing.players.sample = ping.players.sample
+        this.serverPing.players.sample = ping.players.sample.filter((o) => !o.name.includes('§'))
         this.serverPing.version.name = ping.version.name
       }
     },
