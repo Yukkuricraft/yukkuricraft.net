@@ -2,5 +2,7 @@ commands:
   - 'general.yaml'
   - 'tp.yaml'
   - 'chat.yaml'
+  - 'feelings.yaml'
+  - 'nicknames.yaml'
   - 'lwc.yaml'
   - 'hsh.yaml'

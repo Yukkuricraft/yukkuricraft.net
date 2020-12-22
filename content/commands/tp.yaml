@@ -2,15 +2,22 @@ tp:
   displayName: Teleport commands
   menuName: Teleport
   commands:
-    - aliases: [call]
+    - aliases: [tpa, tpask]
       arguments: '<user>'
       description:
         Request to teleport **to** the specified player. Said player will have
         to then accept the teleport request for it to complete.
       tags: [teleport, tp]
 
-    - aliases: [bring, tpa]
+    - aliases: [tpahere]
       arguments: '<user>'
+      description:
+        Request to teleport the specified player **to** you. Said player will
+        have to then accept the teleport request for it to complete.
+      tags: [teleport, tp]
+
+    - aliases: [tpaccept, tpyes]
+      arguments: '[user]'
       description:
         Use this after someone has requested a teleport to you to accept and
         bring them to your position.

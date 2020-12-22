@@ -2,12 +2,12 @@ chat:
   displayName: Chat commands
   menuName: Chat
   commands:
-    - aliases: [msg, message, w, pm, t, tell, whisper]
+    - aliases: [msg, w, t, tell]
       arguments: '<target> <message...>'
       description: Private message a user.
       tags: [chat, pm, reply, msg]
 
-    - aliases: [r, reply]
+    - aliases: [r]
       arguments: '<message...>'
       description: Shortcut command to reply to private messages.
       tags: [chat, pm, msg]
