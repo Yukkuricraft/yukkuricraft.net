@@ -128,16 +128,30 @@ and/or nagging staff for remicare will be denied and potentially punished.
 
 Rules that apply mostly to the Discord server
 
-1. **Be mindful of your microphone**
+1. **Share the Spotlight**
 
-   If your sound quality is poor, please use the TTS role to communicate.
-   Excessive hot-mic (constant microphone activity, such as background noise or
-   your breathing/chewing/etc) may also result in you being requested to use the
-   role. In general, please be courteous and don't constantly disturb the flow
-   of conversation, whether the problem is hardware, software, or yourself.
-   Continuing offenders will be warned and potentially banned.
+   Be courteous when talking to one another in the voice chats; everyone has a
+   right to speak their opinions. Both excessive hogging of the room or constant
+   interruptions will not be tolerated.
 
-2. **No NSFW without consent**
+2. **Be wary of the room's overall volume**
+
+   Unnecessary noises such as yelling or background disruptions that do not
+   contribute to the conversation should be kept minimal. Offenders will be told
+   to stop and potentially muted.
+
+3. **Do not misuse specified voice channels**
+
+   Chatter should be kept relevant to specific voice channels. For example,
+   background conversation in a game room should only be limited to the ongoing
+   game.
+
+4. **Keep things relevant to the ongoing topic**
+
+   Don't suddenly drop in and derail the ongoing discussion. Be respectful of
+   each other's topic which they might be trying to discuss.
+
+5. **No NSFW without consent**
 
    If all members of a room with a temporary chat channel consent to viewing
    NSFW material, NSFW material can be posted. However, once a new member joins
