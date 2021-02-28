@@ -73,10 +73,11 @@
         <router-link :to="{ name: 'info' }">https://yukkuricraft.net</router-link>
         - You're looking at it right now! This is our main homepage.
       </li>
-      <li>
-        <a href="https://forums.yukkuricraft.net" target="noopener">https://forums.yukkuricraft.net</a> - Our forums!
-      </li>
       <li>mc.yukkuricraft.net - Join this IP to play on our server!</li>
+      <li>
+        <a href="https://discord.yukkuricraft.net/" target="noopener">https://discord.yukkuricraft.net/</a> - Our
+        Discord server
+      </li>
       <li>
         <a href="http://mc.yukkuricraft.net:18123" target="noopener">https://mc.yukkuricraft.net:18123</a> - Our dynmap!
       </li>
@@ -85,8 +86,7 @@
         to a page where you can submit a bug report for anything that needs to be fixed! No login required!
       </li>
       <li>
-        <a href="https://discord.yukkuricraft.net/" target="noopener">https://discord.yukkuricraft.net/</a> - Our
-        Discord server
+        <a href="https://forums.yukkuricraft.net" target="noopener">https://forums.yukkuricraft.net</a> - Our forums!
       </li>
     </ul>
 
@@ -135,8 +135,8 @@
     </ol>
 
     <p>
-      Consider following our <a href="https://www.instagram.com/yukkuricraft/">Instagram</a>
-      and liking our <a href="https://facebook.com/yukkuricraft">Facebook Page</a>!
+      Consider following our <a href="https://www.instagram.com/yukkuricraft/">Instagram</a> and liking our
+      <a href="https://facebook.com/yukkuricraft">Facebook Page</a>!
     </p>
     <br />
   </normal-page>
