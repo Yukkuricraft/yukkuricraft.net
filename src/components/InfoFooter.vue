@@ -5,6 +5,6 @@
       supporting us through <a href="https://www.patreon.com/remi_scarlet">Patreon</a>.
     </p>
 
-    <p>&copy; YukkuriCraft</p>
+    <p>&copy; Yukkuricraft</p>
   </footer>
 </template>

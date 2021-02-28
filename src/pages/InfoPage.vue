@@ -71,11 +71,10 @@
     <ul>
       <li>
         <router-link :to="{ name: 'info' }">https://yukkuricraft.net</router-link>
-        - You're looking at it right now!
+        - You're looking at it right now! This is our main homepage.
       </li>
       <li>
-        <a href="https://forums.yukkuricraft.net" target="noopener">https://forums.yukkuricraft.net</a> - Our main forum
-        and page!
+        <a href="https://forums.yukkuricraft.net" target="noopener">https://forums.yukkuricraft.net</a> - Our forums!
       </li>
       <li>mc.yukkuricraft.net - Join this IP to play on our server!</li>
       <li>
@@ -93,6 +92,14 @@
 
     <h3>Social media</h3>
     <ul>
+      <li>
+        <a href="https://www.instagram.com/yukkuricraft/" target="noopener">https://www.instagram.com/yukkuricraft/</a>
+        - Instagram Page
+      </li>
+      <li>
+        <a href="https://www.youtube.com/c/Yukkuricraft" target="noopener">https://www.youtube.com/c/Yukkuricraft</a>
+        - Youtube Channel
+      </li>
       <li>
         <a href="https://www.facebook.com/yukkuricraft" target="noopener">https://www.facebook.com/yukkuricraft</a>
         - Facebook Page
@@ -128,8 +135,8 @@
     </ol>
 
     <p>
-      Also consider joining our <a href="https://steamcommunity.com/groups/yukkuricraft">Steam Group</a> and liking our
-      <a href="https://facebook.com/yukkuricraft">Facebook Page</a>!
+      Consider following our <a href="https://www.instagram.com/yukkuricraft/">Instagram</a>
+      and liking our <a href="https://facebook.com/yukkuricraft">Facebook Page</a>!
     </p>
     <br />
   </normal-page>
