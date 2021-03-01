@@ -1,5 +1,5 @@
 <template>
-  <sidebar-page :parallax-images="images">
+  <locations-with-images-page :parallax-images="images" sidebar-header="Locations" :locations="locations">
     <vue-headful
       title="YukkuriCraft - Gensokyo"
       description="Look at all the different places in our Gensokyo."
@@ -7,50 +7,25 @@
       url="https://yukkuricraft.net/gensokyo/"
     />
 
-    <template #sidebar>
-      <div class="sidebar-header">
-        <h2>Locations</h2>
-      </div>
-
-      <sidebar-entries
-        class="sidebar-components"
-        href-prefix="location"
-        :subgroups="locations"
-        subgroup-children-name="sublocations"
-      />
-    </template>
-
     <template #parallax>
       <h1>Locations in Gensokyo</h1>
       <p>Explore our builds in Gensokyo.</p>
     </template>
-
-    <location
-      v-for="(location, locationId) in locations"
-      :key="locationId"
-      :depth="0"
-      :location-id="locationId"
-      :location="location"
-    />
-  </sidebar-page>
+  </locations-with-images-page>
 </template>
 
 <script>
 import merge from 'lodash/merge'
-import SidebarEntries from '../../components/SidebarEntries'
-import SidebarPage from '../../layout/SidebarPage'
 
 import { autoImage } from '../../images'
 import { removeExtension } from '../../files'
 
 import locationList from '../../../content/locations/locationList.yaml'
-import Location from './Location'
+import LocationsWithImagesPage from '../imageLocations/LocationsWithImagesPage'
 
 export default {
   components: {
-    SidebarPage,
-    SidebarEntries,
-    Location,
+    LocationsWithImagesPage,
   },
   data() {
     return {

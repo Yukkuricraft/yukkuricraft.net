@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section>
     <heading :id="'location-' + locationId" :level="3 + depth">{{ location.displayName }}</heading>
     <markdown-lazy v-if="location.description" :content="location.description"></markdown-lazy>
 
@@ -58,7 +58,7 @@
         </b-carousel>
       </b-modal>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
