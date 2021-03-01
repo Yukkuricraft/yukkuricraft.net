@@ -12,7 +12,7 @@
     </template>
 
     <h2>Staff members</h2>
-    Get to know our staff members a bit more.
+    <p>Get to know our staff members a bit more.</p>
 
     <template v-for="staffGroup in staff">
       <h3 :id="staffGroup.id" :key="staffGroup.id + 'H'" class="mt-5">{{ staffGroup.displayName }}</h3>

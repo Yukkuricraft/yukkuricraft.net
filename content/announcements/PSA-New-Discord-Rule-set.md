@@ -3,8 +3,8 @@ title: 'PSA: New Discord Rule-set'
 time: '2021-01-21T18:28:33Z'
 poster: Teshno
 excerpt:
-  We changed our old Discord rules because they didn't give staff any means to 
-  maintain a good vc environment. These new rules should give the community a 
+  We changed our old Discord rules because they didn't give staff any means to
+  maintain a good vc environment. These new rules should give the community a
   clear standard to follow and staff the ability to handle troublemakers.
 ---
 

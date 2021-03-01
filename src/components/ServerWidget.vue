@@ -15,11 +15,11 @@
           <div class="row">
             <div
               v-for="playerChunk in chunk(serverPing.players.sample, 8)"
-              :key="playerChunk[0].name"
+              :key="'Chunk' + playerChunk[0].name"
               class="col-xl-4 col-lg-6 col-md-12"
             >
               <ul class="list-unstyled">
-                <li v-for="player in playerChunk" :key="player.id">
+                <li v-for="player in playerChunk" :key="player.name">
                   <img :src="'https://mc-heads.net/avatar/' + player.name + '/32'" :alt="player.name" />
                   {{ player.name }}
                 </li>

@@ -1,24 +1,11 @@
 <template>
-  <sidebar-page :parallax-images="images">
+  <locations-with-images-page :parallax-images="images" sidebar-header="Locations" :locations="locations">
     <vue-headful
       title="YukkuriCraft - Help us build!"
       description="Take a look at our ongoing projects in Gensokyo."
       :image="require('../../favicon_upscaled.png')"
       url="https://yukkuricraft.net/gensokyo/help/"
     />
-
-    <template #sidebar>
-      <div class="sidebar-header">
-        <h2>Locations</h2>
-      </div>
-
-      <sidebar-entries
-        class="sidebar-components"
-        href-prefix="location"
-        :subgroups="locations"
-        subgroup-children-name="sublocations"
-      />
-    </template>
 
     <template #parallax>
       <h1>Help us build Gensokyo</h1>
@@ -40,30 +27,17 @@
       get a rundown of the build and a way to contact the person leading it in order to help. Note: If a location isn't
       on this list that doesn't mean you can't help with it. We most likely haven't started on it yet.
     </p>
-
-    <location
-      v-for="(location, locationId) in locations"
-      :key="locationId"
-      :depth="0"
-      :location-id="locationId"
-      :location="location"
-    />
-  </sidebar-page>
+  </locations-with-images-page>
 </template>
 
 <script>
-import SidebarPage from '../../layout/SidebarPage'
-import SidebarEntries from '../../components/SidebarEntries'
-
 import locations from '../../../content/locations/help_locations.yaml'
 import { autoImage } from '../../images'
-import Location from './Location'
+import LocationsWithImagesPage from '../imageLocations/LocationsWithImagesPage'
 
 export default {
   components: {
-    SidebarPage,
-    SidebarEntries,
-    Location,
+    LocationsWithImagesPage,
   },
   computed: {
     images() {

@@ -11,9 +11,10 @@
       :url="canonicalUrl"
     />
 
-    <slot></slot>
-
-    <component :is="usedComponent.vue.component"></component>
+    <main>
+      <slot></slot>
+      <component :is="usedComponent.vue.component"></component>
+    </main>
   </normal-page>
 </template>
 

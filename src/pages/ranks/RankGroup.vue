@@ -4,18 +4,18 @@
       <a :href="'#' + group.id"><font-awesome-icon :icon="['fas', 'link']" style="font-size: 0.5em" /></a>
       {{ group.displayName }}
     </heading>
+
     <markdown-later v-if="group.description" :content="group.description"></markdown-later>
 
     <b-row v-if="group.ranks" tag="dl">
       <template v-for="rank in group.ranks">
         <b-col :key="rank.name + 'N'" sm="3" md="2" tag="dt">
           <i v-if="rank.italics">
-            <b v-if="rank.bold">{{ rank.name }}</b>
-            <template v-else>{{ rank.name }}</template>
+            <b v-if="rank.bold">{{ rank.name }}:</b>
+            <template v-else>{{ rank.name }}:</template>
           </i>
-          <b v-else-if="rank.bold">{{ rank.name }}</b>
-          <template v-else>{{ rank.name }}</template
-          >:
+          <b v-else-if="rank.bold">{{ rank.name }}:</b>
+          <template v-else>{{ rank.name }}:</template>
         </b-col>
         <b-col :key="rank.name + 'D'" sm="9" md="10" tag="dd">
           <markdown-later :content="rank.description" :no-paragraph="true"></markdown-later>
