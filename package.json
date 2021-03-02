@@ -51,6 +51,7 @@
     "glob": "^7.1.6",
     "html-webpack-plugin": "^4.5.0",
     "jsdom": "^16.4.0",
+    "markdown-it-html5-embed": "^1.0.0",
     "mini-css-extract-plugin": "^1.2.1",
     "node-sass": "4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.4",

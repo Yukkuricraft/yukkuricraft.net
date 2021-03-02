@@ -102,6 +102,19 @@ module.exports = (env, options) => {
           ],
         },
         {
+          test: /\.(mp3)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                esModule: false, // https://github.com/peerigon/extract-loader/issues/67
+                outputPath: 'assets/sound',
+                name: '[name]-[contenthash].[ext]',
+              },
+            },
+          ],
+        },
+        {
           test: /\.ya?ml$/,
           type: 'json', // Required by Webpack v4
           use: 'yaml-loader',
@@ -111,14 +124,20 @@ module.exports = (env, options) => {
           loader: 'frontmatter-markdown-loader',
           options: {
             mode: ['vue-component'],
-            markdownIt: markdownIt({ linkify: true, typographer: true }).use(markdownItAnchor, {
-              slugify(s) {
-                return String(s).trim().toLowerCase().replace(/\s+/g, '-')
-              },
-              permalink: true,
-              permalinkBefore: true,
-              permalinkSymbol: '<i class="fas fa-link" style="font-size: 0.5em"></i>',
-            }),
+            markdownIt: markdownIt({ linkify: true, typographer: true })
+              .use(markdownItAnchor, {
+                slugify(s) {
+                  return String(s).trim().toLowerCase().replace(/\s+/g, '-')
+                },
+                permalink: true,
+                permalinkBefore: true,
+                permalinkSymbol: '<i class="fas fa-link" style="font-size: 0.5em"></i>',
+              })
+              .use(require('markdown-it-html5-embed'), {
+                html5embed: {
+                  useImageSyntax: true,
+                },
+              }),
           },
         },
         {
