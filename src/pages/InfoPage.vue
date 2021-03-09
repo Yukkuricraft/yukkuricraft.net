@@ -57,7 +57,7 @@
       <server-widget ip="mc.yukkuricraft.net" />
       <b-col md="4">
         <iframe
-          src="https://discordapp.com/widget?id=201938197171798017&theme=light"
+          :src="'https://discordapp.com/widget?id=201938197171798017&theme=' + discordTheme"
           width="350"
           height="500"
           allowtransparency="true"
@@ -153,6 +153,8 @@ import announcementList from '../../content/announcements/announcementList.yaml'
 import ServerWidget from '../components/ServerWidget'
 import AnnouncementExcerpt from './announcements/AnnouncementExcerpt'
 
+const useDarkTheme = window.matchMedia('(prefers-color-scheme: dark)')
+
 export default {
   components: {
     ServerWidget,
@@ -166,6 +168,7 @@ export default {
   data() {
     return {
       posts: [],
+      discordTheme: useDarkTheme.matches ? 'dark' : 'light',
     }
   },
   computed: {
@@ -180,6 +183,15 @@ export default {
         .default
       this.$set(this.posts, idx, { post, slug: postObj.slug ?? name })
     }
+    useDarkTheme.addEventListener('change', this.onDarkThemeChange)
+  },
+  destroyed() {
+    useDarkTheme.removeEventListener('change', this.onDarkThemeChange)
+  },
+  methods: {
+    onDarkThemeChange(event) {
+      this.discordTheme = event.matches ? 'dark' : 'light'
+    },
   },
 }
 </script>

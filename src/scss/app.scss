@@ -1,11 +1,18 @@
 $primary: #e56a00;
+$primary-alt: #c65000;
+
 $enable-responsive-font-sizes: true;
 $font-size-base: 1.2rem;
 
 @import "~bootstrap/scss/functions";
+@import "~bootstrap-dark-4/scss/dark/functions";
 @import "~bootstrap/scss/variables";
+@import "~bootstrap-dark-4/scss/variables-alt";
 @import "~bootstrap/scss/mixins";
+@import "~bootstrap-dark-4/scss/dark/mixins";
+@import "~bootstrap-dark-4/scss/dark/utilities/color-schemes";
 @import "sidebar";
+
 
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
@@ -46,6 +53,33 @@ $font-size-base: 1.2rem;
 @import '~bootstrap-vue/src/components/form-input/form-input';
 @import '~bootstrap-vue/src/components/modal/modal';
 
+@include prefers-color-scheme($color-scheme-alt) {
+  @import "~bootstrap-dark-4/scss/dark/root";
+  @import "~bootstrap-dark-4/scss/dark/reboot";
+  @import "~bootstrap-dark-4/scss/dark/type";
+  @import "~bootstrap-dark-4/scss/dark/images";
+  // No dark grid
+  @import "~bootstrap-dark-4/scss/dark/tables";
+  @import "~bootstrap-dark-4/scss/dark/forms";
+  @import "~bootstrap-dark-4/scss/dark/buttons";
+  // _transitions not used
+  @import "~bootstrap-dark-4/scss/dark/dropdown";
+  @import "~bootstrap-dark-4/scss/dark/nav";
+  @import "~bootstrap-dark-4/scss/dark/navbar";
+  @import "~bootstrap-dark-4/scss/dark/badge";
+  @import "~bootstrap-dark-4/scss/dark/card";
+  @import "~bootstrap-dark-4/scss/dark/alert";
+  @import "~bootstrap-dark-4/scss/dark/close";
+  // _media not used
+  @import "~bootstrap-dark-4/scss/dark/modal";
+  @import "~bootstrap-dark-4/scss/dark/carousel";
+  // _spinners not used
+  @import "~bootstrap-dark-4/scss/dark/utilities";
+  @import "~bootstrap-dark-4/scss/dark/dark";
+}
+
+@import "~bootstrap-dark-4/scss/dark/utilities/display-dark";
+
 *[id]:before {
   display: block;
   content: " ";
@@ -61,11 +95,17 @@ html {
 }
 
 .command {
-  color: #70707f; /*#60606f*/
+  @media (prefers-color-scheme: $color-scheme-alt) {
+    color: $gray-500-alt;
+  }
+  color: $gray-600;
 }
 
 .byline {
-  color: #70707f;
+  @media (prefers-color-scheme: $color-scheme-alt) {
+    color: $gray-500-alt;
+  }
+  color: $gray-600;
   font-size: 0.9rem;
   p {
     margin: 0;
@@ -76,7 +116,10 @@ html {
 .yc-footer {
   text-align: center;
   font-size: 1rem;
-  color: #babfbd
+  color: $gray-500;
+  @media (prefers-color-scheme: $color-scheme-alt) {
+    color: $gray-400-alt;
+  }
 }
 
 #version {
