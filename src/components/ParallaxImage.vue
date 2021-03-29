@@ -58,6 +58,10 @@ export default {
     images: {
       immediate: true,
       handler(val) {
+        if (this.loadedImages) {
+          this.switched = false
+        }
+
         Promise.resolve(val).then((images) => {
           this.loadedImages = images
 

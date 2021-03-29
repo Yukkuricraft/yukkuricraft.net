@@ -1,0 +1,191 @@
+towns:
+  displayName: Towns
+  menuName: Towns
+  description: |-
+    Want to live with other players? Find it too boring not having neighbors?
+    Towns range from close community neighborhoods connected by a single road
+    to massive cities with their own distinct culture and style.
+
+    Towns usually accept any and all community members to live in them.
+    However, residential approval should only be done at the discretion of
+    the town owners unless they release exceptions and that our town policy
+    should be understood clearly:
+
+    1.	Town owners are responsible for informing players wanting to live in
+        the town of any build regulations and should provide clear
+        documentation of said regulations.
+    2.	Town owners may evict any offending residents in terms of said regulations.
+        Exceptions to this right include failure to properly inform the resident
+        of build regulations or unreasonable change of regulations.
+    3.	Under the Remicare policy, town owners can Remicare resident houses
+        should the Remicare requirements be met.
+    4.	Players reserve the right and freedom to be residents in multiple towns
+        and leave any town whenever they please unless this right is abused.
+
+    Listed below are staff recognized towns, along with a short description and pictures from their owners:
+
+  sublocations:
+    ships:
+      displayName: Ships
+      menuName: Ships
+      description: |-
+        Want to bring in more visitors or players to your humble town? 
+        Town owners can request a boat or airship at Kagome's naval or airport docks. 
+        These ships are equipped with a provided command block, 
+        allowing instantaneous teleportation between your current location 
+        and the town the ship is connected to. Town owners can also set up 
+        connections between different towns. 
+        Requirements for getting a ship to your town are:
+
+        1. Ships must be at maximum 11 blocks wide, 25 blocks long, and 40 blocks tall.
+           Ships can be allowed to exceed the stated size requirements
+           by a block if the said block is a "non-contact" block with the dock
+           or airport borders, such as a banner, open trapdoor, or sign.
+        2. Ships must have a space for a command block with some activation method for it.
+        3. Ship design must be an appropriate for its purpose.
+        4. The requesting town must be an actual town with proper amenities or buildings.
+           Staff has the final say if something is a proper town.
+        5. Towns requesting a ship link to Kagome must have at least
+           three residents living in said town.
+        6. Towns requesting a ship link between towns must have at least
+           five residents living in each town. Both town owners must also approve of the ship link.
+
+        Should a town meet these requirements and would like to request a ship link,
+        they should double-check with a staff member, then build their ship
+        at their town dock at their own expense. Once done, they should contact staff again.
+        The ship will then be copied and pasted at Kagome's docks or airport,
+        and the proper commands implemented.
+
+    praetoria:
+      displayName: Praetoria
+      menuName: Praetoria
+      description: |-
+        Owner: TexasTony
+
+        Dock: Kagome Airport Dock 2A
+
+        Rivaled only by the cities of the old, the Imperium’s capital city
+        holds the title of the largest in survival and is widely recognized
+        as a gold standard of cityscape. Built steadily over a span of three months,
+        its population capacity knows no equal, while its state-funded services
+        such as underground rail lines and public farms prove worthy of the city’s reputation.
+        It is, without doubt, an important cornerstone in the server’s survival history.
+
+      images:
+        - name: towns_farms/towns/Praetoria1
+          image_taken_by: TexasTony
+
+        - name: towns_farms/towns/Praetoria2
+          image_taken_by: TexasTony
+
+        - name: towns_farms/towns/Praetoria3
+          image_taken_by: TexasTony
+
+    star_sail_island:
+      displayName: Star Sail Island
+      menuName: Star Sail Island
+      description: |-
+        Owner: HERO_Z
+
+        Dock: Kagome Airport Dock 1A
+
+        An island of color in a bright sea and a sanctuary for coral,
+        Star Sail Island has always been admired for its lively and peaceful atmosphere.
+        Located near a public Guardian farm, it is also well known as a convenient resting spot,
+        as it provides amenities such as underground rail lines and free food.
+        However, its most famous feature is its unique architecture,
+        as it maintains a delicate yet perfect balance of nature and development.
+
+      images:
+        - name: towns_farms/towns/StarSailIsland1
+          image_taken_by: iBirB_
+
+        - name: towns_farms/towns/StarSailIsland2
+          image_taken_by: iBirB_
+
+        - name: towns_farms/towns/StarSailIsland3
+          image_taken_by: iBirB_
+
+    barracude_wharf:
+      displayName: Barracude Wharf
+      menuName: Barracude Wharf
+      description: |-
+        Owner: Yukibara
+
+        Dock: Kagome Naval Dock 3B
+
+        Originally started as a royal outpost for Coronian Kingdom,
+        presently the coastal town of Barracuda Wharf is a major crossroad in the
+        overall link of survival's many routes. To the northwest lies Tengu territory,
+        while the neighboring Praetorian imperial colony hosts the great southern rail line;
+        a vital link of the stations near scattered survival sprite monuments.
+        The rich history and location of this town makes it a must-see!
+
+      images:
+        - name: towns_farms/towns/BarracudaWharf1
+          image_taken_by: Nickstel
+
+        - name: towns_farms/towns/BarracudaWharf2
+          image_taken_by: Nickstel
+
+        - name: towns_farms/towns/BarracudaWharf3
+          image_taken_by: Nickstel
+
+farms:
+  displayName: Farms
+  menuName: Farms
+  description: |-
+    Our community has made enormous contributions in building public farms.
+    Do note certain farms come with their own rules, which you must always obey.
+    Listed below are public farms, their coordinates, and builders in order of contribution.
+
+  sublocations:
+    enderman:
+      displayName: Enderman farm
+      menuName: Endermen
+      description: |-
+        Builders: Rexi666, Mintai, Glennkabob
+        Coordinates: 248, 49, -4 (The End)
+      images:
+        - name: towns_farms/public_farms/EndermanFarm
+          image_taken_by: TexasTony
+
+    squid:
+      displayName: Squid farm
+      menuName: Squis
+      description: |-
+        Builders: Flower_Master, IceCrasher150, SarraKno
+        Coordinates: -3363, 64, -1128
+      images:
+        - name: towns_farms/public_farms/SquidFarm
+          image_taken_by: TexasTony
+
+    slime:
+      displayName: Slime farm
+      menuName: Slimes
+      description: |-
+        Builders: Yukibara, TexasTony, IceCrasher150, Petro232, Aloraichium_Z, BeepBoopOatmeal
+        Coordinates: 2830, 70, 598
+      images:
+        - name: towns_farms/public_farms/SlimeFarm
+          image_taken_by: TexasTony
+
+    guardian:
+      displayName: Guardian farm
+      menuName: Guardians
+      description: |-
+        Builders: HERO_Z, iBirB_
+        Coordinates: 4161, 57, 191
+      images:
+        - name: towns_farms/public_farms/GuardianFarm
+          image_taken_by: TexasTony
+
+    skeleton:
+      displayName: Skeleton farm
+      menuName: Skeletons
+      description: |-
+        Builders: becauseimgray, Ruby_Goddess
+        Coordinates: 1270, 68, 1183
+      images:
+        - name: towns_farms/public_farms/SkeletonFarm
+          image_taken_by: TexasTony

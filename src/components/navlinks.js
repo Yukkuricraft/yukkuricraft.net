@@ -29,22 +29,52 @@ export default [
     name: 'Announcements',
   },
   {
-    to: {
-      name: 'ranks',
-    },
-    name: 'Ranks',
+    name: 'Community guide',
+    id: 'community_guide',
+    subpages: [
+      {
+        to: {
+          name: 'ranks',
+        },
+        name: 'Ranks',
+      },
+      {
+        to: {
+          name: 'staff',
+        },
+        name: 'Staff',
+      },
+      {
+        to: {
+          name: 'rules',
+        },
+        name: 'Rules',
+      },
+    ],
   },
   {
-    to: {
-      name: 'staff',
-    },
-    name: 'Staff',
-  },
-  {
-    to: {
-      name: 'rules',
-    },
-    name: 'Rules',
+    name: 'Server Activities',
+    id: 'server_activities',
+    subpages: [
+      {
+        to: {
+          name: 'survivalTour',
+        },
+        name: 'Survival tour',
+      },
+      {
+        to: {
+          name: 'paintball',
+        },
+        name: 'Paintball',
+      },
+      {
+        to: {
+          name: 'survival_farms_towns',
+        },
+        name: 'Farms and Towns',
+      },
+    ],
   },
   {
     to: {
