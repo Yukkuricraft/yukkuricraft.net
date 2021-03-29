@@ -25,7 +25,7 @@ module.exports = [
   },
   { url: '/server-activities/paintball/', priority: '0.70', mainContent: ['./content/pages/PaintballEN.md'] },
   {
-    url: '/server-activities/farms-towns/',
+    url: '/server-activities/survival/farms-towns/',
     priority: '0.70',
     mainContent: ['./src/pages/SurvivalFarmsTowns.vue', './content/locations/farms_towns.yaml'],
   },
