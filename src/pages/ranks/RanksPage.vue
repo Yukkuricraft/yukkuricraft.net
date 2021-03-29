@@ -1,7 +1,7 @@
 <template>
   <normal-page :parallax-images="images">
     <vue-headful
-      title="YukkuriCraft - Ranks and Staff"
+      title="YukkuriCraft - Ranks"
       description="The different ranks found on YukkuriCraft."
       :image="require('../../favicon_upscaled.png')"
       url="https://yukkuricraft.net/ranks/"
