@@ -13,6 +13,7 @@ import ErrorPage from './pages/ErrorPage'
 
 import { autoImage } from './images'
 import { removeExtension } from './files'
+import SurvivalFarmsTowns from './pages/SurvivalFarmsTowns'
 
 const mdPagesResolve = require.context('../content/pages', true, /\.md$/)
 
@@ -94,6 +95,12 @@ export const router = new VueRouter({
       component: DownloadSurvival,
       pathToRegexpOptions: { strict: true },
     },
+    {
+      path: '/server-activities/survival/farms-towns/',
+      name: 'survival_farms_towns',
+      component: SurvivalFarmsTowns,
+      pathToRegexpOptions: { strict: true },
+    },
     ...mdPagesResolve
       .keys()
       .map(mdPagesResolve)
@@ -106,7 +113,9 @@ export const router = new VueRouter({
           component: page,
           localizedComponents:
             (page.attributes.localizations &&
-              page.attributes.localizations.map((file, locale) => [locale, mdPagesResolve(file)])) ||
+              Object.fromEntries(
+                Object.entries(page.attributes.localizations).map(([locale, file]) => [locale, mdPagesResolve(file)])
+              )) ||
             {},
           parallaxImages: () => page.attributes.parallaxImages && autoImage(page.attributes.parallaxImages),
         },

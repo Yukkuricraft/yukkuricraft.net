@@ -13,7 +13,7 @@
 
     <main>
       <slot></slot>
-      <component :is="usedComponent.vue.component"></component>
+      <component :is="usedComponent.vue.component" class="markdown-formatting"></component>
     </main>
   </normal-page>
 </template>
