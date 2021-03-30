@@ -3,7 +3,7 @@
     <div
       class="parallax"
       :class="{ 'parallax-blur': !switched }"
-      :style="{ height: height + 'px', 'background-image': imageToUse && `url(${imageToUse})` }"
+      :style="{ height: height + 'px', 'background-image': `url(${imageToUse || placeholderImage})` }"
     ></div>
 
     <div :style="{ height: height + 'px' }" class="parallax-foreground">
@@ -19,10 +19,14 @@
     </div>
 
     <picture v-if="loadedImages">
-      <source :srcset="loadedImages.highResWebp" type="image/webp" />
-      <source :srcset="loadedImages.highRes" type="image/jpeg" />
+      <source
+        v-for="(typeImages, type) in loadedImages.sources"
+        :type="type"
+        :srcset="typeImages.srcset"
+        :sizes="typeImages.sizes"
+      />
 
-      <img v-show="false" :src="loadedImages.highRes" alt="High res background" @load="switchImage" />
+      <img v-show="false" :src="loadedImages.src" alt="Background" @load="switchImage" />
     </picture>
   </div>
 </template>
@@ -50,6 +54,7 @@ export default {
   data() {
     return {
       loadedImages: null,
+      placeholderImage: null,
       imageToUse: null,
       switched: false,
     }
@@ -64,14 +69,7 @@ export default {
 
         Promise.resolve(val).then((images) => {
           this.loadedImages = images
-
-          const useWebp = Modernizr.webp && !isPrerender
-          if (images.loaded) {
-            this.switched = true
-            this.imageToUse = useWebp ? images.highResWebp : images.highRes
-          } else {
-            this.imageToUse = useWebp ? images.lowResWebp : images.lowRes
-          }
+          this.placeholderImage = images.dataPlaceholder
         })
       },
     },
