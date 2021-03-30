@@ -58,6 +58,7 @@
       <b-col md="4">
         <iframe
           :src="'https://discordapp.com/widget?id=201938197171798017&theme=' + discordTheme"
+          loading="lazy"
           width="350"
           height="500"
           allowtransparency="true"
