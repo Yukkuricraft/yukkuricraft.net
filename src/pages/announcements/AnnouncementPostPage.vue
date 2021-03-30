@@ -51,7 +51,7 @@ import { BAvatar } from 'bootstrap-vue'
 
 import NormalPage from '../../layout/NormalPage'
 import posters from '../../../content/announcements/posters.yaml'
-import { removeExtension } from '../../files'
+import { staffAvatar } from '../../images'
 
 // Discourse information
 const discourseUrl = 'https://forums.yukkuricraft.net'
@@ -122,12 +122,7 @@ export default {
     async loadPosterAvatar() {
       const posterName = this.post.attributes.poster
       if (posters[posterName]?.avatar) {
-        const fileName = removeExtension(posters[posterName].avatar, '.png')
-        const extension = Modernizr.webp ? '.webp' : '.png'
-
-        this.posterAvatar = (
-          await import(/* webpackMode: "eager" */ `../../../generated/avatars/${fileName}_icon${extension}`)
-        ).default
+        this.posterAvatar = await staffAvatar(posters[posterName].avatar, 'icon')
       }
     },
     // Taken from https://meta.discourse.org/javascripts/embed.js

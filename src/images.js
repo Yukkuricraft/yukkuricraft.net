@@ -1,5 +1,6 @@
-import { groupBy } from 'lodash'
+import groupBy from 'lodash/groupBy'
 import { isPrerender } from './prerender'
+import { removeExtension } from './files'
 
 const addedPreload = []
 
@@ -132,6 +133,7 @@ export function makeImage2(preload, dataPlaceholder, ...images) {
         const image = sortedImages[i]
 
         if (
+          !isPrerender &&
           typeof Modernizr.webp !== 'undefined' &&
           ((Modernizr.webp && type !== 'image/webp') || (!Modernizr.webp && type === 'image/webp'))
         ) {
@@ -159,10 +161,10 @@ export function makeImage2(preload, dataPlaceholder, ...images) {
   return res
 }
 
-export function autoImage(name) {
+export function autoImage(name, dataJpeg, dataWebp) {
   return Promise.all([
-    import(/* webpackMode: "eager" */ `!url-loader!../generated/backgrounds/${name}_data.jpeg`),
-    import(/* webpackMode: "eager" */ `!url-loader!../generated/backgrounds/${name}_data.webp`),
+    dataJpeg,
+    dataWebp,
     import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}.jpeg`),
     import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_lg.jpeg`),
     import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_md.jpeg`),
@@ -187,7 +189,7 @@ export function autoImage(name) {
 
     return makeImage2(
       true,
-      placeholder.default,
+      placeholder?.default,
       image(xlJpeg.default, 1920, 1201),
       image(lgJpeg.default, 1200, 993),
       image(mdJpeg.default, 992, 769),
@@ -200,4 +202,15 @@ export function autoImage(name) {
       image(xsWebp.default, 576)
     )
   })
+}
+
+export async function staffAvatar(contentAvatarFile, size) {
+  const fileName = removeExtension(contentAvatarFile, '.png')
+  const extension = Modernizr.webp ? 'webp' : 'png'
+
+  return (
+    await import(
+      /* webpackMode: "eager" */ `../generated/avatars/${fileName}${(size && '_' + size) || ''}.${extension}`
+    )
+  ).default
 }

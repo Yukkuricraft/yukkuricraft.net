@@ -27,7 +27,7 @@ module.exports = [
   {
     url: '/server-activities/survival/farms-towns/',
     priority: '0.70',
-    mainContent: ['./src/pages/SurvivalFarmsTowns.vue', './content/locations/farms_towns.yaml'],
+    mainContent: ['./src/pages/SurvivalFarmsTownsPage.vue', './content/locations/farms_towns.yaml'],
   },
   {
     url: '/commands/',

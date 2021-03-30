@@ -1,5 +1,5 @@
 <template>
-  <normal-page :parallax-images="realParallaxImages">
+  <normal-page :parallax-images="images">
     <template #parallax>
       <h1>{{ title }}</h1>
     </template>
@@ -13,63 +13,78 @@
 
     <main>
       <slot></slot>
-      <component :is="usedComponent.vue.component" class="markdown-formatting"></component>
+      <component :is="usedComponent.vue.component" v-if="usedComponent" class="markdown-formatting"></component>
+      <font-awesome-icon v-else :icon="['fas', 'spinner']" spin size="6x"></font-awesome-icon>
     </main>
   </normal-page>
 </template>
 
 <script>
 import NormalPage from '../layout/NormalPage'
+import { autoImage } from '../images'
+import LoadingPage from './LoadingPage'
 
 export default {
   components: {
+    LoadingPage,
     NormalPage,
   },
   props: {
-    component: {
+    localizedComponents: {
       type: Object,
       required: true,
     },
-    localizedComponents: [Object, Promise],
-    parallaxImages: Function,
+    canonicalUrl: {
+      type: String,
+      required: true,
+    },
+    parallaxImages: String,
   },
   data() {
     return {
-      nowLocalizedComponents: {},
-      realParallaxImages: null,
+      usedComponent: null,
     }
   },
   computed: {
-    usedComponent() {
-      return this.nowLocalizedComponents[this.$i18n.locale] || this.component
-    },
     parallaxHeight() {
-      return this.component.attributes.parallaxHeight
+      return this.usedComponent?.attributes?.parallaxHeight || 600
     },
     title() {
-      return this.component.attributes.title
+      return this.usedComponent?.attributes?.title || ''
     },
     description() {
-      return this.component.attributes.description
+      return this.usedComponent?.attributes?.description || ''
     },
-    canonicalUrl() {
-      return this.component.attributes.canonicalUrl
+    images() {
+      return (
+        this.parallaxImages &&
+        autoImage(
+          'md_pages/' + this.parallaxImages,
+          import(
+            /* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/md_pages/${this.parallaxImages}_data.jpeg`
+          ),
+          import(
+            /* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/md_pages/${this.parallaxImages}_data.webp`
+          )
+        )
+      )
     },
   },
   watch: {
-    parallaxImages: {
-      immediate: true,
-      handler(val) {
-        if (val) {
-          this.realParallaxImages = val()
-        }
-      },
-    },
     localizedComponents: {
       immediate: true,
-      async handler(val) {
-        this.nowLocalizedComponents = await Promise.resolve(val ?? {})
+      handler() {
+        this.reloadUsedComponent()
       },
+    },
+    async $i18n() {
+      await this.reloadUsedComponent()
+    },
+  },
+  methods: {
+    async reloadUsedComponent() {
+      const file = this.localizedComponents[this.$i18n.locale]
+      this.usedComponent = await import(/* webpackChunkName: "mdPage" */ `../../content/pages/${file}`)
     },
   },
 }

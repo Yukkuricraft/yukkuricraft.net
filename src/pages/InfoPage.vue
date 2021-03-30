@@ -174,7 +174,11 @@ export default {
   },
   computed: {
     images() {
-      return autoImage('hakurei')
+      return autoImage(
+        'hakurei',
+        import(/* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/hakurei_data.jpeg`),
+        import(/* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/hakurei_data.webp`)
+      )
     },
   },
   async created() {

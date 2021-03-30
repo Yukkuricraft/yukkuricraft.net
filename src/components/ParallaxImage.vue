@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     switchImage(event) {
-      if (!isPrerender && !this.switched) {
+      if (!isPrerender) {
         this.imageToUse = event.target.currentSrc ?? event.target.src
         this.switched = true
       }

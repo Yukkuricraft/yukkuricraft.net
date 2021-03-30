@@ -28,7 +28,7 @@
 import { BCard, BMedia, BAvatar } from 'bootstrap-vue'
 import posters from '../../../content/announcements/posters.yaml'
 import Heading from '../../components/Heading'
-import { removeExtension } from '../../files'
+import { staffAvatar } from '../../images'
 
 export default {
   components: {
@@ -83,12 +83,7 @@ export default {
     async loadPosterAvatar() {
       const posterName = this.post.attributes.poster
       if (posters[posterName] && posters[posterName].avatar) {
-        const fileName = removeExtension(posters[posterName].avatar, '.png')
-        const extension = Modernizr.webp ? '.webp' : '.png'
-
-        this.posterAvatar = (
-          await import(/* webpackMode: "eager" */ `../../../generated/avatars/${fileName}_author${extension}`)
-        ).default
+        this.posterAvatar = await staffAvatar(posters[posterName].avatar, 'author')
       }
     },
   },

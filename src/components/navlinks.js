@@ -1,18 +1,16 @@
 import set from 'lodash/set'
-
-const mdPagesResolve = require.context('../../content/pages', true, /\.md$/)
+import mdPages from '../../content/pages/pages.yaml'
 
 const acc = {}
 
 // TODO: Do this in one pass someday
-for (const page of mdPagesResolve.keys().map(mdPagesResolve)) {
-  const attr = page.attributes
-  if (!attr.menuName) {
+for (const page of mdPages) {
+  if (!page.menuName) {
     continue
   }
 
-  set(acc, attr.menuName + '.obj.path', attr.path)
-  set(acc, attr.menuName + '.obj.name', attr.title)
+  set(acc, page.menuName + '.obj.path', page.path)
+  set(acc, page.menuName + '.obj.name', page.title)
 }
 
 export default [

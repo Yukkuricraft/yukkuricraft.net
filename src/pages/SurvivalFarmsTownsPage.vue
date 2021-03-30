@@ -23,7 +23,11 @@ export default {
   components: { LocationsWithImagesPage },
   computed: {
     images() {
-      return autoImage('kagome_airships') // TODO
+      return autoImage(
+        'kagome_airships',
+        import(/* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/kagome_airships_data.jpeg`),
+        import(/* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/kagome_airships_data.webp`)
+      )
     },
     locations() {
       return locations
