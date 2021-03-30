@@ -21,6 +21,7 @@
     <picture v-if="loadedImages">
       <source
         v-for="(typeImages, type) in loadedImages.sources"
+        :key="type"
         :type="type"
         :srcset="typeImages.srcset"
         :sizes="typeImages.sizes"

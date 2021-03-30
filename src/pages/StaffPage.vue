@@ -89,7 +89,6 @@ import { BAvatar, BMedia } from 'bootstrap-vue'
 import NormalPage from '../layout/NormalPage'
 import { autoImage, staffAvatar } from '../images'
 import { isPrerender } from '../prerender'
-import { removeExtension } from '../files'
 
 import staff from '../../content/staff.yaml'
 
