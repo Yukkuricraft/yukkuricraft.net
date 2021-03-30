@@ -152,7 +152,7 @@ farms:
 
     squid:
       displayName: Squid farm
-      menuName: Squis
+      menuName: Squids
       description: |-
         Builders: Flower_Master, IceCrasher150, SarraKno
         Coordinates: -3363, 64, -1128
