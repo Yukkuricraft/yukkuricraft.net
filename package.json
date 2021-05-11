@@ -85,7 +85,7 @@
     "bootstrap-vue": "^2.18.1",
     "css.escape": "^1.5.1",
     "jquery": "^3.4.1",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "markdown-it": "^12.0.2",
     "markdown-it-anchor": "^6.0.0",
     "popper.js": "^1.16.1",
