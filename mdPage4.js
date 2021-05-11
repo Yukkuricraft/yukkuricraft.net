@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[25],{512:function(a,o,p){a.exports=p.p+"assets/images/craftbook-46a284dad343f816f7ec1f8460a26d34.png"}}]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[25],{514:function(a,o,p){a.exports=p.p+"assets/images/craftbook-46a284dad343f816f7ec1f8460a26d34.png"}}]);
