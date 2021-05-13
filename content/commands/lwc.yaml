@@ -11,8 +11,8 @@ lwc:
     - aliases: [cpassword]
       description:
         Password-protect a block. Each time you login you need to enter the
-        password to access it. (if someone else knows the password, they can
-        access it too.
+        password to access it. (If someone else knows the password, they can
+        access it too.)
       tags: [lwc, chest, protection]
 
     - aliases: [cprivate]
