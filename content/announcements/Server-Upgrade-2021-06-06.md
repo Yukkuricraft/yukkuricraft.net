@@ -1,6 +1,6 @@
 ---
 title: Server Hardware "Upgrades"
-time: '2021-06-06T019:09:32.928780'
+time: '2021-06-06T19:09:32.928780'
 poster: Remi
 excerpt: Jank Shelf TM is now a full rack enclosure!
 ---
