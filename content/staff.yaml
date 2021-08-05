@@ -125,21 +125,6 @@
 
         P.S. As contrary to popular belief, no, I am not from Texas.
 
-    - name: S121
-      mcAccounts:
-        - name: S_121
-          uuid: 10e9a380-6524-44b4-88b1-ee25514b5cf9
-      discordAccount: '265758981094506497'
-      avatar: 's121_avatar.png'
-      description: >-
-        Hi there!  I'm S121, but most people call me S1. I am another one of the
-        Mediators in the YC community, which means I usually resolve
-        issues/disputes when they arise. I'm also handy with redstone and like
-        experimenting with creative applications of such. I generally can be
-        found playing Warframe, Minecraft, Halo, or whatever else catches my
-        fancy. Tend to spend most of my time on Discord and am pretty easy to
-        get along with. If you ever have a question, just give me a holler.
-
 - id: builder
   displayName: Builders
   members:
