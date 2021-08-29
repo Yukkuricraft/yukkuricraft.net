@@ -32,8 +32,8 @@
           type="iframe"
           aspect="16by9"
           title="YC trailer"
-          src="https://www.youtube-nocookie.com/embed/L6mD2zj8CGs"
-          srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/L6mD2zj8CGs?autoplay=1><img src=https://img.youtube.com/vi/L6mD2zj8CGs/hqdefault.jpg alt='Video 【Trailer】【Touhou Minecraft】Gensokyo ~ The Second Dream v2 Shortened Trailer Edition'><span>▶</span></a>"
+          src="https://www.youtube.com/watch?v=FI07wDxl5T8"
+          srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube-nocookie.com/embed/FI07wDxl5T8?autoplay=1><img src=https://img.youtube.com/vi/FI07wDxl5T8/hqdefault.jpg alt='【Touhou Minecraft】Gensokyo ~ The Eternal Dream 【TraFI07wDxl5T8'><span>▶</span></a>"
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
