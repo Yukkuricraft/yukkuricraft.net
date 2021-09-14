@@ -40,6 +40,38 @@
         chat with. I'm mostly on our Minecraft server, but feel free to DM me on
         Discord anytime. I will more than likely respond.
 
+    - name: KokoNuttz
+      mcAccounts:
+        - name: KokoNuttz
+          uuid: e18aa899-1c62-41ad-acc4-2ef50e46114a
+      discordAccount: '201939654239322113'
+      avatar: 'koko_avatar.png'
+      description: >-
+        Hi I'm Koko. I'm an Admin on Yukkuricraft. I basically make sure the
+        temp builders and the builders are doing their jobs. Along with that, I
+        would say I'm one of the driving forces behind Gensokyo 3 (still a
+        W.I.P). If you ever want to work on Gensokyo don't feel afraid to step
+        up. It doesn't matter if you're good or not good at building there's a
+        place for everyone in the project here. Anyways, if you're ever
+        interested in working on Gensokyo or becoming a Temp Builder just ask me
+        or one of the builders! \o/
+
+    - name: Luna
+      mcAccounts:
+        - name: TRXD
+          uuid: 06526838-2df6-425a-a418-b12c5bb6f524
+        - name: Trista_Lundin
+          uuid: 94ec4d00-abbf-40de-9258-66b027735131
+      discordAccount: '97035222385700864'
+      avatar: 'luna_avatar.png'
+      description: >-
+        Hello, I am Luna. I'm in charge of the mediator team in Yukkuricraft. I
+        love flowers, cuddles, things that shine in the night sky, and just
+        having fun. You'll see me swing by the server to check up on what may be
+        going down, build something in creative or for Gensokyo, or simply hang
+        out. Feel free to message me if you need any help on the server or if
+        you just want to chat.
+
     - name: Teshno
       mcAccounts:
         - name: Teshno
@@ -79,22 +111,6 @@
 - id: mediator
   displayName: Mediators
   members:
-    - name: Luna
-      mcAccounts:
-        - name: TRXD
-          uuid: 06526838-2df6-425a-a418-b12c5bb6f524
-        - name: Trista_Lundin
-          uuid: 94ec4d00-abbf-40de-9258-66b027735131
-      discordAccount: '97035222385700864'
-      avatar: 'luna_avatar.png'
-      description: >-
-        Hello, I am Luna. I'm in charge of the mediator team in Yukkuricraft. I
-        love flowers, cuddles, things that shine in the night sky, and just
-        having fun. You'll see me swing by the server to check up on what may be
-        going down, build something in creative or for Gensokyo, or simply hang
-        out. Feel free to message me if you need any help on the server or if
-        you just want to chat.
-
     - name: Alorai
       mcAccounts:
         - name: Aloraichium_Z
@@ -128,22 +144,6 @@
 - id: builder
   displayName: Builders
   members:
-    - name: KokoNuttz
-      mcAccounts:
-        - name: KokoNuttz
-          uuid: e18aa899-1c62-41ad-acc4-2ef50e46114a
-      discordAccount: '201939654239322113'
-      avatar: 'koko_avatar.png'
-      description: >-
-        Hi I'm Koko. I'm the Lead Builder on Yukkuricraft. I basically make sure
-        the temp builders and the builders are doing their jobs. Along with
-        that, I would say I'm one of the driving forces behind Gensokyo 3 (still
-        a W.I.P). If you ever want to work on Gensokyo don't feel afraid to step
-        up. It doesn't matter if you're good or not good at building there's a
-        place for everyone in the project here. Anyways, if you're ever
-        interested in working on Gensokyo or becoming a Temp Builder just ask me
-        or one of the builders! \o/
-
     - name: qscgukp
       mcAccounts:
         - name: qscgukp
