@@ -27,12 +27,12 @@
         >
       </li>
       <li>
-        <a href="https://mega.nz/#!QgtwhbwJ!5nxZBAWxpCAjk4el5nuVDylCs1RqWzQT3WFtQj8%20mIOo"
+        <a href="https://mega.nz/file/QgtwhbwJ#5nxZBAWxpCAjk4el5nuVDylCs1RqWzQT3WFtQj8mIOo"
           >Survival 2 (Neo Survival): 1.8 (2014-2016)</a
         >
       </li>
       <li>
-        <a href="https://mega.nz/#F!kpd1hAzb!9h3daouqqfFpgF1tpx1F5A">Survival 3 (Nova Survival): 1.12 (2016-2019)</a>
+        <a href="https://mega.nz/folder/89dTzKTT#H-PpWty0lNUwaQi9lRFOlw">Survival 3 (Nova Survival): 1.12 (2016-2019)</a>
       </li>
     </ul>
 
