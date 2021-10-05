@@ -32,7 +32,9 @@
         >
       </li>
       <li>
-        <a href="https://mega.nz/folder/89dTzKTT#H-PpWty0lNUwaQi9lRFOlw">Survival 3 (Nova Survival): 1.12 (2016-2019)</a>
+        <a href="https://mega.nz/folder/89dTzKTT#H-PpWty0lNUwaQi9lRFOlw"
+          >Survival 3 (Nova Survival): 1.12 (2016-2019)</a
+        >
       </li>
     </ul>
 
