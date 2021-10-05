@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[29],{515:function(a,e,p){a.exports=p.p+"assets/images/kagome_arrival-1d4fd0510aa7ac9f257584be21277dfe.png"}}]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[30],{516:function(a,e,p){a.exports=p.p+"assets/images/kagome_arrival-1d4fd0510aa7ac9f257584be21277dfe.png"}}]);
