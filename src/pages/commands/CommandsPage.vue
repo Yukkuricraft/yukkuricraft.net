@@ -85,7 +85,11 @@ export default {
   },
   computed: {
     images() {
-      return autoImage('commands')
+      return autoImage(
+        'commands',
+        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/commands_data.jpeg`),
+        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/commands_data.webp`)
+      )
     },
     commands() {
       const filter = this.filter

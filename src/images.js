@@ -1,13 +1,10 @@
+import groupBy from 'lodash/groupBy'
 import { isPrerender } from './prerender'
+import { removeExtension } from './files'
 
 const addedPreload = []
 
-const extraLargeSize = window.matchMedia('(min-width: 1200px)')
-const largeSize = window.matchMedia('(min-width: 992px)')
-const mediumSize = window.matchMedia('(min-width: 768px)')
-const smallSize = window.matchMedia('(min-width: 576px)')
-
-function addPreload(href, mimeType, onLoad) {
+function addPreload(href, mimeType, media, onLoad) {
   if (addedPreload.includes(href)) {
     return
   }
@@ -18,6 +15,7 @@ function addPreload(href, mimeType, onLoad) {
   preload.rel = 'preload'
   preload.as = 'image'
   preload.type = mimeType
+  preload.media = media
   preload.onload = onLoad
   document.head.appendChild(preload)
 }
@@ -37,38 +35,182 @@ export function makeImage(big, bigWebp, small, smallWebp, preload) {
       addPreload(bigWebp, 'image/webp')
       addPreload(big, 'image/jpeg')
     } else if (Modernizr.webp) {
-      addPreload(bigWebp, 'image/webp', () => (res.loaded = true))
+      addPreload(bigWebp, 'image/webp', undefined, () => (res.loaded = true))
     } else if (!Modernizr.webp) {
-      addPreload(big, 'image/jpeg', () => (res.loaded = true))
+      addPreload(big, 'image/jpeg', undefined, () => (res.loaded = true))
     }
   }
 
   return res
 }
 
-function getSizeName(name) {
-  if (extraLargeSize.matches) {
-    return name
-  } else if (largeSize.matches) {
-    return name + '_lg'
-  } else if (mediumSize.matches) {
-    return name + '_md'
-  } else if (smallSize.matches) {
-    return name + '_sm'
-  } else {
-    return name + '_xs'
+function typeToMimeType(type) {
+  switch (type) {
+    case 'avif':
+      return 'image/avif'
+
+    case 'gif':
+      return 'image/gif'
+
+    case 'jpg':
+    case 'jpeg':
+      return 'image/jpeg'
+
+    case 'png':
+      return 'image/png'
+
+    case 'svg':
+      return 'image/svg+xml'
+
+    case 'webp':
+      return 'image/webp'
+
+    default:
+      return 'image/' + type
   }
 }
 
-export function autoImage(name) {
-  const sizeName = getSizeName(name)
+function typeToWeight(type) {
+  switch (type) {
+    case 'image/avif':
+      return 15
 
-  return Promise.all([
-    import(/* webpackMode: "eager" */ `../generated/backgrounds/${sizeName}.jpeg`),
-    import(/* webpackPreload: true */ `!url-loader!../generated/backgrounds/${name}_data.jpeg`),
-    import(/* webpackMode: "eager" */ `../generated/backgrounds/${sizeName}.webp`),
-    import(/* webpackPreload: true */ `!url-loader!../generated/backgrounds/${name}_data.webp`),
-  ]).then(([big, small, bigWebp, smallWebp]) =>
-    makeImage(big.default, bigWebp.default, small.default, smallWebp.default, true)
+    case 'image/gif':
+      return 1
+
+    case 'image/jpeg':
+      return 3
+
+    case 'image/png':
+      return 5
+
+    case 'image/svg+xml':
+      return 25
+
+    case 'image/webp':
+      return 10
+
+    default:
+      return 3
+  }
+}
+
+function typeFromName(name) {
+  return name.substring(name.lastIndexOf('.') + 1)
+}
+
+export function makeImage2(preload, dataPlaceholder, ...images) {
+  const smallestImage = images.sort((a, b) => a.size - b.size)[0]
+  const typeImageGroups = Object.entries(groupBy(images, (image) => typeToMimeType(typeFromName(image.name)))).sort(
+    (a, b) => typeToWeight(b[0]) - typeToWeight(a[0])
   )
+
+  const res = {
+    sources: Object.fromEntries(
+      typeImageGroups.map(([type, typeImages]) => {
+        const sortedImages = typeImages.sort((a, b) => b.size - a.size)
+
+        return [
+          type,
+          {
+            srcset: sortedImages.map((image) => `${image.name} ${image.size}w`).join(', '),
+            sizes: sortedImages
+              .map((image) => (image.minWidth ? `(min-width: ${image.minWidth}px) ${image.size}px` : `${image.size}px`))
+              .join(', '),
+          },
+        ]
+      })
+    ),
+    src: dataPlaceholder ?? smallestImage.name,
+    dataPlaceholder,
+  }
+
+  if (preload) {
+    for (const [type, typeImages] of typeImageGroups) {
+      const sortedImages = typeImages.sort((a, b) => b.minWidth - a.minWidth)
+
+      for (let i = 0; i < sortedImages.length; i++) {
+        const image = sortedImages[i]
+
+        if (
+          !isPrerender &&
+          typeof Modernizr.webp !== 'undefined' &&
+          ((Modernizr.webp && type !== 'image/webp') || (!Modernizr.webp && type === 'image/webp'))
+        ) {
+          continue
+        }
+
+        const prevImage = i - 1 >= 0 ? sortedImages[i - 1] : null
+        const minWidth = image.minWidth ? `(min-width: ${image.minWidth}px)` : ''
+        const maxWidth = prevImage ? `(max-width: ${prevImage.minWidth - 1}px)` : ''
+
+        let media
+        if (minWidth && maxWidth) {
+          media = `${minWidth} and ${maxWidth}`
+        } else if (minWidth) {
+          media = minWidth
+        } else if (maxWidth) {
+          media = maxWidth
+        }
+
+        addPreload(image.name, type, media)
+      }
+    }
+  }
+
+  return res
+}
+
+export function autoImage(name, dataJpeg, dataWebp) {
+  return Promise.all([
+    dataJpeg,
+    dataWebp,
+    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}.jpeg`),
+    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_lg.jpeg`),
+    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_md.jpeg`),
+    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_sm.jpeg`),
+    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_xs.jpeg`),
+    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}.webp`),
+    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_lg.webp`),
+    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_md.webp`),
+    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_sm.webp`),
+    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_xs.webp`),
+  ]).then(([dataJpeg, dataWebp, xlJpeg, lgJpeg, mdJpeg, smJpeg, xsJpeg, xlWebp, lgWebp, mdWebp, smWebp, xsWebp]) => {
+    function image(name, size, minWidth) {
+      return { name, size, minWidth }
+    }
+
+    let placeholder = dataJpeg
+
+    // Check explicitly for undefined in case info isn't around yet
+    if (!isPrerender && Modernizr.webp) {
+      placeholder = dataWebp
+    }
+
+    return makeImage2(
+      true,
+      placeholder?.default,
+      image(xlJpeg.default, 1920, 1201),
+      image(lgJpeg.default, 1200, 993),
+      image(mdJpeg.default, 992, 769),
+      image(smJpeg.default, 768, 577),
+      image(xsJpeg.default, 576),
+      image(xlWebp.default, 1920, 1201),
+      image(lgWebp.default, 1200, 993),
+      image(mdWebp.default, 992, 769),
+      image(smWebp.default, 768, 577),
+      image(xsWebp.default, 576)
+    )
+  })
+}
+
+export async function staffAvatar(contentAvatarFile, size) {
+  const fileName = removeExtension(contentAvatarFile, '.png')
+  const extension = Modernizr.webp ? 'webp' : 'png'
+
+  return (
+    await import(
+      /* webpackMode: "eager" */ `../generated/avatars/${fileName}${(size && '_' + size) || ''}.${extension}`
+    )
+  ).default
 }

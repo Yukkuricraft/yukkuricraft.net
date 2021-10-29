@@ -34,7 +34,11 @@ export default {
   },
   computed: {
     images() {
-      return autoImage('greenhouse')
+      return autoImage(
+        'greenhouse',
+        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/greenhouse_data.jpeg`),
+        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/greenhouse_data.webp`)
+      )
     },
     locations() {
       // We throw out all the getters and such

@@ -2,10 +2,6 @@
 title: Rules
 description:
   All the different rules for YukkuriCraft on it's different platforms.
-canonicalUrl: 'https://yukkuricraft.net/rules/'
-path: '/rules/'
-vueRouterName: rules
-parallaxImages: rules
 ---
 
 ## Rules
@@ -51,7 +47,7 @@ Rules that apply across all of Yukkuricraft
    highest non-staff rank attainable is Elder, which is obtained by being a
    continuing positive contributor to the server's social development. While
    asking for information or offering to help is fine, demanding a promotion
-   will impact poorly on your character.
+   will reflect poorly on your character.
 
 5) **No account fraud/Ban evasion**
 
@@ -62,17 +58,17 @@ Rules that apply across all of Yukkuricraft
 6) **No Soliciting**
 
    Unwarranted solicitations, attempts at spam, or inappropriate
-   self-advertisement are not allowed. Aggressively or constantly nagging people
-   about something you want them to do or join will not be tolerated. This rule
-   is more strict on those not involved with the community, so spacing your
-   advertisements out will not keep you clear of violating this rule if it's the
-   only thing you do with us.
+   self-advertisements are not allowed. Aggressively or constantly nagging
+   people about something you want them to do or join will not be tolerated.
+   This rule is more strict on those not involved with the community, so spacing
+   your advertisements out will not keep you clear of violating this rule if
+   it's the only thing you do with us.
 
 7) **SlOw RiDe TaKe It EaSy**
 
    At the end of the day, we're all just here to enjoy ourselves. The rules,
    while not concrete and are subject to change or working around if necessary,
-   are simply put here to protect the good people and keep out the bad. So,
+   are simply put here to protect the good people and keep out the bad. So
    please, remember to have fun and take it easy.
 
 ### SERVER RULE-SET[SR]
@@ -104,12 +100,12 @@ Rules that apply mostly to the Minecraft server.
 5. **Don't abuse events and resources**
 
    Intentionally manipulating or exploiting server events and resources to gain
-   material and items is illegal. This includes but is not limited to the likes
-   of massive farms, bots, and/or exploiting event areas for drops.
+   material and items is not allowed. This includes but is not limited to the
+   likes of massive farms, bots, and/or exploiting event areas for drops.
 
 #### RemiCare
 
-The Remicare act is an active power provided to the community that allows them
+The RemiCare Act is an active power provided to the community that allows them
 to claim abandoned builds in the survival world.
 
 If a user has not logged on in over 90 days, their builds become viable for
@@ -122,7 +118,7 @@ protected for the estimated time period. These protections can be overridden
 under specific circumstances. Remicare is not guaranteed under any
 circumstances. This power is NOT to be abused, it is for situational uses only.
 Users attempting to exploit this system for loot by seeking out abandoned builds
-and/or nagging staff for remicare will be denied and potentially punished.
+and/or nagging staff for Remicare will be denied and potentially punished.
 
 ### DISCORD RULE-SET[DR]
 
@@ -137,26 +133,26 @@ Rules that apply mostly to the Discord server
 2. **Be wary of the room's overall volume**
 
    Unnecessary noises such as yelling or background disruptions that do not
-   contribute to the conversation should be kept minimal. Offenders will be told
-   to stop and potentially muted.
+   contribute to the conversation should be kept to a minimum. Offenders will be
+   told to stop and potentially muted.
 
-3. **Do not misuse specified voice channels**
+3. **Do not misuse purpose-specific voice channels**
 
-   Chatter should be kept relevant to specific voice channels. For example,
-   background conversation in a game room should only be limited to the ongoing
-   game.
+   Chatter should be kept relevant to the current voice channel's purpose. For
+   example, if you are in a _Game Room_, then the conversations should probably
+   pertain to the current game of choice rather than more general topics.
 
 4. **Keep things relevant to the ongoing topic**
 
-   Don't suddenly drop in and derail the ongoing discussion. Be respectful of
-   each other's topic which they might be trying to discuss.
+   Don't suddenly drop in and derail an ongoing discussion. Be respectful of
+   others if they're already mid-discussion.
 
 5. **No NSFW without consent**
 
-   If all members of a room with a temporary chat channel consent to viewing
-   NSFW material, NSFW material can be posted. However, once a new member joins
-   the room the process must be repeated. NSFW anywhere else, apart from NSFW
-   channels, is prohibited.
+   If all members of a voice room with a temporary text channel consent to
+   viewing NSFW material, NSFW material can be posted. However once a new member
+   joins the room, the process must be repeated. NSFW anywhere else, apart from
+   NSFW channels, is prohibited.
 
 ### Closing notes
 

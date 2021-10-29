@@ -1,0 +1,20 @@
+- vueRouterName: survivalTour
+  canonicalUrl: 'https://yukkuricraft.net/server-activities/survival/'
+  path: '/server-activities/survival/'
+  parallaxImages: kagome_island_spawn
+  localizations:
+    en: SurvivalGuideEN.md
+
+- vueRouterName: rules
+  canonicalUrl: 'https://yukkuricraft.net/rules/'
+  path: '/rules/'
+  parallaxImages: rules
+  localizations:
+    en: RulesEN.md
+
+- vueRouterName: paintball
+  canonicalUrl: 'https://yukkuricraft.net/server-activities/paintball/'
+  path: '/server-activities/paintball/'
+  parallaxImages: paintball
+  localizations:
+    en: PaintballEN.md

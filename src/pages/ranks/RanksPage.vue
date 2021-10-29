@@ -1,7 +1,7 @@
 <template>
   <normal-page :parallax-images="images">
     <vue-headful
-      title="YukkuriCraft - Ranks and Staff"
+      title="YukkuriCraft - Ranks"
       description="The different ranks found on YukkuriCraft."
       :image="require('../../favicon_upscaled.png')"
       url="https://yukkuricraft.net/ranks/"
@@ -41,7 +41,11 @@ export default {
   },
   computed: {
     images() {
-      return autoImage('people')
+      return autoImage(
+        'people',
+        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/people_data.jpeg`),
+        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/people_data.webp`)
+      )
     },
     rankGroups() {
       return rankGroups

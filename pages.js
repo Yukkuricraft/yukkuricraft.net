@@ -14,15 +14,42 @@ module.exports = [
   {
     url: '/ranks/',
     priority: '0.80',
-    mainContent: ['./src/pages/ranks/RanksPage.vue', './src/pages/ranks/RankGroup.vue', './content/ranks.yaml'],
+    mainContent: [...glob.sync('./src/pages/ranks/**.*'), './content/ranks.yaml'],
   },
   { url: '/staff/', priority: '0.80', mainContent: ['./src/pages/StaffPage.vue', './content/staff.yaml'] },
   { url: '/rules/', priority: '0.80', mainContent: ['./content/pages/RulesEN.md'] },
-  { url: '/commands/', priority: '0.60', mainContent: glob.sync('./src/pages/commands/**.*') },
+  {
+    url: '/server-activities/survival/',
+    priority: '0.70',
+    mainContent: ['./content/pages/SurvivalGuideEN.md', ...glob.sync('./content/pages/images/survival_guide/**.*')],
+  },
+  { url: '/server-activities/paintball/', priority: '0.70', mainContent: ['./content/pages/PaintballEN.md'] },
+  {
+    url: '/server-activities/survival/farms-towns/',
+    priority: '0.70',
+    mainContent: ['./src/pages/SurvivalFarmsTownsPage.vue', './content/locations/farms_towns.yaml'],
+  },
+  {
+    url: '/commands/',
+    priority: '0.60',
+    mainContent: [...glob.sync('./src/pages/commands/**.*'), ...glob.sync('./content/commands/**.*')],
+  },
   { url: '/downloads/gensokyo/', priority: '0.85', mainContent: ['./src/pages/downloads/Download.vue'] },
   { url: '/downloads/survival/', priority: '0.5', mainContent: ['./src/pages/downloads/DownloadSurvival.vue'] },
-  { url: '/gensokyo/', priority: '0.85', mainContent: glob.sync('./src/pages/gensokyo/**.*') },
-  { url: '/gensokyo/help/', priority: '0.65', mainContent: glob.sync('./src/pages/gensokyo/**.*') },
+  {
+    url: '/gensokyo/',
+    priority: '0.85',
+    mainContent: [
+      ...glob.sync('./src/pages/gensokyo/**.*'),
+      './content/locations/locationList.yaml',
+      ...glob.sync('./content/locations/neo/**.*'),
+    ],
+  },
+  {
+    url: '/gensokyo/help/',
+    priority: '0.65',
+    mainContent: [...glob.sync('./src/pages/gensokyo/**.*'), './content/locations/help_locations.yaml'],
+  },
   {
     url: '/announcements/',
     priority: '0.70',

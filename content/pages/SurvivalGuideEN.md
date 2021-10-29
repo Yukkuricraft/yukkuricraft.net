@@ -1,10 +1,6 @@
 ---
 title: 'A tour of Survival'
 description: 'Get to know the Survival world of YukkuriCraft.'
-canonicalUrl: 'https://yukkuricraft.net/server-activities/survival/'
-path: '/server-activities/survival/'
-vueRouterName: survivalTour
-parallaxImages: kagome_island_spawn
 ---
 
 ## A tour of Survival

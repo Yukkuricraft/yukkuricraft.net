@@ -1,21 +1,25 @@
 import VueRouter from 'vue-router'
 
 import announcementList from '../content/announcements/announcementList.yaml'
+import mdPages from '../content/pages/pages.yaml'
 import InfoPage from './pages/InfoPage'
 import AnnouncementsPage from './pages/announcements/AnnouncementsPage'
 import DownloadGenso from './pages/downloads/Download'
 import DownloadSurvival from './pages/downloads/DownloadSurvival'
-import MarkdownPage from './pages/MarkdownPage'
 import _404Page from './pages/404Page'
 import AnnouncementPostPage from './pages/announcements/AnnouncementPostPage'
 import LoadingPage from './pages/LoadingPage'
 import ErrorPage from './pages/ErrorPage'
 
-import { autoImage } from './images'
 import { removeExtension } from './files'
-import SurvivalFarmsTowns from './pages/SurvivalFarmsTowns'
 
-const mdPagesResolve = require.context('../content/pages', true, /\.md$/)
+function asyncComponent(component) {
+  return () => ({
+    component: component(),
+    loadinmg: LoadingPage,
+    error: ErrorPage,
+  })
+}
 
 export const router = new VueRouter({
   base: '/',
@@ -36,51 +40,31 @@ export const router = new VueRouter({
     {
       path: '/ranks/',
       name: 'ranks',
-      component: () => ({
-        component: import(/* webpackChunkName: "ranksPage" */ './pages/ranks/RanksPage'),
-        loading: LoadingPage,
-        error: ErrorPage,
-      }),
+      component: asyncComponent(() => import(/* webpackChunkName: "ranksPage" */ './pages/ranks/RanksPage')),
       pathToRegexpOptions: { strict: true },
     },
     {
       path: '/staff/',
       name: 'staff',
-      component: () => ({
-        component: import(/* webpackChunkName: "staffPage" */ './pages/StaffPage'),
-        loading: LoadingPage,
-        error: ErrorPage,
-      }),
+      component: asyncComponent(() => import(/* webpackChunkName: "staffPage" */ './pages/StaffPage')),
       pathToRegexpOptions: { strict: true },
     },
     {
       path: '/commands/',
       name: 'commands',
-      component: () => ({
-        component: import(/* webpackChunkName: "commandsPage" */ './pages/commands/CommandsPage'),
-        loading: LoadingPage,
-        error: ErrorPage,
-      }),
+      component: asyncComponent(() => import(/* webpackChunkName: "commandsPage" */ './pages/commands/CommandsPage')),
       pathToRegexpOptions: { strict: true },
     },
     {
       path: '/gensokyo/',
       name: 'gensokyo',
-      component: () => ({
-        component: import(/* webpackChunkName: "gensokyoPage" */ './pages/gensokyo/LocationsPage'),
-        loading: LoadingPage,
-        error: ErrorPage,
-      }),
+      component: asyncComponent(() => import(/* webpackChunkName: "gensokyoPage" */ './pages/gensokyo/LocationsPage')),
       pathToRegexpOptions: { strict: true },
     },
     {
       path: '/gensokyo/help/',
       name: 'gensokyo_help',
-      component: () => ({
-        component: import(/* webpackChunkName: "gensokyoHelpPage" */ './pages/gensokyo/HelpPage'),
-        loading: LoadingPage,
-        error: ErrorPage,
-      }),
+      component: asyncComponent(() => import(/* webpackChunkName: "gensokyoHelpPage" */ './pages/gensokyo/HelpPage')),
       pathToRegexpOptions: { strict: true },
     },
     {
@@ -98,29 +82,22 @@ export const router = new VueRouter({
     {
       path: '/server-activities/survival/farms-towns/',
       name: 'survival_farms_towns',
-      component: SurvivalFarmsTowns,
+      component: asyncComponent(() =>
+        import(/* webpackChunkName: "survivalFarmsTowns" */ './pages/SurvivalFarmsTownsPage')
+      ),
       pathToRegexpOptions: { strict: true },
     },
-    ...mdPagesResolve
-      .keys()
-      .map(mdPagesResolve)
-      .filter((p) => !p.attributes.isLocalization)
-      .map((page) => ({
-        path: page.attributes.path,
-        name: page.attributes.vueRouterName,
-        component: MarkdownPage,
-        props: {
-          component: page,
-          localizedComponents:
-            (page.attributes.localizations &&
-              Object.fromEntries(
-                Object.entries(page.attributes.localizations).map(([locale, file]) => [locale, mdPagesResolve(file)])
-              )) ||
-            {},
-          parallaxImages: () => page.attributes.parallaxImages && autoImage(page.attributes.parallaxImages),
-        },
-        pathToRegexpOptions: { strict: true },
-      })),
+    ...mdPages.map((page) => ({
+      path: page.path,
+      name: page.vueRouterName,
+      component: asyncComponent(() => import(/* webpackChunkName: "markdownPages" */ './pages/MarkdownPage')),
+      props: {
+        localizedComponents: page.localizations,
+        canonicalUrl: page.canonicalUrl,
+        parallaxImages: page.parallaxImages,
+      },
+      pathToRegexpOptions: { strict: true },
+    })),
     ...announcementList.posts.map((post) => {
       const name = removeExtension(post.file, '.md')
       const slug = post.slug || name

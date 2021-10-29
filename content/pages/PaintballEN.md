@@ -1,10 +1,6 @@
 ---
 title: 'Paintball'
 description: 'Play some paintball together with the community'
-canonicalUrl: 'https://yukkuricraft.net/server-activities/paintball/'
-path: '/server-activities/paintball/'
-vueRouterName: paintball
-parallaxImages: paintball
 ---
 
 ## YukkuriCraft Paintball

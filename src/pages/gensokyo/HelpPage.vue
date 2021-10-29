@@ -41,7 +41,11 @@ export default {
   },
   computed: {
     images() {
-      return autoImage('pond')
+      return autoImage(
+        'pond',
+        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/pond_data.jpeg`),
+        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/pond_data.webp`)
+      )
     },
     locations() {
       return locations

@@ -87,9 +87,8 @@
 import { BAvatar, BMedia } from 'bootstrap-vue'
 
 import NormalPage from '../layout/NormalPage'
-import { autoImage } from '../images'
+import { autoImage, staffAvatar } from '../images'
 import { isPrerender } from '../prerender'
-import { removeExtension } from '../files'
 
 import staff from '../../content/staff.yaml'
 
@@ -119,7 +118,11 @@ export default {
   },
   computed: {
     images() {
-      return autoImage('people')
+      return autoImage(
+        'people',
+        import(/* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/people_data.jpeg`),
+        import(/* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/people_data.webp`)
+      )
     },
     staff() {
       return staff
@@ -168,11 +171,7 @@ export default {
             continue
           }
 
-          const fileName = removeExtension(staffMember.avatar, '.png')
-          const extension = Modernizr.webp ? '.webp' : '.png'
-
-          const img = (await import(/* webpackMode: "eager" */ '../../generated/avatars/' + fileName + extension))
-            .default
+          const img = await staffAvatar(staffMember.avatar)
           this.$set(this.staffAvatars, key, { loaded: true, avatar: img })
         }
       }

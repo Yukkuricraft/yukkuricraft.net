@@ -66,7 +66,11 @@ export default {
       return false
     },
     images() {
-      return autoImage('hakurei_inside')
+      return autoImage(
+        'hakurei_inside',
+        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/hakurei_inside_data.jpeg`),
+        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/hakurei_inside_data.webp`)
+      )
     },
   },
 }
