@@ -6,9 +6,9 @@
       </template>
 
       <template v-if="post && postSlug">
-        <heading :level="headingLevel" class="h3">
+        <configurable-heading :level="headingLevel" class="h3">
           <router-link :to="{ path: `/announcements/${postSlug}/` }">{{ attributes.title }}</router-link>
-        </heading>
+        </configurable-heading>
         <div class="byline">
           <p>By: {{ attributes.poster }}</p>
           <p>Posted: {{ localizedPostedTime }}</p>
@@ -27,7 +27,7 @@
 <script>
 import { BCard, BMedia, BAvatar } from 'bootstrap-vue'
 import posters from '../../../content/announcements/posters.yaml'
-import Heading from '../../components/Heading'
+import ConfigurableHeading from '../../components/ConfigurableHeading'
 import { staffAvatar } from '../../images'
 
 export default {
@@ -35,7 +35,7 @@ export default {
     BCard,
     BMedia,
     BAvatar,
-    Heading,
+    ConfigurableHeading,
   },
   props: {
     headingLevel: {

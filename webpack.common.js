@@ -1,6 +1,4 @@
-const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
@@ -14,9 +12,7 @@ module.exports = (env, options) => {
       app: './src/app.js',
     },
     output: {
-      filename: '[name].js',
       chunkFilename: '[name].js',
-      path: path.resolve(__dirname, 'dist'),
       publicPath: '/',
     },
     plugins: [
@@ -29,9 +25,6 @@ module.exports = (env, options) => {
         meta: {
           description: 'Everything you want to know about YukkuriCraft, from Gensokyo builds to commands.',
         },
-      }),
-      new ScriptExtHtmlWebpackPlugin({
-        defaultAttribute: 'defer',
       }),
       new FaviconsWebpackPlugin({
         logo: './src/favicon_upscaled.png',
@@ -70,14 +63,7 @@ module.exports = (env, options) => {
             options.mode !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
             'css-loader',
             'postcss-loader',
-            {
-              loader: 'sass-loader',
-              options: {
-                sassOptions: {
-                  functions: require('chromatic-sass'),
-                },
-              },
-            },
+            'sass-loader',
           ],
         },
         {
@@ -89,30 +75,18 @@ module.exports = (env, options) => {
           ],
         },
         {
-          test: /\.(png|svg|jpe?g|gif|webp)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                esModule: false, // https://github.com/peerigon/extract-loader/issues/67
-                outputPath: 'assets/images',
-                name: '[name]-[contenthash].[ext]',
-              },
-            },
-          ],
+          test: /\.(png|svg|jpe?g|gif|webp|mp3)$/,
+          type: 'asset/resource',
+          generator: {
+            filename: 'assets/images/[name]-[contenthash][ext]',
+          },
         },
         {
           test: /\.(mp3)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                esModule: false, // https://github.com/peerigon/extract-loader/issues/67
-                outputPath: 'assets/sound',
-                name: '[name]-[contenthash].[ext]',
-              },
-            },
-          ],
+          type: 'asset/resource',
+          generator: {
+            filename: 'assets/sound/[name]-[contenthash][ext]',
+          },
         },
         {
           test: /\.ya?ml$/,
@@ -129,9 +103,10 @@ module.exports = (env, options) => {
                 slugify(s) {
                   return String(s).trim().toLowerCase().replace(/\s+/g, '-')
                 },
-                permalink: true,
-                permalinkBefore: true,
-                permalinkSymbol: '<i class="fas fa-link" style="font-size: 0.5em"></i>',
+                permalink: markdownItAnchor.permalink.ariaHidden({
+                  placement: 'before',
+                  symbol: '<i class="fas fa-link" style="font-size: 0.5em"></i>',
+                }),
               })
               .use(require('markdown-it-html5-embed'), {
                 html5embed: {
@@ -164,7 +139,7 @@ module.exports = (env, options) => {
     optimization: {
       splitChunks: {
         cacheGroups: {
-          vendors: {
+          defaultVendors: {
             name: 'js-vendors',
             chunks: 'initial',
             test: /[\\/]node_modules[\\/]/,

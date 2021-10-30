@@ -34,7 +34,7 @@ module.exports = [
     priority: '0.60',
     mainContent: [...glob.sync('./src/pages/commands/**.*'), ...glob.sync('./content/commands/**.*')],
   },
-  { url: '/downloads/gensokyo/', priority: '0.85', mainContent: ['./src/pages/downloads/Download.vue'] },
+  { url: '/downloads/gensokyo/', priority: '0.85', mainContent: ['./src/pages/downloads/DownloadGensokyo.vue'] },
   { url: '/downloads/survival/', priority: '0.5', mainContent: ['./src/pages/downloads/DownloadSurvival.vue'] },
   {
     url: '/gensokyo/',
@@ -60,5 +60,5 @@ module.exports = [
     priority: '0.60',
     mainContent: [`./content/announcements/${removeMdSuffix(post.file)}.md`],
   })),
-  { url: '/404', noSitemap: true },
+  { url: '/404', noSitemap: true, htmlFilename: '/404.html' },
 ]

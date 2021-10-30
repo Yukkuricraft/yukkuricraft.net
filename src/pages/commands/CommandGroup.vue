@@ -1,6 +1,8 @@
 <template>
   <div>
-    <heading :id="'commands-' + commandGroupId" :level="3 + depth">{{ commandGroup.displayName }}</heading>
+    <configurable-heading :id="'commands-' + commandGroupId" :level="3 + depth">{{
+      commandGroup.displayName
+    }}</configurable-heading>
     <markdown-lazy v-if="commandGroup.description" :content="commandGroup.description"></markdown-lazy>
 
     <template v-if="commandGroup.subgroups">
@@ -21,7 +23,7 @@
 </template>
 
 <script>
-import Heading from '../../components/Heading'
+import ConfigurableHeading from '../../components/ConfigurableHeading'
 import MarkdownLazy from '../../components/MarkdownLazy'
 import CommandNode from './CommandNode'
 
@@ -30,7 +32,7 @@ export default {
   components: {
     MarkdownLazy,
     CommandNode,
-    Heading,
+    ConfigurableHeading,
   },
   props: {
     commandGroupId: {

@@ -33,7 +33,7 @@ function processImage(image, globalOptions) {
       return type === 'webp' ? base.webp({ lossless: true }) : base.png()
     } else {
       const imgQuality = callIfFunction(quality[type]) || quality
-      return type === 'webp' ? base.webp({ quality: imgQuality }) : base.jpeg({ quality: imgQuality })
+      return type === 'webp' ? base.webp({ quality: imgQuality }) : base.jpeg({ quality: imgQuality, mozjpeg: true })
     }
   }
 

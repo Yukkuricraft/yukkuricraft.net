@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-export default Vue.component('Heading', {
+export default Vue.component('ConfigurableHeading', {
   props: {
     level: {
       type: Number,

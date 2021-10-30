@@ -1,6 +1,8 @@
 <template>
   <section>
-    <heading :id="'location-' + locationId" :level="3 + depth">{{ location.displayName }}</heading>
+    <configurable-heading :id="'location-' + locationId" :level="3 + depth">{{
+      location.displayName
+    }}</configurable-heading>
     <markdown-lazy v-if="location.description" :content="location.description"></markdown-lazy>
 
     <location
@@ -64,16 +66,16 @@
 <script>
 import { BRow, BCol, BModal, VBModal, BCarousel, BCarouselSlide } from 'bootstrap-vue'
 
-import Heading from '../../components/Heading'
+import ConfigurableHeading from '../../components/ConfigurableHeading'
 import MarkdownLazy from '../../components/MarkdownLazy'
 
 import { makeImage } from '../../images'
 
 export default {
-  name: 'Location',
+  name: 'LocationItem',
   components: {
     MarkdownLazy,
-    Heading,
+    ConfigurableHeading,
     BRow,
     BCol,
     BModal,

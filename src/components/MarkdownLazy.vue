@@ -1,5 +1,5 @@
 <template>
-  <markdown :content="content" :no-paragraph="noParagraph"></markdown>
+  <markdown-now :content="content" :no-paragraph="noParagraph"></markdown-now>
 </template>
 
 <script>
@@ -8,8 +8,8 @@ import TextErrorComponent from './TextErrorComponent'
 
 export default {
   components: {
-    markdown: () => ({
-      component: import(/* webpackChunkName: "markdown" */ './Markdown'),
+    markdownNow: () => ({
+      component: import(/* webpackChunkName: "markdown" */ './MarkdownNow'),
       loading: TextLoadingComponent,
       error: TextErrorComponent,
     }),
