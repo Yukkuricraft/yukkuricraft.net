@@ -48,6 +48,9 @@ jobs:
       - name: Yarn Build
         run: yarn build
 
+      - name: Yarn Prerender
+        run: yarn run prerender
+
       - name: Deploy-Info-Dev
         if: steps.extract_branch.outputs.branch == 'dev'
         uses: s0/git-publish-subdir-action@v2.0.0

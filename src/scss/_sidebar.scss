@@ -4,9 +4,9 @@
 
 $sidebar-width: 250px;
 
-$sidebar-background: chromatic-color-darken($primary, 0.3);
-$sidebar-header-background: chromatic-color-darken($primary, 0.5);
-$sidebar-active-background: chromatic-color-darken($primary, 0.4);
+$sidebar-background: #d45c00; //chromatic-color-darken($primary, 0.3)
+$sidebar-header-background: #c85300; //chromatic-color-darken($primary, 0.5);
+$sidebar-active-background: #ce5700; //chromatic-color-darken($primary, 0.4);
 
 .sidebar-wrapper {
   display: flex;
