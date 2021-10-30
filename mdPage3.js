@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[28],{517:function(c,p,s){c.exports=s.p+"assets/images/chat-cbbda9f2bacbf7053fc7448c0b88c978.png"}}]);
+"use strict";(self.webpackChunkinfo_yc=self.webpackChunkinfo_yc||[]).push([[855],{68627:(s,c,e)=>{s.exports=e.p+"assets/images/chat-cbbda9f2bacbf7053fc7.png"}}]);
