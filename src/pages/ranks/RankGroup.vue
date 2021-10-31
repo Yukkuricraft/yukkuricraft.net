@@ -1,9 +1,9 @@
 <template>
   <div>
-    <heading :id="group.id" :level="headingLevel">
+    <configurable-heading :id="group.id" :level="headingLevel">
       <a :href="'#' + group.id"><font-awesome-icon :icon="['fas', 'link']" style="font-size: 0.5em" /></a>
       {{ group.displayName }}
-    </heading>
+    </configurable-heading>
 
     <markdown-later v-if="group.description" :content="group.description"></markdown-later>
 
@@ -36,13 +36,13 @@
 <script>
 import { BRow, BCol } from 'bootstrap-vue'
 
-import Heading from '../../components/Heading'
+import ConfigurableHeading from '../../components/ConfigurableHeading'
 import MarkdownLater from '../../components/MarkdownLater'
 
 export default {
   name: 'RankGroup',
   components: {
-    Heading,
+    ConfigurableHeading,
     MarkdownLater,
     BRow,
     BCol,

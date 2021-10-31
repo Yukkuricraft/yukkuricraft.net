@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   env: {
     browser: true,
+    es2021: true,
   },
   parserOptions: {
     parser: 'babel-eslint',
@@ -11,13 +12,10 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:vue/recommended',
-    'prettier',
-    'prettier/babel',
-    'prettier/vue',
-    'prettier/standard',
+    'prettier/prettier',
     'plugin:prettier/recommended',
   ],
-  plugins: ['vue', 'babel', 'standard', 'prettier'],
+  plugins: ['vue', 'babel', 'prettier'],
   globals: {
     Modernizr: 'readonly',
   },
@@ -56,10 +54,7 @@ module.exports = {
       'error',
       {
         singleline: 5,
-        multiline: {
-          max: 1,
-          allowFirstLine: true,
-        },
+        multiline: 1,
       },
     ],
   },

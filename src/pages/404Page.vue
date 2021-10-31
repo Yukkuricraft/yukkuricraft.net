@@ -1,6 +1,6 @@
 <template>
   <normal-page :is-error="true">
-    <vue-headful
+    <headful-wrap
       title="YukkuriCraft - 404 Not found"
       description="We couldn't find what you were looing for."
       :image="require('../favicon_upscaled.png')"
@@ -21,11 +21,12 @@
 
 <script>
 import NormalPage from '../layout/NormalPage'
+import HeadfulWrap from '../components/HeadfulWrap'
 export default {
-  components: { NormalPage },
+  components: { NormalPage, HeadfulWrap },
   computed: {
     requestUri() {
-      return window.location.pathname
+      return typeof window !== 'undefined' ? window.location.pathname : ''
     },
     forumUri() {
       return 'https://forums.yukkuricraft.net' + this.requestUri

@@ -1,5 +1,5 @@
 <template>
-  <markdown :content="content" :no-paragraph="noParagraph"></markdown>
+  <markdown-now :content="content" :no-paragraph="noParagraph"></markdown-now>
 </template>
 
 <script>
@@ -7,8 +7,8 @@ import TextShowComponent from './TextShowComponent'
 
 export default {
   components: {
-    markdown: () => ({
-      component: import(/* webpackChunkName: "markdown" */ './Markdown'),
+    markdownNow: () => ({
+      component: import(/* webpackChunkName: "markdown" */ './MarkdownNow'),
       loading: TextShowComponent,
       error: TextShowComponent,
       delay: 0,

@@ -20,7 +20,7 @@
     <main>
       <slot></slot>
 
-      <location
+      <location-item
         v-for="(location, locationId) in locations"
         :key="locationId"
         :depth="0"
@@ -34,13 +34,13 @@
 <script>
 import SidebarPage from '../../layout/SidebarPage'
 import SidebarEntries from '../../components/SidebarEntries'
-import Location from './Location'
+import LocationItem from './LocationItem'
 
 export default {
   components: {
     SidebarPage,
     SidebarEntries,
-    Location,
+    LocationItem,
   },
   props: {
     parallaxImages: [Object, Promise],

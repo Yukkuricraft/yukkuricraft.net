@@ -1,6 +1,6 @@
 <template>
   <locations-with-images-page :parallax-images="images" sidebar-header="Locations" :locations="locations">
-    <vue-headful
+    <headful-wrap
       title="YukkuriCraft - Gensokyo"
       description="Look at all the different places in our Gensokyo."
       :image="require('../../favicon_upscaled.png')"
@@ -16,23 +16,20 @@
 
 <script>
 import merge from 'lodash/merge'
+import { mapState, mapActions } from 'vuex'
 
 import { autoImage } from '../../images'
-import { removeExtension } from '../../files'
 
-import locationList from '../../../content/locations/locationList.yaml'
 import LocationsWithImagesPage from '../imageLocations/LocationsWithImagesPage'
+import HeadfulWrap from '../../components/HeadfulWrap'
 
 export default {
   components: {
     LocationsWithImagesPage,
-  },
-  data() {
-    return {
-      allLocations: [],
-    }
+    HeadfulWrap,
   },
   computed: {
+    ...mapState('locations', ['allLocations']),
     images() {
       return autoImage(
         'greenhouse',
@@ -45,21 +42,16 @@ export default {
       return JSON.parse(JSON.stringify(merge({}, ...this.allLocations)))
     },
   },
-  created() {
-    const allLocations = locationList.locations.map((entry, idx) => {
-      const name = removeExtension(entry, '.yaml')
-      return import(/* webpackMode: "eager" */ `../../../content/locations/${name}.yaml`).then((commands) => ({
-        commands,
-        idx,
-      }))
-    })
-
-    // We get them all together to hopefully only update the DOM once
-    Promise.all(allLocations).then((all) => {
-      all.forEach(({ commands, idx }) => {
-        this.$set(this.allLocations, idx, commands.default)
-      })
-    })
+  serverPrefetch() {
+    return this.loadLocations()
+  },
+  async created() {
+    if (this.allLocations.length === 0) {
+      await this.loadLocations()
+    }
+  },
+  methods: {
+    ...mapActions('locations', ['loadLocations']),
   },
 }
 </script>
