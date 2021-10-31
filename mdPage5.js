@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[30],{516:function(a,e,p){a.exports=p.p+"assets/images/kagome_arrival-1d4fd0510aa7ac9f257584be21277dfe.png"}}]);
+"use strict";(self.webpackChunkinfo_yc=self.webpackChunkinfo_yc||[]).push([[904],{42863:(a,s,e)=>{a.exports=e.p+"assets/images/kagome_arrival-1d4fd0510aa7ac9f2575.png"}}]);
