@@ -5,7 +5,8 @@ import { removeExtension } from './files'
 const addedPreload = []
 
 function addPreload(href, mimeType, media, onLoad) {
-  if (addedPreload.includes(href)) {
+  // Document check for SSR
+  if (addedPreload.includes(href) || typeof document === 'undefined') {
     return
   }
   addedPreload.push(href)
@@ -206,7 +207,7 @@ export function autoImage(name, dataJpeg, dataWebp) {
 
 export async function staffAvatar(contentAvatarFile, size) {
   const fileName = removeExtension(contentAvatarFile, '.png')
-  const extension = Modernizr.webp ? 'webp' : 'png'
+  const extension = typeof Modernizr !== 'undefined' && Modernizr.webp ? 'webp' : 'png'
 
   return (
     await import(

@@ -1,33 +1,33 @@
 <template>
-  <normal-page v-if="post">
-    <vue-headful
-      :title="'YukkuriCraft - ' + attributes.title"
-      :description="attributes.excerpt || null"
+  <normal-page>
+    <headful-wrap
+      :title="'YukkuriCraft - ' + (postAttributes ? postAttributes.title : postName)"
+      :description="postAttributes ? postAttributes.excerpt || null : null"
       :image="require('../../favicon_upscaled.png')"
       :url="`https://yukkuricraft.net/announcements/${postSlug}/`"
     />
 
     <article>
-      <header>
-        <h1>{{ attributes.title }}</h1>
+      <header v-if="postAttributes">
+        <h1>{{ postAttributes.title }}</h1>
         <div class="byline">
           <p>
-            By: {{ attributes.poster }}
-            <b-avatar
-              variant="primary"
-              size="32"
-              :text="attributes.poster.substring(0, 1)"
-              :src="posterAvatar"
-            ></b-avatar>
+            By: {{ postAttributes.poster }}
+            <staff-avatar
+              :size="32"
+              :staff-member="postAttributes.poster"
+              :avatar-loc="posters[postAttributes.poster].avatar"
+              quality="icon"
+            ></staff-avatar>
           </p>
           <p>Posted: {{ localizedPostedTime }}</p>
         </div>
       </header>
 
-      <component :is="post.vue.component"></component>
+      <announcement-post-content :post-name="postName"></announcement-post-content>
     </article>
 
-    <div v-if="attributes.comments && false">
+    <div v-if="/*post && postAttributes.comments &&*/ false">
       <h2>Comments</h2>
       <div>
         <iframe
@@ -41,17 +41,16 @@
       </div>
     </div>
   </normal-page>
-  <normal-page v-else>
-    <font-awesome-icon :icon="['fas', 'spinner']" spin size="4x" />
-  </normal-page>
 </template>
 
 <script>
-import { BAvatar } from 'bootstrap-vue'
+import { mapActions } from 'vuex'
 
 import NormalPage from '../../layout/NormalPage'
+import HeadfulWrap from '../../components/HeadfulWrap'
 import posters from '../../../content/announcements/posters.yaml'
-import { staffAvatar } from '../../images'
+import StaffAvatar from '../../components/StaffAvatar'
+import AnnouncementPostContent from './AnnouncementPostContent'
 
 // Discourse information
 const discourseUrl = 'https://forums.yukkuricraft.net'
@@ -59,8 +58,10 @@ const defaultPoster = 'YukkuriBot'
 
 export default {
   components: {
+    StaffAvatar,
     NormalPage,
-    BAvatar,
+    HeadfulWrap,
+    AnnouncementPostContent,
   },
   props: {
     postName: {
@@ -74,16 +75,18 @@ export default {
   },
   data() {
     return {
-      post: null,
-      posterAvatar: null,
+      postComponent: null,
     }
   },
   computed: {
-    attributes() {
-      return this.post.attributes
+    postAttributes() {
+      return this.$store.state.announcements.postsByName[this.postName]?.attributes
+    },
+    posters() {
+      return posters
     },
     localizedPostedTime() {
-      return new Date(this.post.attributes.time).toLocaleString(this.$i18n.locale, {
+      return new Date(this.postAttributes.time).toLocaleString(this.$i18n.locale, {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
@@ -92,38 +95,29 @@ export default {
     },
     discourseSrc() {
       const embedUrl = `https://yukkuricraft.net/announcements/${this.postSlug}/`
-      const posterName = this.post.attributes.poster
+      const posterName = this.postAttributes.poster
       const poster = posters[posterName]?.discourseUser ?? defaultPoster
       return `${discourseUrl}/embed/comments?embed_url=${embedUrl}&discourse_username=${poster}`
     },
   },
-  watch: {
-    postName: {
-      immediate: true,
-      async handler(val) {
-        this.post = (
-          await import(/* webpackChunkName: "announcement" */ `../../../content/announcements/${val}.md`)
-        ).default
-      },
-    },
-    post() {
-      if (this.post) {
-        this.loadPosterAvatar()
-      }
-    },
+  async serverPrefetch() {
+    await this.loadPostAttributes()
   },
-  created() {
+  async created() {
+    if (!this.postAttributes) {
+      await this.loadPostAttributes()
+    }
+  },
+  mounted() {
     window.addEventListener('message', this.postMessageReceived, false)
   },
   destroyed() {
     window.removeEventListener('message', this.postMessageReceived, false)
   },
   methods: {
-    async loadPosterAvatar() {
-      const posterName = this.post.attributes.poster
-      if (posters[posterName]?.avatar) {
-        this.posterAvatar = await staffAvatar(posters[posterName].avatar, 'icon')
-      }
+    ...mapActions('announcements', ['loadPost']),
+    async loadPostAttributes() {
+      await this.loadPost({ name: this.postName })
     },
     // Taken from https://meta.discourse.org/javascripts/embed.js
     findPosY(obj) {

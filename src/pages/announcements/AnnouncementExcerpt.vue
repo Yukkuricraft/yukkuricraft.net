@@ -2,7 +2,12 @@
   <b-card>
     <b-media>
       <template v-if="post && postSlug" #aside>
-        <b-avatar variant="primary" size="64" :text="attributes.poster.substring(0, 1)" :src="posterAvatar"></b-avatar>
+        <staff-avatar
+          :size="64"
+          :staff-member="attributes.poster"
+          :avatar-loc="posters[attributes.poster].avatar"
+          quality="author"
+        ></staff-avatar>
       </template>
 
       <template v-if="post && postSlug">
@@ -25,16 +30,16 @@
 </template>
 
 <script>
-import { BCard, BMedia, BAvatar } from 'bootstrap-vue'
+import { BCard, BMedia } from 'bootstrap-vue'
 import posters from '../../../content/announcements/posters.yaml'
 import ConfigurableHeading from '../../components/ConfigurableHeading'
-import { staffAvatar } from '../../images'
+import StaffAvatar from '../../components/StaffAvatar'
 
 export default {
   components: {
+    StaffAvatar,
     BCard,
     BMedia,
-    BAvatar,
     ConfigurableHeading,
   },
   props: {
@@ -51,14 +56,12 @@ export default {
       required: false,
     },
   },
-  data() {
-    return {
-      posterAvatar: null,
-    }
-  },
   computed: {
     attributes() {
       return this.post.attributes
+    },
+    posters() {
+      return posters
     },
     localizedPostedTime() {
       return new Date(this.post.attributes.time).toLocaleString(this.$i18n.locale, {
@@ -67,24 +70,6 @@ export default {
         month: 'long',
         day: 'numeric',
       })
-    },
-  },
-  watch: {
-    post: {
-      immediate: true,
-      handler(val) {
-        if (val) {
-          this.loadPosterAvatar()
-        }
-      },
-    },
-  },
-  methods: {
-    async loadPosterAvatar() {
-      const posterName = this.post.attributes.poster
-      if (posters[posterName] && posters[posterName].avatar) {
-        this.posterAvatar = await staffAvatar(posters[posterName].avatar, 'author')
-      }
     },
   },
 }

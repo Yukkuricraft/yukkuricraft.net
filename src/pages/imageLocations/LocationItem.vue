@@ -5,7 +5,7 @@
     }}</configurable-heading>
     <markdown-lazy v-if="location.description" :content="location.description"></markdown-lazy>
 
-    <location
+    <location-item
       v-for="(subLocation, subLocationId) in location.sublocations"
       :key="subLocationId"
       :depth="depth + 1"
@@ -65,11 +65,10 @@
 
 <script>
 import { BRow, BCol, BModal, VBModal, BCarousel, BCarouselSlide } from 'bootstrap-vue'
+import { mapState, mapActions } from 'vuex'
 
 import ConfigurableHeading from '../../components/ConfigurableHeading'
 import MarkdownLazy from '../../components/MarkdownLazy'
-
-import { makeImage } from '../../images'
 
 export default {
   name: 'LocationItem',
@@ -105,6 +104,9 @@ export default {
       slide: 0,
     }
   },
+  computed: {
+    ...mapState('locations', ['imageLocations']),
+  },
   watch: {
     location: {
       immediate: true,
@@ -113,31 +115,41 @@ export default {
       },
     },
   },
+  serverPrefetch() {
+    return this.loadImages()
+  },
   methods: {
-    autoBuildImage(name) {
-      return Promise.all([
-        import(/* webpackMode: "eager" */ `../../../generated/builds/${name}.jpeg`),
-        import(/* webpackMode: "eager" */ `../../../generated/builds/${name}_thumbnail.jpeg`),
-        import(/* webpackMode: "eager" */ `../../../generated/builds/${name}.webp`),
-        import(/* webpackMode: "eager" */ `../../../generated/builds/${name}_thumbnail.webp`),
-      ]).then(([big, small, bigWebp, smallWebp]) => {
-        return makeImage(big.default, bigWebp.default, small.default, smallWebp.default)
-      })
-    },
+    ...mapActions('locations', ['loadLocationImages']),
     loadImages() {
+      const res = []
+
       if (this.location.images) {
         for (const [i, image] of this.location.images.entries()) {
-          this.$set(this.loadedImages, i, { loaded: false })
+          if (this.loadedImages[i] && this.loadedImages[i].loaded) {
+            continue
+          }
 
-          this.autoBuildImage(image.name).then((obj) => {
-            this.$set(this.loadedImages, i, {
-              ...image,
-              ...obj,
-              loaded: true,
+          let waitForImage
+          if (!this.imageLocations[image.name] || this.imageLocations[image.name].length === 0) {
+            this.$set(this.loadedImages, i, { loaded: false })
+            waitForImage = this.loadLocationImages({ imageName: image.name })
+          } else {
+            waitForImage = Promise.resolve()
+          }
+
+          res.push(
+            waitForImage.then(() => {
+              this.$set(this.loadedImages, i, {
+                ...image,
+                ...this.imageLocations[image.name],
+                loaded: true,
+              })
             })
-          })
+          )
         }
       }
+
+      return Promise.all(res)
     },
   },
 }

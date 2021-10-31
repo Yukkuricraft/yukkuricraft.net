@@ -6,7 +6,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-const common = require('./webpack.common.js')
+const common = require('./webpack.clientcommon.js')
 
 module.exports = (env, options) => {
   return merge(common(env, options), {

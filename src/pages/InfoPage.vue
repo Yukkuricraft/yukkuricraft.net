@@ -1,6 +1,6 @@
 <template>
   <normal-page :parallax-images="images">
-    <vue-headful
+    <headful-wrap
       title="YukkuriCraft"
       description="Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of Touhou Project fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all players to join the fun!"
       :image="require('../favicon_upscaled.png')"
@@ -44,8 +44,8 @@
     <h2>Latest announcements</h2>
     <div class="mb-5">
       <ul class="list-unstyled">
-        <li v-for="(post, idx) in posts" :key="idx" class="mb-3">
-          <announcement-excerpt :heading-level="3" :post="post.post" :post-slug="post.slug" />
+        <li v-for="(post, idx) in posts.slice(0, 3)" :key="idx" class="mb-3">
+          <announcement-excerpt :heading-level="3" :post="post && post.post" :post-slug="post && post.slug" />
         </li>
       </ul>
 
@@ -144,20 +144,24 @@
 </template>
 
 <script>
-import { BButton, BRow, BCol, BEmbed } from 'bootstrap-vue'
+import { BButton, BCol, BEmbed, BRow } from 'bootstrap-vue'
+import { mapActions, mapState } from 'vuex'
 
 import NormalPage from '../layout/NormalPage'
+import HeadfulWrap from '../components/HeadfulWrap'
 import { autoImage } from '../images'
-import { removeExtension } from '../files'
+import { prefetchIfSsr } from '../prerender'
 
-import announcementList from '../../content/announcements/announcementList.yaml'
 import ServerWidget from '../components/ServerWidget'
 import AnnouncementExcerpt from './announcements/AnnouncementExcerpt'
 
-const useDarkTheme = window.matchMedia('(prefers-color-scheme: dark)')
+// Test for SSR
+const useDarkTheme =
+  typeof window !== 'undefined' ? window.matchMedia('(prefers-color-scheme: dark)') : { matches: false }
 
 export default {
   components: {
+    HeadfulWrap,
     ServerWidget,
     NormalPage,
     AnnouncementExcerpt,
@@ -168,11 +172,11 @@ export default {
   },
   data() {
     return {
-      posts: [],
       discordTheme: useDarkTheme.matches ? 'dark' : 'light',
     }
   },
   computed: {
+    ...mapState('announcements', ['posts']),
     images() {
       return autoImage(
         'hakurei',
@@ -181,13 +185,15 @@ export default {
       )
     },
   },
+  serverPrefetch() {
+    return this.loadPosts({ amount: 3 })
+  },
   async created() {
-    for (const [idx, postObj] of announcementList.posts.slice(0, 3).entries()) {
-      const name = removeExtension(postObj.file, '.md')
-      const post = (await import(/* webpackChunkName: "announcement" */ `../../content/announcements/${name}.md`))
-        .default
-      this.$set(this.posts, idx, { post, slug: postObj.slug ?? name })
+    if (this.posts.length === 0) {
+      await this.loadPosts({ amount: 3 })
     }
+  },
+  mounted() {
     useDarkTheme.addEventListener('change', this.onDarkThemeChange)
   },
   destroyed() {
@@ -197,6 +203,7 @@ export default {
     onDarkThemeChange(event) {
       this.discordTheme = event.matches ? 'dark' : 'light'
     },
+    ...mapActions('announcements', ['loadPosts']),
   },
 }
 </script>

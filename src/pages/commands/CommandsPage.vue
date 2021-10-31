@@ -1,6 +1,6 @@
 <template>
   <sidebar-page :parallax-images="images">
-    <vue-headful
+    <headful-wrap
       title="YukkuriCraft - Commands"
       description="Search through the commands found on YukkuriCraft."
       :image="require('../../favicon_upscaled.png')"
@@ -54,6 +54,7 @@
 
 <script>
 import { BFormGroup, BFormInput } from 'bootstrap-vue'
+import { mapState, mapActions } from 'vuex'
 
 import queryString from 'query-string'
 import orderBy from 'lodash/orderBy'
@@ -66,10 +67,12 @@ import { autoImage } from '../../images'
 import { removeExtension } from '../../files'
 
 import commandList from '../../../content/commands/commandList.yaml'
+import HeadfulWrap from '../../components/HeadfulWrap'
 import CommandGroup from './CommandGroup'
 
 export default {
   components: {
+    HeadfulWrap,
     SidebarPage,
     SidebarEntries,
     CommandGroup,
@@ -79,11 +82,11 @@ export default {
   data() {
     return {
       filter: '',
-      allCommands: {},
       hasScrolledToHash: false,
     }
   },
   computed: {
+    ...mapState('commands', ['allCommands']),
     images() {
       return autoImage(
         'commands',
@@ -151,20 +154,18 @@ export default {
       }
     },
   },
+  serverPrefetch() {
+    return this.loadCommands()
+  },
   async created() {
-    Object.entries(queryString.parse(location.search)).forEach(([key, value]) => this.$set(this, key, value))
+    // For SSR
+    if (typeof location !== 'undefined') {
+      Object.entries(queryString.parse(location.search)).forEach(([key, value]) => this.$set(this, key, value))
+    }
 
-    const allCommandGroups = commandList.commands.map((entry, idx) => {
-      const name = removeExtension(entry, '.yaml')
-      return import(/* webpackMode: "eager" */ `../../../content/commands/${name}.yaml`).then((commands) => ({
-        commands,
-        idx,
-      }))
-    })
-
-    // We get them all together to hopefully only update the DOM once
-    const allGroups = await Promise.all(allCommandGroups)
-    this.allCommands = merge({}, ...orderBy(allGroups, 'idx').map((c) => c.commands.default))
+    if (Object.entries(this.allCommands).length === 0) {
+      await this.loadCommands()
+    }
   },
   updated() {
     if (Object.entries(this.allCommands).length && !this.hasScrolledToHash && location.hash) {
@@ -173,6 +174,9 @@ export default {
         this.hasScrolledToHash = true
       })
     }
+  },
+  methods: {
+    ...mapActions('commands', ['loadCommands']),
   },
 }
 </script>

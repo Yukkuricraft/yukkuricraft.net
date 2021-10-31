@@ -90,6 +90,10 @@ export default {
     async mcPing() {
       const errorMsg = `Failed to get YC server info`
 
+      if (typeof window === 'undefined') {
+        return null
+      }
+
       try {
         const res = await fetch(`https://api.minetools.eu/ping/${this.ip}/${this.port}`)
 

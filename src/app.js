@@ -4,6 +4,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueI18n from 'vue-i18n'
 import vueHeadful from 'vue-headful'
+import { sync } from 'vuex-router-sync'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import './fontAwesomeLibrary'
@@ -14,7 +15,8 @@ import 'css.escape'
 
 import App from './App.vue'
 
-import { router } from './router'
+import { createRouter } from './router'
+import { createStore } from './stores'
 
 Vue.use(VueRouter)
 Vue.use(VueI18n)
@@ -25,23 +27,26 @@ Vue.config.productionTip = false
 
 const supportedLocales = ['en']
 
-const preferredLanguage = window.navigator.language.slice(0, 2)
+const preferredLanguage = typeof window !== 'undefined' ? window.navigator.language.slice(0, 2) : 'en'
 const usedLocale = supportedLocales.includes(preferredLanguage) ? preferredLanguage : 'en'
 
-const i18n = new VueI18n({
-  locale: usedLocale,
-})
+export function createApp(extraSettings) {
+  const i18n = new VueI18n({
+    locale: usedLocale,
+  })
 
-document.addEventListener('DOMContentLoaded', () => {
-  // eslint-disable-next-line no-new
-  new Vue({
-    el: '#app',
-    mounted() {
-      // You'll need this for renderAfterDocumentEvent.
-      document.dispatchEvent(new Event('render-event'))
-    },
+  const router = createRouter()
+  const store = createStore()
+
+  sync(store, router)
+
+  const app = new Vue({
+    ...extraSettings,
     render: (createElement) => createElement(App),
     router,
+    store,
     i18n,
   })
-})
+
+  return { app, router, store }
+}
