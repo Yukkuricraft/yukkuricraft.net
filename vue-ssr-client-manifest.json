@@ -317,7 +317,7 @@
     "assets/images/alorai_avatar_author-ae5ddfb4f2a0041deb99.png",
     "assets/images/SkeletonFarm_thumbnail-10973297f4e24dc2bf57.jpeg",
     "assets/images/StarSailIsland2_thumbnail-5a610ace1663f948c9d4.jpeg",
-    "announcement10.js",
+    "announcement11.js",
     "assets/images/SquidFarm_thumbnail-296ecd622ddd0ae778b2.jpeg",
     "assets/images/StarSailIsland2_thumbnail-2b1012851b9dda3a5e81.webp",
     "assets/images/center_thumbnail-2ab984f6c50d8554dfef.jpeg",
@@ -334,7 +334,7 @@
     "assets/images/EndermanFarm_thumbnail-15872387b9aa3f1c9874.jpeg",
     "assets/images/voile_thumbnail-12516f7dc868d1d11571.webp",
     "markdownPages.js",
-    "announcement13.js",
+    "announcement14.js",
     "assets/images/qsc_avatar_author-f982e1d96b41314d7e02.png",
     "assets/images/BarracudaWharf1_thumbnail-fcc94e5bbd9496e66734.jpeg",
     "assets/images/lake_thumbnail-dd6f0a0c48bfe5b94281.jpeg",
@@ -380,7 +380,7 @@
     "assets/images/tony_avatar_icon-f5d124d67a506c5b52ae.png",
     "assets/images/alorai_avatar_icon-cdfd6cc09fc4575036cc.png",
     "modernizr-custom.js",
-    "announcement9.js",
+    "announcement10.js",
     "backdrops.js",
     "assets/images/redleaf_avatar_icon-13bca332996669a43879.png",
     "announcement7.js",
@@ -391,11 +391,11 @@
     "assets/images/qsc_avatar_icon-17940f1d3849fb853ec3.png",
     "assets/images/remi_avatar_icon-35a074f3da2a44699eba.png",
     "assets/images/koko_avatar_icon-4eb8dcc9141b6deaa98f.png",
-    "announcement11.js",
+    "announcement12.js",
     "assets/images/purp_avatar_icon-a7d8c38181eb09dcc039.png",
     "assets/images/birb_avatar_icon-92f114f502fe123c6f61.png",
     "announcement0.js",
-    "announcement14.js",
+    "announcement15.js",
     "assets/images/s121_avatar_icon-5d42de5a69fd7682d511.png",
     "assets/images/tsunko_avatar_icon-ff717e2de3675268a44a.png",
     "assets/images/luna_avatar_author-a5891fc4c6c576d0691a.png",
@@ -407,22 +407,23 @@
     "assets/images/redleaf_avatar_icon-035f3f985077dd9a1f84.webp",
     "commandsData5.js",
     "assets/images/katrix_avatar_icon-99e624204fd3655870be.webp",
+    "announcement8.js",
     "assets/images/tony_avatar_icon-1b8704e5fc0beed338bc.webp",
     "assets/images/cyros_avatar_icon-df30a48462ea97a833c8.webp",
     "assets/images/purp_avatar_icon-0ee48361f4721a338ee3.webp",
     "assets/images/birb_avatar_icon-46c18819f439332307bd.webp",
     "assets/images/teshno_avatar_icon-6af978df101ce4743d2a.webp",
     "assets/images/s121_avatar_icon-00a5405cbd22d4a0f885.webp",
-    "announcement15.js",
+    "announcement16.js",
     "assets/images/people_data-9ef4f2896011affb76ac.webp",
     "announcement3.js",
     "assets/images/luna_avatar_author-3066d83054141a2cae8b.webp",
     "assets/images/kagome_island_spawn_data-49bfa7e39210ddba748d.webp",
     "assets/images/tsunko_avatar_icon-5f0e8b971cb8f6cef74d.webp",
-    "announcement12.js",
+    "announcement13.js",
     "assets/images/luna_avatar_icon-2841b6c99d33223eebd6.webp",
     "assets/images/greenhouse_data-1012d33fd3d777deddb7.webp",
-    "announcement8.js",
+    "announcement9.js",
     "assets/images/people_data-a16422f3e3ddb27d21a0.jpeg",
     "assets/images/hakurei_data-ee93641e85bbfd76bea7.webp",
     "assets/images/paintball_data-a000702aefc7ca9f260c.webp",
@@ -493,10 +494,10 @@
     "ranksPage.js",
     "mdPage1.js",
     "mdPage0.js",
-    "announcement10.js",
+    "announcement11.js",
     "survivalFarmsTowns.js",
     "markdownPages.js",
-    "announcement13.js",
+    "announcement14.js",
     "gensokyoPage.js",
     "locationsData0.js",
     "gensokyoHelpPage.js",
@@ -505,19 +506,20 @@
     "announcement6.js",
     "announcement5.js",
     "modernizr-custom.js",
-    "announcement9.js",
+    "announcement10.js",
     "backdrops.js",
     "announcement7.js",
-    "announcement11.js",
+    "announcement12.js",
     "announcement0.js",
-    "announcement14.js",
+    "announcement15.js",
     "announcement2.js",
     "announcement1.js",
     "commandsData5.js",
-    "announcement15.js",
-    "announcement3.js",
-    "announcement12.js",
     "announcement8.js",
+    "announcement16.js",
+    "announcement3.js",
+    "announcement13.js",
+    "announcement9.js",
     "locationsData1.js",
     "commandsData7.js",
     "commandsData2.js",
@@ -1526,7 +1528,7 @@
       400
     ],
     "76bdb093": [
-      414
+      415
     ],
     "0f6605cc": [
       370
@@ -1540,8 +1542,11 @@
     "2d205770": [
       382
     ],
+    "89491a98": [
+      406
+    ],
     "05f7d315": [
-      421
+      422
     ],
     "04b55339": [
       379
@@ -1553,7 +1558,7 @@
       390
     ],
     "6900602b": [
-      418
+      419
     ],
     "567f4e3a": [
       333
@@ -1562,16 +1567,16 @@
       394
     ],
     "30f54beb": [
-      412
+      413
     ],
     "44cc322a": [
-      465
+      466
     ],
     "7e6bc72c": [
-      451
+      452
     ],
     "7bc1a482": [
-      464
+      465
     ],
     "43e3780a": [
       365
@@ -1580,28 +1585,28 @@
       404
     ],
     "a3e5b2fc": [
-      458
+      459
     ],
     "32bcc5c7": [
-      429
+      430
     ],
     "62f22eed": [
-      468
+      469
     ],
     "4f4c3198": [
-      470
-    ],
-    "cbefb366": [
       471
     ],
+    "cbefb366": [
+      472
+    ],
     "26218a76": [
-      460
+      461
     ],
     "01f0000a": [
-      462
+      463
     ],
     "871e4960": [
-      461
+      462
     ],
     "e3cd15c2": [
       35,
