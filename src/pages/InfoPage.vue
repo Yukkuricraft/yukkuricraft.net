@@ -150,7 +150,6 @@ import { mapActions, mapState } from 'vuex'
 import NormalPage from '../layout/NormalPage'
 import HeadfulWrap from '../components/HeadfulWrap'
 import { autoImage } from '../images'
-import { prefetchIfSsr } from '../prerender'
 
 import ServerWidget from '../components/ServerWidget'
 import AnnouncementExcerpt from './announcements/AnnouncementExcerpt'

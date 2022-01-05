@@ -57,16 +57,12 @@ import { BFormGroup, BFormInput } from 'bootstrap-vue'
 import { mapState, mapActions } from 'vuex'
 
 import queryString from 'query-string'
-import orderBy from 'lodash/orderBy'
-import merge from 'lodash/merge'
 
 import SidebarEntries from '../../components/SidebarEntries'
 import SidebarPage from '../../layout/SidebarPage'
 
 import { autoImage } from '../../images'
-import { removeExtension } from '../../files'
 
-import commandList from '../../../content/commands/commandList.yaml'
 import HeadfulWrap from '../../components/HeadfulWrap'
 import CommandGroup from './CommandGroup'
 

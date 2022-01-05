@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import merge from 'lodash/merge'
 import orderBy from 'lodash/orderBy'
 import commandList from '../../content/commands/commandList.yaml'
