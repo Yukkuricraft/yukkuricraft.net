@@ -88,7 +88,7 @@
     "css.escape": "^1.5.1",
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
-    "markdown-it": "^12.2.0",
+    "markdown-it": "^12.3.2",
     "markdown-it-anchor": "^8.4.1",
     "popper.js": "^1.16.1",
     "puppeteer": "^10.4.0",
