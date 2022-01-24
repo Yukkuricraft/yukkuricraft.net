@@ -52,7 +52,7 @@
     "assets/images/marisa-97ba37d7bd307626c4f2.webp",
     "assets/images/shrine-bc47cb30875f7c290d32.webp",
     "assets/images/kourindu-2bd828997afe72da8639.jpeg",
-    "37.js",
+    "4037.js",
     "assets/images/7.Grafana-Desktop-77c6fcbeb8f917cdc250.webp",
     "assets/images/hakurei_shrine-2e1ddf73a3d39f7ccb20.jpeg",
     "assets/images/greenhouse-24064743ad79832c6a7c.jpeg",
@@ -260,11 +260,11 @@
     "assets/images/waterfall_thumbnail-99a8b95ebdd55e957441.webp",
     "assets/images/BarracudaWharf2_thumbnail-533949d137ad2745e46b.jpeg",
     "assets/images/back_thumbnail-029b986f535f5538af21.jpeg",
-    "staffPage.js",
     "assets/images/hakurei_inside_xs-75165e8c2ae80e3760a7.jpeg",
     "assets/images/luna_avatar-6bad39969ac3fc78f943.webp",
     "assets/images/commands_md-9a62fcee180726071c19.jpeg",
     "assets/images/statue_thumbnail-4a1ed20b8ce544790c3c.jpeg",
+    "staffPage.js",
     "assets/images/river_2_thumbnail-9e9b9119f2a2f65d2eb7.webp",
     "mdPage2.js",
     "assets/images/mountain_thumbnail-05e29f1b72d0eae92cb0.webp",
@@ -280,10 +280,10 @@
     "assets/images/lunar_capital_thumbnail-ac17fe1e9e5f5e4c6eec.webp",
     "assets/images/waterfall_thumbnail-75cfcb6cb600befea4ea.jpeg",
     "assets/images/commands_lg-2de3b148d35cf7d49e92.webp",
+    "ranksPage.js",
     "assets/images/river_2_thumbnail-127ce2f50915595d87f4.jpeg",
     "assets/images/kourindu_thumbnail-6e67744f210d7ff17412.jpeg",
     "assets/images/BarracudaWharf3_thumbnail-a5d9fe90af58c3379644.webp",
-    "ranksPage.js",
     "assets/images/heaven_thumbnail-d52c75435d0440c124da.jpeg",
     "assets/images/BarracudaWharf3_thumbnail-80b7f34aa8999503b402.jpeg",
     "assets/images/shrine_thumbnail-db08ee606ce2c33748ef.jpeg",
@@ -317,7 +317,7 @@
     "assets/images/alorai_avatar_author-ae5ddfb4f2a0041deb99.png",
     "assets/images/SkeletonFarm_thumbnail-10973297f4e24dc2bf57.jpeg",
     "assets/images/StarSailIsland2_thumbnail-5a610ace1663f948c9d4.jpeg",
-    "announcement11.js",
+    "announcement12.js",
     "assets/images/SquidFarm_thumbnail-296ecd622ddd0ae778b2.jpeg",
     "assets/images/StarSailIsland2_thumbnail-2b1012851b9dda3a5e81.webp",
     "assets/images/center_thumbnail-2ab984f6c50d8554dfef.jpeg",
@@ -334,7 +334,7 @@
     "assets/images/EndermanFarm_thumbnail-15872387b9aa3f1c9874.jpeg",
     "assets/images/voile_thumbnail-12516f7dc868d1d11571.webp",
     "markdownPages.js",
-    "announcement14.js",
+    "announcement16.js",
     "assets/images/qsc_avatar_author-f982e1d96b41314d7e02.png",
     "assets/images/BarracudaWharf1_thumbnail-fcc94e5bbd9496e66734.jpeg",
     "assets/images/lake_thumbnail-dd6f0a0c48bfe5b94281.jpeg",
@@ -371,19 +371,21 @@
     "assets/images/birb_avatar_author-b4f63645b3db2037913d.webp",
     "assets/images/s121_avatar_author-48032661cb1a7b09e74a.webp",
     "assets/images/tsunko_avatar_author-7b018a2f3ca1e01b8fb9.webp",
-    "announcement4.js",
-    "announcement6.js",
     "announcement5.js",
+    "announcement0.js",
+    "announcement7.js",
+    "announcement6.js",
     "assets/images/remi_avatar_author-8c8094457d4f5d349f26.webp",
     "assets/images/koko_avatar_author-5c023998f1a8bbf792e1.webp",
     "assets/images/phantom_avatar_icon-8e17a5a39904db062818.png",
+    "announcement13.js",
     "assets/images/tony_avatar_icon-f5d124d67a506c5b52ae.png",
     "assets/images/alorai_avatar_icon-cdfd6cc09fc4575036cc.png",
     "modernizr-custom.js",
-    "announcement10.js",
+    "announcement11.js",
     "backdrops.js",
     "assets/images/redleaf_avatar_icon-13bca332996669a43879.png",
-    "announcement7.js",
+    "announcement8.js",
     "assets/images/teshno_avatar_icon-9c6ad44f6960cbee82ae.png",
     "assets/images/cyros_avatar_icon-36080b10ace268bb0161.png",
     "assets/images/katrix_avatar_icon-21285b659179c66690d7.png",
@@ -391,39 +393,39 @@
     "assets/images/qsc_avatar_icon-17940f1d3849fb853ec3.png",
     "assets/images/remi_avatar_icon-35a074f3da2a44699eba.png",
     "assets/images/koko_avatar_icon-4eb8dcc9141b6deaa98f.png",
-    "announcement12.js",
+    "announcement14.js",
     "assets/images/purp_avatar_icon-a7d8c38181eb09dcc039.png",
     "assets/images/birb_avatar_icon-92f114f502fe123c6f61.png",
-    "announcement0.js",
-    "announcement15.js",
+    "announcement1.js",
+    "announcement17.js",
     "assets/images/s121_avatar_icon-5d42de5a69fd7682d511.png",
     "assets/images/tsunko_avatar_icon-ff717e2de3675268a44a.png",
     "assets/images/luna_avatar_author-a5891fc4c6c576d0691a.png",
     "assets/images/qsc_avatar_icon-da2051cfb9415e28909c.webp",
+    "announcement3.js",
     "assets/images/alorai_avatar_icon-3697a085a46e491503ce.webp",
     "announcement2.js",
-    "announcement1.js",
     "assets/images/phantom_avatar_icon-9a817d6d73097a1366ff.webp",
     "assets/images/redleaf_avatar_icon-035f3f985077dd9a1f84.webp",
     "commandsData5.js",
     "assets/images/katrix_avatar_icon-99e624204fd3655870be.webp",
-    "announcement8.js",
+    "announcement9.js",
     "assets/images/tony_avatar_icon-1b8704e5fc0beed338bc.webp",
     "assets/images/cyros_avatar_icon-df30a48462ea97a833c8.webp",
     "assets/images/purp_avatar_icon-0ee48361f4721a338ee3.webp",
     "assets/images/birb_avatar_icon-46c18819f439332307bd.webp",
     "assets/images/teshno_avatar_icon-6af978df101ce4743d2a.webp",
     "assets/images/s121_avatar_icon-00a5405cbd22d4a0f885.webp",
-    "announcement16.js",
+    "announcement18.js",
     "assets/images/people_data-9ef4f2896011affb76ac.webp",
-    "announcement3.js",
+    "announcement4.js",
     "assets/images/luna_avatar_author-3066d83054141a2cae8b.webp",
     "assets/images/kagome_island_spawn_data-49bfa7e39210ddba748d.webp",
     "assets/images/tsunko_avatar_icon-5f0e8b971cb8f6cef74d.webp",
-    "announcement13.js",
+    "announcement15.js",
     "assets/images/luna_avatar_icon-2841b6c99d33223eebd6.webp",
     "assets/images/greenhouse_data-1012d33fd3d777deddb7.webp",
-    "announcement9.js",
+    "announcement10.js",
     "assets/images/people_data-a16422f3e3ddb27d21a0.jpeg",
     "assets/images/hakurei_data-ee93641e85bbfd76bea7.webp",
     "assets/images/paintball_data-a000702aefc7ca9f260c.webp",
@@ -487,39 +489,41 @@
   ],
   "async": [
     "markdown.js",
-    "37.js",
+    "4037.js",
     "commandsPage.js",
     "staffPage.js",
     "mdPage2.js",
     "ranksPage.js",
     "mdPage1.js",
     "mdPage0.js",
-    "announcement11.js",
+    "announcement12.js",
     "survivalFarmsTowns.js",
     "markdownPages.js",
-    "announcement14.js",
+    "announcement16.js",
     "gensokyoPage.js",
     "locationsData0.js",
     "gensokyoHelpPage.js",
     "commandsData4.js",
-    "announcement4.js",
-    "announcement6.js",
     "announcement5.js",
-    "modernizr-custom.js",
-    "announcement10.js",
-    "backdrops.js",
-    "announcement7.js",
-    "announcement12.js",
     "announcement0.js",
-    "announcement15.js",
-    "announcement2.js",
-    "announcement1.js",
-    "commandsData5.js",
-    "announcement8.js",
-    "announcement16.js",
-    "announcement3.js",
+    "announcement7.js",
+    "announcement6.js",
     "announcement13.js",
+    "modernizr-custom.js",
+    "announcement11.js",
+    "backdrops.js",
+    "announcement8.js",
+    "announcement14.js",
+    "announcement1.js",
+    "announcement17.js",
+    "announcement3.js",
+    "announcement2.js",
+    "commandsData5.js",
     "announcement9.js",
+    "announcement18.js",
+    "announcement4.js",
+    "announcement15.js",
+    "announcement10.js",
     "locationsData1.js",
     "commandsData7.js",
     "commandsData2.js",
@@ -546,7 +550,7 @@
       8
     ],
     "27689139": [
-      380
+      382
     ],
     "27699431": [
       362,
@@ -565,10 +569,10 @@
       3
     ],
     "35915860": [
-      380
+      382
     ],
     "35971794": [
-      380
+      382
     ],
     "37116344": [
       35,
@@ -585,6 +589,9 @@
     "54865266": [
       35,
       8
+    ],
+    "61166262": [
+      377
     ],
     "62987873": [
       362,
@@ -690,10 +697,10 @@
       8
     ],
     "a0d3a522": [
-      282
+      279
     ],
     "0b46e290": [
-      259
+      263
     ],
     "865b2cc2": [
       94
@@ -1518,95 +1525,98 @@
       35,
       8
     ],
+    "7efbd8c8": [
+      371
+    ],
     "f01ffb3e": [
-      393
+      395
     ],
     "7485dcef": [
-      401
+      403
     ],
     "3351b237": [
-      400
+      401
     ],
     "76bdb093": [
-      415
+      417
     ],
     "0f6605cc": [
       370
     ],
     "ed58b76e": [
-      372
+      373
     ],
     "30e98727": [
-      371
+      372
     ],
     "2d205770": [
-      382
+      384
     ],
     "89491a98": [
-      406
+      408
     ],
     "05f7d315": [
-      422
+      424
     ],
     "04b55339": [
-      379
+      381
     ],
     "4f9cc648": [
       316
     ],
     "880c6202": [
-      390
+      392
     ],
     "6900602b": [
-      419
+      421
     ],
     "567f4e3a": [
       333
     ],
     "d592aada": [
-      394
+      396
     ],
     "30f54beb": [
-      413
+      415
     ],
     "44cc322a": [
-      466
+      468
     ],
     "7e6bc72c": [
-      452
+      454
     ],
     "7bc1a482": [
-      465
+      467
     ],
     "43e3780a": [
       365
     ],
     "a30e4522": [
-      404
+      406
     ],
     "a3e5b2fc": [
-      459
-    ],
-    "32bcc5c7": [
-      430
-    ],
-    "62f22eed": [
-      469
-    ],
-    "4f4c3198": [
-      471
-    ],
-    "cbefb366": [
-      472
-    ],
-    "26218a76": [
       461
     ],
-    "01f0000a": [
+    "32bcc5c7": [
+      432
+    ],
+    "62f22eed": [
+      471
+    ],
+    "4f4c3198": [
+      473
+    ],
+    "cbefb366": [
+      474
+    ],
+    "26218a76": [
       463
     ],
+    "01f0000a": [
+      465
+    ],
     "871e4960": [
-      462
+      464
     ],
     "e3cd15c2": [
       35,
@@ -2577,37 +2587,37 @@
       3
     ],
     "2762d205": [
-      380
+      382
     ],
     "0f1e730f": [
       94
     ],
     "0ce7ef04": [
-      380
+      382
     ],
     "0cdc709c": [
-      380
+      382
     ],
     "3d58cd4e": [
       51
     ],
     "750aa373": [
-      380
+      382
     ],
     "751062a7": [
-      380
+      382
     ],
     "2c107e2b": [
-      380
+      382
     ],
     "2c163d5f": [
-      380
+      382
     ],
     "281da7ba": [
-      380
+      382
     ],
     "282366ee": [
-      380
+      382
     ],
     "c6ca823c": [
       332
@@ -2619,13 +2629,13 @@
       332
     ],
     "2de07fee": [
-      401
+      403
     ],
     "6f22876c": [
-      379
+      381
     ],
     "73b42277": [
-      379
+      381
     ],
     "2022341a": [
       316
@@ -3009,16 +3019,16 @@
       94
     ],
     "2c437cdd": [
-      380
+      382
     ],
     "6d35f70c": [
-      380
+      382
     ],
     "2c493c11": [
-      380
+      382
     ],
     "6d2a78a4": [
-      380
+      382
     ],
     "3e6c1a76": [
       305
