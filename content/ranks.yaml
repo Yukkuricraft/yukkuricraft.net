@@ -69,8 +69,15 @@
         The following list consists of the main permission-tampering ranks that
         are most regularly seen. These ranks are also allowed to hack their
         games so as long as they do not use the hacks for cheating in survival
-        mode.
+        mode. (Does not apply for Staff Trainee.)
       ranks:
+        - name: Staff Trainee
+          description: >-
+            Trainees are temp-staff with limited permissions. These are people
+            we're currently running through a trial role to see if they'd make a
+            good fit for the team. Even if the rank is temporary, they are still
+            considered staff members so don't hesitate to ask them for help if
+            one's around!
         - name: Mediator
           description: >-
             Someone who has been assigned the privilege of moderating the server
