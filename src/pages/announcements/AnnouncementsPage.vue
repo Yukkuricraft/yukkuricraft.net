@@ -42,6 +42,7 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.scrollLoadPosts)
+    this.scrollLoadPosts()
   },
   destroyed() {
     window.removeEventListener('scroll', this.scrollLoadPosts)

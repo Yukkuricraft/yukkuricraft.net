@@ -146,6 +146,10 @@ export default {
       }
 
       this.sakores = 'sakores'.length === this.sakoresIdx
+      if (this.sakores) {
+        // eslint-disable-next-line no-console
+        console.log('Secret Sakores unlocked')
+      }
     },
     async mcUsername(uuid, fallback) {
       const errorMsg = `Failed to get name for uuid ${uuid}, using fallback ${fallback} instead`
