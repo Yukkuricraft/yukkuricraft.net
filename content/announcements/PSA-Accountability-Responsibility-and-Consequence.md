@@ -1,9 +1,10 @@
 ---
-title: PSA: Accountability, Responsibility, and Consequence
+title: 'PSA: Accountability, Responsibility, and Consequence'
 time: '2022-06-02T00:03:10Z'
 poster: Teshno
 excerpt:
-  A short announcement to clarify personal accountability for actions in our community.
+  A short announcement to clarify personal accountability for actions in our
+  community.
 ---
 
 Hey guys! We're back with another Big-Ass-Wall-Of-Text PSA for you all, this
