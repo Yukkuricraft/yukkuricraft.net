@@ -88,7 +88,6 @@ async function run() {
   console.log('Webserver started')
 
   let browser
-
   try {
     browser = await puppeteer.launch({ defaultViewport: { width: 1920, height: 1080 } })
     await Promise.all(pages.map((p) => prerenderRoute(browser, p)))

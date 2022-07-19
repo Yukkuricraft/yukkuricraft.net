@@ -1,6 +1,6 @@
 <template>
   <normal-page :parallax-images="images">
-    <vue-headful
+    <headful-wrap
       title="YukkuriCraft - Ranks"
       description="The different ranks found on YukkuriCraft."
       :image="require('../../favicon_upscaled.png')"
@@ -32,10 +32,12 @@
 import NormalPage from '../../layout/NormalPage'
 import { autoImage } from '../../images'
 import rankGroups from '../../../content/ranks.yaml'
+import HeadfulWrap from '../../components/HeadfulWrap'
 import RankGroup from './RankGroup'
 
 export default {
   components: {
+    HeadfulWrap,
     RankGroup,
     NormalPage,
   },

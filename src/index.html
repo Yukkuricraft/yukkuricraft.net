@@ -8,21 +8,20 @@
 	<link rel="preconnect" href="https://www.youtube-nocookie.com">
 	<link rel="preconnect" href="https://img.youtube.com">
 
-	<meta property="og:title">
+	<meta property="og:title" content="{{title}}">
 	<meta property="og:type" content="website">
-	<meta property="og:description">
-	<meta property="og:image">
-	<meta property="og:url">
+	<meta property="og:description" content="{{description}}">
+	<meta property="og:image" content="{{image}}">
+	<meta property="og:url" content="{{url}}">
 
-	<link rel="canonical">
+	<link rel="canonical" href="{{url}}">
 
 	<meta name="color-scheme" content="light dark">
 
-	<title><%= htmlWebpackPlugin.options.title %></title>
+	<title>{{title}}</title>
 </head>
 <body>
 <div id="app"></div>
-
-<script src="/<%= htmlWebpackPlugin.options.links[0] %>"></script>
+<script src="/modernizr-custom.js"></script>
 </body>
 </html>

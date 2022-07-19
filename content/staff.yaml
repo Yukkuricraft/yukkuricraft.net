@@ -23,23 +23,6 @@
 - id: admin
   displayName: Admins
   members:
-    - name: Cyros
-      mcAccounts:
-        - name: Cyros_Lugoth
-          uuid: e48a9755-b091-4b2c-a3ae-98da341924f6
-        - name: Komeiji_Koishi
-          uuid: 675b6e35-0147-4cf9-9709-daf6fa8ac972
-        - name: Seija_Kijin
-          uuid: 47515849-e82d-4412-b25e-b4d76b4b5443
-      discordAccount: '243006975493931008'
-      avatar: 'cyros_avatar.png'
-      description: >-
-        Cyros here. I do a little bit of everything to help the community.
-        Whether it's helping users with some issues, working on the Gensokyo
-        project, dealing with problematic people, or just being a chill guy to
-        chat with. I'm mostly on our Minecraft server, but feel free to DM me on
-        Discord anytime. I will more than likely respond.
-
     - name: KokoNuttz
       mcAccounts:
         - name: KokoNuttz

@@ -1,7 +1,7 @@
 const merge = require('webpack-merge').merge
 const CopyPlugin = require('copy-webpack-plugin')
 
-const common = require('./webpack.common.js')
+const common = require('./webpack.clientcommon.js')
 
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 

@@ -1,6 +1,6 @@
 <template>
   <normal-page :parallax-images="images">
-    <vue-headful
+    <headful-wrap
       title="YukkuriCraft - Survival Downloads"
       description="Download our survival maps."
       :image="require('../../favicon_upscaled.png')"
@@ -50,9 +50,10 @@
 import { BAlert } from 'bootstrap-vue'
 
 import NormalPage from '../../layout/NormalPage'
+import HeadfulWrap from '../../components/HeadfulWrap'
 import { autoImage } from '../../images'
 export default {
-  components: { NormalPage, BAlert },
+  components: { NormalPage, BAlert, HeadfulWrap },
   computed: {
     images() {
       return autoImage(

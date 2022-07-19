@@ -1,6 +1,6 @@
 <template>
   <normal-page :parallax-images="images">
-    <vue-headful
+    <headful-wrap
       title="YukkuriCraft - Staff"
       description="The staff of YukkuriCraft."
       :image="require('../favicon_upscaled.png')"
@@ -25,21 +25,7 @@
           class="mt-5"
         >
           <template #aside>
-            <b-avatar variant="primary" size="96" :text="staffMember.name.substring(0, 1)">
-              <img
-                v-if="
-                  staffAvatars[staffGroup.id + '-' + staffMember.name] &&
-                  staffAvatars[staffGroup.id + '-' + staffMember.name].loaded
-                "
-                loading="lazy"
-                class="b-avatar-img"
-                :src="staffAvatars[staffGroup.id + '-' + staffMember.name].avatar"
-                :alt="staffMember.name"
-              />
-              <span v-else class="b-avatar-text" style="font-size: 40px">
-                {{ staffMember.name.substring(0, 1) }}
-              </span>
-            </b-avatar>
+            <staff-avatar :size="96" :staff-member="staffMember.name" :avatar-loc="staffMember.avatar"></staff-avatar>
           </template>
           <h4>{{ staffMember.name }}</h4>
 
@@ -87,16 +73,20 @@
 import { BAvatar, BMedia } from 'bootstrap-vue'
 
 import NormalPage from '../layout/NormalPage'
-import { autoImage, staffAvatar } from '../images'
+import HeadfulWrap from '../components/HeadfulWrap'
+import { autoImage } from '../images'
 import { isPrerender } from '../prerender'
 
 import staff from '../../content/staff.yaml'
+import StaffAvatar from '../components/StaffAvatar'
 
 export default {
   components: {
+    StaffAvatar,
     NormalPage,
     BMedia,
     BAvatar,
+    HeadfulWrap,
   },
   data() {
     const mcNames = {}
@@ -110,7 +100,6 @@ export default {
     }
 
     return {
-      staffAvatars: {},
       sakores: false,
       sakoresIdx: 0,
       mcNames,
@@ -138,9 +127,7 @@ export default {
       },
     },
   },
-  created() {
-    this.loadAvatars()
-
+  mounted() {
     document.addEventListener('keydown', this.processSakores)
   },
   destroyed() {
@@ -159,21 +146,9 @@ export default {
       }
 
       this.sakores = 'sakores'.length === this.sakoresIdx
-    },
-    async loadAvatars() {
-      for (const staffGroup of staff) {
-        for (const staffMember of staffGroup.members) {
-          const key = staffGroup.id + '-' + staffMember.name
-
-          this.$set(this.staffAvatars, key, { loaded: false })
-
-          if (!staffMember.avatar) {
-            continue
-          }
-
-          const img = await staffAvatar(staffMember.avatar)
-          this.$set(this.staffAvatars, key, { loaded: true, avatar: img })
-        }
+      if (this.sakores) {
+        // eslint-disable-next-line no-console
+        console.log('Secret Sakores unlocked')
       }
     },
     async mcUsername(uuid, fallback) {

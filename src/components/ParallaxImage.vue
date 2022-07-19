@@ -75,6 +75,12 @@ export default {
       },
     },
   },
+  serverPrefetch() {
+    return Promise.resolve(this.images).then((images) => {
+      this.loadedImages = images
+      this.placeholderImage = images.dataPlaceholder
+    })
+  },
   methods: {
     switchImage(event) {
       if (!isPrerender) {

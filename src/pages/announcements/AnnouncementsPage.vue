@@ -1,6 +1,6 @@
 <template>
   <normal-page>
-    <vue-headful
+    <headful-wrap
       title="YukkuriCraft - Announcements"
       description="See what's happening in the community."
       :image="require('../../favicon_upscaled.png')"
@@ -18,51 +18,37 @@
 
 <script>
 import debounce from 'lodash/debounce'
+import { mapState, mapActions } from 'vuex'
 import NormalPage from '../../layout/NormalPage'
-import announcementList from '../../../content/announcements/announcementList.yaml'
-import { removeExtension } from '../../files'
+import HeadfulWrap from '../../components/HeadfulWrap'
 import AnnouncementExcerpt from './AnnouncementExcerpt'
 
 export default {
   components: {
+    HeadfulWrap,
     AnnouncementExcerpt,
     NormalPage,
   },
-  data() {
-    return {
-      posts: [],
-      postsLoaded: 0,
+  computed: {
+    ...mapState('announcements', ['posts']),
+  },
+  serverPrefetch() {
+    return this.loadPosts()
+  },
+  async created() {
+    if (this.posts.length === 0) {
+      await this.loadPosts()
     }
   },
-  created() {
-    this.loadPosts()
+  mounted() {
     window.addEventListener('scroll', this.scrollLoadPosts)
+    this.scrollLoadPosts()
   },
   destroyed() {
     window.removeEventListener('scroll', this.scrollLoadPosts)
   },
   methods: {
-    async loadPosts() {
-      const maxPosts = announcementList.posts.length
-      if (this.posts.length === maxPosts) {
-        return
-      }
-
-      const newPostCount = Math.min(this.postsLoaded + 5, maxPosts)
-      while (this.posts.length < newPostCount) {
-        this.posts.push(null)
-      }
-
-      const currentPostsLoaded = this.postsLoaded
-      for (const [idx, postObj] of announcementList.posts.slice(this.postsLoaded, newPostCount).entries()) {
-        const name = removeExtension(postObj.file, '.md')
-        const post = (await import(/* webpackChunkName: "announcement" */ `../../../content/announcements/${name}.md`))
-          .default
-        this.$set(this.posts, currentPostsLoaded + idx, { post, slug: post.slug ?? name })
-      }
-
-      this.postsLoaded = newPostCount
-    },
+    ...mapActions('announcements', ['loadPosts']),
     scrollLoadPosts() {
       const debouncedLoadPosts = debounce(this.loadPosts, 200)
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
