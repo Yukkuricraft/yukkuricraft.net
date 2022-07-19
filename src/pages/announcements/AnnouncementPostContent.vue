@@ -4,10 +4,12 @@
 </template>
 
 <script>
+import { removeExtension } from '../../files'
+
 // Seperate component for the content to work around a bug with SSR
 export default {
   props: {
-    postName: {
+    postFile: {
       type: String,
       required: true,
     },
@@ -18,7 +20,7 @@ export default {
     }
   },
   watch: {
-    postName: {
+    postFile: {
       immediate: true,
       async handler() {
         await this.loadPostComponent()
@@ -35,8 +37,9 @@ export default {
   },
   methods: {
     async loadPostComponent() {
+      const postFileWithoutExt = removeExtension(this.postFile, '.md')
       const rawPost = await import(
-        /* webpackChunkName: "announcement" */ `../../../content/announcements/${this.postName}.md`
+        /* webpackChunkName: "announcement" */ `../../../content/announcements/${postFileWithoutExt}.md`
       )
 
       this.postComponent = rawPost.default.vue.component

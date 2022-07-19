@@ -48,4 +48,4 @@ arises. With that, I hope you people continue to thrive and enjoy the rest of
 your time here as well. I'll be around watching and enjoying my time here
 alongside you. Stay safe everyone, and as always... Take it easy.
 
-![Staff picture](images/cyros-resignation-image.png)
+![Staff picture](./images/cyros-resignation-image.png)
