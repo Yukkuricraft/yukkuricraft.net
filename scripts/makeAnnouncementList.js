@@ -48,6 +48,7 @@ function makeAnnouncementList() {
     })
     .sort((a, b) => Date.parse(b.time) - Date.parse(a.time))
 
+  fs.mkdirSync('./generated', { recursive: true })
   fs.writeFileSync('./generated/announcementList.json', JSON.stringify(announcementListData))
 }
 makeAnnouncementList()
