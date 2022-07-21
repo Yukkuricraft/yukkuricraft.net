@@ -16,22 +16,26 @@ jobs:
     name: Test PR with yarn
     runs-on: ubuntu-latest
     steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
+      - name: Setup node
+        uses: actions/setup-node@3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'yarn'
 
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@3
 
       - name: Yarn Install
-        uses: ianwalter/puppeteer@v2.0.0
-        with:
-          cmd: yarn install
+        run: yarn install --frozen-lockfile --prefer-offline
+
+      - name: Yarn Setup
+        run: yarn run setup
+
       - name: Yarn Build
-        uses: ianwalter/puppeteer@v2.0.0
-        with:
-          cmd: yarn build
+        run: yarn build
+
+      - name: Yarn Prerender
+        run: yarn run prerender
 
       - name: Yarn Test
         run: echo "Where my tests at @katrix? :P"
