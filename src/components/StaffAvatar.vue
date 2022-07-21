@@ -2,8 +2,15 @@
   <b-avatar :variant="staffAvatar ? undefined : 'primary'" :size="size">
     <template v-if="staffAvatar">
       <picture v-if="staffAvatar">
-        <source v-for="(type, srcset) in staffAvatar.srcsets" :type="type" :srcset="srcset" />
-        <img loading="lazy" class="b-avatar-img" :width="size" :height="size" :src="staffAvatar.default" :alt="staffMember" />
+        <source v-for="(type, srcset) in staffAvatar.srcsets" :key="type" :type="type" :srcset="srcset" />
+        <img
+          loading="lazy"
+          class="b-avatar-img"
+          :width="size"
+          :height="size"
+          :src="staffAvatar.default"
+          :alt="staffMember"
+        />
       </picture>
     </template>
     <span v-else class="b-avatar-text" style="font-size: 40px">

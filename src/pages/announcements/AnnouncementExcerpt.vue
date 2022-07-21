@@ -5,20 +5,18 @@
         <staff-avatar :size="64" :staff-member="post.poster" :avatar-loc="posters[post.poster].avatar"></staff-avatar>
       </template>
 
-      <template>
-        <configurable-heading :level="headingLevel" class="h3">
-          <router-link :to="{ path: `/announcements/${post.slug || removeExtension(post.file, '.md')}/` }">
-            {{ post.title }}
-          </router-link>
-        </configurable-heading>
-        <div class="byline">
-          <p>By: {{ post.poster }}</p>
-          <p>Posted: {{ localizedPostedTime }}</p>
-        </div>
-        <p>
-          {{ post.excerpt }}
-        </p>
-      </template>
+      <configurable-heading :level="headingLevel" class="h3">
+        <router-link :to="{ path: `/announcements/${post.slug || removeExtension(post.file, '.md')}/` }">
+          {{ post.title }}
+        </router-link>
+      </configurable-heading>
+      <div class="byline">
+        <p>By: {{ post.poster }}</p>
+        <p>Posted: {{ localizedPostedTime }}</p>
+      </div>
+      <p>
+        {{ post.excerpt }}
+      </p>
     </b-media>
   </b-card>
 </template>
