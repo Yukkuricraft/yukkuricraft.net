@@ -28,7 +28,7 @@ module.exports = (env, options) => {
       new FaviconsWebpackPlugin({
         logo: './src/favicon_upscaled.png',
         cache: true,
-        prefix: 'assets/favicon',
+        prefix: 'assets/',
         favicons: {
           appName: 'YukkuriCraft Info',
           appDescription: 'YukkuriCraft Info page',
