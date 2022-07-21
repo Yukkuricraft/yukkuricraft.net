@@ -1,1 +1,1 @@
-"use strict";(self.webpackChunkinfo_yc=self.webpackChunkinfo_yc||[]).push([[904],{42863:(a,s,e)=>{a.exports=e.p+"assets/images/kagome_arrival-1d4fd0510aa7ac9f2575.png"}}]);
+"use strict";(self.webpackChunkinfo_yc=self.webpackChunkinfo_yc||[]).push([[4904],{42863:(a,s,e)=>{a.exports=e.p+"assets/images/kagome_arrival-1d4fd0510aa7ac9f2575.png"}}]);

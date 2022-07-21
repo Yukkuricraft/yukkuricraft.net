@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkinfo_yc=self.webpackChunkinfo_yc||[]).push([[7199],{3506:(e,o,s)=>{s.r(o),s.d(o,{default:()=>i});const i={neogenso:{displayName:"NeoGensokyo",menuName:"NeoGensokyo",description:"NeoGensokyo is our new iteration of Gensokyo. Unlike previous iterations we're giving it our absolute all and making it as good as we can. While it's still a work in progress, here are some images of our work thus far!"}}}}]);
+//# sourceMappingURL=locationsData5.js.map
