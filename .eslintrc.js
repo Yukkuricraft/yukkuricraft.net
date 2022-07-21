@@ -5,7 +5,8 @@ module.exports = {
     es2021: true,
   },
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
+    requireConfigFile: false,
   },
   extends: [
     'standard',
@@ -24,6 +25,7 @@ module.exports = {
     'import/first': 'error',
     'import/no-mutable-exports': 'error',
     'import/no-unresolved': 'off',
+    'import/no-named-as-default-member': 'off',
     'arrow-parens': 'off',
     'generator-star-spacing': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',

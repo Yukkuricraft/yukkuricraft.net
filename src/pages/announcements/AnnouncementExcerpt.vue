@@ -1,29 +1,28 @@
 <template>
   <b-card>
     <b-media>
-      <template v-if="post && postSlug" #aside>
+      <template #aside>
         <staff-avatar
           :size="64"
-          :staff-member="attributes.poster"
-          :avatar-loc="posters[attributes.poster].avatar"
+          :staff-member="post.poster"
+          :avatar-loc="posters[post.poster].avatar"
           quality="author"
         ></staff-avatar>
       </template>
 
-      <template v-if="post && postSlug">
+      <template>
         <configurable-heading :level="headingLevel" class="h3">
-          <router-link :to="{ path: `/announcements/${postSlug}/` }">{{ attributes.title }}</router-link>
+          <router-link :to="{ path: `/announcements/${post.slug || removeExtension(post.file, '.md')}/` }">
+            {{ post.title }}
+          </router-link>
         </configurable-heading>
         <div class="byline">
-          <p>By: {{ attributes.poster }}</p>
+          <p>By: {{ post.poster }}</p>
           <p>Posted: {{ localizedPostedTime }}</p>
         </div>
         <p>
-          {{ attributes.excerpt }}
+          {{ post.excerpt }}
         </p>
-      </template>
-      <template v-else>
-        <font-awesome-icon class="d-block m-auto" :icon="['fas', 'spinner']" spin size="4x" />
       </template>
     </b-media>
   </b-card>
@@ -34,6 +33,8 @@ import { BCard, BMedia } from 'bootstrap-vue'
 import posters from '../../../content/announcements/posters.yaml'
 import ConfigurableHeading from '../../components/ConfigurableHeading'
 import StaffAvatar from '../../components/StaffAvatar'
+
+import { removeExtension } from '../../files'
 
 export default {
   components: {
@@ -49,28 +50,24 @@ export default {
     },
     post: {
       type: Object,
-      required: false,
-    },
-    postSlug: {
-      type: String,
-      required: false,
+      required: true,
     },
   },
   computed: {
-    attributes() {
-      return this.post.attributes
-    },
     posters() {
       return posters
     },
     localizedPostedTime() {
-      return new Date(this.post.attributes.time).toLocaleString(this.$i18n.locale, {
+      return new Date(this.post.time).toLocaleString(this.$i18n.locale, {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
         day: 'numeric',
       })
     },
+  },
+  methods: {
+    removeExtension,
   },
 }
 </script>

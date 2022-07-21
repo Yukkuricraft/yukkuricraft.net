@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router'
 
-import announcementList from '../content/announcements/announcementList.yaml'
+import announcementList from '../generated/announcementList.json'
 import mdPages from '../content/pages/pages.yaml'
 import InfoPage from './pages/InfoPage'
 import AnnouncementsPage from './pages/announcements/AnnouncementsPage'
@@ -101,16 +101,15 @@ export function createRouter() {
         },
         pathToRegexpOptions: { strict: true },
       })),
-      ...announcementList.posts.map((post) => {
-        const name = removeExtension(post.file, '.md')
-        const slug = post.slug || name
+      ...announcementList.map((post) => {
+        const file = removeExtension(post.file, '.md')
+        const slug = post.slug || file
 
         return {
           path: `/announcements/${slug}/`,
           component: AnnouncementPostPage,
           props: {
-            postName: name,
-            postSlug: slug,
+            post,
           },
           pathToRegexpOptions: { strict: true },
         }

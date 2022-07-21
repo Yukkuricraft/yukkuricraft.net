@@ -44,8 +44,8 @@
     <h2>Latest announcements</h2>
     <div class="mb-5">
       <ul class="list-unstyled">
-        <li v-for="(post, idx) in posts.slice(0, 3)" :key="idx" class="mb-3">
-          <announcement-excerpt :heading-level="3" :post="post && post.post" :post-slug="post && post.slug" />
+        <li v-for="post in announcementPosts.slice(0, 3)" :key="post.file" class="mb-3">
+          <announcement-excerpt :heading-level="3" :post="post" />
         </li>
       </ul>
 
@@ -145,13 +145,13 @@
 
 <script>
 import { BButton, BCol, BEmbed, BRow } from 'bootstrap-vue'
-import { mapActions, mapState } from 'vuex'
 
 import NormalPage from '../layout/NormalPage'
 import HeadfulWrap from '../components/HeadfulWrap'
 import { autoImage } from '../images'
 
 import ServerWidget from '../components/ServerWidget'
+import announcementList from '../../generated/announcementList.json'
 import AnnouncementExcerpt from './announcements/AnnouncementExcerpt'
 
 // Test for SSR
@@ -175,7 +175,6 @@ export default {
     }
   },
   computed: {
-    ...mapState('announcements', ['posts']),
     images() {
       return autoImage(
         'hakurei',
@@ -183,14 +182,9 @@ export default {
         import(/* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/hakurei_data.webp`)
       )
     },
-  },
-  serverPrefetch() {
-    return this.loadPosts({ amount: 3 })
-  },
-  async created() {
-    if (this.posts.length === 0) {
-      await this.loadPosts({ amount: 3 })
-    }
+    announcementPosts() {
+      return announcementList
+    },
   },
   mounted() {
     useDarkTheme.addEventListener('change', this.onDarkThemeChange)
@@ -202,7 +196,6 @@ export default {
     onDarkThemeChange(event) {
       this.discordTheme = event.matches ? 'dark' : 'light'
     },
-    ...mapActions('announcements', ['loadPosts']),
   },
 }
 </script>

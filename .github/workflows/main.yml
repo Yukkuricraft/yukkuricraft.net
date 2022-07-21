@@ -27,17 +27,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          node-version: ${{ matrix.node }}
+          cache: 'yarn'
 
       - name: Yarn Install
         run: yarn install --frozen-lockfile --prefer-offline
@@ -74,29 +68,17 @@ jobs:
 
     strategy:
       matrix:
-        node: [12, 14]
+        node: [16]
 
     name: Linting (Node ${{ matrix.node }})
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        working-directory: ${{env.client-dir}}
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: 'yarn'
 
       - name: Yarn Install
         run: yarn install --frozen-lockfile --prefer-offline

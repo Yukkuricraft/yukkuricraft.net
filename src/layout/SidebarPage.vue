@@ -15,7 +15,7 @@
             aria-label="Toggle sidebar"
             @click="sidebarActive = !sidebarActive"
           >
-            <font-awesome-icon class="text-white" :icon="['fas', 'align-left']" />
+            <font-awesome-icon :icon="['fas', 'align-left']" />
           </b-button>
         </template>
       </info-header>

@@ -16,12 +16,16 @@ This is a github hosted page parked on our subdomain.
 ## How to add an announcement
 
 1. Create a markdown (`.md`) file with a fitting filename in
-   `content/announcements`. What is markdown? Markdown is mostly the same
-   formatting options we use on Discord. What we use on Discord is however
-   pretty limited. For the markdown you can use in the announcements, you have a
-   lot more options. If you want to learn markdown, check out
-   [this site](https://www.markdowntutorial.com/).
-2. Write your announcement using normal markdown
+   `content/announcements/year/month`. For example, an announcement made in
+   February, 2021 should be placed in `content/announcements/2021/02`.
+
+   What is markdown? Markdown is mostly the same formatting options we use on
+   Discord. What we use on Discord is however pretty limited. For the markdown
+   you can use in the announcements, you have a lot more options. If you want to
+   learn markdown, check out [this site](https://www.markdowntutorial.com/).
+
+2. Write your announcement using normal markdown.
+
 3. Add the frontmatter.
 
    That's the stuff at the top of the file starting and ending with `---` on
@@ -34,12 +38,16 @@ This is a github hosted page parked on our subdomain.
    - `time`: When the post was created. This is an ISO-8601 date. Get the
      current ISO date
      [here](https://greenwichmeantime.com/articles/clocks/iso/).
-   - `poster`: This is you.
+   - `poster`: This is your name.
 
    You should also add these fields, but they are not required.
 
    - `excerpt`: A summary/excerpt of the post that users see before they click
      on the post itself.
+   - `slug`: If you want a different slug (URL part that identifies the
+     announcement) than the filename for your announcement, specify your desired
+     slug as another field. It should ideally not contain space or other
+     "special" characters.
    - **NOT YET IMPLEMENTED** `comments`: If you want to allow comments on the
      announcements, mark this as true. A post will automatically be created on
      the forums with the content of this post. A comment field will appear under
@@ -62,8 +70,5 @@ This is a github hosted page parked on our subdomain.
    also in `content/announcements/posters.yaml` and that the avatar is correct.
    The avatar can be found in `content/images/avatars`. If it's not
    present/correct, add/correct it.
-5. Add your post's filename to the top of the list found in
-   `content/announcements/announcementList.yaml`. If you want a different slug
-   than the filename for your announcement, specify your desired slug as another
-   field `slug`.
-6. Congrats on posting your announcement.
+
+5. Congrats on posting your announcement.

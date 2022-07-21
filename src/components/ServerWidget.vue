@@ -7,7 +7,7 @@
         {{ hasServerPing ? 'Online' : 'Offline' }}
       </b-card-header>
       <b-card-body v-if="hasServerPing">
-        <!-- eslint-disable-next-line vue/no-v-html -->
+        <!-- eslint-disable-next-line vue/no-v-html vue/no-v-text-v-html-on-component -->
         <b-card-title class="h5" v-html="parseMCCodes(serverPing.description).raw"></b-card-title>
         <b-card-text>
           <br />

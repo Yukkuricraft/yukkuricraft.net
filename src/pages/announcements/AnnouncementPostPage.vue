@@ -1,22 +1,22 @@
 <template>
   <normal-page>
     <headful-wrap
-      :title="'YukkuriCraft - ' + (postAttributes ? postAttributes.title : postName)"
-      :description="postAttributes ? postAttributes.excerpt || null : null"
+      :title="'YukkuriCraft - ' + post.title"
+      :description="post.excerpt"
       :image="require('../../favicon_upscaled.png')"
       :url="`https://yukkuricraft.net/announcements/${postSlug}/`"
     />
 
     <article>
-      <header v-if="postAttributes">
-        <h1>{{ postAttributes.title }}</h1>
+      <header>
+        <h1>{{ post.title }}</h1>
         <div class="byline">
           <p>
-            By: {{ postAttributes.poster }}
+            By: {{ post.poster }}
             <staff-avatar
               :size="32"
-              :staff-member="postAttributes.poster"
-              :avatar-loc="posters[postAttributes.poster].avatar"
+              :staff-member="post.poster"
+              :avatar-loc="posters[post.poster].avatar"
               quality="icon"
             ></staff-avatar>
           </p>
@@ -24,7 +24,7 @@
         </div>
       </header>
 
-      <announcement-post-content :post-name="postName"></announcement-post-content>
+      <announcement-post-content :post-file="post.file"></announcement-post-content>
     </article>
 
     <div v-if="/*post && postAttributes.comments &&*/ false">
@@ -44,12 +44,11 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-
 import NormalPage from '../../layout/NormalPage'
 import HeadfulWrap from '../../components/HeadfulWrap'
 import posters from '../../../content/announcements/posters.yaml'
 import StaffAvatar from '../../components/StaffAvatar'
+import { removeExtension } from '../../files'
 import AnnouncementPostContent from './AnnouncementPostContent'
 
 // Discourse information
@@ -64,29 +63,20 @@ export default {
     AnnouncementPostContent,
   },
   props: {
-    postName: {
-      type: String,
+    post: {
+      type: Object,
       required: true,
     },
-    postSlug: {
-      type: String,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      postComponent: null,
-    }
   },
   computed: {
-    postAttributes() {
-      return this.$store.state.announcements.postsByName[this.postName]?.attributes
-    },
     posters() {
       return posters
     },
+    postSlug() {
+      return this.post.slug || removeExtension(this.post.file, '.md')
+    },
     localizedPostedTime() {
-      return new Date(this.postAttributes.time).toLocaleString(this.$i18n.locale, {
+      return new Date(this.post.time).toLocaleString(this.$i18n.locale, {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
@@ -95,18 +85,10 @@ export default {
     },
     discourseSrc() {
       const embedUrl = `https://yukkuricraft.net/announcements/${this.postSlug}/`
-      const posterName = this.postAttributes.poster
+      const posterName = this.poster
       const poster = posters[posterName]?.discourseUser ?? defaultPoster
       return `${discourseUrl}/embed/comments?embed_url=${embedUrl}&discourse_username=${poster}`
     },
-  },
-  async serverPrefetch() {
-    await this.loadPostAttributes()
-  },
-  async created() {
-    if (!this.postAttributes) {
-      await this.loadPostAttributes()
-    }
   },
   mounted() {
     window.addEventListener('message', this.postMessageReceived, false)
@@ -115,10 +97,6 @@ export default {
     window.removeEventListener('message', this.postMessageReceived, false)
   },
   methods: {
-    ...mapActions('announcements', ['loadPost']),
-    async loadPostAttributes() {
-      await this.loadPost({ name: this.postName })
-    },
     // Taken from https://meta.discourse.org/javascripts/embed.js
     findPosY(obj) {
       let top = 0
