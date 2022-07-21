@@ -2,12 +2,7 @@
   <b-card>
     <b-media>
       <template #aside>
-        <staff-avatar
-          :size="64"
-          :staff-member="post.poster"
-          :avatar-loc="posters[post.poster].avatar"
-          quality="author"
-        ></staff-avatar>
+        <staff-avatar :size="64" :staff-member="post.poster" :avatar-loc="posters[post.poster].avatar"></staff-avatar>
       </template>
 
       <template>

@@ -21,28 +21,14 @@ function addPreload(href, mimeType, media, onLoad) {
   document.head.appendChild(preload)
 }
 
-export function makeImage(big, bigWebp, small, smallWebp, preload) {
-  const res = {
+export function makeImage(big, bigWebp, small, smallWebp) {
+  return {
     highRes: big,
     highResWebp: bigWebp,
     lowRes: small,
     lowResWebp: smallWebp,
     loaded: false,
   }
-
-  if (preload) {
-    // Check explicitly for undefined in case info isn't around yet
-    if (typeof Modernizr.webp === 'undefined' || isPrerender) {
-      addPreload(bigWebp, 'image/webp')
-      addPreload(big, 'image/jpeg')
-    } else if (Modernizr.webp) {
-      addPreload(bigWebp, 'image/webp', undefined, () => (res.loaded = true))
-    } else if (!Modernizr.webp) {
-      addPreload(big, 'image/jpeg', undefined, () => (res.loaded = true))
-    }
-  }
-
-  return res
 }
 
 function typeToMimeType(type) {
@@ -205,13 +191,44 @@ export function autoImage(name, dataJpeg, dataWebp) {
   })
 }
 
-export async function staffAvatar(contentAvatarFile, size) {
+export async function staffAvatar(contentAvatarFile, shownSize = 192) {
   const fileName = removeExtension(contentAvatarFile, '.png')
-  const extension = typeof Modernizr !== 'undefined' && Modernizr.webp ? 'webp' : 'png'
 
-  return (
-    await import(
-      /* webpackMode: "eager" */ `../generated/avatars/${fileName}${(size && '_' + size) || ''}.${extension}`
+  const formats = ['png', 'webp']
+  const sizes = [
+    ['', 192],
+    ['_normal', 96],
+    ['_author', 64],
+    ['_icon', 32],
+  ]
+
+  const allSources = Object.fromEntries(
+    await Promise.all(
+      formats.map(async (format) => {
+        const srcs = await Promise.all(
+          sizes.map(async (size) => {
+            const res = await import(/* webpackMode: "eager" */ `../generated/avatars/${fileName}${size[0]}.${format}`)
+            return {
+              file: res.default,
+              size: size[1],
+              srcset: `${res.default} ${size[1] / shownSize}x`,
+            }
+          })
+        )
+
+        return [typeToMimeType(format), srcs]
+      })
     )
-  ).default
+  )
+
+  function closestToBy(arr, by, target) {
+    return arr.sort((a, b) => Math.abs(target - by(a)) - Math.abs(target - by(b)))[0]
+  }
+
+  const pngSources = allSources[typeToMimeType('png')]
+
+  return {
+    srcsets: Object.fromEntries(Object.entries(allSources).map(([k, v]) => [k, v.map((o) => o.srcset).join(', ')])),
+    default: closestToBy(pngSources, (a) => a.size, shownSize).file,
+  }
 }

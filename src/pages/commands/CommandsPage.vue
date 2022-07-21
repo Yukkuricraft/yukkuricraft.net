@@ -86,8 +86,8 @@ export default {
     images() {
       return autoImage(
         'commands',
-        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/commands_data.jpeg`),
-        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/commands_data.webp`)
+        import(/* webpackMode: "eager" */ `../../../generated/backgrounds/commands_data.jpeg?inline`),
+        import(/* webpackMode: "eager" */ `../../../generated/backgrounds/commands_data.webp?inline`)
       )
     },
     commands() {

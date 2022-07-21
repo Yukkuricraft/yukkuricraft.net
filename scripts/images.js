@@ -29,7 +29,7 @@ const buildOptions = {
 const avatarOptions = {
   dir: './content/images/avatars/',
   outDir: './generated/avatars/',
-  sizes: { '': 192, author: 64, icon: 32 },
+  sizes: { '': 192, normal: 96, author: 64, icon: 32 },
   quality: true,
 }
 

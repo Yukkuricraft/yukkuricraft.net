@@ -178,8 +178,8 @@ export default {
     images() {
       return autoImage(
         'hakurei',
-        import(/* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/hakurei_data.jpeg`),
-        import(/* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/hakurei_data.webp`)
+        import(/* webpackMode: "eager" */ `../../generated/backgrounds/hakurei_data.jpeg?inline`),
+        import(/* webpackMode: "eager" */ `../../generated/backgrounds/hakurei_data.webp?inline`)
       )
     },
     announcementPosts() {

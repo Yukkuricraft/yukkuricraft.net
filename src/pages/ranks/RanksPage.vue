@@ -45,8 +45,8 @@ export default {
     images() {
       return autoImage(
         'people',
-        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/people_data.jpeg`),
-        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/people_data.webp`)
+        import(/* webpackMode: "eager" */ `../../../generated/backgrounds/people_data.jpeg?inline`),
+        import(/* webpackMode: "eager" */ `../../../generated/backgrounds/people_data.webp?inline`)
       )
     },
     rankGroups() {

@@ -17,7 +17,6 @@
               :size="32"
               :staff-member="post.poster"
               :avatar-loc="posters[post.poster].avatar"
-              quality="icon"
             ></staff-avatar>
           </p>
           <p>Posted: {{ localizedPostedTime }}</p>

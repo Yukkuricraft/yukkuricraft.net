@@ -29,8 +29,8 @@ export default {
     images() {
       return autoImage(
         'kagome_airships',
-        import(/* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/kagome_airships_data.jpeg`),
-        import(/* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/kagome_airships_data.webp`)
+        import(/* webpackMode: "eager" */ `../../generated/backgrounds/kagome_airships_data.jpeg?inline`),
+        import(/* webpackMode: "eager" */ `../../generated/backgrounds/kagome_airships_data.webp?inline`)
       )
     },
     locations() {
