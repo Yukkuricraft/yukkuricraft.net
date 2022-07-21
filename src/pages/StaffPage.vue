@@ -37,6 +37,8 @@
               <img
                 loading="lazy"
                 :src="'https://mc-heads.net/avatar/' + mcAccount.uuid + '/32'"
+                width="32"
+                height="32"
                 :alt="mcAccount.name"
               />
               {{ mcNames[mcAccount.uuid] }}
@@ -61,7 +63,12 @@
           <h5>Minecraft accounts</h5>
           <ul class="list-unstyled">
             <li v-for="blooperMcAccount in blooper.mcAccounts" :key="blooperMcAccount.uuid">
-              <img :src="'https://mc-heads.net/avatar/' + blooperMcAccount.uuid + '/32'" :alt="blooperMcAccount.name" />
+              <img
+                :src="'https://mc-heads.net/avatar/' + blooperMcAccount.uuid + '/32'"
+                width="32"
+                height="32"
+                :alt="blooperMcAccount.name"
+              />
               Sakores
             </li>
           </ul>
