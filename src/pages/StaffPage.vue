@@ -163,14 +163,11 @@ export default {
       this.bloopers
         .filter((b) => !b.enabled)
         .forEach((b) => {
-          console.log(b.idx)
           if (b.key.charAt(b.idx) === event.key) {
             b.idx++
           } else {
             b.idx = 0
           }
-          console.log(b.idx)
-          console.log(b.idx)
 
           b.enabled = b.key.length === b.idx
           if (b.enabled) {

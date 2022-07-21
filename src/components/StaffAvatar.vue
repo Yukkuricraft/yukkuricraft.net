@@ -1,12 +1,6 @@
 <template>
-  <b-avatar variant="primary" :size="size" :text="staffMember.substring(0, 1)">
-    <img
-      v-if="staffAvatar && staffAvatar.loaded && staffAvatar.avatar"
-      loading="lazy"
-      class="b-avatar-img"
-      :src="staffAvatar.avatar"
-      :alt="staffMember"
-    />
+  <b-avatar :variant="staffAvatar ? undefined : 'primary'" :size="size">
+    <img v-if="staffAvatar" loading="lazy" class="b-avatar-img" :src="staffAvatar" :alt="staffMember" />
     <span v-else class="b-avatar-text" style="font-size: 40px">
       {{ staffMember.substring(0, 1) }}
     </span>
@@ -36,14 +30,11 @@ export default {
   },
   data() {
     return {
-      staffAvatar: {
-        loaded: false,
-        avatar: null,
-      },
+      staffAvatar: null,
     }
   },
   watch: {
-    staffMember: {
+    avatarLoc: {
       immediate: true,
       async handler() {
         await this.loadAvatar()
@@ -56,9 +47,7 @@ export default {
   methods: {
     async loadAvatar() {
       if (this.avatarLoc) {
-        this.staffAvatar.loaded = false
-        this.staffAvatar.avatar = await staffAvatar(this.avatarLoc, this.quality)
-        this.staffAvatar.loaded = true
+        this.staffAvatar = await staffAvatar(this.avatarLoc, this.quality)
       }
     },
   },
