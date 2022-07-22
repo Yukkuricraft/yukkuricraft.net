@@ -84,10 +84,10 @@ export default {
       commit({ type: 'startLoadingImage', imageName })
 
       const [big, small, bigWebp, smallWebp] = await Promise.all([
-        import(/* webpackMode: "eager" */ `../../generated/builds/${imageName}.jpeg`),
-        import(/* webpackMode: "eager" */ `../../generated/builds/${imageName}_thumbnail.jpeg`),
-        import(/* webpackMode: "eager" */ `../../generated/builds/${imageName}.webp`),
-        import(/* webpackMode: "eager" */ `../../generated/builds/${imageName}_thumbnail.webp`),
+        import(`../../generated/builds/${imageName}.jpeg`),
+        import(`../../generated/builds/${imageName}_thumbnail.jpeg`),
+        import(`../../generated/builds/${imageName}.webp`),
+        import(`../../generated/builds/${imageName}_thumbnail.webp`),
       ])
 
       const image = makeImage(big.default, bigWebp.default, small.default, smallWebp.default)

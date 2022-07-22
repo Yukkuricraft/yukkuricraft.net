@@ -152,16 +152,16 @@ export function autoImage(name, dataJpeg, dataWebp) {
   return Promise.all([
     dataJpeg,
     dataWebp,
-    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}.jpeg`),
-    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_lg.jpeg`),
-    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_md.jpeg`),
-    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_sm.jpeg`),
-    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_xs.jpeg`),
-    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}.webp`),
-    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_lg.webp`),
-    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_md.webp`),
-    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_sm.webp`),
-    import(/* webpackMode: "eager" */ `../generated/backgrounds/${name}_xs.webp`),
+    import(`../generated/backgrounds/${name}.jpeg`),
+    import(`../generated/backgrounds/${name}_lg.jpeg`),
+    import(`../generated/backgrounds/${name}_md.jpeg`),
+    import(`../generated/backgrounds/${name}_sm.jpeg`),
+    import(`../generated/backgrounds/${name}_xs.jpeg`),
+    import(`../generated/backgrounds/${name}.webp`),
+    import(`../generated/backgrounds/${name}_lg.webp`),
+    import(`../generated/backgrounds/${name}_md.webp`),
+    import(`../generated/backgrounds/${name}_sm.webp`),
+    import(`../generated/backgrounds/${name}_xs.webp`),
   ]).then(([dataJpeg, dataWebp, xlJpeg, lgJpeg, mdJpeg, smJpeg, xsJpeg, xlWebp, lgWebp, mdWebp, smWebp, xsWebp]) => {
     function image(name, size, minWidth) {
       return { name, size, minWidth }
@@ -207,7 +207,7 @@ export async function staffAvatar(contentAvatarFile, shownSize = 192) {
       formats.map(async (format) => {
         const srcs = await Promise.all(
           sizes.map(async (size) => {
-            const res = await import(/* webpackMode: "eager" */ `../generated/avatars/${fileName}${size[0]}.${format}`)
+            const res = await import(`../generated/avatars/${fileName}${size[0]}.${format}`)
             return {
               file: res.default,
               size: size[1],
