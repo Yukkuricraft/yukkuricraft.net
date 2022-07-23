@@ -2,7 +2,7 @@
   <b-avatar :variant="staffAvatar ? undefined : 'primary'" :size="size">
     <template v-if="staffAvatar">
       <picture v-if="staffAvatar">
-        <source v-for="(type, srcset) in staffAvatar.srcsets" :key="type" :type="type" :srcset="srcset" />
+        <source v-for="(srcset, type) in staffAvatar.srcsets" :key="type" :type="type" :srcset="srcset" />
         <img
           loading="lazy"
           class="b-avatar-img"
