@@ -48,8 +48,8 @@ export default {
     images() {
       return autoImage(
         'pond',
-        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/pond_data.jpeg`),
-        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/pond_data.webp`)
+        import(/* webpackMode: "eager" */ `../../../generated/backgrounds/pond_data.jpeg?inline`),
+        import(/* webpackMode: "eager" */ `../../../generated/backgrounds/pond_data.webp?inline`)
       )
     },
     locations() {

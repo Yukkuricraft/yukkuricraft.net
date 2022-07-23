@@ -38,10 +38,18 @@ module.exports = (env, options) => {
         },
         {
           test: /\.(png|svg|jpe?g|gif|webp)$/,
-          type: 'asset/resource',
-          generator: {
-            filename: 'assets/images/[name]-[contenthash][ext]',
-          },
+          oneOf: [
+            {
+              resourceQuery: /inline/,
+              type: 'asset/inline',
+            },
+            {
+              type: 'asset/resource',
+              generator: {
+                filename: 'assets/images/[name]-[contenthash][ext]',
+              },
+            },
+          ],
         },
         {
           test: /\.(mp3)$/,

@@ -28,7 +28,7 @@ module.exports = (env, options) => {
       new FaviconsWebpackPlugin({
         logo: './src/favicon_upscaled.png',
         cache: true,
-        prefix: 'assets/favicon',
+        prefix: 'assets/',
         favicons: {
           appName: 'YukkuriCraft Info',
           appDescription: 'YukkuriCraft Info page',
@@ -67,6 +67,20 @@ module.exports = (env, options) => {
           backdrops: {
             name: 'backdrops',
             test: /[\\/]generated[\\/]backgrounds[\\/]/,
+            chunks: 'async',
+            priority: 10,
+            enforce: true,
+          },
+          avatars: {
+            name: 'avatars',
+            test: /[\\/]generated[\\/]avatars[\\/]/,
+            chunks: 'async',
+            priority: 10,
+            enforce: true,
+          },
+          buildImages: {
+            name: 'buildImages',
+            test: /[\\/]generated[\\/]builds[\\/]/,
             chunks: 'async',
             priority: 10,
             enforce: true,

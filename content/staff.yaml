@@ -124,6 +124,48 @@
 
         P.S. As contrary to popular belief, no, I am not from Texas.
 
+    - name: Mori
+      mcAccounts:
+        - name: Mori017
+          uuid: e02a5272-b907-428e-9aaa-98f3316e7544
+        - name: NanaseRena
+          uuid: 8f7fae84-547a-42c0-aa86-4d8737c93687
+      discordAccount: '100784570697277440'
+      avatar: 'mori_avatar.png'
+      description: >-
+        Hey, I'm Mori017. (or Mori for short!) I am a community mediator, and
+        though you don't see me often... I can ensure you that I am watching
+        over you. Not as a figure you should be intimidated by, but as somebody
+        that you can turn to when you have an issue! I am almost constantly
+        active on the Discord server, so feel free to shoot a DM about asking
+        for help anytime!
+
+    - name: Sei
+      mcAccounts:
+        - name: Seishishou
+          uuid: 53660814-7442-46d3-b887-5488272039be
+      discordAccount: '175932306282774528'
+      avatar: 'sei_avatar.png'
+      description: >-
+        Hello! I'm Sei. Some also considered me as Kokoro the mask menreiki of
+        YukkuriCraft. I enjoy doing vanilla survival, to the point that I know
+        many obscure mechanics that not many does. I sometimes do redstone, but
+        I'm more of a researcher than an inventor. I'm situated in SEA, but if
+        you need me, feel free to leave a message anytime. I'll try and get back
+        to you if I'm not busy with work or sleep.
+
+    - name: Ice
+      mcAccounts:
+        - name: IceCrasher150
+          uuid: e7c80795-5c30-4f1a-8a72-828401f9e5ad
+      discordAccount: '477792022665887747'
+      avatar: 'ice_avatar.png'
+      description: >-
+        Hello there~! I'm Ice, a mediator. While I'll usually help out with any
+        queries, I'm not often around on the server - I do build map art in my
+        own free time, though. That said, I'm more easily contactable via
+        Discord (tag's Ice~#8207), so pop me a message if you need to.
+
 - id: builder
   displayName: Builders
   members:
@@ -173,3 +215,37 @@
         if you see one of us online, the other probably won't be very far away.
         I like vibing with people, Warframe, drawing, and a wide variety of
         other things! Feel free to come hang out if you want!
+
+    - name: Benji
+      mcAccounts:
+        - name: BenjiPM
+          uuid: dfc3ed10-b1db-4485-ad35-113b402d1279
+        - name: cranialGore
+          uuid: 4a728d2b-8440-4e09-911c-28379152bca6
+      discordAccount: '293442984798715905'
+      avatar: 'benji_avatar.png'
+      description: >-
+        Heya, I'm Benji, a builder and fall vibes enthusiast. I'm very
+        creatively driven, a bit of an oddball, and very fond of puns; if I can
+        use any of that to make folks smile, well that'll be just great. In my
+        spare time I enjoy fantasy games and novels, drawing, cooking, and
+        designing video games of my own! I might be a bit shy initially, but
+        don't let that stop ya from saying hello!
+
+    - name: Nick
+      mcAccounts:
+        - name: Nickstel
+          uuid: 68e24735-d74d-49e5-a2f0-b045aa47840a
+        - name: Eiki_Shiki
+          uuid: 31f24611-258a-4623-8fea-ae945e6d810e
+        - name: Haniyasushin
+          uuid: 1edd9823-da07-4a3d-b87e-b239378a4c72
+      discordAccount: '100784570697277440'
+      avatar: 'nick_avatar.png'
+      description: >-
+        Hey, This is Nick! I'm part of the builder team of Yukkuricraft. I love
+        anything that sparks my creativity, especially building in Minecraft
+        (duh), role-playing, cooking and music. I've been around since 2014 so
+        if you need any sort of guidance or help with anything, feel free to
+        talk to me, I don't bite... usually, I'm always up for meeting new
+        people. Anyway, hope to see you around!

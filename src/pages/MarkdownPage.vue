@@ -66,10 +66,10 @@ export default {
         autoImage(
           'md_pages/' + this.parallaxImages,
           import(
-            /* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/md_pages/${this.parallaxImages}_data.jpeg`
+            /* webpackMode: "eager" */ `../../generated/backgrounds/md_pages/${this.parallaxImages}_data.jpeg?inline`
           ),
           import(
-            /* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/md_pages/${this.parallaxImages}_data.webp`
+            /* webpackMode: "eager" */ `../../generated/backgrounds/md_pages/${this.parallaxImages}_data.webp?inline`
           )
         )
       )

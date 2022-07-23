@@ -20,7 +20,12 @@
             >
               <ul class="list-unstyled">
                 <li v-for="player in playerChunk" :key="player.name">
-                  <img :src="'https://mc-heads.net/avatar/' + player.name + '/32'" :alt="player.name" />
+                  <img
+                    :src="'https://mc-heads.net/avatar/' + player.name + '/32'"
+                    width="32"
+                    height="32"
+                    :alt="player.name"
+                  />
                   {{ player.name }}
                 </li>
               </ul>

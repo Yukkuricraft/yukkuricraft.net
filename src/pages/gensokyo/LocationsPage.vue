@@ -33,8 +33,8 @@ export default {
     images() {
       return autoImage(
         'greenhouse',
-        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/greenhouse_data.jpeg`),
-        import(/* webpackMode: "eager" */ `!url-loader!../../../generated/backgrounds/greenhouse_data.webp`)
+        import(/* webpackMode: "eager" */ `../../../generated/backgrounds/greenhouse_data.jpeg?inline`),
+        import(/* webpackMode: "eager" */ `../../../generated/backgrounds/greenhouse_data.webp?inline`)
       )
     },
     locations() {

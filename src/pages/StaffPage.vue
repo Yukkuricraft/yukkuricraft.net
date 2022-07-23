@@ -37,6 +37,8 @@
               <img
                 loading="lazy"
                 :src="'https://mc-heads.net/avatar/' + mcAccount.uuid + '/32'"
+                width="32"
+                height="32"
                 :alt="mcAccount.name"
               />
               {{ mcNames[mcAccount.uuid] }}
@@ -61,7 +63,12 @@
           <h5>Minecraft accounts</h5>
           <ul class="list-unstyled">
             <li v-for="blooperMcAccount in blooper.mcAccounts" :key="blooperMcAccount.uuid">
-              <img :src="'https://mc-heads.net/avatar/' + blooperMcAccount.uuid + '/32'" :alt="blooperMcAccount.name" />
+              <img
+                :src="'https://mc-heads.net/avatar/' + blooperMcAccount.uuid + '/32'"
+                width="32"
+                height="32"
+                :alt="blooperMcAccount.name"
+              />
               Sakores
             </li>
           </ul>
@@ -130,8 +137,8 @@ export default {
     images() {
       return autoImage(
         'people',
-        import(/* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/people_data.jpeg`),
-        import(/* webpackMode: "eager" */ `!url-loader!../../generated/backgrounds/people_data.webp`)
+        import(/* webpackMode: "eager" */ `../../generated/backgrounds/people_data.jpeg?inline`),
+        import(/* webpackMode: "eager" */ `../../generated/backgrounds/people_data.webp?inline`)
       )
     },
     staff() {
@@ -163,14 +170,11 @@ export default {
       this.bloopers
         .filter((b) => !b.enabled)
         .forEach((b) => {
-          console.log(b.idx)
           if (b.key.charAt(b.idx) === event.key) {
             b.idx++
           } else {
             b.idx = 0
           }
-          console.log(b.idx)
-          console.log(b.idx)
 
           b.enabled = b.key.length === b.idx
           if (b.enabled) {

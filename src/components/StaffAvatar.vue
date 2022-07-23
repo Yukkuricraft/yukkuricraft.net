@@ -1,12 +1,18 @@
 <template>
-  <b-avatar variant="primary" :size="size" :text="staffMember.substring(0, 1)">
-    <img
-      v-if="staffAvatar && staffAvatar.loaded && staffAvatar.avatar"
-      loading="lazy"
-      class="b-avatar-img"
-      :src="staffAvatar.avatar"
-      :alt="staffMember"
-    />
+  <b-avatar :variant="staffAvatar ? undefined : 'primary'" :size="size">
+    <template v-if="staffAvatar">
+      <picture v-if="staffAvatar">
+        <source v-for="(type, srcset) in staffAvatar.srcsets" :key="type" :type="type" :srcset="srcset" />
+        <img
+          loading="lazy"
+          class="b-avatar-img"
+          :width="size"
+          :height="size"
+          :src="staffAvatar.default"
+          :alt="staffMember"
+        />
+      </picture>
+    </template>
     <span v-else class="b-avatar-text" style="font-size: 40px">
       {{ staffMember.substring(0, 1) }}
     </span>
@@ -31,19 +37,15 @@ export default {
       type: Number,
       required: true,
     },
-    quality: String,
     avatarLoc: String,
   },
   data() {
     return {
-      staffAvatar: {
-        loaded: false,
-        avatar: null,
-      },
+      staffAvatar: null,
     }
   },
   watch: {
-    staffMember: {
+    avatarLoc: {
       immediate: true,
       async handler() {
         await this.loadAvatar()
@@ -56,9 +58,7 @@ export default {
   methods: {
     async loadAvatar() {
       if (this.avatarLoc) {
-        this.staffAvatar.loaded = false
-        this.staffAvatar.avatar = await staffAvatar(this.avatarLoc, this.quality)
-        this.staffAvatar.loaded = true
+        this.staffAvatar = await staffAvatar(this.avatarLoc, this.size)
       }
     },
   },

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs')
 const path = require('path')
 const sharp = require('sharp')
@@ -5,8 +6,10 @@ const glob = require('glob')
 const imageOptions = require('./images')
 
 const work = []
+let processed = 0
+let proccessAmount = 0
 
-function processImage(image, globalOptions) {
+async function processImage(image, globalOptions) {
   const file = path.parse(path.relative(globalOptions.dir, image))
   const outputFile = globalOptions.outDir + file.dir + '/' + file.name
   fs.mkdirSync(globalOptions.outDir + file.dir, { recursive: true })
@@ -37,8 +40,9 @@ function processImage(image, globalOptions) {
     }
   }
 
+  let res
   if (globalOptions.sizes) {
-    return Object.entries(globalOptions.sizes).flatMap(([name, options]) =>
+    res = Object.entries(globalOptions.sizes).flatMap(([name, options]) =>
       types(options).map((type) =>
         base(type, options)
           .resize(callIfFunction(options.size) || options)
@@ -46,13 +50,26 @@ function processImage(image, globalOptions) {
       )
     )
   } else {
-    return types({}).map((type) => base(type, {}).toFile(outputFile + '.' + type))
+    res = types({}).map((type) => base(type, {}).toFile(outputFile + '.' + type))
   }
+  const ret = await Promise.all(res)
+
+  processed++
+
+  if (processed % 10 === 0 || processed === proccessAmount) {
+    console.log(`Processed ${processed}/${proccessAmount} images`)
+  }
+
+  return ret
 }
 
 function processFiles(options) {
+  console.log('Starting image processing')
+
   fs.mkdirSync(options.outDir, { recursive: true })
   const files = glob.sync(options.pattern || options.dir + '**/*.png')
+  console.log(`${files.length} images to process`)
+  proccessAmount += files.length
 
   work.push(...files.flatMap((image) => processImage(image, options)))
 }
@@ -61,8 +78,6 @@ module.exports = function () {
   imageOptions.forEach(processFiles)
 
   Promise.all(work)
-    // eslint-disable-next-line no-console
     .then(() => console.log('Image processing done'))
-    // eslint-disable-next-line no-console
     .catch((err) => console.error('Image processing failed: ', err))
 }
