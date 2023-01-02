@@ -41,19 +41,21 @@
 
     - name: Luna
       mcAccounts:
-        - name: TRXD
+        - name: LunaPixu
           uuid: 06526838-2df6-425a-a418-b12c5bb6f524
         - name: Trista_Lundin
           uuid: 94ec4d00-abbf-40de-9258-66b027735131
+        - name: Lala_Hagoromo
+          uuid: 94bace85-b942-4687-ba68-3ce8b460a548
       discordAccount: '97035222385700864'
       avatar: 'luna_avatar.png'
       description: >-
-        Hello, I am Luna. I'm in charge of the mediator team in Yukkuricraft. I
-        love flowers, cuddles, things that shine in the night sky, and just
-        having fun. You'll see me swing by the server to check up on what may be
-        going down, build something in creative or for Gensokyo, or simply hang
-        out. Feel free to message me if you need any help on the server or if
-        you just want to chat.
+        Hello, I am Luna. I'm one of the admins in Yukkuricraft. I love flowers,
+        cuddles, things that shine in the night sky, and just having fun.
+        You'll often see me swing by the server to check up on what may be going
+        down, build something in creative or for Gensokyo, or simply hang out.
+        Feel free to message me if you need any help on the server or if you
+        want to chat.
 
     - name: Teshno
       mcAccounts:
