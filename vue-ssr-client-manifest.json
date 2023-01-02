@@ -461,6 +461,7 @@
     "assets/images/remi_avatar_icon-35a074f3da2a44699eba.png",
     "assets/images/koko_avatar_icon-4eb8dcc9141b6deaa98f.png",
     "assets/images/nick_avatar_icon-afb0600f17d430b728f5.png",
+    "announcement21.js",
     "announcement6.js",
     "assets/images/purp_avatar_icon-a7d8c38181eb09dcc039.png",
     "assets/images/birb_avatar_icon-92f114f502fe123c6f61.png",
@@ -571,6 +572,7 @@
     "modernizr-custom.js",
     "announcement9.js",
     "announcement8.js",
+    "announcement21.js",
     "announcement6.js",
     "announcement0.js",
     "announcement13.js",
@@ -892,43 +894,43 @@
       3
     ],
     "717dd883": [
-      517
+      518
     ],
     "9565a678": [
-      503
+      504
     ],
     "25a295b2": [
-      516
+      517
     ],
     "616ef372": [
       426
     ],
     "67f74e52": [
-      467
+      468
     ],
     "535873ea": [
-      508
-    ],
-    "1cbf8542": [
-      498
-    ],
-    "5e6d9455": [
-      519
-    ],
-    "79850da0": [
-      523
-    ],
-    "bb860c36": [
-      525
-    ],
-    "5d02f00e": [
       509
     ],
+    "1cbf8542": [
+      499
+    ],
+    "5e6d9455": [
+      520
+    ],
+    "79850da0": [
+      524
+    ],
+    "bb860c36": [
+      526
+    ],
+    "5d02f00e": [
+      510
+    ],
     "5a027163": [
-      514
+      515
     ],
     "8a530a90": [
-      512
+      513
     ],
     "7c6e1fec": [
       226
@@ -3175,25 +3177,25 @@
       3
     ],
     "a0d92392": [
-      463
+      464
     ],
     "c7ad6e76": [
-      473
+      474
     ],
     "dbbef706": [
       436
     ],
     "386fd3a4": [
-      497
+      498
     ],
     "42db32d6": [
-      494
+      495
     ],
     "b7022c56": [
-      488
+      489
     ],
     "eee38dc8": [
-      460
+      461
     ],
     "aca8d9b8": [
       434
@@ -3211,16 +3213,16 @@
       369
     ],
     "575c0708": [
-      464
+      465
     ],
     "05d590c1": [
-      472
+      473
     ],
     "aec4b734": [
-      489
+      490
     ],
     "f49acb56": [
-      478
+      479
     ],
     "1752544e": [
       435
@@ -3232,7 +3234,10 @@
       439
     ],
     "0820bc43": [
-      483
+      484
+    ],
+    "a84ef24e": [
+      460
     ],
     "4cec255e": [
       331,
@@ -3307,7 +3312,7 @@
       3
     ],
     "f17d3c04": [
-      473
+      474
     ],
     "904545e2": [
       447
