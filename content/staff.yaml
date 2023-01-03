@@ -167,8 +167,8 @@
   members:
     - name: qscgukp
       mcAccounts:
-        - name: qscgukp
-          uuid: 04fdd713-7153-40a3-a6a5-f7d69be4f63b
+        - name: qscgukp_iku
+          uuid: 5b36c645-4582-49fa-a000-4af17399d2cb
       discordAccount: '217449039447195649'
       avatar: 'qsc_avatar.png'
       description: >-
