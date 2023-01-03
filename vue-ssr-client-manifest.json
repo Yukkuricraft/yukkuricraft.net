@@ -481,6 +481,7 @@
     "assets/images/redleaf_avatar_icon-035f3f985077dd9a1f84.webp",
     "assets/images/katrix_avatar_icon-99e624204fd3655870be.webp",
     "announcement16.js",
+    "announcement22.js",
     "assets/images/tony_avatar_icon-1b8704e5fc0beed338bc.webp",
     "assets/images/cyros_avatar_icon-df30a48462ea97a833c8.webp",
     "assets/images/purp_avatar_icon-0ee48361f4721a338ee3.webp",
@@ -580,6 +581,7 @@
     "announcement14.js",
     "announcement1.js",
     "announcement16.js",
+    "announcement22.js",
     "announcement20.js",
     "announcement5.js",
     "announcement15.js",
@@ -894,13 +896,13 @@
       3
     ],
     "717dd883": [
-      518
+      519
     ],
     "9565a678": [
-      504
+      505
     ],
     "25a295b2": [
-      517
+      518
     ],
     "616ef372": [
       426
@@ -909,28 +911,28 @@
       468
     ],
     "535873ea": [
-      509
-    ],
-    "1cbf8542": [
-      499
-    ],
-    "5e6d9455": [
-      520
-    ],
-    "79850da0": [
-      524
-    ],
-    "bb860c36": [
-      526
-    ],
-    "5d02f00e": [
       510
     ],
+    "1cbf8542": [
+      500
+    ],
+    "5e6d9455": [
+      521
+    ],
+    "79850da0": [
+      525
+    ],
+    "bb860c36": [
+      527
+    ],
+    "5d02f00e": [
+      511
+    ],
     "5a027163": [
-      515
+      516
     ],
     "8a530a90": [
-      513
+      514
     ],
     "7c6e1fec": [
       226
@@ -3186,13 +3188,13 @@
       436
     ],
     "386fd3a4": [
-      498
+      499
     ],
     "42db32d6": [
-      495
+      496
     ],
     "b7022c56": [
-      489
+      490
     ],
     "eee38dc8": [
       461
@@ -3219,7 +3221,7 @@
       473
     ],
     "aec4b734": [
-      490
+      491
     ],
     "f49acb56": [
       479
@@ -3234,10 +3236,13 @@
       439
     ],
     "0820bc43": [
-      484
+      485
     ],
     "a84ef24e": [
       460
+    ],
+    "3be878c7": [
+      480
     ],
     "4cec255e": [
       331,
