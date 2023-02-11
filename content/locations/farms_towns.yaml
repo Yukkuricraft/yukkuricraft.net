@@ -106,9 +106,33 @@ towns:
         - name: towns_farms/towns/StarSailIsland3
           image_taken_by: iBirB_
 
-    barracude_wharf:
-      displayName: Barracude Wharf
-      menuName: Barracude Wharf
+    masquerade:
+      displayName: Masquerade
+      menuName: Masquerade
+      description: |-
+        Owner: Seishishou
+
+        Dock: Kagome Airport Dock 2B 
+
+        Started from the renowned Poker Face Bookstore, foot traffic has attracted many youkai,
+        humans and Yukkuris from various parts to Masquerade. With the efforts of the overseeing
+        menreiki and those who came to stay, the area has developed gradually over the years,
+        from barren lands to houses and fields. The ever-changing town eventually became a beacon
+        for calmness and tranquility. 
+
+      images:
+        - name: towns_farms/towns/Masquerade1
+          image_taken_by: Seishishou
+
+        - name: towns_farms/towns/Masquerade2
+          image_taken_by: Seishishou
+
+        - name: towns_farms/towns/Masquerade3
+          image_taken_by: Seishishou
+
+    barracuda_wharf:
+      displayName: Barracuda Wharf
+      menuName: Barracuda Wharf
       description: |-
         Owner: Yukibara
 
