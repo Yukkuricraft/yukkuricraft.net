@@ -174,16 +174,6 @@ farms:
         - name: towns_farms/public_farms/EndermanFarm
           image_taken_by: TexasTony
 
-    squid:
-      displayName: Squid farm
-      menuName: Squids
-      description: |-
-        Builders: Flower_Master, IceCrasher150, SarraKno
-        Coordinates: -3363, 64, -1128
-      images:
-        - name: towns_farms/public_farms/SquidFarm
-          image_taken_by: TexasTony
-
     slime:
       displayName: Slime farm
       menuName: Slimes
