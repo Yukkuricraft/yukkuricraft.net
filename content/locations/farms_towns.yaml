@@ -273,26 +273,6 @@ farms:
       images:
         - name: towns_farms/public_farms/IronFarm
           image_taken_by: LunaPixu
-          
-    pigman:
-      displayName: Supmax's Zombie Piglin Farm
-      menuName: Zombie Piglins 1
-      description: |-
-        Builders: Supmax__, Red_Flanders  
-        Coordinates: -4432, 199, -1282 (The Nether)
-      images:
-        - name: towns_farms/public_farms/SupmaxPigmanFarm
-          image_taken_by: LunaPixu
-          
-    pigman2:
-      displayName: John_Touhou's Zombie Piglin Farm
-      menuName: Zombie Piglins 2
-      description: |-
-        Builders: John_Touhou  
-        Coordinates: 2594, 174, 2791 (The Nether)
-      images:
-        - name: towns_farms/public_farms/JohnPigmanFarm
-          image_taken_by: Seishishou
 
     shulker:
       displayName: Shulker Farm
@@ -373,3 +353,23 @@ farms:
       images:
         - name: towns_farms/public_farms/WoolFarm
           image_taken_by: LunaPixu
+          
+    pigman:
+      displayName: Supmax's Zombie Piglin Farm
+      menuName: Zombie Piglins 1
+      description: |-
+        Builders: Supmax__, Red_Flanders  
+        Coordinates: -4432, 199, -1282 (The Nether)
+      images:
+        - name: towns_farms/public_farms/SupmaxPigmanFarm
+          image_taken_by: LunaPixu
+          
+    pigman2:
+      displayName: John_Touhou's Zombie Piglin Farm
+      menuName: Zombie Piglins 2
+      description: |-
+        Builders: John_Touhou  
+        Coordinates: 2594, 174, 2791 (The Nether)
+      images:
+        - name: towns_farms/public_farms/JohnPigmanFarm
+          image_taken_by: Seishishou
