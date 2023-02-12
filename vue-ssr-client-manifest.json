@@ -386,8 +386,8 @@
     "mdPage0.js",
     "assets/images/teshno_avatar_normal-ff0fcbf3deb095cde29a.webp",
     "assets/images/kitchen_thumbnail-78fd4291fd5897e3f45f.webp",
-    "assets/images/CreeperFarm_thumbnail-fa9a8bdbfadfc2f3f717.jpeg",
     "survivalFarmsTowns.js",
+    "assets/images/CreeperFarm_thumbnail-fa9a8bdbfadfc2f3f717.jpeg",
     "assets/images/purp_avatar_normal-c495f26ad4d87e69a1ae.webp",
     "assets/images/phantom_avatar_normal-db31533bc4fef936c7e3.webp",
     "assets/images/commands_xs-05b7cd613b22f7a73370.jpeg",
@@ -424,9 +424,9 @@
     "assets/images/nick_avatar_normal-19a37032d72cac0a1a6d.webp",
     "assets/images/EndermanFarm_thumbnail-15872387b9aa3f1c9874.jpeg",
     "assets/images/voile_thumbnail-12516f7dc868d1d11571.webp",
+    "locationsData0.js",
     "assets/images/StrayFarm_thumbnail-94a5d88f674b2dee6cf1.jpeg",
     "announcement10.js",
-    "locationsData0.js",
     "assets/images/qsc_avatar_author-f982e1d96b41314d7e02.png",
     "assets/images/BarracudaWharf1_thumbnail-fcc94e5bbd9496e66734.jpeg",
     "assets/images/lake_thumbnail-dd6f0a0c48bfe5b94281.jpeg",
@@ -616,8 +616,8 @@
     "mdPage0.js",
     "survivalFarmsTowns.js",
     "announcement12.js",
-    "announcement10.js",
     "locationsData0.js",
+    "announcement10.js",
     "commandsData4.js",
     "gensokyoHelpPage.js",
     "announcement7.js",
@@ -839,7 +839,7 @@
       480
     ],
     "0b06c580": [
-      386
+      385
     ],
     "2044c5a6": [
       321
@@ -3430,7 +3430,7 @@
       503
     ],
     "fe2ed4d8": [
-      424
+      425
     ],
     "7d31f73c": [
       493
@@ -3550,16 +3550,16 @@
       503
     ],
     "16fb8c14": [
-      424
+      425
     ],
     "1717bb16": [
-      424
+      425
     ],
     "75e865bc": [
-      424
+      425
     ],
     "755b7ab2": [
-      424
+      425
     ],
     "0aa2a208": [
       406
