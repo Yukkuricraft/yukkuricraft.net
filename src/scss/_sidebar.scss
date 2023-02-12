@@ -20,6 +20,7 @@ $sidebar-active-background: #ce5700; //chromatic-color-darken($primary, 0.4);
   top: 0;
   left: 0;
   z-index: 999;
+  overflow-y: auto;
 
   background: $sidebar-background;
   color: #fff;
