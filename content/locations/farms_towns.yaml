@@ -176,7 +176,7 @@ farms:
           
     creeper:
       displayName: Creeper Farm (and Sugarcane, Super Smelter, and more)
-      menuName: Creepers
+      menuName: Creepers 1
       description: |-
         Builders: \_Sakuya\_\_Izayoi_, Red_Flanders, FumoFumoYuyuko  
         Coordinates: -14052, 121, -8431
@@ -186,7 +186,7 @@ farms:
           
     creeper2:
       displayName: Ice's Creeper Farm
-      menuName: Creepers
+      menuName: Creepers 2
       description: |-
         Builders: IceCrasher150  
         Coordinates: 1235, 64, 1969
@@ -205,7 +205,7 @@ farms:
           image_taken_by: LunaPixu
 
     enderman:
-      displayName: Enderman farm
+      displayName: Enderman Farm
       menuName: Endermen
       description: |-
         Builders: Rexi666, Mintai, Glennkabob  
@@ -235,8 +235,8 @@ farms:
           image_taken_by: LunaPixu
 
     guardian:
-      displayName: Hero_Z's Guardian farm
-      menuName: Guardians
+      displayName: Hero_Z's Guardian Farm
+      menuName: Guardians 1
       description: |-
         Builders: HERO_Z, iBirB_  
         Coordinates: 4161, 57, 191
@@ -246,7 +246,7 @@ farms:
           
     guardian2:
       displayName: Ice's Guardian Farm
-      menuName: Guardians
+      menuName: Guardians 2
       description: |-
         Builders: Icecrasher150, John_Touhou  
         Coordinates: 10335, 160, -12016 (Overworld) / 5160, 128, -6020 (The Nether)
@@ -276,7 +276,7 @@ farms:
           
     pigman:
       displayName: Supmax's Zombie Piglin Farm
-      menuName: Zombie Piglins
+      menuName: Zombie Piglins 1
       description: |-
         Builders: Supmax__, Red_Flanders  
         Coordinates: -4432, 199, -1282 (The Nether)
@@ -286,7 +286,7 @@ farms:
           
     pigman2:
       displayName: John_Touhou's Zombie Piglin Farm
-      menuName: Zombie Piglins
+      menuName: Zombie Piglins 2
       description: |-
         Builders: John_Touhou  
         Coordinates: 2594, 174, 2791 (The Nether)
@@ -305,7 +305,7 @@ farms:
           image_taken_by: LunaPixu
 
     skeleton:
-      displayName: Skeleton farm
+      displayName: Skeleton Farm
       menuName: Skeletons
       description: |-
         Builders: becauseimgray, Ruby_Goddess  
@@ -315,7 +315,7 @@ farms:
           image_taken_by: TexasTony
 
     slime:
-      displayName: Slime farm
+      displayName: Slime Farm
       menuName: Slimes
       description: |-
         Builders: Yukibara, TexasTony, IceCrasher150, Petro232, Aloraichium_Z, BeepBoopOatmeal  
