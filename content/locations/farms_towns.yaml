@@ -203,3 +203,123 @@ farms:
       images:
         - name: towns_farms/public_farms/SkeletonFarm
           image_taken_by: TexasTony
+
+    spider:
+      displayName: Spider Farm
+      menuName: Spiders
+      description: |-
+        Builders: _Sakuya__Izayoi_
+        Coordinates: 2273, 29, 186
+      images:
+        - name: towns_farms/public_farms/SpiderFarm
+          image_taken_by: LunaPixu
+
+    iron:
+      displayName: Iron Farm
+      menuName: Iron
+      description: |-
+        Builders: Supmax__, Seishishou, John_Touhou, Red_Flanders, FumoFumoYuyuko
+        Coordinates: -1080, 64, 460
+      images:
+        - name: towns_farms/public_farms/IronFarm
+          image_taken_by: LunaPixu
+
+    shulker:
+      displayName: Shulker Farm
+      menuName: Shulkers
+      description: |-
+        Builder: Seishishou
+        Coordinates: -1885, 65, 2809
+      images:
+        - name: towns_farms/public_farms/ShulkerFarm
+          image_taken_by: LunaPixu
+          
+    creeper:
+      displayName: Creeper Farm (and Sugarcane, Super Smelter, and more)
+      menuName: Creepers
+      description: |-
+        Builders: _Sakuya__Izayoi_, Red_Flanders, FumoFumoYuyuko
+        Coordinates: -14052, 121, -8431
+      images:
+        - name: towns_farms/public_farms/CreeperFarm
+          image_taken_by: LunaPixu
+          
+    pigman:
+      displayName: Zombie Piglin Farm
+      menuName: Zombie Piglins
+      description: |-
+        Builders: Supmax__, Red_Flanders
+        Coordinates: -4432, 199, -1282 (The Nether)
+      images:
+        - name: towns_farms/public_farms/PigmanFarm
+          image_taken_by: LunaPixu
+          
+    ghast:
+      displayName: Ghast Farm
+      menuName: Ghasts
+      description: |-
+        Builders: Red_Flanders, _Sakuya__Izayoi_
+        Coordinates: 71, 240, 484 (The Nether, easily accessible from Kagome)
+      images:
+        - name: towns_farms/public_farms/GhastFarm
+          image_taken_by: LunaPixu
+          
+    glowsquid:
+      displayName: Glow Squid Farm
+      menuName: Glow Squids
+      description: |-
+        Builders: FumoFumoYuyuko
+        Coordinates: -1123, 67, 891
+      images:
+        - name: towns_farms/public_farms/GlowSquidFarm
+          image_taken_by: LunaPixu
+          
+    blaze:
+      displayName: Blaze Farm
+      menuName: Blazes
+      description: |-
+        Builders: Red_Flanders, _Sakuya__Izayoi_
+        Coordinates: 6281, 58, 7239 (The Nether)
+      images:
+        - name: towns_farms/public_farms/BlazeFarm
+          image_taken_by: LunaPixu
+          
+    wool:
+      displayName: Wool Farm
+      menuName: Wool
+      description: |-
+        Builders: Reubi0910
+        Coordinates: -9078, 88, -2602
+      images:
+        - name: towns_farms/public_farms/WoolFarm
+          image_taken_by: LunaPixu
+          
+    drowned:
+      displayName: Drowned Farm
+      menuName: Drowned
+      description: |-
+        Builders: Eirin_Yagokoro
+        Coordinates: 12668, 191, 8493
+      images:
+        - name: towns_farms/public_farms/DrownedFarm
+          image_taken_by: LunaPixu
+          
+    hoglin:
+      displayName: Hoglin Farm
+      menuName: Hoglins
+      description: |-
+        Builders: Seishishou
+        Coordinates: 338, 128, 1335 (The Nether, easily accessible from Masquerade)
+      images:
+        - name: towns_farms/public_farms/HoglinFarm
+          image_taken_by: LunaPixu 
+          
+    stray:
+      displayName: Stray Farm
+      menuName: Strays
+      description: |-
+        Builders: Cyros_Lugoth
+        Coordinates: -1134, -50, -2832
+      images:
+        - name: towns_farms/public_farms/StrayFarm
+          image_taken_by: LunaPixu
