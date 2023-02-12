@@ -164,74 +164,14 @@ farms:
     Listed below are public farms, their coordinates, and builders in order of contribution.
 
   sublocations:
-    enderman:
-      displayName: Enderman farm
-      menuName: Endermen
+    blaze:
+      displayName: Blaze Farm
+      menuName: Blazes
       description: |-
-        Builders: Rexi666, Mintai, Glennkabob  
-        Coordinates: 248, 49, -4 (The End)
+        Builders: Red_Flanders, \_Sakuya\_\_Izayoi_  
+        Coordinates: 6281, 58, 7239 (The Nether)
       images:
-        - name: towns_farms/public_farms/EndermanFarm
-          image_taken_by: TexasTony
-
-    slime:
-      displayName: Slime farm
-      menuName: Slimes
-      description: |-
-        Builders: Yukibara, TexasTony, IceCrasher150, Petro232, Aloraichium_Z, BeepBoopOatmeal  
-        Coordinates: 2830, 70, 598
-      images:
-        - name: towns_farms/public_farms/SlimeFarm
-          image_taken_by: TexasTony
-
-    guardian:
-      displayName: Guardian farm
-      menuName: Guardians
-      description: |-
-        Builders: HERO_Z, iBirB_  
-        Coordinates: 4161, 57, 191
-      images:
-        - name: towns_farms/public_farms/GuardianFarm
-          image_taken_by: TexasTony
-
-    skeleton:
-      displayName: Skeleton farm
-      menuName: Skeletons
-      description: |-
-        Builders: becauseimgray, Ruby_Goddess  
-        Coordinates: 1270, 68, 1183
-      images:
-        - name: towns_farms/public_farms/SkeletonFarm
-          image_taken_by: TexasTony
-
-    spider:
-      displayName: Spider Farm
-      menuName: Spiders
-      description: |-
-        Builders: \_Sakuya\_\_Izayoi_  
-        Coordinates: 2273, 29, 186
-      images:
-        - name: towns_farms/public_farms/SpiderFarm
-          image_taken_by: LunaPixu
-
-    iron:
-      displayName: Iron Farm
-      menuName: Iron
-      description: |-
-        Builders: Supmax__, Seishishou, John_Touhou, Red_Flanders, FumoFumoYuyuko  
-        Coordinates: -1080, 64, 460
-      images:
-        - name: towns_farms/public_farms/IronFarm
-          image_taken_by: LunaPixu
-
-    shulker:
-      displayName: Shulker Farm
-      menuName: Shulkers
-      description: |-
-        Builder: Seishishou  
-        Coordinates: -1885, 65, 2809
-      images:
-        - name: towns_farms/public_farms/ShulkerFarm
+        - name: towns_farms/public_farms/BlazeFarm
           image_taken_by: LunaPixu
           
     creeper:
@@ -244,15 +184,35 @@ farms:
         - name: towns_farms/public_farms/CreeperFarm
           image_taken_by: LunaPixu
           
-    pigman:
-      displayName: Zombie Piglin Farm
-      menuName: Zombie Piglins
+    creeper2:
+      displayName: Ice's Creeper Farm
+      menuName: Creepers
       description: |-
-        Builders: Supmax__, Red_Flanders  
-        Coordinates: -4432, 199, -1282 (The Nether)
+        Builders: IceCrasher150  
+        Coordinates: 1235, 64, 1969
       images:
-        - name: towns_farms/public_farms/PigmanFarm
+        - name: towns_farms/public_farms/IceCreeperFarm
+          image_taken_by: IceCrasher150
+          
+    drowned:
+      displayName: Drowned Farm
+      menuName: Drowned
+      description: |-
+        Builders: Eirin_Yagokoro  
+        Coordinates: 12668, 191, 8493
+      images:
+        - name: towns_farms/public_farms/DrownedFarm
           image_taken_by: LunaPixu
+
+    enderman:
+      displayName: Enderman farm
+      menuName: Endermen
+      description: |-
+        Builders: Rexi666, Mintai, Glennkabob  
+        Coordinates: 248, 49, -4 (The End)
+      images:
+        - name: towns_farms/public_farms/EndermanFarm
+          image_taken_by: TexasTony
           
     ghast:
       displayName: Ghast Farm
@@ -273,37 +233,27 @@ farms:
       images:
         - name: towns_farms/public_farms/GlowSquidFarm
           image_taken_by: LunaPixu
-          
-    blaze:
-      displayName: Blaze Farm
-      menuName: Blazes
+
+    guardian:
+      displayName: Hero_Z's Guardian farm
+      menuName: Guardians
       description: |-
-        Builders: Red_Flanders, \_Sakuya\_\_Izayoi_  
-        Coordinates: 6281, 58, 7239 (The Nether)
+        Builders: HERO_Z, iBirB_  
+        Coordinates: 4161, 57, 191
       images:
-        - name: towns_farms/public_farms/BlazeFarm
-          image_taken_by: LunaPixu
+        - name: towns_farms/public_farms/HeroGuardianFarm
+          image_taken_by: TexasTony
           
-    wool:
-      displayName: Wool Farm
-      menuName: Wool
+    guardian2:
+      displayName: Ice's Guardian Farm
+      menuName: Guardians
       description: |-
-        Builders: Reubi0910  
-        Coordinates: -9078, 88, -2602
+        Builders: Icecrasher150, John_Touhou  
+        Coordinates: 10335, 160, -12016 (Overworld) / 5160, 128, -6020 (The Nether)
       images:
-        - name: towns_farms/public_farms/WoolFarm
-          image_taken_by: LunaPixu
-          
-    drowned:
-      displayName: Drowned Farm
-      menuName: Drowned
-      description: |-
-        Builders: Eirin_Yagokoro  
-        Coordinates: 12668, 191, 8493
-      images:
-        - name: towns_farms/public_farms/DrownedFarm
-          image_taken_by: LunaPixu
-          
+        - name: towns_farms/public_farms/IceGuardianFarm
+          image_taken_by: Seishishou
+
     hoglin:
       displayName: Hoglin Farm
       menuName: Hoglins
@@ -314,6 +264,86 @@ farms:
         - name: towns_farms/public_farms/HoglinFarm
           image_taken_by: LunaPixu 
           
+    iron:
+      displayName: Iron Farm
+      menuName: Iron
+      description: |-
+        Builders: Supmax__, Seishishou, John_Touhou, Red_Flanders, FumoFumoYuyuko  
+        Coordinates: -1080, 64, 460
+      images:
+        - name: towns_farms/public_farms/IronFarm
+          image_taken_by: LunaPixu
+          
+    pigman:
+      displayName: Supmax's Zombie Piglin Farm
+      menuName: Zombie Piglins
+      description: |-
+        Builders: Supmax__, Red_Flanders  
+        Coordinates: -4432, 199, -1282 (The Nether)
+      images:
+        - name: towns_farms/public_farms/SupmaxPigmanFarm
+          image_taken_by: LunaPixu
+          
+    pigman2:
+      displayName: John_Touhou's Zombie Piglin Farm
+      menuName: Zombie Piglins
+      description: |-
+        Builders: John_Touhou  
+        Coordinates: 2594, 174, 2791 (The Nether)
+      images:
+        - name: towns_farms/public_farms/JohnPigmanFarm
+          image_taken_by: Seishishou
+
+    shulker:
+      displayName: Shulker Farm
+      menuName: Shulkers
+      description: |-
+        Builder: Seishishou  
+        Coordinates: -1885, 65, 2809
+      images:
+        - name: towns_farms/public_farms/ShulkerFarm
+          image_taken_by: LunaPixu
+
+    skeleton:
+      displayName: Skeleton farm
+      menuName: Skeletons
+      description: |-
+        Builders: becauseimgray, Ruby_Goddess  
+        Coordinates: 1270, 68, 1183
+      images:
+        - name: towns_farms/public_farms/SkeletonFarm
+          image_taken_by: TexasTony
+
+    slime:
+      displayName: Slime farm
+      menuName: Slimes
+      description: |-
+        Builders: Yukibara, TexasTony, IceCrasher150, Petro232, Aloraichium_Z, BeepBoopOatmeal  
+        Coordinates: 2830, 70, 598
+      images:
+        - name: towns_farms/public_farms/SlimeFarm
+          image_taken_by: TexasTony
+
+    spider:
+      displayName: Spider Farm
+      menuName: Spiders
+      description: |-
+        Builders: \_Sakuya\_\_Izayoi_  
+        Coordinates: 2273, 29, 186
+      images:
+        - name: towns_farms/public_farms/SpiderFarm
+          image_taken_by: LunaPixu
+          
+    stone:
+      displayName: Stone Farm
+      menuName: Stone
+      description: |-
+        Builders: Seishishou, TexasTony  
+        Coordinates: 2812, 70, 522 (in Praetoria)
+      images:
+        - name: towns_farms/public_farms/StoneFarm
+          image_taken_by: Seishishou
+          
     stray:
       displayName: Stray Farm
       menuName: Strays
@@ -322,4 +352,24 @@ farms:
         Coordinates: -1134, -50, -2832
       images:
         - name: towns_farms/public_farms/StrayFarm
+          image_taken_by: LunaPixu
+          
+    wither:
+      displayName: Wither Skeleton Farm
+      menuName: Wither Skulls
+      description: |-
+        Builders: John_Touhou  
+        Coordinates: 1694, 33, 3215 (The Nether)
+      images:
+        - name: towns_farms/public_farms/WitherFarm
+          image_taken_by: Seishishou
+          
+    wool:
+      displayName: Wool Farm
+      menuName: Wool
+      description: |-
+        Builders: Reubi0910  
+        Coordinates: -9078, 88, -2602
+      images:
+        - name: towns_farms/public_farms/WoolFarm
           image_taken_by: LunaPixu
