@@ -30,7 +30,7 @@ summary:
         While it's unnecessary for building or running a town, we have an official
         township registry for town owners to apply to.  
         Being recognised as an official town grants several benefits to aid in
-        developing a town further (see Benefits section for more).
+        developing a town further (see [Benefits](#location-benefits) section for more).
 
         Official township comes in two different tiers with their own requirements for
         application. Here are the requirements needed for each:
@@ -72,10 +72,10 @@ summary:
       description: |-
         If successful in a staff review, officially recognised towns receive the following
         benefits:  
-        - A warp ship connecting to Kagome Town (cities can also have warp ships connecting
-        to other official towns).
+        - A [warp ship](#location-ships) connecting to Kagome Town (cities can also have warp ships connecting
+        to other official towns)
         - A building grant (and one more for cities)
-        - A listing on this webpage
+        - A listing on this page! :D
 
         **Building Grants**  
         A build grant is given in the form of a double chest containing various materials.
