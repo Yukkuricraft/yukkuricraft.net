@@ -77,7 +77,7 @@ export default [
           name: 'survival_towns',
         },
         name: 'Towns',
-      }
+      },
     ],
   },
   {
