@@ -342,6 +342,7 @@
     "assets/images/tony_avatar_normal-37daedc68b008feb00fd.png",
     "assets/images/qsc_avatar_normal-4e31438ee277de8e9322.png",
     "markdownPages.js",
+    "survivalFarmsPage.js",
     "mdPage2.js",
     "assets/images/Masquerade2_thumbnail-600809efad77ad8d221d.jpeg",
     "assets/images/mountain_thumbnail-05e29f1b72d0eae92cb0.webp",
@@ -363,7 +364,6 @@
     "assets/images/koko_avatar_normal-d027d5578d223021d638.png",
     "assets/images/waterfall_thumbnail-75cfcb6cb600befea4ea.jpeg",
     "assets/images/commands_lg-2de3b148d35cf7d49e92.webp",
-    "survivalFarmsPage.js",
     "assets/images/tsunko_avatar_normal-e448d6ffc39ad89bb18a.png",
     "assets/images/river_2_thumbnail-127ce2f50915595d87f4.jpeg",
     "assets/images/benji_avatar_normal-e8fea1586ced55c4ba3a.png",
@@ -462,6 +462,7 @@
     "assets/images/center_thumbnail-ce6ad5db3b79bfceee5b.webp",
     "assets/images/benji_avatar_author-65161db0be958b975295.png",
     "assets/images/BarracudaWharf1_thumbnail-be6f43c86e14f1a5d596.webp",
+    "locationsData9.js",
     "assets/images/WitherFarm_thumbnail-f148169e1171424eb4e3.webp",
     "assets/images/StarSailIsland1_thumbnail-dd9947e57db8aa146887.jpeg",
     "assets/images/commands_xs-bf23ad54dc66afcf2a48.webp",
@@ -507,7 +508,6 @@
     "assets/images/GlowSquidFarm_thumbnail-011bdc7ff9e1e44f7c4a.webp",
     "assets/images/IronFarm_thumbnail-801259ff852ba133eac8.webp",
     "assets/images/Praetoria2_thumbnail-8cde012fd999fe5b4e83.jpeg",
-    "locationsData9.js",
     "assets/images/benji_avatar_author-eb16752189733b2eb7d5.webp",
     "assets/images/WoolFarm_thumbnail-60ba0491c03e141166f0.webp",
     "commandsData4.js",
@@ -642,9 +642,9 @@
     "staffPage.js",
     "avatars.js",
     "markdownPages.js",
+    "survivalFarmsPage.js",
     "mdPage2.js",
     "gensokyoPage.js",
-    "survivalFarmsPage.js",
     "ranksPage.js",
     "mdPage1.js",
     "mdPage0.js",
@@ -870,16 +870,16 @@
       96
     ],
     "f37938bc": [
-      357
+      358
     ],
     "8686652a": [
       510
     ],
     "2d927be2": [
-      362
+      341
     ],
     "3cd91733": [
-      362
+      341
     ],
     "2044c5a6": [
       340
@@ -3179,7 +3179,7 @@
       404
     ],
     "14aa6e4a": [
-      341
+      342
     ],
     "7bdf789e": [
       386,
