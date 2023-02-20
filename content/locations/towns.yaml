@@ -1,15 +1,15 @@
-towns:
+summary:
   displayName: Towns
-  menuName: Towns
+  menuName: Summary
   description: |-
-    Want to live with other players? Find it too boring not having neighbors?
-    Towns range from close community neighborhoods connected by a single road
-    to massive cities with their own distinct culture and style.
+    Want to live with other players? Find it too boring not having neighbors?  
+    Our survival map has towns that range from close community neighborhoods
+    connected by a single road to massive cities with distinct cultures and styles.
 
-    Towns usually accept any and all community members to live in them.
+    Towns usually accept any and all community members to live in them.  
     However, residential approval should only be done at the discretion of
-    the town owners unless they release exceptions and that our town policy
-    should be understood clearly:
+    the town owners unless they release exceptions and that our following town
+    policies are understood clearly:
 
     1.	Town owners are responsible for informing players wanting to live in
         the town of any build regulations and should provide clear
@@ -22,54 +22,129 @@ towns:
     4.	Players reserve the right and freedom to be residents in multiple towns
         and leave any town whenever they please unless this right is abused.
 
-    Listed below are staff recognized towns, along with a short description and pictures from their owners:
-
   sublocations:
+    application:
+      displayName: Apply for Official Township
+      menuName: Apply
+      description: |-
+        While it's unnecessary for building or running a town, we have an official
+        township registry for town owners to apply to.  
+        Being recognised as an official town grants several benefits to aid in
+        developing a town further (see Benefits section for more).
+
+        Official township comes in two different tiers with their own requirements for
+        application. Here are the requirements needed for each:
+        
+        **Town**  
+        1. Must have 3 or more residents (alt accounts don't count) living with their
+        own individual residences. Vacation-home scenarios will not be counted, the home
+        must be lived in and in use.
+        2. Must have a town hall (or town hall equivalent) and 2 more non-residential
+        buildings.
+        3. Must obey Server Rule 4 and pass an overall staff review.
+
+        **City**  
+        1. Must have 6 or more residents. Same restrictions as towns.
+        2. Must have a city hall (or city hall equivalent) and 6 more non-residential
+        buildings (4 + the 2 buildings towns are expected to have).
+        3. Must obey Server Rule 4 and pass an overall staff review.
+
+        *A definition/rule on non-residential buildings:*  
+        Buildings are to be fully completed with interiors. Low-effort and empty buildings
+        will not qualify for assessment.  
+        Below are some non-exhaustive suggestions for non-residential buildings:  
+        - Community center  
+        - Tavern / Bar / Pub  
+        - Inn  
+        - Market  
+        - Guardhouse  
+        - Stables  
+        - Courthouse  
+
+        If a town owner believes their town qualifies, they may request an inspection from
+        the staff. Inspections are carried out by an admin and two other staff members.
+        Inspections are carried for both tiers separately. Should the initial town
+        inspection pass, the owner may request for a city inspection immediately after.
+
+    benefits:
+      displayName: Official Town Benefits
+      menuName: Benefits
+      description: |-
+        If successful in a staff review, officially recognised towns receive the following
+        benefits:  
+        - A warp ship connecting to Kagome Town (cities can also have warp ships connecting
+        to other official towns).
+        - A building grant (and one more for cities)
+        - A listing on this webpage
+
+        **Building Grants**  
+        A build grant is given in the form of a double chest containing various materials.
+        These are awarded to the settlement owner for successfully being recognised as a
+        settlement, and serve to assist in further development.  
+        Grants contain the following:  
+        - Rows 1, 2, 3, and 4 will consist of 9 stacks of blocks A, B, C, and D which are
+        chosen by the owner from a list of materials ("Foundation blocks") allowed for grants.
+        - Row 5 will consist of 9 stacks of wooden logs, each stack chosen by the owner from
+        the six overworld wood types.
+        - Row 6 consists of 3 iron pickaxes, 3 iron axes, and 3 iron shovels, each enchanted
+        with Efficiency 5 and Unbreaking 3 to help with construction.
+
+        The following foundation blocks are allowed for grants:
+        - Dirt
+        - Cobblestone
+        - Sand/Red sand
+        - Gravel
+        - Diorite
+        - Andesite
+        - Granite
+        - Clay
+        - Deepslate
+
     ships:
-      displayName: Ships
+      displayName: Warp Ships
       menuName: Ships
       description: |-
-        Want to bring in more visitors or players to your humble town? 
-        Town owners can request a boat or airship at Kagome's naval or airport docks. 
-        These ships are equipped with a provided command block, 
-        allowing instantaneous teleportation between your current location 
-        and the town the ship is connected to. Town owners can also set up 
-        connections between different towns. 
-        Requirements for getting a ship to your town are:
+        Owners of officially-recognised towns can request a boat or airship at Kagome's
+        naval or airport docks. These ships are equipped with a provided command block,
+        allowing instantaneous teleportation between the two locations the ship is docked at.  
+        When requesting for a ship link to Kagome (or another town if connecting from a city),
+        the warp ship must meet the following requirements:
 
-        1. Ships must be at maximum 11 blocks wide, 25 blocks long, and 40 blocks tall.
-           Ships can be allowed to exceed the stated size requirements
-           by a block if the said block is a "non-contact" block with the dock
-           or airport borders, such as a banner, open trapdoor, or sign.
+        1. Ships must be at maximum 11 blocks wide, 25 blocks long, and 40 blocks tall. Ships
+        can be allowed to exceed the stated size requirements by a block if the said block is
+        a “non-contact” block with the dock or airport borders, such as a banner, open trapdoor,
+        or sign.
         2. Ships must have a space for a command block with some activation method for it.
-        3. Ship design must be an appropriate for its purpose.
-        4. The requesting town must be an actual town with proper amenities or buildings.
-           Staff has the final say if something is a proper town.
-        5. Towns requesting a ship link to Kagome must have at least
-           three residents living in said town.
-        6. Towns requesting a ship link between towns must have at least
-           five residents living in each town. Both town owners must also approve of the ship link.
+        3. Ship design must be appropriate for its purpose.
 
-        Should a town meet these requirements and would like to request a ship link,
-        they should double-check with a staff member, then build their ship
-        at their town dock at their own expense. Once done, they should contact staff again.
-        The ship will then be copied and pasted at Kagome's docks or airport,
-        and the proper commands implemented.
+        Should the ship meet these requirements and the owner would like to request a ship
+        link, they should double-check with a staff member, and then build the ship at their
+        town/city dock (staff will not cover expenses for construction). Once done, they must
+        contact staff again. The ship will then be copied and pasted at Kagome's docks or
+        airport, and the proper commands implemented.
 
+towns:
+  displayName: List of Towns
+  menuName: Towns
+  description: |- 
+    Below are a list of towns that have been officially recognised by our server's staff.  
+    Feel free to visit any one of them. You might find a nice to place to live or hang out.
+
+  sublocations:
     praetoria:
       displayName: Praetoria
       menuName: Praetoria
       description: |-
-        Owner: TexasTony
+        - Owner: TexasTony
+        - Type: City
+        - Dock: Kagome Airport Dock 2A
 
-        Dock: Kagome Airport Dock 2A
-
-        Rivaled only by the cities of the old, the Imperium’s capital city
+        Rivaled only by the cities of the old, the Imperium's capital city
         holds the title of the largest in survival and is widely recognized
         as a gold standard of cityscape. Built steadily over a span of three months,
         its population capacity knows no equal, while its state-funded services
-        such as underground rail lines and public farms prove worthy of the city’s reputation.
-        It is, without doubt, an important cornerstone in the server’s survival history.
+        such as underground rail lines and public farms prove worthy of the city's reputation.
+        It is, without doubt, an important cornerstone in the server's survival history.
 
       images:
         - name: towns_farms/towns/Praetoria1
@@ -85,9 +160,9 @@ towns:
       displayName: Star Sail Island
       menuName: Star Sail Island
       description: |-
-        Owner: HERO_Z
-
-        Dock: Kagome Airport Dock 1A
+        - Owner: HERO_Z
+        - Type: Town
+        - Dock: Kagome Airport Dock 1A
 
         An island of color in a bright sea and a sanctuary for coral,
         Star Sail Island has always been admired for its lively and peaceful atmosphere.
@@ -110,9 +185,9 @@ towns:
       displayName: Masquerade
       menuName: Masquerade
       description: |-
-        Owner: Seishishou
-
-        Dock: Kagome Airport Dock 2B 
+        - Owner: Seishishou
+        - Type: Town
+        - Dock: Kagome Airport Dock 2B
 
         Started from the renowned Poker Face Bookstore, foot traffic has attracted many youkai,
         humans and Yukkuris from various parts to Masquerade. With the efforts of the overseeing
@@ -134,9 +209,9 @@ towns:
       displayName: Barracuda Wharf
       menuName: Barracuda Wharf
       description: |-
-        Owner: Yukibara
-
-        Dock: Kagome Naval Dock 3B
+        - Owner: Yukibara
+        - Type: Legacy Town
+        - Dock: Kagome Naval Dock 3B
 
         Originally started as a royal outpost for Coronian Kingdom,
         presently the coastal town of Barracuda Wharf is a major crossroad in the
