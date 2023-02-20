@@ -2,9 +2,15 @@ farms:
   displayName: Farms
   menuName: Farms
   description: |-
-    Our community has made enormous contributions in building public farms.
-    Do note certain farms come with their own rules, which you must always obey.
-    Listed below are public farms, their coordinates, and builders in order of contribution.
+    Our community has made enormous contributions in building public farms for players to use.  
+    If you lack certain resources or don't have the time to gather them yourself, we might
+    have a farm for you! Do note that certain farms come with their own rules, which you must
+    always obey.
+
+    Listed below are active public farms, their coordinates, and builders in order of
+    contribution.  
+    If you too have built a farm for public use, contact a member of staff and we'll see to
+    adding it onto this list.
 
   sublocations:
     blaze:
