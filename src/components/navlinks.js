@@ -68,10 +68,16 @@ export default [
       },
       {
         to: {
-          name: 'survival_farms_towns',
+          name: 'survival_farms',
         },
-        name: 'Farms and Towns',
+        name: 'Public Farms',
       },
+      {
+        to: {
+          name: 'survival_towns',
+        },
+        name: 'Towns',
+      }
     ],
   },
   {

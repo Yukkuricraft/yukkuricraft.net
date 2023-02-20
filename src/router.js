@@ -83,10 +83,18 @@ export function createRouter() {
         pathToRegexpOptions: { strict: true },
       },
       {
-        path: '/server-activities/survival/farms-towns/',
-        name: 'survival_farms_towns',
+        path: '/server-activities/survival/farms/',
+        name: 'survival_farms',
         component: asyncComponent(() =>
-          import(/* webpackChunkName: "survivalFarmsTowns" */ './pages/SurvivalFarmsTownsPage')
+          import(/* webpackChunkName: "survivalFarmsPage" */ './pages/SurvivalFarmsPage')
+        ),
+        pathToRegexpOptions: { strict: true },
+      },
+      {
+        path: '/server-activities/survival/towns/',
+        name: 'survival_towns',
+        component: asyncComponent(() =>
+          import(/* webpackChunkName: "survivalFarmsPage" */ './pages/SurvivalTownsPage')
         ),
         pathToRegexpOptions: { strict: true },
       },

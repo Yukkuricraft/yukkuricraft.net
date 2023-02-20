@@ -22,9 +22,14 @@ module.exports = [
   },
   { url: '/server-activities/paintball/', priority: '0.70', mainContent: ['./content/pages/PaintballEN.md'] },
   {
-    url: '/server-activities/survival/farms-towns/',
+    url: '/server-activities/survival/farms/',
     priority: '0.70',
-    mainContent: ['./src/pages/SurvivalFarmsTownsPage.vue', './content/locations/farms_towns.yaml'],
+    mainContent: ['./src/pages/SurvivalFarmsPage.vue', './content/locations/farms.yaml'],
+  },
+  {
+    url: '/server-activities/survival/towns/',
+    priority: '0.70',
+    mainContent: ['./src/pages/SurvivalTownsPage.vue', './content/locations/towns.yaml'],
   },
   {
     url: '/commands/',
