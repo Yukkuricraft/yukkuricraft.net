@@ -17,7 +17,7 @@ farms:
       displayName: Blaze Farm
       menuName: Blazes
       description: |-
-        - Builders: Red_Flanders, \_Sakuya\_\_Izayoi_
+        - Builders: Red_Flanders, Sakuya_Isayoi
         - Coordinates: 6281, 58, 7239 (The Nether)
       images:
         - name: towns_farms/public_farms/BlazeFarm
@@ -27,7 +27,7 @@ farms:
       displayName: Creeper Farm (and Sugarcane, Super Smelter, and more)
       menuName: Creepers 1
       description: |-
-        - Builders: \_Sakuya\_\_Izayoi_, Red_Flanders, FumoFumoYuyuko
+        - Builders: Sakuya_Isayoi, Red_Flanders, FumoFumoYuyuko
         - Coordinates: -14052, 121, -8431
       images:
         - name: towns_farms/public_farms/CreeperFarm
@@ -67,7 +67,7 @@ farms:
       displayName: Ghast Farm
       menuName: Ghasts
       description: |-
-        - Builders: Red_Flanders, \_Sakuya\_\_Izayoi_
+        - Builders: Red_Flanders, Sakuya_Isayoi
         - Coordinates: 71, 240, 484 (The Nether, easily accessible from Kagome)
       images:
         - name: towns_farms/public_farms/GhastFarm
@@ -157,7 +157,7 @@ farms:
       displayName: Spider Farm
       menuName: Spiders
       description: |-
-        - Builders: \_Sakuya\_\_Izayoi_
+        - Builders: Sakuya_Isayoi
         - Coordinates: 2273, 29, 186
       images:
         - name: towns_farms/public_farms/SpiderFarm
