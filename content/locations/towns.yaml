@@ -187,7 +187,7 @@ towns:
       description: |-
         - Owner: Seishishou
         - Type: Town
-        - Dock: Kagome Airport Dock 2B
+        - Dock: Kagome Airport Dock 1B
 
         Started from the renowned Poker Face Bookstore, foot traffic has attracted many youkai,
         humans and Yukkuris from various parts to Masquerade. With the efforts of the overseeing
@@ -204,6 +204,30 @@ towns:
 
         - name: towns_farms/towns/Masquerade3
           image_taken_by: Seishishou
+
+    flandern:
+      displayName: Flandern
+      menuName: Flandern
+      description: |-
+        - Owner: Red_Flanders
+        - Type: Town
+        - Dock: Kagome Airport Dock 1C
+
+        Flandern is a playful and organic town that 'takes it easy'. Whether they were drawn in by
+        its iconic pixelart or dragged in by veterans, many new players have found warm welcomes
+        on their first survival day here. Explorers can expect secrets, odd sights, Touhou-based
+        builds, silliness, and Yuyuko yukkuri eastereggs. Flandern's heart is the museum, which
+        is best known for showcasing the numerous maparts made in Survival.
+
+      images:
+        - name: towns_farms/towns/Flandern1
+          image_taken_by: Red_Flanders
+
+        - name: towns_farms/towns/Flandern2
+          image_taken_by: Red_Flanders
+
+        - name: towns_farms/towns/Flandern3
+          image_taken_by: Red_Flanders
 
     barracuda_wharf:
       displayName: Barracuda Wharf
