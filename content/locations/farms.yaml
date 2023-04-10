@@ -198,11 +198,13 @@ farms:
       menuName: Wool
       description: |-
         - Builders: Reubi0910
-        - Coordinates: -9078, 88, -2602
+        - Coordinates: -9068, 97, -2571
       images:
+        - name: towns_farms/public_farms/WoolFarm2
+          image_taken_by: LunaPixu
         - name: towns_farms/public_farms/WoolFarm
           image_taken_by: LunaPixu
-          
+
     pigman:
       displayName: Supmax's Zombie Piglin Farm
       menuName: Zombie Piglins 1
