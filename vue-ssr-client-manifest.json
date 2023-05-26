@@ -261,9 +261,9 @@
     "assets/images/benji_avatar-2241772d49165e235e57.webp",
     "assets/images/StarSailIsland1-abe62eaba49742607f67.webp",
     "assets/images/WoolFarm-f2e61c1789dd8c0189ed.webp",
-    "staffPage.js",
     "assets/images/SpiderFarm-77f9ded2898e86fdb5ab.webp",
     "assets/images/rules_sm-22131f459e221b983eb3.webp",
+    "staffPage.js",
     "assets/images/kagome_airships_sm-7cbcb68ca8dcd8a5f0b8.jpeg",
     "assets/images/people_sm-9dc14513bfa5b01f4fdd.webp",
     "assets/images/tony_avatar-b8dc99965dc9e289d2cd.webp",
@@ -577,6 +577,7 @@
     "assets/images/tsunko_avatar_icon-ff717e2de3675268a44a.png",
     "assets/images/luna_avatar_author-a5891fc4c6c576d0691a.png",
     "assets/images/qsc_avatar_icon-da2051cfb9415e28909c.webp",
+    "announcement24.js",
     "assets/images/alorai_avatar_icon-3697a085a46e491503ce.webp",
     "announcement14.js",
     "announcement1.js",
@@ -686,6 +687,7 @@
     "announcement0.js",
     "announcement13.js",
     "commandsData5.js",
+    "announcement24.js",
     "announcement14.js",
     "announcement1.js",
     "announcement16.js",
@@ -882,7 +884,7 @@
       398
     ],
     "0b46e290": [
-      260
+      262
     ],
     "865b2cc2": [
       102
@@ -1019,13 +1021,13 @@
       3
     ],
     "717dd883": [
-      623
+      624
     ],
     "9565a678": [
-      609
+      610
     ],
     "25a295b2": [
-      622
+      623
     ],
     "616ef372": [
       525
@@ -1034,28 +1036,28 @@
       572
     ],
     "535873ea": [
-      614
-    ],
-    "1cbf8542": [
-      604
-    ],
-    "5e6d9455": [
-      625
-    ],
-    "79850da0": [
-      629
-    ],
-    "bb860c36": [
-      631
-    ],
-    "5d02f00e": [
       615
     ],
+    "1cbf8542": [
+      605
+    ],
+    "5e6d9455": [
+      626
+    ],
+    "79850da0": [
+      630
+    ],
+    "bb860c36": [
+      632
+    ],
+    "5d02f00e": [
+      616
+    ],
     "5a027163": [
-      620
+      621
     ],
     "8a530a90": [
-      618
+      619
     ],
     "7c6e1fec": [
       207
@@ -3611,19 +3613,19 @@
       568
     ],
     "c7ad6e76": [
-      578
+      579
     ],
     "dbbef706": [
       539
     ],
     "386fd3a4": [
-      603
+      604
     ],
     "42db32d6": [
-      600
+      601
     ],
     "b7022c56": [
-      594
+      595
     ],
     "eee38dc8": [
       565
@@ -3647,13 +3649,13 @@
       569
     ],
     "05d590c1": [
-      577
+      578
     ],
     "aec4b734": [
-      595
+      596
     ],
     "f49acb56": [
-      583
+      584
     ],
     "1752544e": [
       538
@@ -3665,16 +3667,19 @@
       542
     ],
     "0820bc43": [
-      589
+      590
     ],
     "a84ef24e": [
       564
     ],
     "3be878c7": [
-      584
+      585
     ],
     "3de91d54": [
       544
+    ],
+    "6ed5d368": [
+      576
     ],
     "4cec255e": [
       400,
@@ -3749,7 +3754,7 @@
       3
     ],
     "f17d3c04": [
-      578
+      579
     ],
     "904545e2": [
       551
