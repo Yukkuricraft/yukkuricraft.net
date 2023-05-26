@@ -150,18 +150,6 @@
         you need me, feel free to leave a message anytime. I'll try and get back
         to you if I'm not busy with work or sleep.
 
-    - name: Ice
-      mcAccounts:
-        - name: IceCrasher150
-          uuid: e7c80795-5c30-4f1a-8a72-828401f9e5ad
-      discordAccount: '477792022665887747'
-      avatar: 'ice_avatar.png'
-      description: >-
-        Hello there~! I'm Ice, a mediator. While I'll usually help out with any
-        queries, I'm not often around on the server - I do build map art in my
-        own free time, though. That said, I'm more easily contactable via
-        Discord (tag's Ice~#8207), so pop me a message if you need to.
-
 - id: builder
   displayName: Builders
   members:
