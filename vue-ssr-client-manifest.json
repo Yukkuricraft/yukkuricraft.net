@@ -419,9 +419,9 @@
     "assets/images/bridge_thumbnail-2263c6a8b295b04947b1.jpeg",
     "assets/images/JohnPigmanFarm_thumbnail-9a3da9d64e725711c8d2.jpeg",
     "assets/images/commands_md-4459dd1dfcd63098cdbf.webp",
-    "mdPage1.js",
     "assets/images/entrance_thumbnail-24cb37238438765727c6.jpeg",
     "mdPage0.js",
+    "mdPage1.js",
     "assets/images/IceCreeperFarm_thumbnail-df7349d2b59ac3e963f6.jpeg",
     "assets/images/teshno_avatar_normal-ff0fcbf3deb095cde29a.webp",
     "assets/images/StoneFarm_thumbnail-f9a1c51c4ae046ba3282.webp",
@@ -664,8 +664,8 @@
     "mdPage2.js",
     "gensokyoPage.js",
     "ranksPage.js",
-    "mdPage1.js",
     "mdPage0.js",
+    "mdPage1.js",
     "announcement12.js",
     "announcement10.js",
     "locationsData9.js",
@@ -3241,10 +3241,10 @@
       223
     ],
     "03d582ab": [
-      420
+      419
     ],
     "1065c15e": [
-      418
+      420
     ],
     "14aa6e4a": [
       354
