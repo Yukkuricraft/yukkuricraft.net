@@ -35,11 +35,11 @@ Rules that apply across all of Yukkuricraft
    issues and disputes from as objective a viewpoint as possible. Staff members
    have the final say on most server matters.
 
-3. **Do not create or share R18 content outside of designated spaces**
+3. **Keep things SFW (Safe for Work)**
 
-   YC's minimum age limit is 13, so be aware when minors are present.
-   Furthermore, ero-rp is strictly forbidden due to risks of activity with
-   minors, which is against U.S. law.
+   YC's minimum age limit is 13. As such, we do not condone NSFW content or
+   behavior here. This includes your profile, if it's cropped or censored we're
+   going to treat it as uncropped/uncensored.
 
 4) **Do not ask for promotions**
 
@@ -146,13 +146,6 @@ Rules that apply mostly to the Discord server
 
    Don't suddenly drop in and derail an ongoing discussion. Be respectful of
    others if they're already mid-discussion.
-
-5. **No NSFW without consent**
-
-   If all members of a voice room with a temporary text channel consent to
-   viewing NSFW material, NSFW material can be posted. However once a new member
-   joins the room, the process must be repeated. NSFW anywhere else, apart from
-   NSFW channels, is prohibited.
 
 ### Closing notes
 
