@@ -34,7 +34,7 @@ summary:
 
         Official township comes in two different tiers with their own requirements for
         application. Here are the requirements needed for each:
-        
+
         **Town**  
         1. Must have 3 or more residents (alt accounts don't count) living with their
         own individual residences. Vacation-home scenarios will not be counted, the home
@@ -126,7 +126,7 @@ summary:
 towns:
   displayName: List of Towns
   menuName: Towns
-  description: |- 
+  description: |-
     Below are a list of towns that have been officially recognised by our server's staff.  
     Feel free to visit any one of them. You might find a nice to place to live or hang out.
 
@@ -193,7 +193,7 @@ towns:
         humans and Yukkuris from various parts to Masquerade. With the efforts of the overseeing
         menreiki and those who came to stay, the area has developed gradually over the years,
         from barren lands to houses and fields. The ever-changing town eventually became a beacon
-        for calmness and tranquility. 
+        for calmness and tranquility.
 
       images:
         - name: towns_farms/towns/Masquerade1

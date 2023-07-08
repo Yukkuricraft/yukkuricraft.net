@@ -22,7 +22,7 @@ farms:
       images:
         - name: towns_farms/public_farms/BlazeFarm
           image_taken_by: LunaPixu
-          
+
     creeper:
       displayName: Creeper Farm (and Sugarcane, Super Smelter, and more)
       menuName: Creepers 1
@@ -32,7 +32,7 @@ farms:
       images:
         - name: towns_farms/public_farms/CreeperFarm
           image_taken_by: LunaPixu
-          
+
     creeper2:
       displayName: Ice's Creeper Farm
       menuName: Creepers 2
@@ -42,7 +42,7 @@ farms:
       images:
         - name: towns_farms/public_farms/IceCreeperFarm
           image_taken_by: IceCrasher150
-          
+
     drowned:
       displayName: Drowned Farm
       menuName: Drowned
@@ -62,7 +62,7 @@ farms:
       images:
         - name: towns_farms/public_farms/EndermanFarm
           image_taken_by: TexasTony
-          
+
     ghast:
       displayName: Ghast Farm
       menuName: Ghasts
@@ -72,7 +72,7 @@ farms:
       images:
         - name: towns_farms/public_farms/GhastFarm
           image_taken_by: LunaPixu
-          
+
     glowsquid:
       displayName: Glow Squid Farm
       menuName: Glow Squids
@@ -92,7 +92,7 @@ farms:
       images:
         - name: towns_farms/public_farms/HeroGuardianFarm
           image_taken_by: TexasTony
-          
+
     guardian2:
       displayName: Ice's Guardian Farm
       menuName: Guardians 2
@@ -111,8 +111,8 @@ farms:
         - Coordinates: 338, 128, 1335 (The Nether, easily accessible from Masquerade)
       images:
         - name: towns_farms/public_farms/HoglinFarm
-          image_taken_by: LunaPixu 
-          
+          image_taken_by: LunaPixu
+
     iron:
       displayName: Iron Farm
       menuName: Iron
@@ -162,7 +162,7 @@ farms:
       images:
         - name: towns_farms/public_farms/SpiderFarm
           image_taken_by: LunaPixu
-          
+
     stone:
       displayName: Stone Farm
       menuName: Stone
@@ -172,7 +172,7 @@ farms:
       images:
         - name: towns_farms/public_farms/StoneFarm
           image_taken_by: Seishishou
-          
+
     stray:
       displayName: Stray Farm
       menuName: Strays
@@ -182,7 +182,7 @@ farms:
       images:
         - name: towns_farms/public_farms/StrayFarm
           image_taken_by: LunaPixu
-          
+
     wither:
       displayName: Wither Skeleton Farm
       menuName: Wither Skulls
@@ -192,7 +192,7 @@ farms:
       images:
         - name: towns_farms/public_farms/WitherFarm
           image_taken_by: Seishishou
-          
+
     wool:
       displayName: Wool Farm
       menuName: Wool
@@ -214,7 +214,7 @@ farms:
       images:
         - name: towns_farms/public_farms/SupmaxPigmanFarm
           image_taken_by: LunaPixu
-          
+
     pigman2:
       displayName: John_Touhou's Zombie Piglin Farm
       menuName: Zombie Piglins 2
