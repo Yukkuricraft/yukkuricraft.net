@@ -35,8 +35,8 @@ export default {
     NormalPage,
   },
   props: {
-    localizedComponents: {
-      type: Object,
+    content: {
+      type: Function,
       required: true,
     },
     canonicalUrl: {
@@ -76,14 +76,11 @@ export default {
     },
   },
   watch: {
-    localizedComponents: {
+    content: {
       immediate: true,
       handler() {
         this.reloadUsedComponent()
       },
-    },
-    async $i18n() {
-      await this.reloadUsedComponent()
     },
   },
   serverPrefetch() {
@@ -91,8 +88,7 @@ export default {
   },
   methods: {
     async reloadUsedComponent() {
-      const file = this.localizedComponents[this.$i18n.locale]
-      this.usedComponent = await import(/* webpackChunkName: "mdPage" */ `../../content/pages/${file}`)
+      this.usedComponent = await this.content()
     },
   },
 }

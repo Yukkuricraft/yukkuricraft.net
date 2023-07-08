@@ -10,7 +10,6 @@
         <navbar-links></navbar-links>
       </b-collapse>
 
-      <navbar-locale-changer></navbar-locale-changer>
       <slot name="bottom"></slot>
     </b-container>
 
@@ -24,7 +23,6 @@
         <navbar-links></navbar-links>
       </b-collapse>
 
-      <navbar-locale-changer></navbar-locale-changer>
       <slot name="bottom"></slot>
     </template>
   </b-navbar>
@@ -34,7 +32,6 @@
 import { BNavbar, BContainer, BNavbarBrand, BNavbarToggle, BCollapse } from 'bootstrap-vue'
 
 import NavbarLinks from './NavbarLinks'
-import NavbarLocaleChanger from './NavbarLocaleChanger'
 
 export default {
   components: {
@@ -44,7 +41,6 @@ export default {
     BNavbarToggle,
     BCollapse,
     NavbarLinks,
-    NavbarLocaleChanger,
   },
   props: {
     inContainer: {

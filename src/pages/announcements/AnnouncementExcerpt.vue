@@ -51,7 +51,7 @@ export default {
       return posters
     },
     localizedPostedTime() {
-      return new Date(this.post.time).toLocaleString(this.$i18n.locale, {
+      return new Date(this.post.time).toLocaleString(undefined, {
         weekday: 'long',
         year: 'numeric',
         month: 'long',

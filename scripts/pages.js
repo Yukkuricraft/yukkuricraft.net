@@ -14,13 +14,13 @@ module.exports = [
     mainContent: [...glob.sync('./src/pages/ranks/**/*.*'), './content/ranks.yaml'],
   },
   { url: '/staff/', priority: '0.80', mainContent: ['./src/pages/StaffPage.vue', './content/staff.yaml'] },
-  { url: '/rules/', priority: '0.80', mainContent: ['./content/pages/RulesEN.md'] },
+  { url: '/rules/', priority: '0.80', mainContent: ['./content/pages/Rules.md'] },
   {
     url: '/server-activities/survival/',
     priority: '0.70',
-    mainContent: ['./content/pages/SurvivalGuideEN.md', ...glob.sync('./content/pages/images/survival_guide/**/*.*')],
+    mainContent: ['./content/pages/SurvivalGuide.md', ...glob.sync('./content/pages/images/survival_guide/**/*.*')],
   },
-  { url: '/server-activities/paintball/', priority: '0.70', mainContent: ['./content/pages/PaintballEN.md'] },
+  { url: '/server-activities/paintball/', priority: '0.70', mainContent: ['./content/pages/Paintball.md'] },
   {
     url: '/server-activities/survival/farms/',
     priority: '0.70',

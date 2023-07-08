@@ -103,7 +103,7 @@ export function createRouter() {
         name: page.vueRouterName,
         component: asyncComponent(() => import(/* webpackChunkName: "markdownPages" */ './pages/MarkdownPage')),
         props: {
-          localizedComponents: page.localizations,
+          content: () => import(/* webpackChunkName: "mdPage" */ `../content/pages/${page.content}`),
           canonicalUrl: page.canonicalUrl,
           parallaxImages: page.parallaxImages,
         },

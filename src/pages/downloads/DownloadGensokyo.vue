@@ -28,8 +28,6 @@
       </ul>
     </b-alert>
 
-    <p v-if="showI18nExample">message: {{ $t('hello') }}</p>
-
     <p>
       <strong>CHROME USERS</strong> - Mega is known to have issues downloading on Chrome. If you are using Chrome and
       having difficulty downloading, please temporarily use Firefox or some other browser of your choice to download
@@ -37,17 +35,6 @@
     </p>
   </normal-page>
 </template>
-
-<i18n>
-	{
-	"en": {
-	"hello": "hello world!"
-	},
-	"ja": {
-	"hello": "こんにちは、世界！"
-	}
-	}
-</i18n>
 
 <script>
 import { BButton, BAlert } from 'bootstrap-vue'
@@ -64,9 +51,6 @@ export default {
     HeadfulWrap,
   },
   computed: {
-    showI18nExample() {
-      return false
-    },
     images() {
       return autoImage(
         'hakurei_inside',
