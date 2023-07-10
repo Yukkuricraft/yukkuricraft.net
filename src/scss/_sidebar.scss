@@ -1,6 +1,6 @@
 //https://bootstrapious.com/p/bootstrap-sidebar
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
+@import "/node_modules/bootstrap/scss/functions";
+@import "/node_modules/bootstrap/scss/variables";
 
 $sidebar-width: 250px;
 
@@ -75,7 +75,7 @@ $sidebar-active-background: #ce5700; //chromatic-color-darken($primary, 0.4);
 
 .sidebar ul li a {
   padding: 10px;
-  font-size: 1.1em;
+  font-size: 1em;
   display: block;
 }
 .sidebar ul li a:hover {

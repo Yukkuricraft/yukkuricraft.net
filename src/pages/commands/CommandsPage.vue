@@ -1,178 +1,122 @@
 <template>
-  <sidebar-page :parallax-images="images">
-    <headful-wrap
-      title="YukkuriCraft - Commands"
-      description="Search through the commands found on YukkuriCraft."
-      :image="require('../../favicon_upscaled.png')"
-      url="https://yukkuricraft.net/commands/"
-    />
+  <h2 id="commands">Command List</h2>
+  <div id="commandsSection">
+    <p style="font-size: 18px; color: #aaafad">
+      Arguments in "[" and "]" are optional. Arguments in "&lt;" and "&gt;" are required for the command to work!
+    </p>
+    <p style="font-size: 12px; color: #aaafad">
+      This is nowhere near a complete list of commands, just some of the basics!
+    </p>
 
-    <template #sidebar>
-      <div class="sidebar-header">
-        <h2>Commands</h2>
-      </div>
+    <b-form-group>
+      <label for="commandsSearch">Search:</label>
+      <b-form-input id="commandsSearch" v-model="filter" type="text" placeholder="Search commands..." />
+    </b-form-group>
 
-      <sidebar-entries
-        class="sidebar-components"
-        href-prefix="commands"
-        :subgroups="commands"
-        subgroup-children-name="subgroups"
+    <div id="commandGroups">
+      <command-group
+        v-for="(commandGroup, commandGroupId) in commands"
+        :key="commandGroupId"
+        :depth="0"
+        :command-group-id="commandGroupId"
+        :command-group="commandGroup"
       />
-    </template>
-
-    <template #parallax>
-      <h1>Commands</h1>
-      <p>Find commonly used commands here</p>
-    </template>
-
-    <h2 id="commands">Command List</h2>
-    <div id="commandsSection">
-      <p style="font-size: 18px; color: #aaafad">
-        Arguments in "[" and "]" are optional. Arguments in "&lt;" and "&gt;" are required for the command to work!
-      </p>
-      <p style="font-size: 12px; color: #aaafad">
-        This is nowhere near a complete list of commands, just some of the basics!
-      </p>
-
-      <b-form-group>
-        <label for="commandsSearch">Search:</label>
-        <b-form-input id="commandsSearch" v-model="filter" type="text" placeholder="Search commands..." />
-      </b-form-group>
-
-      <div id="commandGroups">
-        <command-group
-          v-for="(commandGroup, commandGroupId) in commands"
-          :key="commandGroupId"
-          :depth="0"
-          :command-group-id="commandGroupId"
-          :command-group="commandGroup"
-        />
-      </div>
     </div>
-  </sidebar-page>
+  </div>
 </template>
 
-<script>
-import { BFormGroup, BFormInput } from 'bootstrap-vue'
-import { mapState, mapActions } from 'vuex'
-
+<script setup lang="ts">
+import { BFormGroup, BFormInput } from 'bootstrap-vue-next'
+import { computed, onMounted, onServerPrefetch, ref, watch } from 'vue'
 import queryString from 'query-string'
 
-import SidebarEntries from '../../components/SidebarEntries'
-import SidebarPage from '../../layout/SidebarPage'
+import { useMeta } from 'vue-meta'
 
-import { autoImage } from '../../images'
+import CommandGroup from './CommandGroup.vue'
 
-import HeadfulWrap from '../../components/HeadfulWrap'
-import CommandGroup from './CommandGroup'
+import { useCommandsStore } from '@/stores/commands'
+import { makeMeta } from '@/pageHelpers'
+const commandsStore = useCommandsStore()
 
-export default {
-  components: {
-    HeadfulWrap,
-    SidebarPage,
-    SidebarEntries,
-    CommandGroup,
-    BFormGroup,
-    BFormInput,
-  },
-  data() {
-    return {
-      filter: '',
-      hasScrolledToHash: false,
+const filter = ref('')
+
+const commands = computed(() => {
+  function matchesQuery(str: string) {
+    return str.toLowerCase().includes(filter.value.toLowerCase())
+  }
+
+  function commandMatchesQuery(command) {
+    return command.aliases.some(matchesQuery) || command.tags.some(matchesQuery) || matchesQuery(command.description)
+  }
+
+  function filterSubgroup(subgroup) {
+    if (subgroup.subgroups && Object.entries(subgroup.subgroups).length) {
+      const subsubgroups = filterSubgroups(subgroup.subgroups)
+
+      if (Object.entries(subsubgroups).length) {
+        subgroup.subgroups = subsubgroups
+        return subgroup
+      } else {
+        return null
+      }
+    } else {
+      const validCommands = subgroup.commands.filter(commandMatchesQuery)
+
+      if (validCommands.length) {
+        subgroup.commands = validCommands
+        return subgroup
+      } else {
+        return null
+      }
     }
-  },
-  computed: {
-    ...mapState('commands', ['allCommands']),
-    images() {
-      return autoImage(
-        'commands',
-        import(/* webpackMode: "eager" */ `../../../generated/backgrounds/commands_data.jpeg?inline`),
-        import(/* webpackMode: "eager" */ `../../../generated/backgrounds/commands_data.webp?inline`)
-      )
-    },
-    commands() {
-      const filter = this.filter
+  }
 
-      function matchesQuery(str) {
-        return str.toLowerCase().includes(filter.toLowerCase())
+  function filterSubgroups(subgroups) {
+    Object.entries(subgroups).forEach(([id, subgroup]) => {
+      const newSubgroup = filterSubgroup(subgroup)
+      if (newSubgroup === null) {
+        delete subgroups[id]
+      } else {
+        subgroups[id] = newSubgroup
       }
+    })
 
-      function commandMatchesQuery(command) {
-        return (
-          command.aliases.some(matchesQuery) || command.tags.some(matchesQuery) || matchesQuery(command.description)
-        )
-      }
+    return subgroups
+  }
 
-      function filterSubgroup(subgroup) {
-        if (subgroup.subgroups && Object.entries(subgroup.subgroups).length) {
-          const subsubgroups = filterSubgroups(subgroup.subgroups)
+  return filter.value.length ? filterSubgroups({ ...commandsStore.allCommands }) : commandsStore.allCommands
+})
 
-          if (Object.entries(subsubgroups).length) {
-            subgroup.subgroups = subsubgroups
-            return subgroup
-          } else {
-            return null
-          }
-        } else {
-          const validCommands = subgroup.commands.filter(commandMatchesQuery)
-
-          if (validCommands.length) {
-            subgroup.commands = validCommands
-            return subgroup
-          } else {
-            return null
-          }
+onMounted(async () => {
+  // For SSR
+  if (typeof location !== 'undefined') {
+    Object.entries(queryString.parse(location.search)).forEach(([key, value]) => {
+      if (value && !Array.isArray(value)) {
+        if (key === 'filter') {
+          filter.value = value
         }
       }
+    })
+  }
 
-      function filterSubgroups(subgroups) {
-        Object.entries(subgroups).forEach(([id, subgroup]) => {
-          const newSubgroup = filterSubgroup(subgroup)
-          if (newSubgroup === null) {
-            delete subgroups[id]
-          } else {
-            subgroups[id] = newSubgroup
-          }
-        })
+  if (Object.entries(commandsStore.allCommands).length === 0) {
+    await commandsStore.loadCommands()
+  }
+})
 
-        return subgroups
-      }
+watch(filter, (oldVal, val) => {
+  if (oldVal !== val) {
+    const query = queryString.stringify({ filter: filter.value ? filter.value : undefined })
+    const full = query !== '' ? '?' + query : '/commands/'
+    window.history.replaceState(null, '', full)
+  }
+})
 
-      return this.filter.length ? filterSubgroups({ ...this.allCommands }) : this.allCommands
-    },
-  },
-  watch: {
-    filter(oldVal, val) {
-      if (oldVal !== val) {
-        const query = queryString.stringify({ filter: this.filter ? this.filter : undefined })
-        const full = query !== '' ? '?' + query : '/commands/'
-        window.history.replaceState(null, null, full)
-      }
-    },
-  },
-  serverPrefetch() {
-    return this.loadCommands()
-  },
-  async created() {
-    // For SSR
-    if (typeof location !== 'undefined') {
-      Object.entries(queryString.parse(location.search)).forEach(([key, value]) => this.$set(this, key, value))
-    }
+onServerPrefetch(() => commandsStore.loadCommands())
 
-    if (Object.entries(this.allCommands).length === 0) {
-      await this.loadCommands()
-    }
-  },
-  updated() {
-    if (Object.entries(this.allCommands).length && !this.hasScrolledToHash && location.hash) {
-      this.$nextTick(() => {
-        document.getElementById(location.hash.substr(1)).scrollIntoView()
-        this.hasScrolledToHash = true
-      })
-    }
-  },
-  methods: {
-    ...mapActions('commands', ['loadCommands']),
-  },
-}
+useMeta(makeMeta({
+  title: 'YukkuriCraft - Commands',
+  description: 'Search through the commands found on YukkuriCraft.',
+  url: 'commands/'
+}))
 </script>

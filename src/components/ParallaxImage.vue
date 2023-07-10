@@ -32,62 +32,34 @@
   </div>
 </template>
 
-<script>
-import { BContainer, BRow, BCol } from 'bootstrap-vue'
-import { isPrerender } from '../prerender'
+<script setup lang="ts">
+import { computed, type PropType, ref } from 'vue'
+import { BContainer, BRow, BCol } from 'bootstrap-vue-next'
+import { isPrerender } from '@/prerender'
+import { type BackgroundKeys, backgroundImage } from '@/images'
 
-export default {
-  components: {
-    BContainer,
-    BRow,
-    BCol,
+const props = defineProps({
+  images: {
+    type: [String, Array] as PropType<BackgroundKeys | string[]>,
+    required: true,
   },
-  props: {
-    images: {
-      type: [Object, Promise],
-      required: true,
-    },
-    height: {
-      type: Number,
-      default: 600,
-    },
+  height: {
+    type: Number,
+    default: 600,
   },
-  data() {
-    return {
-      loadedImages: null,
-      placeholderImage: null,
-      imageToUse: null,
-      switched: false,
-    }
-  },
-  watch: {
-    images: {
-      immediate: true,
-      handler(val) {
-        if (this.loadedImages) {
-          this.switched = false
-        }
+})
 
-        Promise.resolve(val).then((images) => {
-          this.loadedImages = images
-          this.placeholderImage = images.dataPlaceholder
-        })
-      },
-    },
-  },
-  serverPrefetch() {
-    return Promise.resolve(this.images).then((images) => {
-      this.loadedImages = images
-      this.placeholderImage = images.dataPlaceholder
-    })
-  },
-  methods: {
-    switchImage(event) {
-      if (!isPrerender) {
-        this.imageToUse = event.target.currentSrc ?? event.target.src
-        this.switched = true
-      }
-    },
-  },
+const loadedImages = computed(() => backgroundImage(props.images))
+const placeholderImage = computed(() => loadedImages.value.dataPlaceholder)
+
+const imageToUse = ref<string>()
+const switched = ref(false)
+
+function switchImage(event: Event) {
+  if (!isPrerender) {
+    const target = event.target as HTMLImageElement
+    imageToUse.value = target.currentSrc ?? target.src
+    switched.value = true
+  }
 }
 </script>

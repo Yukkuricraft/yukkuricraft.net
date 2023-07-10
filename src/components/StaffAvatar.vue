@@ -1,66 +1,56 @@
 <template>
-  <b-avatar :variant="staffAvatar ? undefined : 'primary'" :size="size">
-    <template v-if="staffAvatar">
-      <picture v-if="staffAvatar">
-        <source v-for="(srcset, type) in staffAvatar.srcsets" :key="type" :type="type" :srcset="srcset" />
-        <img
-          loading="lazy"
-          class="b-avatar-img"
-          :width="size"
-          :height="size"
-          :src="staffAvatar.default"
-          :alt="staffMember"
-        />
-      </picture>
-    </template>
+  <b-avatar :variant="staffAvatar ? null : 'primary'" :size="size + 'px'" rounded='circle'>
+
+    <picture v-if="staffAvatar" class='rounded-circle'>
+      <source v-for="(srcset, type) in staffAvatar.srcsets" :key="type" :type="type" :srcset="srcset" />
+      <img
+        loading="lazy"
+        class="b-avatar-img"
+        :width="size"
+        :height="size"
+        :src="staffAvatar.default"
+        :alt="staffMember"
+      />
+    </picture>
     <span v-else class="b-avatar-text" style="font-size: 40px">
       {{ staffMember.substring(0, 1) }}
     </span>
   </b-avatar>
 </template>
 
-<script>
-import { BAvatar } from 'bootstrap-vue'
+<script setup lang="ts">
+import { BAvatar } from 'bootstrap-vue-next'
 
-import { staffAvatar } from '../images'
+import { onServerPrefetch, ref, watch } from 'vue'
+import { staffAvatar as loadStaffAvatar } from '@/images'
 
-export default {
-  components: {
-    BAvatar,
+const props = defineProps({
+  staffMember: {
+    type: String,
+    required: true,
   },
-  props: {
-    staffMember: {
-      type: String,
-      required: true,
-    },
-    size: {
-      type: Number,
-      required: true,
-    },
-    avatarLoc: String,
+  size: {
+    type: Number,
+    required: true,
   },
-  data() {
-    return {
-      staffAvatar: null,
-    }
-  },
-  watch: {
-    avatarLoc: {
-      immediate: true,
-      async handler() {
-        await this.loadAvatar()
-      },
-    },
-  },
-  serverPrefetch() {
-    return this.loadAvatar()
-  },
-  methods: {
-    async loadAvatar() {
-      if (this.avatarLoc) {
-        this.staffAvatar = await staffAvatar(this.avatarLoc, this.size)
-      }
-    },
-  },
+  avatarLoc: String,
+})
+
+const staffAvatar = ref()
+
+async function loadAvatar() {
+  if (props.avatarLoc) {
+    staffAvatar.value = await loadStaffAvatar(props.avatarLoc, props.size)
+  }
 }
+
+watch(
+  () => props.avatarLoc,
+  async () => {
+    await loadAvatar()
+  },
+  { immediate: true },
+)
+
+onServerPrefetch(() => loadAvatar())
 </script>

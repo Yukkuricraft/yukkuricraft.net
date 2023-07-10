@@ -18,34 +18,31 @@
   </li>
 </template>
 
-<script>
-import { VBToggle, BCollapse } from 'bootstrap-vue'
+<script setup lang="ts">
+import { BCollapse, Directives } from 'bootstrap-vue-next'
+import { type PropType } from 'vue'
 
-export default {
-  components: {
-    BCollapse,
-    SidebarEntries: () => import('./SidebarEntries'),
+type Subgroups = { [k: string]: Subgroups } | { menuName: string }
+
+const vBToggle = Directives.vBToggle
+const SidebarEntries = () => import('./SidebarEntries.vue')
+
+defineProps({
+  hrefPrefix: {
+    type: String,
+    required: true,
   },
-  directives: {
-    'b-toggle': VBToggle,
+  subgroup: {
+    type: Object as PropType<Subgroups>,
+    required: true,
   },
-  props: {
-    hrefPrefix: {
-      type: String,
-      required: true,
-    },
-    subgroup: {
-      type: Object,
-      required: true,
-    },
-    subgroupId: {
-      type: String,
-      required: true,
-    },
-    subgroupChildrenName: {
-      type: String,
-      required: true,
-    },
+  subgroupId: {
+    type: String,
+    required: true,
   },
-}
+  subgroupChildrenName: {
+    type: String,
+    required: true,
+  },
+})
 </script>

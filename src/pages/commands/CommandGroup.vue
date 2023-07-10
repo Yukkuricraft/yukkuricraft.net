@@ -22,31 +22,23 @@
   </div>
 </template>
 
-<script>
-import ConfigurableHeading from '../../components/ConfigurableHeading'
-import MarkdownLazy from '../../components/MarkdownLazy'
-import CommandNode from './CommandNode'
+<script setup lang='ts'>
+import CommandNode from './CommandNode.vue'
+import ConfigurableHeading from '@/components/ConfigurableHeading.vue'
+import MarkdownLazy from '@/components/MarkdownLazy.vue'
 
-export default {
-  name: 'CommandGroup',
-  components: {
-    MarkdownLazy,
-    CommandNode,
-    ConfigurableHeading,
+defineProps({
+  commandGroupId: {
+    type: String,
+    required: true,
   },
-  props: {
-    commandGroupId: {
-      type: String,
-      required: true,
-    },
-    commandGroup: {
-      type: Object,
-      required: true,
-    },
-    depth: {
-      type: Number,
-      required: true,
-    },
+  commandGroup: {
+    type: Object,
+    required: true,
   },
-}
+  depth: {
+    type: Number,
+    required: true,
+  },
+})
 </script>

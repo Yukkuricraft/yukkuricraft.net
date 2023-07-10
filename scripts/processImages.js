@@ -9,9 +9,38 @@ const work = []
 let processed = 0
 let proccessAmount = 0
 
-async function processImage(image, globalOptions) {
+function addInfoToObject(file, sizeName, size, minWidth, queryOptions, extension, outputFile, outDir, obj) {
+  const pathParts = file.replaceAll('\\', '/').split('/')
+  if (pathParts[0] === '') {
+    pathParts.shift()
+  }
+
+  if (sizeName !== undefined) {
+    pathParts.push(sizeName)
+  }
+  pathParts.push(extension)
+
+  while (pathParts.length > 1) {
+    const k = pathParts.shift()
+
+    if (typeof obj[k] === 'undefined') {
+      obj[k] = {}
+    }
+
+    obj = obj[k]
+  }
+
+  const relativeOutputFile = path.relative(outDir, outputFile).replaceAll('\\', '/')
+  obj[pathParts.shift()] = {
+    filename: `import("./${relativeOutputFile}${queryOptions ? `?${queryOptions}` : ''}")`,
+    size,
+    minWidth,
+  }
+}
+
+async function processImage(image, globalOptions, infoObject) {
   const file = path.parse(path.relative(globalOptions.dir, image))
-  const outputFile = globalOptions.outDir + file.dir + '/' + file.name
+  const outputFileBase = globalOptions.outDir + file.dir + '/' + file.name
   fs.mkdirSync(globalOptions.outDir + file.dir, { recursive: true })
 
   function callIfFunction(val) {
@@ -40,17 +69,47 @@ async function processImage(image, globalOptions) {
     }
   }
 
-  let res
+  const res = []
   if (globalOptions.sizes) {
-    res = Object.entries(globalOptions.sizes).flatMap(([name, options]) =>
-      types(options).map((type) =>
-        base(type, options)
-          .resize(callIfFunction(options.size) || options)
-          .toFile(outputFile + (name !== '' ? '_' : '') + name + '.' + type)
-      )
-    )
+    for (const [sizeName, sizeOptions] of Object.entries(globalOptions.sizes)) {
+      for (const type of types(sizeOptions)) {
+        const outputFile = outputFileBase + (sizeName !== '' ? '_' : '') + sizeName + '.' + type
+        res.push(
+          base(type, sizeOptions)
+            .resize(callIfFunction(sizeOptions.size) || sizeOptions)
+            .toFile(outputFile),
+        )
+
+        addInfoToObject(
+          file.dir + '/' + file.name,
+          sizeName,
+          sizeOptions.size,
+          sizeOptions.minWidth,
+          sizeOptions.queryOptions,
+          type,
+          outputFile,
+          globalOptions.outDir,
+          infoObject,
+        )
+      }
+    }
   } else {
-    res = types({}).map((type) => base(type, {}).toFile(outputFile + '.' + type))
+    for (const type of types({})) {
+      const outputFile = outputFileBase + '.' + type
+
+      res.push(base(type, {}).toFile(outputFile))
+
+      addInfoToObject(
+        file.dir + '/' + file.name,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        type,
+        outputFile,
+        infoObject,
+      )
+    }
   }
   const ret = await Promise.all(res)
 
@@ -63,6 +122,47 @@ async function processImage(image, globalOptions) {
   return ret
 }
 
+function makeInfoFile(outDir, infoObject) {
+  const importRegex = /"import\(\\"([^)]+)\\"\)"/gm
+  let ids = 0
+  const imports = []
+
+  const json =
+    'export default ' +
+    JSON.stringify(infoObject).replaceAll(importRegex, (match, importer) => {
+      const id = importer.replace('./', '').replaceAll(/[.?/]/gm, '_').replaceAll('?', '_') + '_' + ids++
+      imports.push([id, importer])
+
+      return id
+    })
+
+  const allImports = imports.map(([id, from]) => `import ${id} from "${from}"`).join('\n')
+
+  const writeFile = fs.promises.writeFile(outDir + '/data.js', allImports + '\n' + json)
+
+  const dtsHeader = `
+interface ImageExtensionData {
+  filename: string
+  size?: number
+  minWidth?: number
+}
+interface ImageData {
+  jpeg?: ImageExtensionData
+  png?: ImageExtensionData
+  webp: ImageExtensionData
+}`
+  const typesInfoObject = JSON.stringify(infoObject, (k, v) =>
+    k === 'jpeg' || k === 'png' || k === 'webp' ? undefined : v,
+  ).replaceAll('{}', 'ImageData')
+
+  const writeDefinition = fs.promises.writeFile(
+    outDir + '/data.d.ts',
+    dtsHeader + '\nexport default ' + typesInfoObject,
+  )
+
+  return Promise.all([writeFile, writeDefinition])
+}
+
 function processFiles(options) {
   console.log('Starting image processing')
 
@@ -71,7 +171,11 @@ function processFiles(options) {
   console.log(`${files.length} images to process`)
   proccessAmount += files.length
 
-  work.push(...files.flatMap((image) => processImage(image, options)))
+  const infoObject = {}
+
+  work.push(...files.flatMap((image) => processImage(image, options, infoObject)))
+
+  work.push(makeInfoFile(options.outDir, infoObject))
 }
 
 module.exports = function () {

@@ -5,14 +5,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    content: {
-      type: String,
-      required: true,
-    },
-    noParagraph: Boolean,
+<script setup lang='ts'>
+defineProps({
+  content: {
+    type: String,
+    required: true,
   },
-}
+  noParagraph: Boolean,
+})
 </script>

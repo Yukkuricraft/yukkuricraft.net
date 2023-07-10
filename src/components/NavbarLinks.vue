@@ -27,22 +27,7 @@
   </b-navbar-nav>
 </template>
 
-<script>
-import { BNavbarNav, BNavItem, BNavItemDropdown, BDropdownItem } from 'bootstrap-vue'
-
+<script setup lang="ts">
+import { BNavbarNav, BNavItem, BNavItemDropdown, BDropdownItem } from 'bootstrap-vue-next'
 import navlinks from './navlinks'
-
-export default {
-  components: {
-    BNavbarNav,
-    BNavItem,
-    BNavItemDropdown,
-    BDropdownItem,
-  },
-  computed: {
-    navlinks() {
-      return navlinks
-    },
-  },
-}
 </script>

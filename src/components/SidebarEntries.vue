@@ -11,26 +11,24 @@
   </ul>
 </template>
 
-<script>
-import SidebarEntry from './SidebarEntry'
+<script setup lang='ts'>
+import { type PropType } from 'vue'
+import SidebarEntry from './SidebarEntry.vue'
 
-export default {
-  components: {
-    SidebarEntry,
+type Subgroups = { [k: string]: Subgroups } | { menuName: string }
+
+defineProps({
+  hrefPrefix: {
+    type: String,
+    required: true,
   },
-  props: {
-    hrefPrefix: {
-      type: String,
-      required: true,
-    },
-    subgroups: {
-      type: Object,
-      required: true,
-    },
-    subgroupChildrenName: {
-      type: String,
-      required: true,
-    },
+  subgroups: {
+    type: Object as PropType<Subgroups>,
+    required: true,
   },
-}
+  subgroupChildrenName: {
+    type: String,
+    required: true,
+  },
+})
 </script>

@@ -17,17 +17,14 @@
       <!-- https://startbootstrap.com/snippets/thumbnail-gallery/ -->
       <!-- https://css-tricks.com/creating-a-modal-image-gallery-with-bootstrap-components/ -->
       <b-row v-b-modal="'locationModal-' + locationId">
-        <b-col v-for="(image, i) in loadedImages" :key="i" md="4" sm="6" cols="12">
-          <div v-if="image.loaded" class="d-block mb-4 h-100" @click="slide = i">
+        <b-col v-for="(image, i) in getImagesWithThumbnails(location.images)" :key="i" md="4" sm="6" cols="12">
+          <div class="d-block mb-4 h-100" @click="slide = i">
             <picture>
               <source :srcset="image.lowResWebp" type="image/webp" />
               <source :srcset="image.lowRes" type="image/jpeg" />
 
               <img class="img-fluid img-thumbnail" loading="lazy" :src="image.lowRes" :alt="image.name" />
             </picture>
-          </div>
-          <div v-else class="d-block mb-4 h-100">
-            <font-awesome-icon :icon="['fas', 'spinner']" spin size="2x" />
           </div>
         </b-col>
       </b-row>
@@ -41,9 +38,13 @@
         size="xl"
         centered
       >
+        <template #header>
+          <h5 data-ignore-sidebar='true'>Images</h5>
+        </template>
+
         <b-carousel :id="'locationCarousel-' + locationId" v-model="slide" controls class="mt-5" :interval="0">
           <b-carousel-slide
-            v-for="image in loadedImages"
+            v-for="image in getImagesWithThumbnails(location.images)"
             :key="image.name"
             :caption="image.title"
             :text="image.description"
@@ -63,94 +64,66 @@
   </section>
 </template>
 
-<script>
-import { BRow, BCol, BModal, VBModal, BCarousel, BCarouselSlide } from 'bootstrap-vue'
-import { mapState, mapActions } from 'vuex'
+<script setup lang="ts">
+import { BRow, BCol, BModal, Directives, BCarousel, BCarouselSlide } from 'bootstrap-vue-next'
 
-import ConfigurableHeading from '../../components/ConfigurableHeading'
-import MarkdownLazy from '../../components/MarkdownLazy'
+import buildImages from '../../../generated/builds/data'
+import ConfigurableHeading from '@/components/ConfigurableHeading.vue'
 
-export default {
-  name: 'LocationItem',
-  components: {
-    MarkdownLazy,
-    ConfigurableHeading,
-    BRow,
-    BCol,
-    BModal,
-    BCarousel,
-    BCarouselSlide,
-  },
-  directives: {
-    'b-modal': VBModal,
-  },
-  props: {
-    locationId: {
-      type: String,
-      required: true,
-    },
-    location: {
-      type: Object,
-      required: true,
-    },
-    depth: {
-      type: Number,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      loadedImages: [],
-      slide: 0,
-    }
-  },
-  computed: {
-    ...mapState('locations', ['imageLocations']),
-  },
-  watch: {
-    location: {
-      immediate: true,
-      handler() {
-        this.loadImages()
-      },
-    },
-  },
-  serverPrefetch() {
-    return this.loadImages()
-  },
-  methods: {
-    ...mapActions('locations', ['loadLocationImages']),
-    loadImages() {
-      const res = []
+import MarkdownLazy from '@/components/MarkdownLazy.vue'
+import {
+  makeImageWithThumbnails,
+  type ImageWithThumbnails,
+  type NestedImageData,
+  type SingleNestedImageData
+} from '@/images'
 
-      if (this.location.images) {
-        for (const [i, image] of this.location.images.entries()) {
-          if (this.loadedImages[i] && this.loadedImages[i].loaded) {
-            continue
-          }
 
-          let waitForImage
-          if (!this.imageLocations[image.name] || this.imageLocations[image.name].length === 0) {
-            this.$set(this.loadedImages, i, { loaded: false })
-            waitForImage = this.loadLocationImages({ imageName: image.name })
-          } else {
-            waitForImage = Promise.resolve()
-          }
-
-          res.push(
-            waitForImage.then(() => {
-              this.$set(this.loadedImages, i, {
-                ...image,
-                ...this.imageLocations[image.name],
-                loaded: true,
-              })
-            })
-          )
-        }
-      }
-
-      return Promise.all(res)
-    },
-  },
+interface LocationImage {
+  name: string
+  title: string
+  description: string
+  image_taken_by: string
 }
+
+function buildImagesForPath(path: string) {
+  const pathParts = path.split('/')
+
+  let obj = buildImages as unknown as NestedImageData
+  let key
+  while ((key = pathParts.shift())) {
+    obj = obj[key] as NestedImageData
+  }
+
+  return obj as SingleNestedImageData
+}
+
+function getImagesWithThumbnails(images: LocationImage[]): (Location | ImageWithThumbnails)[] {
+  const copy = []
+
+  for (let i = 0; i < images.length; i++) {
+    copy[i] = { ...images[i], ...makeImageWithThumbnails(buildImagesForPath(images[i].name)) }
+  }
+
+  return copy
+}
+
+defineProps({
+  locationId: {
+    type: String,
+    required: true,
+  },
+  location: {
+    type: Object,
+    required: true,
+  },
+  depth: {
+    type: Number,
+    required: true,
+  },
+})
+
+const slide = 0
+
+const vBModal = Directives.vBModal
 </script>

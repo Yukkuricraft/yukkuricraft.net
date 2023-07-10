@@ -1,0 +1,23 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": [
+    "env.d.ts",
+    "vite.d.ts",
+    "components.d.ts",
+    "src/**/*",
+    "src/**/*.vue"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["@modyfi/vite-plugin-yaml/modules"]
+  },
+  "lib": ["es2021"],
+  "references": [
+    {
+      "path": "./tsconfig.config.json"
+    }
+  ]
+}

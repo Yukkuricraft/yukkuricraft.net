@@ -3,9 +3,10 @@
   <div class="markdown-formatting" v-html="htmlContent"></div>
 </template>
 
-<script>
+<script setup lang='ts'>
 import markdownIt from 'markdown-it'
 import markdownItAnchor from 'markdown-it-anchor'
+import { computed } from 'vue'
 
 const md = markdownIt({ linkify: true, typographer: true }).use(markdownItAnchor, {
   slugify(s) {
@@ -17,30 +18,26 @@ const md = markdownIt({ linkify: true, typographer: true }).use(markdownItAnchor
   }),
 })
 
-export default {
-  props: {
-    content: {
-      type: String,
-      required: true,
-    },
-    noParagraph: Boolean,
+const props = defineProps({
+  content: {
+    type: String,
+    required: true,
   },
-  computed: {
-    htmlContent() {
-      const rendered = md.render(this.content)
-      return this.noParagraph ? this.extractParagraph(rendered) : rendered
-    },
-  },
-  methods: {
-    extractParagraph(rendered) {
-      const parser = new DOMParser()
-      const doc = parser.parseFromString(rendered, 'text/html')
-      if (doc.body.children.length === 1) {
-        return doc.body.children[0].innerHTML
-      } else {
-        return rendered
-      }
-    },
-  },
+  noParagraph: Boolean,
+})
+
+const htmlContent = computed(() => {
+  const rendered = md.render(props.content)
+  return props.noParagraph ? extractParagraph(rendered) : rendered
+})
+
+function extractParagraph(rendered: string) {
+  const parser = new DOMParser()
+  const doc = parser.parseFromString(rendered, 'text/html')
+  if (doc.body.children.length === 1) {
+    return doc.body.children[0].innerHTML
+  } else {
+    return rendered
+  }
 }
 </script>
