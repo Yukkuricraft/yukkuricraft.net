@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-import locationList, {type Locations} from '../../content/locations/locationList'
+import { type Locations } from '../../content/locations/locationList'
 
 interface State {
   allLocations: Locations[]
@@ -41,13 +41,8 @@ export const useLocationsStore = defineStore('locations', {
 
       this.startLoading()
 
-      const allLocations = await Promise.all(
-        locationList.map((entry, idx) => {
-          return entry().then((locations) => ({
-            locations: locations.default,
-            idx,
-          }))
-        }),
+      const allLocations = await import('../../content/locations/locationList').then((l) =>
+        l.neoGenso.map((locations, idx) => ({ locations, idx })),
       )
 
       this.setAllLocations(allLocations)

@@ -7,7 +7,7 @@ import { defineAsyncComponent } from 'vue'
 import TextShowComponent from './TextShowComponent.vue'
 
 const markdownNow = defineAsyncComponent({
-  loader: () => import(/* webpackChunkName: "markdown" */ './MarkdownNow.vue'),
+  loader: () => import('./MarkdownNow.vue'),
   loadingComponent: TextShowComponent,
   errorComponent: TextShowComponent,
   delay: 0,

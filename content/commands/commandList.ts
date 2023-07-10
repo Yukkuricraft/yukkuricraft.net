@@ -1,3 +1,11 @@
+import general from './general.yaml'
+import tp from './tp.yaml'
+import chat from './chat.yaml'
+import feelings from './feelings.yaml'
+import nicknames from './nicknames.yaml'
+import lwc from './lwc.yaml'
+import hsh from './hsh.yaml'
+
 export interface Command {
   aliases: string[]
   description: string
@@ -5,22 +13,22 @@ export interface Command {
   tags?: string[]
 }
 
-export interface CommandGroup {
+export interface CommandGroupBase {
   displayName: string
   menuName: string
   description?: string
-  commands?: Command[]
-  // eslint-disable-next-line no-use-before-define
-  subgroups?: CommandGroups
 }
+
+export interface CommandGroupWithSubgroups extends CommandGroupBase {
+  // eslint-disable-next-line no-use-before-define
+  subgroups: CommandGroups
+}
+
+export interface CommandGroupWithCommands extends CommandGroupBase {
+  commands: Command[]
+}
+
+export type CommandGroup = CommandGroupWithSubgroups | CommandGroupWithCommands
 export type CommandGroups = {[k: string]: CommandGroup}
 
-export const general = () => import('./general.yaml') as unknown as Promise<{default: CommandGroups}>
-export const tp = () => import('./tp.yaml') as unknown as Promise<{default: CommandGroups}>
-export const chat = () => import('./chat.yaml') as unknown as Promise<{default: CommandGroups}>
-export const feelings = () => import('./feelings.yaml') as unknown as Promise<{default: CommandGroups}>
-export const nicknames = () => import('./nicknames.yaml') as unknown as Promise<{default: CommandGroups}>
-export const lwc = () => import('./lwc.yaml') as unknown as Promise<{default: CommandGroups}>
-export const hsh = () => import('./hsh.yaml') as unknown as Promise<{default: CommandGroups}>
-
-export default [general, tp, chat, feelings, nicknames, lwc, hsh]
+export default [general, tp, chat, feelings, nicknames, lwc, hsh] as CommandGroups[]

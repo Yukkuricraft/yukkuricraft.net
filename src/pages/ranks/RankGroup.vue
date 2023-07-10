@@ -36,8 +36,8 @@
 <script setup lang='ts'>
 import { BRow, BCol } from 'bootstrap-vue-next'
 
-import ConfigurableHeading from '../../components/ConfigurableHeading.vue'
-import MarkdownLater from '../../components/MarkdownLater.vue'
+import ConfigurableHeading from '@/components/ConfigurableHeading.vue'
+import MarkdownLater from '@/components/MarkdownLater.vue'
 
 defineProps({
   headingLevel: {

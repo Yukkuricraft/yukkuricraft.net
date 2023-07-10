@@ -2,7 +2,7 @@
   <b-avatar :variant="staffAvatar ? null : 'primary'" :size="size + 'px'" rounded='circle'>
 
     <picture v-if="staffAvatar" class='rounded-circle'>
-      <source v-for="(srcset, type) in staffAvatar.srcsets" :key="type" :type="type" :srcset="srcset" />
+      <source v-for="(srcset, type) in refineType<string>(staffAvatar.srcsets)" :key="type" :type="type" :srcset="srcset" />
       <img
         loading="lazy"
         class="b-avatar-img"
@@ -23,6 +23,10 @@ import { BAvatar } from 'bootstrap-vue-next'
 
 import { onServerPrefetch, ref, watch } from 'vue'
 import { staffAvatar as loadStaffAvatar } from '@/images'
+
+function refineType<V>(sources: {[k: string]: V}): Record<string, V> {
+  return sources
+}
 
 const props = defineProps({
   staffMember: {

@@ -8,7 +8,7 @@ import TextLoadingComponent from './TextLoadingComponent.vue'
 import TextErrorComponent from './TextErrorComponent.vue'
 
 const markdownNow = defineAsyncComponent({
-  loader: () => import(/* webpackChunkName: "markdown" */ './MarkdownNow.vue'),
+  loader: () => import('./MarkdownNow.vue'),
   loadingComponent: TextLoadingComponent,
   errorComponent: TextErrorComponent,
 })

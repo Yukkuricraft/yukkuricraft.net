@@ -1,3 +1,10 @@
+import neoGensoGeneral from './neo/neo_genso.yaml'
+import sdm from './neo/sdm.yaml'
+import untroddenValley from './neo/untrodden_valley.yaml'
+import youkaiMnt from './neo/youkai_mnt.yaml'
+import humanVillage from './neo/human_village.yaml'
+import forestMagic from './neo/forest_magic.yaml'
+
 export interface LocationImage {
   name: string
   title?: string
@@ -15,14 +22,4 @@ export interface Location {
 }
 export type Locations = {[k: string]: Location}
 
-
-export const neo = {
-  neo_genso: () => import('./neo/neo_genso.yaml') as unknown as Promise<{default: Locations}>,
-  sdm: () => import('./neo/sdm.yaml') as unknown as Promise<{default: Locations}>,
-  untrodden_valley: () => import('./neo/untrodden_valley.yaml') as unknown as Promise<{default: Locations}>,
-  youkai_mnt: () => import('./neo/youkai_mnt.yaml') as unknown as Promise<{default: Locations}>,
-  human_village: () => import('./neo/human_village.yaml') as unknown as Promise<{default: Locations}>,
-  forest_magic: () => import('./neo/forest_magic.yaml') as unknown as Promise<{default: Locations}>,
-}
-
-export default [neo.neo_genso, neo.sdm, neo.untrodden_valley, neo.youkai_mnt, neo.human_village, neo.forest_magic]
+export const neoGenso: Locations[] = [neoGensoGeneral, sdm, untroddenValley, youkaiMnt, humanVillage, forestMagic]

@@ -2,7 +2,8 @@ import { defineStore } from 'pinia'
 
 import merge from 'lodash/merge'
 import orderBy from 'lodash/orderBy'
-import commandList, {type CommandGroups} from '../../content/commands/commandList'
+import {type CommandGroups, type CommandGroup, type Command} from '../../content/commands/commandList'
+export {type CommandGroups, type CommandGroup, type Command}
 
 interface State {
   allCommands: CommandGroups
@@ -41,16 +42,9 @@ export const useCommandsStore = defineStore('commands', {
 
       this.startLoading()
 
-      const allCommandGroups = commandList.map((entry, idx) => {
-        return entry().then((commands) => ({
-          commands: commands.default,
-          idx,
-        }))
-      })
+      const allCommandGroups = await import('../../content/commands/commandList').then(res => res.default.map((commands,idx) => ({commands, idx})))
 
-      // We get them all together to hopefully only update the DOM once
-      const allGroups = await Promise.all(allCommandGroups)
-      this.setAllCommands(merge({}, ...orderBy(allGroups, 'idx').map((c) => c.commands)))
+      this.setAllCommands(merge({}, ...orderBy(allCommandGroups, 'idx').map((c) => c.commands)))
 
       this.endLoading()
     },

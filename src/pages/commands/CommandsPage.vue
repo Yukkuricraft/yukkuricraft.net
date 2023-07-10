@@ -15,7 +15,7 @@
 
     <div id="commandGroups">
       <command-group
-        v-for="(commandGroup, commandGroupId) in commands"
+        v-for="(commandGroup, commandGroupId) in refineType(commands)"
         :key="commandGroupId"
         :depth="0"
         :command-group-id="commandGroupId"
@@ -34,57 +34,77 @@ import { useMeta } from 'vue-meta'
 
 import CommandGroup from './CommandGroup.vue'
 
-import { useCommandsStore } from '@/stores/commands'
+import {
+  useCommandsStore,
+  type CommandGroups,
+  type Command,
+  type CommandGroup as CommandGroupTpe,
+} from '@/stores/commands'
 import { makeMeta } from '@/pageHelpers'
+
+function refineType<V>(sources: {[k: string]: V}): Record<string, V> {
+  return sources
+}
 const commandsStore = useCommandsStore()
 
 const filter = ref('')
 
-const commands = computed(() => {
-  function matchesQuery(str: string) {
+const commands = computed<CommandGroups>(() => {
+  function matchesQuery(str: string): boolean {
     return str.toLowerCase().includes(filter.value.toLowerCase())
   }
 
-  function commandMatchesQuery(command) {
-    return command.aliases.some(matchesQuery) || command.tags.some(matchesQuery) || matchesQuery(command.description)
+  function commandMatchesQuery(command: Command): boolean {
+    return command.aliases.some(matchesQuery) || command.tags?.some(matchesQuery) || matchesQuery(command.description)
   }
 
-  function filterSubgroup(subgroup) {
-    if (subgroup.subgroups && Object.entries(subgroup.subgroups).length) {
-      const subsubgroups = filterSubgroups(subgroup.subgroups)
+  function filterSubgroup(subgroup: CommandGroupTpe): CommandGroupTpe | null {
+    function handleSubgroups(subgroup: CommandGroupTpe | null): CommandGroupTpe | null {
+      if (subgroup && 'subgroups' in subgroup) {
+        const subsubgroups = filterSubgroups(subgroup.subgroups)
 
-      if (Object.entries(subsubgroups).length) {
-        subgroup.subgroups = subsubgroups
-        return subgroup
+        if (Object.entries(subsubgroups).length) {
+          return { ...subgroup, subgroups: subsubgroups }
+        } else {
+          return null
+        }
       } else {
-        return null
-      }
-    } else {
-      const validCommands = subgroup.commands.filter(commandMatchesQuery)
-
-      if (validCommands.length) {
-        subgroup.commands = validCommands
         return subgroup
-      } else {
-        return null
       }
     }
+
+    function handleCommands(subgroup: CommandGroupTpe | null): CommandGroupTpe | null {
+      if (subgroup && 'commands' in subgroup) {
+        const validCommands = subgroup.commands.filter(commandMatchesQuery)
+
+        if (validCommands.length) {
+          return { ...subgroup, commands: validCommands }
+        } else {
+          return null
+        }
+      } else {
+        return subgroup
+      }
+    }
+
+    return handleCommands(handleSubgroups(subgroup))
   }
 
-  function filterSubgroups(subgroups) {
-    Object.entries(subgroups).forEach(([id, subgroup]) => {
+  function filterSubgroups(subgroups: CommandGroups) {
+    const copy = {...subgroups}
+    Object.entries(copy).forEach(([id, subgroup]) => {
       const newSubgroup = filterSubgroup(subgroup)
       if (newSubgroup === null) {
-        delete subgroups[id]
+        delete copy[id]
       } else {
-        subgroups[id] = newSubgroup
+        copy[id] = newSubgroup
       }
     })
 
-    return subgroups
+    return copy
   }
 
-  return filter.value.length ? filterSubgroups({ ...commandsStore.allCommands }) : commandsStore.allCommands
+  return filter.value.length ? filterSubgroups(commandsStore.allCommands) : commandsStore.allCommands
 })
 
 onMounted(async () => {
@@ -114,9 +134,11 @@ watch(filter, (oldVal, val) => {
 
 onServerPrefetch(() => commandsStore.loadCommands())
 
-useMeta(makeMeta({
-  title: 'YukkuriCraft - Commands',
-  description: 'Search through the commands found on YukkuriCraft.',
-  url: 'commands/'
-}))
+useMeta(
+  makeMeta({
+    title: 'YukkuriCraft - Commands',
+    description: 'Search through the commands found on YukkuriCraft.',
+    url: 'commands/',
+  }),
+)
 </script>

@@ -15,12 +15,6 @@ import { type BackgroundKeys } from '@/images'
 import DefaultSidebar from '@/pages/DefaultSidebar.vue'
 import DefaultParallax from '@/pages/DefaultParallax.vue'
 import DownloadGensoParallax from '@/pages/downloads/DownloadGensoParallax.vue'
-import DownloadSurvivalParallax from '@/pages/downloads/DownloadSurvivalParallax.vue'
-import SurvivalFarmsParallax from '@/pages/SurvivalFarmsParallax.vue'
-import SurvivalTownsParallax from '@/pages/SurvivalTownsParallax.vue'
-import LocationsParallax from '@/pages/gensokyo/LocationsParallax.vue'
-import HelpParallax from '@/pages/gensokyo/HelpParallax.vue'
-import CommandsParallax from '@/pages/commands/CommandsParallax.vue'
 
 interface MdPage {
   vueRouterName: string
@@ -34,6 +28,8 @@ declare module 'vue-router' {
   interface RouteMeta {
     parallaxHeight?: number
     parallaxImage: BackgroundKeys | string[] | null
+    parallaxTitle?: string
+    parallaxParagraph?: string
     sidebarTitle?: string
     isError?: boolean
   }
@@ -76,7 +72,7 @@ export function createYcRouter() {
       {
         path: '/ranks/',
         name: 'ranks',
-        components: makeComponents(() => import(/* webpackChunkName: "ranksPage" */ './pages/ranks/RanksPage.vue')),
+        components: makeComponents(() => import('./pages/ranks/RanksPage.vue')),
         sensitive: true,
         meta: {
           parallaxImage: 'people',
@@ -85,7 +81,7 @@ export function createYcRouter() {
       {
         path: '/staff/',
         name: 'staff',
-        components: makeComponents(() => import(/* webpackChunkName: "staffPage" */ './pages/StaffPage.vue')),
+        components: makeComponents(() => import('./pages/StaffPage.vue')),
         sensitive: true,
         meta: {
           parallaxImage: 'people',
@@ -94,42 +90,42 @@ export function createYcRouter() {
       {
         path: '/commands/',
         name: 'commands',
-        components: makeComponents(() => import(/* webpackChunkName: "commandsPage" */ './pages/commands/CommandsPage.vue'), {
-          parallax: CommandsParallax
-        }),
+        components: makeComponents(() => import('./pages/commands/CommandsPage.vue')),
         sensitive: true,
         meta: {
           parallaxImage: 'commands',
-          sidebarTitle: 'Commands'
+          parallaxTitle: 'Commands',
+          parallaxParagraph: 'Find commonly used commands here',
+          sidebarTitle: 'Commands',
         },
       },
       {
         path: '/gensokyo/',
         name: 'gensokyo',
-        components: makeComponents(() => import(/* webpackChunkName: "gensokyoPage" */ './pages/gensokyo/LocationsPage.vue'), {
-          parallax: LocationsParallax
-        }),
+        components: makeComponents(() => import('./pages/gensokyo/LocationsPage.vue')),
         sensitive: true,
         meta: {
           parallaxImage: 'greenhouse',
+          parallaxTitle: 'Locations in Gensokyo',
+          parallaxParagraph: 'Explore our builds in Gensokyo.'
         },
       },
       {
         path: '/gensokyo/help/',
         name: 'gensokyo_help',
-        components: makeComponents(() => import(/* webpackChunkName: "gensokyoHelpPage" */ './pages/gensokyo/HelpPage.vue'), {
-          parallax: HelpParallax
-        }),
+        components: makeComponents(() => import('./pages/gensokyo/HelpPage.vue')),
         sensitive: true,
         meta: {
           parallaxImage: 'pond',
+          parallaxTitle: 'Help us build Gensokyo',
+          parallaxParagraph: 'We always need more hands to help us build Gensokyo. Here is a list of our ongoing projects.'
         },
       },
       {
         path: '/downloads/gensokyo/',
         name: 'download_genso',
         components: makeComponents(DownloadGenso, {
-          parallax: DownloadGensoParallax
+          parallax: DownloadGensoParallax,
         }),
         sensitive: true,
         meta: {
@@ -139,46 +135,45 @@ export function createYcRouter() {
       {
         path: '/downloads/survival/',
         name: 'download_survival',
-        components: makeComponents(DownloadSurvival, {
-          parallax: DownloadSurvivalParallax
-        }),
+        components: makeComponents(DownloadSurvival),
         sensitive: true,
         meta: {
           parallaxImage: 'hakurei_inside',
+          parallaxTitle: 'Past Survival downloads',
+          parallaxParagraph: 'Download the maps of past survival worlds'
         },
       },
       {
         path: '/server-activities/survival/farms/',
         name: 'survival_farms',
-        components: makeComponents(() => import(/* webpackChunkName: "survivalFarmsPage" */ './pages/SurvivalFarmsPage.vue'), {
-          parallax: SurvivalFarmsParallax
-        }),
+        components: makeComponents(() => import('./pages/SurvivalFarmsPage.vue')),
         sensitive: true,
         meta: {
           parallaxImage: 'spawner',
-          sidebarTitle: 'Farms'
+          parallaxTitle: 'Public Farms',
+          parallaxParagraph: 'Discover and enjoy our public farms in Survival.',
+          sidebarTitle: 'Farms',
         },
       },
       {
         path: '/server-activities/survival/towns/',
         name: 'survival_towns',
-        components: makeComponents(() => import(/* webpackChunkName: "survivalTownsPage" */ './pages/SurvivalTownsPage.vue'), {
-          parallax: SurvivalTownsParallax
-        }),
+        components: makeComponents(() => import('./pages/SurvivalTownsPage.vue')),
         sensitive: true,
         meta: {
           parallaxImage: 'kagome_airships',
-          sidebarTitle: 'Towns'
+          parallaxTitle: 'Towns',
+          parallaxParagraph: 'Explore the various public towns and cities in Survival.',
+          sidebarTitle: 'Towns',
         },
       },
       ...(mdPages as MdPage[]).map((page) => ({
         path: page.path,
         name: page.vueRouterName,
-        components: makeComponents(() => import(/* webpackChunkName: "markdownPages" */ './pages/MarkdownPage.vue')),
+        components: makeComponents(() => import('./pages/MarkdownPage.vue')),
         props: {
           default: {
-            content: () =>
-              import(/* webpackChunkName: "mdPage" */ `../content/pages/${removeExtension(page.contents, '.md')}.md`),
+            content: () => import(`../content/pages/${removeExtension(page.contents, '.md')}.md`),
             canonicalUrl: page.canonicalUrl,
             parallaxImagesName: page.parallaxImages,
           },
@@ -204,7 +199,7 @@ export function createYcRouter() {
                 postYear,
                 postMonth,
                 postFilename,
-              }
+              },
             },
           },
           sensitive: true,

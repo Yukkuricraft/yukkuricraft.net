@@ -18,9 +18,9 @@
       </b-container>
     </div>
 
-    <picture v-if="loadedImages">
+    <picture>
       <source
-        v-for="(typeImages, type) in loadedImages.sources"
+        v-for="(typeImages, type) in refineType(loadedImages.sources)"
         :key="type"
         :type="type"
         :srcset="typeImages.srcset"
@@ -48,6 +48,10 @@ const props = defineProps({
     default: 600,
   },
 })
+
+function refineType<V>(sources: {[k: string]: V}): Record<string, V> {
+  return sources
+}
 
 const loadedImages = computed(() => backgroundImage(props.images))
 const placeholderImage = computed(() => loadedImages.value.dataPlaceholder)

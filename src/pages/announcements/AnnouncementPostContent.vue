@@ -1,5 +1,5 @@
 <template>
-  <article v-if="postComponent" class='frontmatter-markdown'>
+  <article v-if="postComponent" class="frontmatter-markdown">
     <component :is="postComponent"></component>
   </article>
   <font-awesome-icon v-else :icon="['fas', 'spinner']" spin size="4x" />
@@ -22,9 +22,7 @@ async function loadPostComponent() {
   const { postFilename, postYear, postMonth } = props.post
 
   const postFileWithoutExt = removeExtension(postFilename, '.md')
-  const rawPost = await import(
-    /* webpackChunkName: "announcement" */ `../../../content/announcements/${postYear}/${postMonth}/${postFileWithoutExt}.md`
-    )
+  const rawPost = await import(`../../../content/announcements/${postYear}/${postMonth}/${postFileWithoutExt}.md`)
 
   postComponent.value = rawPost.VueComponent
 }

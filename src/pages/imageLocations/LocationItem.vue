@@ -6,7 +6,7 @@
     <markdown-lazy v-if="location.description" :content="location.description"></markdown-lazy>
 
     <location-item
-      v-for="(subLocation, subLocationId) in location.sublocations"
+      v-for="(subLocation, subLocationId) in refineType<LocationTpe>(location.sublocations)"
       :key="subLocationId"
       :depth="depth + 1"
       :location-id="subLocationId"
@@ -16,21 +16,21 @@
       <h5>Images</h5>
       <!-- https://startbootstrap.com/snippets/thumbnail-gallery/ -->
       <!-- https://css-tricks.com/creating-a-modal-image-gallery-with-bootstrap-components/ -->
-      <b-row v-b-modal="'locationModal-' + locationId">
-        <b-col v-for="(image, i) in getImagesWithThumbnails(location.images)" :key="i" md="4" sm="6" cols="12">
+      <b-row @click="modalShown = !modalShown">
+        <b-col v-for="(image, i) in getImagesWithThumbnails(location.images)" :key="i" md="4" sm="6" cols="12" >
           <div class="d-block mb-4 h-100" @click="slide = i">
             <picture>
               <source :srcset="image.lowResWebp" type="image/webp" />
               <source :srcset="image.lowRes" type="image/jpeg" />
 
-              <img class="img-fluid img-thumbnail" loading="lazy" :src="image.lowRes" :alt="image.name" />
+              <img class="img-fluid img-thumbnail" loading="lazy" :src="image.lowRes" :alt="image.name"/>
             </picture>
           </div>
         </b-col>
       </b-row>
 
       <b-modal
-        :id="'locationModal-' + locationId"
+        v-model="modalShown"
         ok-only
         ok-variant="secondary"
         ok-title="Close"
@@ -39,7 +39,7 @@
         centered
       >
         <template #header>
-          <h5 data-ignore-sidebar='true'>Images</h5>
+          <h5 data-ignore-sidebar="true">Images</h5>
         </template>
 
         <b-carousel :id="'locationCarousel-' + locationId" v-model="slide" controls class="mt-5" :interval="0">
@@ -54,7 +54,7 @@
                 <source :srcset="image.highResWebp" type="image/webp" />
                 <source :srcset="image.highRes" type="image/jpeg" />
 
-                <img class="d-block img-fluid w-100" loading="lazy" :src="image.highRes" :alt="image.name" />
+                <img class="d-block img-fluid w-100" loading="lazy" :src="image.highRes" :alt="image.name" @load='image.loaded = true' />
               </picture>
             </template>
           </b-carousel-slide>
@@ -65,9 +65,11 @@
 </template>
 
 <script setup lang="ts">
-import { BRow, BCol, BModal, Directives, BCarousel, BCarouselSlide } from 'bootstrap-vue-next'
+import { BRow, BCol, BModal, BCarousel, BCarouselSlide } from 'bootstrap-vue-next'
+import { ref } from 'vue'
 
 import buildImages from '../../../generated/builds/data'
+import { type LocationImage, type Location as LocationTpe } from '../../../content/locations/locationList'
 import ConfigurableHeading from '@/components/ConfigurableHeading.vue'
 
 import MarkdownLazy from '@/components/MarkdownLazy.vue'
@@ -75,15 +77,13 @@ import {
   makeImageWithThumbnails,
   type ImageWithThumbnails,
   type NestedImageData,
-  type SingleNestedImageData
+  type SingleNestedImageData,
 } from '@/images'
 
+const modalShown = ref(false)
 
-interface LocationImage {
-  name: string
-  title: string
-  description: string
-  image_taken_by: string
+function refineType<V>(sources: { [k: string]: V }): Record<string, V> {
+  return sources
 }
 
 function buildImagesForPath(path: string) {
@@ -98,7 +98,7 @@ function buildImagesForPath(path: string) {
   return obj as SingleNestedImageData
 }
 
-function getImagesWithThumbnails(images: LocationImage[]): (Location | ImageWithThumbnails)[] {
+function getImagesWithThumbnails(images: LocationImage[]): (LocationImage & ImageWithThumbnails)[] {
   const copy = []
 
   for (let i = 0; i < images.length; i++) {
@@ -123,7 +123,5 @@ defineProps({
   },
 })
 
-const slide = 0
-
-const vBModal = Directives.vBModal
+const slide = ref(0)
 </script>

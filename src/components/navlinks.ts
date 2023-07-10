@@ -1,3 +1,18 @@
+import type {RouteLocationRaw} from 'vue-router'
+
+export interface NavlinkDestination {
+  name: string
+  to: RouteLocationRaw
+}
+
+export interface NavlinkWithSubpages {
+  name: string,
+  id: string
+  subpages: NavlinkDestination[]
+}
+
+export type Navlink = NavlinkDestination | NavlinkWithSubpages
+
 export default [
   {
     to: {
@@ -89,4 +104,4 @@ export default [
       },
     ],
   },
-]
+] as Navlink[]

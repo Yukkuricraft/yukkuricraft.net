@@ -77,7 +77,7 @@ function makeToC() {
   return toC.children
 }
 
-const toc = ref(makeToC())
+const toc = ref<ToC[]>(makeToC())
 const observer = ref()
 
 onMounted(() => {
