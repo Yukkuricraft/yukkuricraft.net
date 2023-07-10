@@ -33,6 +33,8 @@ function postProcess(content) {
     dom.window.document.body.appendChild(script)
   }
 
+  dom.window.document.head.querySelector('style').remove()
+
   return dom.serialize()
 }
 
