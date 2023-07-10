@@ -1,15 +1,10 @@
 <template>
-  <b-row class='g-0'>
-    <b-col cols='1' class='pe-2'>
+  <div class='d-flex'>
+    <div class='me-3'>
       <slot name='aside'></slot>
-    </b-col>
-    <b-col cols='11'>
+    </div>
+    <div>
       <slot></slot>
-    </b-col>
-  </b-row>
+    </div>
+  </div>
 </template>
-
-<script setup lang='ts'>
-import {BCol, BRow} from 'bootstrap-vue-next'
-
-</script>
