@@ -12,13 +12,21 @@
           :key="destinationKey(subpage)"
           v-slot="{ href, navigate, isExactActive }"
           :to="subpage.to"
+          custom
         >
           <b-dropdown-item :class="[isExactActive && 'active']" :href="href" @click="navigate">
             {{ subpage.name }}
           </b-dropdown-item>
         </router-link>
       </b-nav-item-dropdown>
-      <router-link v-else :key="navlink.name" v-slot="{ href, navigate, isExactActive }" :to="navlink.to">
+      <router-link
+        v-else
+        :key="navlink.name"
+        v-slot="{ href, navigate, isExactActive }"
+        class="text-no-underline"
+        :to="navlink.to"
+        custom
+      >
         <b-nav-item :class="[isExactActive && 'active']" :href="href" @click="navigate">
           {{ navlink.name }}
         </b-nav-item>

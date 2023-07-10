@@ -4,8 +4,8 @@
   <p class="lead">Server IP: mc.yukkuricraft.net</p>
   <p>MC Version: 1.14 - 1.18</p>
 
-  <b-button :to="{ name: 'download_genso' }" variant="primary">Map download</b-button>&nbsp;
-  <b-button :to="{ name: 'download_survival' }" variant="primary">Survival download</b-button>
+  <b-button class='text-white' :to="{ name: 'download_genso' }" variant="primary">Map download</b-button>&nbsp;
+  <b-button class='text-white' :to="{ name: 'download_survival' }" variant="primary">Survival download</b-button>
 </template>
 
 <script setup lang="ts">

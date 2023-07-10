@@ -5,16 +5,16 @@
 
   <ul>
     <li v-for="h2 in toc" :key="'toCh2' + h2.id">
-      <a :href="'#' + h2.id">{{ h2.content }}</a>
+      <a class='text-no-underline' :href="'#' + h2.id">{{ h2.content }}</a>
       <ul v-if="h2.children.length">
         <li v-for="h3 in h2.children" :key="'toCh3' + h3.id">
-          <a :href="'#' + h3.id">{{ h3.content }}</a>
+          <a class='text-no-underline' :href="'#' + h3.id">{{ h3.content }}</a>
           <ul v-if="h3.children.length">
             <li v-for="h4 in h3.children" :key="'toCh4' + h4.id">
-              <a :href="'#' + h4.id">{{ h4.content }}</a>
+              <a class='text-no-underline' :href="'#' + h4.id">{{ h4.content }}</a>
               <ul v-if="h4.children.length">
                 <li v-for="h5 in h4.children" :key="'toCh5' + h5.id">
-                  <a :href="'#' + h5.id">{{ h5.content }}</a>
+                  <a class='text-no-underline' :href="'#' + h5.id">{{ h5.content }}</a>
                 </li>
               </ul>
             </li>

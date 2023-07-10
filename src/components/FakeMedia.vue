@@ -1,6 +1,6 @@
 <template>
   <b-row class='g-0'>
-    <b-col cols='1'>
+    <b-col cols='1' class='pe-2'>
       <slot name='aside'></slot>
     </b-col>
     <b-col cols='11'>

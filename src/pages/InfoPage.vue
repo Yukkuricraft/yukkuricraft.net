@@ -31,7 +31,7 @@
       </li>
     </ul>
 
-    <router-link class="btn btn-primary" :to="{ name: 'announcements' }">More announcements</router-link>
+    <router-link class="btn btn-primary text-white" :to="{ name: 'announcements' }">More announcements</router-link>
   </div>
 
   <h2 id='serverAndDiscord'>Server and Discord</h2>

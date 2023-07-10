@@ -10,6 +10,7 @@
       <info-header :in-container="false">
         <template #top>
           <b-button
+            class='text-white'
             aria-controls="sidebar-nav"
             type="button"
             variant="link"
