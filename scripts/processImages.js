@@ -83,7 +83,7 @@ async function processImage(image, globalOptions, infoObject) {
         addInfoToObject(
           file.dir + '/' + file.name,
           sizeName,
-          sizeOptions.size,
+          typeof sizeOptions === 'number' ? sizeOptions : sizeOptions.size,
           sizeOptions.minWidth,
           sizeOptions.queryOptions,
           type,
