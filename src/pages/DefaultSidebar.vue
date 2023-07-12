@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-header">
-    <h2 class='h4'>{{ route.meta.sidebarTitle || 'Navigate' }}</h2>
+    <p>{{ route.meta.sidebarTitle || 'Navigate' }}</p>
   </div>
 
   <ul>

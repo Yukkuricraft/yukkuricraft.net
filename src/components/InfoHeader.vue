@@ -1,5 +1,12 @@
 <template>
-  <b-navbar id="top-navbar" toggleable="lg" dark variant="primary" sticky="top" :container="inContainer">
+  <b-navbar
+    id="top-navbar"
+    toggleable="lg"
+    dark
+    variant="primary"
+    sticky="top"
+    :container="!inContainer ? 'fluid' : inContainer"
+  >
     <slot name="top"></slot>
     <b-navbar-brand :to="{ name: 'info' }">Yukkuricraft</b-navbar-brand>
     <b-navbar-toggle target="navbarSupportedContent" />
