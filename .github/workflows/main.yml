@@ -34,7 +34,7 @@ jobs:
           cache: 'yarn'
 
       - name: Yarn Install
-        run: yarn install --frozen-lockfile --prefer-offline
+        run: yarn install --frozen-lockfile
 
       - name: Yarn Setup
         run: yarn run setup
