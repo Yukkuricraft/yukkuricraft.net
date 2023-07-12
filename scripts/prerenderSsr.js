@@ -11,8 +11,8 @@ const toAbsolute = (p) => path.resolve(__dirname, '..', p)
 async function writeContentToDisk(page, html) {
   const dist = path.join(toAbsolute('dist/prerender'))
   const destination =
-    page.htmlFilename ?? `${page.url === '/' ? 'index' : page.url.substring(1, page.url.length - 1)}.html`
-  const completePath = path.join(dist, destination)
+    page.htmlFilename ?? `${page.url}index.html`
+  const completePath = dist + destination
 
   console.log(`Writing ${page.url} to disk at ${completePath}`)
   await fs.mkdir(path.join(completePath, '..'), { recursive: true })

@@ -1,21 +1,20 @@
 import { basename } from 'node:path'
 import { renderToString } from 'vue/server-renderer'
-import { getActiveHead } from 'unhead'
 import { renderSSRHead } from '@unhead/ssr'
 import { createYcApp } from '@/app'
 
 export async function render(url, manifest) {
-  const { app, router } = createYcApp()
+  const { app, router, head } = createYcApp()
 
   await router.push(url)
   await router.isReady()
 
   const ctx = {}
   const html = await renderToString(app, ctx)
-  const head = await renderSSRHead(getActiveHead())
+  const headPayload = await renderSSRHead(head)
 
   const preloadLinks = renderPreloadLinks(ctx.modules, manifest)
-  return [html, preloadLinks, head]
+  return [html, preloadLinks, headPayload]
 }
 
 function renderPreloadLinks(modules, manifest) {

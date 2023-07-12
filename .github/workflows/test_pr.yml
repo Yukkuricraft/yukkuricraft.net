@@ -35,7 +35,7 @@ jobs:
         run: yarn build
 
       - name: Yarn Prerender
-        run: yarn run prerender
+        run: yarn run ssr:prerender
 
       - name: Yarn Test
         run: echo "Where my tests at @katrix? :P"

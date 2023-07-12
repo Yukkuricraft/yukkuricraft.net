@@ -16,12 +16,13 @@ import './fontAwesomeLibrary'
 export function createYcApp() {
     const app = createApp(App)
     const router = createYcRouter()
+    const head = createHead()
 
     app.component('FontAwesomeIcon', FontAwesomeIcon)
 
     app.use(createPinia())
     app.use(router)
-    app.use(createHead())
+    app.use(head)
 
-    return {app, router}
+    return {app, router, head}
 }
