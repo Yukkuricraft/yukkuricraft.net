@@ -82,5 +82,6 @@
     "vue": "^3.3.4",
     "vue-meta": "^3.0.0-alpha.10",
     "vue-router": "^4.2.4"
-  }
+  },
+  "packageManager": "yarn@3.6.1"
 }
