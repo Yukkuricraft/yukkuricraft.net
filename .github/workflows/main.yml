@@ -81,7 +81,7 @@ jobs:
           cache: 'yarn'
 
       - name: Yarn Install
-        run: yarn install --frozen-lockfile --prefer-offline
+        run: yarn install --frozen-lockfile
 
       - name: Run linting
         run: yarn run lint:js
