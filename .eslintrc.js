@@ -1,31 +1,31 @@
+/* eslint-env node */
+require('@rushstack/eslint-patch/modern-module-resolution')
+
 module.exports = {
   root: true,
   env: {
     browser: true,
     es2021: true,
   },
-  parserOptions: {
-    parser: '@babel/eslint-parser',
-    requireConfigFile: false,
-  },
   extends: [
     'standard',
     'plugin:import/errors',
     'plugin:import/warnings',
-    'plugin:vue/recommended',
-    'prettier/prettier',
-    'plugin:prettier/recommended',
+    'plugin:vue/vue3-recommended',
+    'prettier',
+    '@vue/eslint-config-typescript',
   ],
-  plugins: ['vue', 'babel', 'prettier'],
   globals: {
     Modernizr: 'readonly',
+  },
+  parserOptions: {
+    ecmaVersion: 'latest',
   },
   rules: {
     'import/order': 'error',
     'import/first': 'error',
     'import/no-mutable-exports': 'error',
     'import/no-unresolved': 'off',
-    'import/no-named-as-default-member': 'off',
     'arrow-parens': 'off',
     'generator-star-spacing': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',

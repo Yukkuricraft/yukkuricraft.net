@@ -1,85 +1,17 @@
 $primary: #e56a00;
 $primary-alt: #c65000;
 
+$body-bg-dark: #222;
+$body-color-dark: #e1e1e1;
+
 $enable-responsive-font-sizes: true;
 $font-size-base: 1.2rem;
+$color-mode-type: media-query;
 
-@import "~bootstrap/scss/functions";
-@import "~bootstrap-dark-4/scss/dark/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap-dark-4/scss/variables-alt";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap-dark-4/scss/dark/mixins";
-@import "~bootstrap-dark-4/scss/dark/utilities/color-schemes";
-@import "sidebar";
+@import "/node_modules/bootstrap/scss/bootstrap";
+//@import "/node_modules/bootstrap-vue-next/src/styles/styles";
 
-
-@import "~bootstrap/scss/root";
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/type";
-@import "~bootstrap/scss/images";
-@import "~bootstrap/scss/grid";
-@import "~bootstrap/scss/tables";
-@import "~bootstrap/scss/forms";
-@import "~bootstrap/scss/buttons";
-@import "~bootstrap/scss/transitions";
-@import "~bootstrap/scss/dropdown";
-@import "~bootstrap/scss/nav";
-@import "~bootstrap/scss/navbar";
-@import "~bootstrap/scss/badge";
-@import "~bootstrap/scss/card";
-@import "~bootstrap/scss/alert";
-@import "~bootstrap/scss/close";
-@import "~bootstrap/scss/media";
-@import "~bootstrap/scss/modal";
-@import "~bootstrap/scss/carousel";
-@import "~bootstrap/scss/utilities/background";
-@import "~bootstrap/scss/utilities/borders";
-@import "~bootstrap/scss/utilities/display";
-@import "~bootstrap/scss/utilities/embed";
-@import "~bootstrap/scss/utilities/flex";
-@import "~bootstrap/scss/utilities/position";
-@import "~bootstrap/scss/utilities/screenreaders";
-@import "~bootstrap/scss/utilities/sizing";
-@import "~bootstrap/scss/utilities/spacing";
-@import "~bootstrap/scss/utilities/text";
-@import "~bootstrap/scss/utilities/visibility";
-
-@import '~bootstrap-vue/src/variables';
-@import '~bootstrap-vue/src/utilities';
-@import '~bootstrap-vue/src/custom-controls';
-@import '~bootstrap-vue/src/components/avatar/avatar';
-@import '~bootstrap-vue/src/components/dropdown/index';
-@import '~bootstrap-vue/src/components/form-input/form-input';
-@import '~bootstrap-vue/src/components/media/media';
-@import '~bootstrap-vue/src/components/modal/modal';
-
-@include prefers-color-scheme($color-scheme-alt) {
-  @import "~bootstrap-dark-4/scss/dark/root";
-  @import "~bootstrap-dark-4/scss/dark/reboot";
-  @import "~bootstrap-dark-4/scss/dark/type";
-  @import "~bootstrap-dark-4/scss/dark/images";
-  // No dark grid
-  @import "~bootstrap-dark-4/scss/dark/tables";
-  @import "~bootstrap-dark-4/scss/dark/forms";
-  @import "~bootstrap-dark-4/scss/dark/buttons";
-  // _transitions not used
-  @import "~bootstrap-dark-4/scss/dark/dropdown";
-  @import "~bootstrap-dark-4/scss/dark/nav";
-  @import "~bootstrap-dark-4/scss/dark/navbar";
-  @import "~bootstrap-dark-4/scss/dark/badge";
-  @import "~bootstrap-dark-4/scss/dark/card";
-  @import "~bootstrap-dark-4/scss/dark/alert";
-  @import "~bootstrap-dark-4/scss/dark/close";
-  // _media not used
-  @import "~bootstrap-dark-4/scss/dark/modal";
-  @import "~bootstrap-dark-4/scss/dark/carousel";
-  // _spinners not used
-  @import "~bootstrap-dark-4/scss/dark/utilities";
-  @import "~bootstrap-dark-4/scss/dark/dark";
-}
-
-@import "~bootstrap-dark-4/scss/dark/utilities/display-dark";
+@import "_sidebar.scss";
 
 *[id]:before {
   display: block;
@@ -89,6 +21,18 @@ $font-size-base: 1.2rem;
   visibility: hidden;
 }
 
+.text-no-underline {
+  text-decoration: none;
+}
+
+a:not([class]) {
+  text-decoration: none;
+}
+
+a:not([class]):hover {
+  text-decoration: underline;
+}
+
 html {
   scroll-behavior: smooth;
   position: relative;
@@ -96,16 +40,10 @@ html {
 }
 
 .command {
-  @media (prefers-color-scheme: $color-scheme-alt) {
-    color: $gray-500-alt;
-  }
   color: $gray-600;
 }
 
 .byline {
-  @media (prefers-color-scheme: $color-scheme-alt) {
-    color: $gray-500-alt;
-  }
   color: $gray-600;
   font-size: 0.9rem;
   p {
@@ -118,9 +56,6 @@ html {
   text-align: center;
   font-size: 1rem;
   color: $gray-500;
-  @media (prefers-color-scheme: $color-scheme-alt) {
-    color: $gray-400-alt;
-  }
 }
 
 #version {
@@ -194,6 +129,11 @@ html {
     display: block;
     margin: 0 auto;
   }
+}
+
+.yt-embed {
+  aspect-ratio: 16 / 9;
+  width: 100%;
 }
 
 .markdown-formatting {

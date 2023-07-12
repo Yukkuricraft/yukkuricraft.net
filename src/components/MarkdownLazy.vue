@@ -2,24 +2,22 @@
   <markdown-now :content="content" :no-paragraph="noParagraph"></markdown-now>
 </template>
 
-<script>
-import TextLoadingComponent from './TextLoadingComponent'
-import TextErrorComponent from './TextErrorComponent'
+<script setup lang="ts">
+import { defineAsyncComponent } from 'vue'
+import TextLoadingComponent from './TextLoadingComponent.vue'
+import TextErrorComponent from './TextErrorComponent.vue'
 
-export default {
-  components: {
-    markdownNow: () => ({
-      component: import(/* webpackChunkName: "markdown" */ './MarkdownNow'),
-      loading: TextLoadingComponent,
-      error: TextErrorComponent,
-    }),
+const markdownNow = defineAsyncComponent({
+  loader: () => import('./MarkdownNow.vue'),
+  loadingComponent: TextLoadingComponent,
+  errorComponent: TextErrorComponent,
+})
+
+defineProps({
+  content: {
+    type: String,
+    required: true,
   },
-  props: {
-    content: {
-      type: String,
-      required: true,
-    },
-    noParagraph: Boolean,
-  },
-}
+  noParagraph: Boolean,
+})
 </script>
