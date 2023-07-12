@@ -1,4 +1,10 @@
-import { createRouter, createWebHistory, type RouteLocationNormalized, type RouteComponent } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory,
+  type RouteLocationNormalized,
+  type RouteComponent,
+  createMemoryHistory,
+} from 'vue-router'
 
 import announcementList from '../generated/announcementList.json'
 import mdPages from '../content/pages/pages.yaml'
@@ -21,6 +27,7 @@ interface MdPage {
   canonicalUrl: string
   path: string
   parallaxImages: string
+  parallaxTitle: string
   contents: string
 }
 
@@ -45,7 +52,9 @@ function makeComponents(main: RouteComponent, others?: { parallax?: RouteCompone
 
 export function createYcRouter() {
   return createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: import.meta.env.SSR
+      ? createMemoryHistory(import.meta.env.BASE_URL)
+      : createWebHistory(import.meta.env.BASE_URL),
     routes: [
       {
         path: '/',
@@ -76,6 +85,7 @@ export function createYcRouter() {
         sensitive: true,
         meta: {
           parallaxImage: 'people',
+          parallaxTitle: 'Ranks'
         },
       },
       {
@@ -85,6 +95,7 @@ export function createYcRouter() {
         sensitive: true,
         meta: {
           parallaxImage: 'people',
+          parallaxTitle: 'Staff'
         },
       },
       {
@@ -107,7 +118,7 @@ export function createYcRouter() {
         meta: {
           parallaxImage: 'greenhouse',
           parallaxTitle: 'Locations in Gensokyo',
-          parallaxParagraph: 'Explore our builds in Gensokyo.'
+          parallaxParagraph: 'Explore our builds in Gensokyo.',
         },
       },
       {
@@ -118,7 +129,8 @@ export function createYcRouter() {
         meta: {
           parallaxImage: 'pond',
           parallaxTitle: 'Help us build Gensokyo',
-          parallaxParagraph: 'We always need more hands to help us build Gensokyo. Here is a list of our ongoing projects.'
+          parallaxParagraph:
+            'We always need more hands to help us build Gensokyo. Here is a list of our ongoing projects.',
         },
       },
       {
@@ -140,7 +152,7 @@ export function createYcRouter() {
         meta: {
           parallaxImage: 'hakurei_inside',
           parallaxTitle: 'Past Survival downloads',
-          parallaxParagraph: 'Download the maps of past survival worlds'
+          parallaxParagraph: 'Download the maps of past survival worlds',
         },
       },
       {
@@ -176,11 +188,13 @@ export function createYcRouter() {
             content: () => import(`../content/pages/${removeExtension(page.contents, '.md')}.md`),
             canonicalUrl: page.canonicalUrl,
             parallaxImagesName: page.parallaxImages,
+            parallaxTitle: ''
           },
         },
         sensitive: true,
         meta: {
           parallaxImage: ['md_pages', page.parallaxImages],
+          parallaxTitle: page.parallaxTitle
         },
       })),
       ...announcementList.map((post) => {

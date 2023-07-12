@@ -1,7 +1,5 @@
 <template>
   <div class="sidebar-wrapper">
-    <metainfo />
-
     <nav class="sidebar" :class="{ active: sidebarActive }">
       <router-view name="sidebar" />
     </nav>

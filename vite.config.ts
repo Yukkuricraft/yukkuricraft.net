@@ -44,6 +44,8 @@ export default defineConfig({
         firefox: false,
         yandex: false,
       },
+    }, {
+      failGraciously: Boolean(process.env.FAVICONS_OK_NO_FILES)
     }),
     splitVendorChunkPlugin(),
     // visualizer({ template: 'treemap', open: true, gzipSize: true }),
@@ -54,6 +56,7 @@ export default defineConfig({
     },
   },
   build: {
+    outDir: './dist/client',
     target: 'es2021',
     assetsInlineLimit: 1024,
     rollupOptions: {

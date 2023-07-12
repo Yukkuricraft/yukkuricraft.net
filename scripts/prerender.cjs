@@ -6,12 +6,10 @@ const readline = require('readline')
 const express = require('express')
 const puppeteer = require('puppeteer')
 const { JSDOM } = require('jsdom')
-const pages = require('./pages')
-
-let lastFileWrite = null
+const pages = require('./pages.cjs')
 
 async function writeContentToDisk(page, html) {
-  const dist = path.join(__dirname, '..', 'dist')
+  const dist = path.join(__dirname, '..', 'dist', 'prerender')
   const destination = page.htmlFilename ?? `${page.url}index.html`
   const completePath = dist + destination
 
@@ -54,7 +52,7 @@ async function prerenderRoute(browser, pageDesc) {
 
   await page.goto(`http://localhost:8080${pageDesc.url}`, { waitUntil: 'networkidle0' })
 
-  page.evaluate(function () {
+  await page.evaluate(function () {
     return new Promise((resolve) => {
       // Catch quick renders
       if (window.__PRERENDER_DONE) {
@@ -68,26 +66,24 @@ async function prerenderRoute(browser, pageDesc) {
   const html = await page.content()
   await page.close()
 
-  if (pageDesc.url === '/') {
-    lastFileWrite = () => writeContentToDisk(pageDesc, html)
-  } else {
-    await writeContentToDisk(pageDesc, html)
-  }
+  await writeContentToDisk(pageDesc, html)
 }
 
 async function run() {
   const stdIO = readline.createInterface({ input: process.stdin, output: process.stdout })
 
   const distPath = path.join(__dirname, '..', 'dist')
-  const baseHtmlFile = await fs.readFile(path.join(distPath, 'index.html'), { encoding: 'utf8' })
+  const baseHtmlFile = await fs.readFile(path.join(distPath, 'client', 'index.html'), { encoding: 'utf8' })
   const app = express()
 
-  app.use(express.static(distPath))
+  app.use(express.static(path.join(distPath, 'client')))
   app.get('*', (req, res) => res.send(baseHtmlFile))
   console.log('Starting webserver on port 8080')
 
   const server = app.listen(8080)
   console.log('Webserver started')
+
+  await fs.cp(path.join(distPath, 'client'), path.join(distPath, 'prerender'), { recursive: true })
 
   let browser
   try {
@@ -106,10 +102,6 @@ async function run() {
   console.log('Closing webserver')
   await server.close()
   console.log('Closed webserver')
-
-  if (lastFileWrite) {
-    await lastFileWrite()
-  }
 
   stdIO.close()
 }

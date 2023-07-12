@@ -11,11 +11,11 @@
 </template>
 
 <script setup lang="ts">
-import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue'
 
 import { makeMeta } from '@/pageHelpers'
 
-useMeta(
+useHead(
   makeMeta({
     title: 'YukkuriCraft - 404 Not found',
     description: "We couldn't find what you were looing for.",

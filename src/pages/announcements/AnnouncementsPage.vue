@@ -8,12 +8,12 @@
 </template>
 
 <script setup lang="ts">
-import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue'
 import announcementPosts from '../../../generated/announcementList.json'
 import AnnouncementExcerpt from './AnnouncementExcerpt.vue'
 import { makeMeta } from '@/pageHelpers'
 
-useMeta(
+useHead(
   makeMeta({
     title: 'YukkuriCraft - Announcements',
     description: "See what's happening in the community.",

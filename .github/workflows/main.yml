@@ -40,10 +40,10 @@ jobs:
         run: yarn run setup
 
       - name: Yarn Build
-        run: yarn build
+        run: yarn build:ssr
 
       - name: Yarn Prerender
-        run: yarn run prerender
+        run: yarn run prerender:ssr
 
       - name: Deploy-Info-Dev
         if: steps.extract_branch.outputs.branch == 'dev'
@@ -51,7 +51,7 @@ jobs:
         env:
           REPO: self
           BRANCH: gh-pages-dev
-          FOLDER: dist
+          FOLDER: dist/prerender
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy-Info-Prod
@@ -60,7 +60,7 @@ jobs:
         env:
           REPO: self
           BRANCH: gh-pages
-          FOLDER: dist
+          FOLDER: dist/prerender
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   lint:

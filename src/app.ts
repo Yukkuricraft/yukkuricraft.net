@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { createMetaManager, defaultConfig } from 'vue-meta'
+import { createHead } from '@unhead/vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import App from '@/App.vue'
@@ -13,20 +13,15 @@ import 'css.escape'
 
 import './fontAwesomeLibrary'
 
-const app = createApp(App)
+export function createYcApp() {
+    const app = createApp(App)
+    const router = createYcRouter()
 
-app.component('FontAwesomeIcon', FontAwesomeIcon)
+    app.component('FontAwesomeIcon', FontAwesomeIcon)
 
-app.use(createPinia())
-app.use(createYcRouter())
-app.use(
-  createMetaManager(undefined, {
-    ...defaultConfig,
-    canonicalLink: {
-      tag: 'link',
-      valueAttribute: 'href'
-    },
-  }),
-)
+    app.use(createPinia())
+    app.use(router)
+    app.use(createHead())
 
-app.mount('#app')
+    return {app, router}
+}

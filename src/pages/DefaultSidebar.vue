@@ -59,6 +59,10 @@ function processElement(existing: ToC, id: string, content: string, level: numbe
 const selector = 'h2[id], h3[id], h4[id], h5[id]'
 
 function makeToC() {
+  if (typeof document === 'undefined') {
+    return []
+  }
+
   const elements = document.querySelectorAll(selector)
   const toC = { id: '', content: '', level: 1, children: [], currentTopElement: null }
 

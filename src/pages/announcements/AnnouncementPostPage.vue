@@ -5,11 +5,7 @@
       <div class="byline">
         <p>
           By: {{ post.poster }}
-          <staff-avatar
-            :size="32"
-            :staff-member="post.poster"
-            :avatar-loc="posters[post.poster].avatar"
-          ></staff-avatar>
+          <staff-avatar :size="32" :staff-member="post.poster" :avatar-loc="posters[post.poster].avatar"></staff-avatar>
         </p>
         <p>Posted: {{ localizedPostedTime }}</p>
       </div>
@@ -21,7 +17,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue'
 import posters from '../../../content/announcements/posters.yaml'
 import StaffAvatar from '../../components/StaffAvatar.vue'
 import AnnouncementPostContent from './AnnouncementPostContent.vue'
@@ -46,13 +42,11 @@ const localizedPostedTime = computed(() =>
   }),
 )
 
-useMeta(
-  computed(() =>
-    makeMeta({
-      title: 'YukkuriCraft - ' + props.post.title,
-      description: props.post.excerpt,
-      url: `announcements/${postSlug.value}/`,
-    }),
-  ),
+useHead(
+  makeMeta({
+    title: computed(() => 'YukkuriCraft - ' + props.post.title),
+    description: computed(() => props.post.excerpt),
+    url: computed(() => `announcements/${postSlug.value}/`),
+  }),
 )
 </script>

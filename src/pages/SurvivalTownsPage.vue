@@ -4,12 +4,12 @@
 </template>
 
 <script setup lang="ts">
-import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue'
 import locations from '../../content/locations/towns.yaml'
 import LocationsWithImagesPage from './imageLocations/LocationsWithImagesPage.vue'
 import { makeMeta } from '@/pageHelpers'
 
-useMeta(
+useHead(
   makeMeta({
     title: 'YukkuriCraft - Towns',
     description: 'Explore the various public towns and cities in Survival.',

@@ -30,7 +30,7 @@ import { BFormGroup, BFormInput } from 'bootstrap-vue-next'
 import { computed, onMounted, onServerPrefetch, ref, watch } from 'vue'
 import queryString from 'query-string'
 
-import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue'
 
 import CommandGroup from './CommandGroup.vue'
 
@@ -134,7 +134,7 @@ watch(filter, (oldVal, val) => {
 
 onServerPrefetch(() => commandsStore.loadCommands())
 
-useMeta(
+useHead(
   makeMeta({
     title: 'YukkuriCraft - Commands',
     description: 'Search through the commands found on YukkuriCraft.',

@@ -25,10 +25,10 @@
 <script setup lang="ts">
 import { BAlert } from 'bootstrap-vue-next'
 
-import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue'
 import { makeMeta } from '@/pageHelpers'
 
-useMeta(
+useHead(
   makeMeta({
     title: 'YukkuriCraft - Downloads',
     description: 'Download our Gensokyo maps.',

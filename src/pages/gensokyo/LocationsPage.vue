@@ -5,7 +5,7 @@
 
 <script setup lang="ts">
 import merge from 'lodash/merge'
-import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue'
 import { computed, onMounted, onServerPrefetch } from 'vue'
 
 import LocationsWithImagesPage from '../imageLocations/LocationsWithImagesPage.vue'
@@ -25,7 +25,7 @@ onMounted(async () => {
   }
 })
 
-useMeta(
+useHead(
   makeMeta({
     title: 'YukkuriCraft - Gensokyo',
     description: 'Look at all the different places in our Gensokyo.',

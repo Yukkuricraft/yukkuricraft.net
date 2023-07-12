@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { computed, ref, type ComponentOptions, watch, onServerPrefetch } from 'vue'
-import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue'
 
 import { makeMeta } from '@/pageHelpers'
 
@@ -29,14 +29,12 @@ const usedComponent = ref<{ attributes: Record<string, unknown>; VueComponent: C
 const title = computed(() => (usedComponent.value?.attributes?.title as string | undefined) || '')
 const description = computed(() => (usedComponent.value?.attributes?.description as string | undefined) || '')
 
-useMeta(
-  computed(() =>
-    makeMeta({
-      title: 'YukkuriCraft - ' + title.value,
-      description: description.value,
-      url: props.canonicalUrl,
-    }),
-  ),
+useHead(
+  makeMeta({
+    title: computed(() => 'YukkuriCraft - ' + title.value),
+    description: description,
+    url: computed(() => props.canonicalUrl),
+  }),
 )
 
 watch(

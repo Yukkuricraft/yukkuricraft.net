@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const sharp = require('sharp')
 const glob = require('glob')
-const imageOptions = require('./images')
+const imageOptions = require('./images.cjs')
 
 const work = []
 let processed = 0

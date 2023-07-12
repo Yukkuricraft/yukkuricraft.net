@@ -16,12 +16,12 @@
 </template>
 
 <script setup lang='ts'>
-import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue'
 import rankGroups from '../../../content/ranks.yaml'
 import RankGroup from './RankGroup.vue'
 import { makeMeta } from '@/pageHelpers'
 
-useMeta(makeMeta({
+useHead(makeMeta({
   title: 'YukkuriCraft - Ranks',
   description: 'The different ranks found on YukkuriCraft.',
   url: 'ranks/'

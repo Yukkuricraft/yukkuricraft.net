@@ -3,12 +3,12 @@
 </template>
 
 <script setup lang='ts'>
-import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue'
 import locations from '../../content/locations/farms.yaml'
 import LocationsWithImagesPage from './imageLocations/LocationsWithImagesPage.vue'
 import { makeMeta } from '@/pageHelpers'
 
-useMeta(makeMeta({
+useHead(makeMeta({
   title: 'YukkuriCraft - Public Farms',
   description: 'Discover and enjoy our public farms in Survival.',
   url: 'server-activities/survival/farms/'

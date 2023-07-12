@@ -3,10 +3,10 @@
   <div class="markdown-formatting" v-html="htmlContent"></div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import markdownIt from 'markdown-it'
 import markdownItAnchor from 'markdown-it-anchor'
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 const md = markdownIt({ linkify: true, typographer: true }).use(markdownItAnchor, {
   slugify(s) {
@@ -26,18 +26,30 @@ const props = defineProps({
   noParagraph: Boolean,
 })
 
-const htmlContent = computed(() => {
-  const rendered = md.render(props.content)
-  return props.noParagraph ? extractParagraph(rendered) : rendered
-})
+const rendered = computed(() => md.render(props.content))
 
-function extractParagraph(rendered: string) {
-  const parser = new DOMParser()
-  const doc = parser.parseFromString(rendered, 'text/html')
-  if (doc.body.children.length === 1) {
-    return doc.body.children[0].innerHTML
-  } else {
-    return rendered
-  }
-}
+const htmlContent = ref(rendered.value)
+
+watch(
+  rendered,
+  (val) => {
+    const processDoc = (el: ParentNode) => {
+      if (el.children.length === 1) {
+        htmlContent.value = el.children[0].innerHTML
+      }
+    }
+
+    if (typeof window === 'undefined') {
+      import('jsdom').then((p) => {
+        processDoc(p.JSDOM.fragment(val))
+      })
+    } else {
+      const parser = new DOMParser()
+      processDoc(parser.parseFromString(val, 'text/html').body)
+    }
+  },
+  { immediate: true },
+)
+
+function extractParagraph(rendered: string) {}
 </script>

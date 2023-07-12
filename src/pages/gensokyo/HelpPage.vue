@@ -19,12 +19,12 @@
 </template>
 
 <script setup lang="ts">
-import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue'
 import locations from '../../../content/locations/help_locations.yaml'
 import LocationsWithImagesPage from '../imageLocations/LocationsWithImagesPage.vue'
 import { makeMeta } from '@/pageHelpers'
 
-useMeta(
+useHead(
   makeMeta({
     title: 'YukkuriCraft - Help us build!',
     description: 'Take a look at our ongoing projects in Gensokyo.',

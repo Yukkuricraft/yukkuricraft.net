@@ -68,7 +68,7 @@
 <script setup lang="ts">
 import { BAvatar } from 'bootstrap-vue-next'
 import { onMounted, onUnmounted, ref, watch } from 'vue'
-import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue'
 
 import staff from '../../content/staff.yaml'
 
@@ -209,7 +209,7 @@ async function loadRealNames() {
   }
 }
 
-useMeta(makeMeta({
+useHead(makeMeta({
   title: 'YukkuriCraft - Staff',
   description: 'The staff of YukkuriCraft.',
   url: 'staff/'

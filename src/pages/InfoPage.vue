@@ -128,7 +128,7 @@
 import { BButton, BCol, BRow } from 'bootstrap-vue-next'
 
 import { onMounted, onUnmounted, ref } from 'vue'
-import { useMeta } from 'vue-meta'
+import { useHead } from '@unhead/vue'
 
 import ServerWidget from '../components/ServerWidget.vue'
 import announcementPosts from '../../generated/announcementList.json'
@@ -174,7 +174,11 @@ onUnmounted(() => {
   useDarkTheme.removeEventListener('change', onDarkThemeChange)
 })
 
-useMeta(makeMeta({
+useHead({
+  title: 'YukkuriCraft',
+})
+
+useHead(makeMeta({
   title: 'YukkuriCraft',
   description: 'Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of Touhou Project fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all players to join the fun!',
   url: '',

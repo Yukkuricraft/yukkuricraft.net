@@ -1,6 +1,6 @@
 const fs = require('fs')
 const { create } = require('xmlbuilder2')
-const pages = require('./pages.js')
+const pages = require('./pages.cjs')
 const nowTime = new Date().toISOString()
 
 function makeEntry(obj) {
