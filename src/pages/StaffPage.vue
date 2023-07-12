@@ -79,7 +79,7 @@ import { makeMeta } from '@/pageHelpers'
 
 interface Staff {
   name: string
-  mcAccounts: {name: string; uuid: string}[]
+  mcAccounts: { name: string; uuid: string }[]
   discordAccount: string
   avatar: string
   description: string
@@ -139,15 +139,7 @@ const mcNames = ref<{ [uuid: string]: string }>(
   })(),
 )
 
-watch(
-  mcNames,
-  () => {
-    if (!isPrerender) {
-      loadRealNames()
-    }
-  },
-  { immediate: true },
-)
+watch(mcNames, () => loadRealNames(), { immediate: true })
 
 onMounted(() => document.addEventListener('keydown', processBloopers))
 
@@ -204,14 +196,21 @@ async function mcUsername(uuid: string, fallback: string) {
 }
 
 async function loadRealNames() {
-  for (const uuid of Object.keys(mcNames)) {
-    mcNames.value[uuid] = await mcUsername(uuid, mcNames.value[uuid])
+  const names = mcNames.value
+  const realNames = await Promise.all(
+    Object.keys(names).map(async (uuid) => [uuid, await mcUsername(uuid, names[uuid])]),
+  )
+
+  for (const [uuid, realName] of realNames) {
+    mcNames.value[uuid] = realName
   }
 }
 
-useHead(makeMeta({
-  title: 'YukkuriCraft - Staff',
-  description: 'The staff of YukkuriCraft.',
-  url: 'staff/'
-}))
+useHead(
+  makeMeta({
+    title: 'YukkuriCraft - Staff',
+    description: 'The staff of YukkuriCraft.',
+    url: 'staff/',
+  }),
+)
 </script>
