@@ -5,23 +5,20 @@
   </div>
 </template>
 
-<script>
-import MarkdownLazy from '../../components/MarkdownLazy'
+<script setup lang='ts'>
+import { computed } from 'vue'
+import MarkdownLazy from '@/components/MarkdownLazy.vue'
 
-export default {
-  components: { MarkdownLazy },
-  props: {
-    command: {
-      type: Object,
-      required: true,
-    },
+const props = defineProps({
+  command: {
+    type: Object,
+    required: true,
   },
-  computed: {
-    commandStr() {
-      const aliasesStr = this.command.aliases.join(' | ')
-      const args = typeof this.command.arguments !== 'undefined' ? ' ' + this.command.arguments : ''
-      return '/' + aliasesStr + args
-    },
-  },
-}
+})
+
+const commandStr = computed(() => {
+  const aliasesStr = props.command.aliases.join(' | ')
+  const args = typeof props.command.arguments !== 'undefined' ? ' ' + props.command.arguments : ''
+  return '/' + aliasesStr + args
+})
 </script>

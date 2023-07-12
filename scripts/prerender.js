@@ -33,6 +33,8 @@ function postProcess(content) {
     dom.window.document.body.appendChild(script)
   }
 
+  dom.window.document.head.querySelector('style').remove()
+
   return dom.serialize()
 }
 
@@ -89,7 +91,7 @@ async function run() {
 
   let browser
   try {
-    browser = await puppeteer.launch({ defaultViewport: { width: 1920, height: 1080 } })
+    browser = await puppeteer.launch({ defaultViewport: { width: 1920, height: 1080 }, headless: 'new' })
     await Promise.all(pages.map((p) => prerenderRoute(browser, p)))
     await browser.close()
   } catch (e) {

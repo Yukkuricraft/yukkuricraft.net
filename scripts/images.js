@@ -2,10 +2,10 @@ const backgroundOptions = {
   dir: './content/images/backgrounds/',
   outDir: './generated/backgrounds/',
   sizes: {
-    '': { size: 1920, quality: 60 },
-    lg: { size: 1200, quality: 65 },
-    md: { size: 992, quality: 70 },
-    sm: { size: 768, quality: 75 },
+    '': { size: 1920, quality: 60, minWidth: 1201 },
+    lg: { size: 1200, quality: 65, minWidth: 993 },
+    md: { size: 992, quality: 70, minWidth: 769 },
+    sm: { size: 768, quality: 75, minWidth: 565 },
     xs: { size: 576, quality: 80 },
     data: {
       size: 1920 / 8,
@@ -13,6 +13,7 @@ const backgroundOptions = {
         webp: 1,
         jpeg: 7,
       },
+      queryOptions: 'inline'
     },
   },
 }

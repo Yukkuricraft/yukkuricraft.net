@@ -25,7 +25,7 @@ jobs:
         id: extract_branch
 
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v3.5.3
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -34,7 +34,7 @@ jobs:
           cache: 'yarn'
 
       - name: Yarn Install
-        run: yarn install --frozen-lockfile --prefer-offline
+        run: yarn install --frozen-lockfile
 
       - name: Yarn Setup
         run: yarn run setup
@@ -72,7 +72,7 @@ jobs:
 
     name: Linting (Node ${{ matrix.node }})
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3.5.3
 
       - name: Setup node
         uses: actions/setup-node@v3
