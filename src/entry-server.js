@@ -1,8 +1,8 @@
 import { basename } from 'node:path'
 import { renderToString } from 'vue/server-renderer'
-import { createYcApp } from '@/app'
 import { getActiveHead } from 'unhead'
 import { renderSSRHead } from '@unhead/ssr'
+import { createYcApp } from '@/app'
 
 export async function render(url, manifest) {
   const { app, router } = createYcApp()

@@ -12,6 +12,8 @@ const route = useRoute()
 const defaultTitle = computed(() => {
   if (route.meta.parallaxTitle) {
     return route.meta.parallaxTitle
+  } else {
+    return ''
   }
 })
 </script>

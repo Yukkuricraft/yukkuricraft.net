@@ -85,7 +85,7 @@ const toc = ref<ToC[]>(makeToC())
 const observer = ref()
 
 onMounted(() => {
-  observer.value = new MutationObserver((mutations) => {
+  observer.value = new MutationObserver(() => {
     updateToc() // TODO: Be smarter here
   })
 

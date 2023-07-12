@@ -50,6 +50,4 @@ watch(
   },
   { immediate: true },
 )
-
-function extractParagraph(rendered: string) {}
 </script>

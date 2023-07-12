@@ -125,7 +125,7 @@
 </template>
 
 <script setup lang="ts">
-import { BButton, BCol, BRow } from 'bootstrap-vue-next'
+import { BCol, BRow } from 'bootstrap-vue-next'
 
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useHead } from '@unhead/vue'

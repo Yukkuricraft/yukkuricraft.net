@@ -74,7 +74,6 @@ import staff from '../../content/staff.yaml'
 
 import StaffAvatar from '@/components/StaffAvatar.vue'
 import FakeMedia from '@/components/FakeMedia.vue'
-import { isPrerender } from '@/prerender'
 import { makeMeta } from '@/pageHelpers'
 
 interface Staff {
