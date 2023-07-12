@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkinfo_yc=self.webpackChunkinfo_yc||[]).push([[3855],{68627:(s,c,e)=>{s.exports=e.p+"assets/images/chat-cbbda9f2bacbf7053fc7.png"}}]);
