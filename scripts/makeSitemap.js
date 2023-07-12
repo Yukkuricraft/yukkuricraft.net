@@ -31,5 +31,5 @@ module.exports = function () {
   })
 
   const strDoc = doc.end({ prettyPrint: true })
-  fs.writeFileSync('./dist/sitemap.xml', strDoc)
+  fs.writeFileSync('./public/sitemap.xml', strDoc)
 }
