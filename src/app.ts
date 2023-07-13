@@ -6,12 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import App from '@/App.vue'
 import { createYcRouter } from '@/router'
 
-import './scss/app.scss'
+import '@/scss/app.scss'
 import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
 
 import 'css.escape'
 
-import './fontAwesomeLibrary'
+import '@/fontAwesomeLibrary'
 
 export function createYcApp() {
     const app = createApp(App)

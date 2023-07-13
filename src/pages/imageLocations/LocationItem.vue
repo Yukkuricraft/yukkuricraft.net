@@ -17,27 +17,19 @@
       <!-- https://startbootstrap.com/snippets/thumbnail-gallery/ -->
       <!-- https://css-tricks.com/creating-a-modal-image-gallery-with-bootstrap-components/ -->
       <b-row @click="modalShown = !modalShown">
-        <b-col v-for="(image, i) in getImagesWithThumbnails(location.images)" :key="i" md="4" sm="6" cols="12" >
+        <b-col v-for="(image, i) in getImagesWithThumbnails(location.images)" :key="i" md="4" sm="6" cols="12">
           <div class="d-block mb-4 h-100" @click="slide = i">
             <picture>
               <source :srcset="image.lowResWebp" type="image/webp" />
               <source :srcset="image.lowRes" type="image/jpeg" />
 
-              <img class="img-fluid img-thumbnail" loading="lazy" :src="image.lowRes" :alt="image.name"/>
+              <img class="img-fluid img-thumbnail" loading="lazy" :src="image.lowRes" :alt="image.name" />
             </picture>
           </div>
         </b-col>
       </b-row>
 
-      <b-modal
-        v-model="modalShown"
-        ok-only
-        ok-variant="secondary"
-        ok-title="Close"
-        title="Images"
-        size="xl"
-        centered
-      >
+      <b-modal v-model="modalShown" ok-only ok-variant="secondary" ok-title="Close" title="Images" size="xl" centered>
         <template #header>
           <h5 data-ignore-sidebar="true">Images</h5>
         </template>
@@ -54,7 +46,13 @@
                 <source :srcset="image.highResWebp" type="image/webp" />
                 <source :srcset="image.highRes" type="image/jpeg" />
 
-                <img class="d-block img-fluid w-100" loading="lazy" :src="image.highRes" :alt="image.name" @load='image.loaded = true' />
+                <img
+                  class="d-block img-fluid w-100"
+                  loading="lazy"
+                  :src="image.highRes"
+                  :alt="image.name"
+                  @load="image.loaded = true"
+                />
               </picture>
             </template>
           </b-carousel-slide>
@@ -66,7 +64,7 @@
 
 <script setup lang="ts">
 import { BRow, BCol, BModal, BCarousel, BCarouselSlide } from 'bootstrap-vue-next'
-import { ref } from 'vue'
+import { type PropType, ref } from 'vue'
 
 import buildImages from '../../../generated/builds/data'
 import { type LocationImage, type Location as LocationTpe } from '../../../content/locations/locationList'
@@ -114,7 +112,7 @@ defineProps({
     required: true,
   },
   location: {
-    type: Object,
+    type: Object as PropType<LocationTpe>,
     required: true,
   },
   depth: {

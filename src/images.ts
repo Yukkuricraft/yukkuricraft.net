@@ -2,9 +2,9 @@ import groupBy from 'lodash/groupBy'
 
 import staffAvatars from '../generated/avatars/data'
 import backgrounds from '../generated/backgrounds/data'
-import faviconUpscaledI from './favicon_upscaled.png'
+import faviconUpscaledI from '@/favicon_upscaled.png'
 
-import { isPrerender } from './prerender'
+import { isPrerender } from '@/prerender'
 import { removeExtension } from '@/files'
 
 const addedPreload: string[] = []

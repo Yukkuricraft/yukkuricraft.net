@@ -8,19 +8,12 @@ import {
 
 import announcementList from '../generated/announcementList.json'
 import mdPages from '../content/pages/pages.yaml'
-import InfoPage from './pages/InfoPage.vue'
-import InfoPageParallax from '@/pages/InfoPageParallax.vue'
-import AnnouncementsPage from './pages/announcements/AnnouncementsPage.vue'
-import DownloadGenso from './pages/downloads/DownloadGensokyo.vue'
-import DownloadSurvival from './pages/downloads/DownloadSurvival.vue'
-import _404Page from './pages/404Page.vue'
-import AnnouncementPostPage from './pages/announcements/AnnouncementPostPage.vue'
+import _404Page from '@/pages/404Page.vue'
 
-import { removeExtension } from './files'
+import { removeExtension } from '@/files'
 import { type BackgroundKeys } from '@/images'
 import DefaultSidebar from '@/pages/DefaultSidebar.vue'
 import DefaultParallax from '@/pages/DefaultParallax.vue'
-import DownloadGensoParallax from '@/pages/downloads/DownloadGensoParallax.vue'
 
 interface MdPage {
   vueRouterName: string
@@ -59,8 +52,8 @@ export function createYcRouter() {
       {
         path: '/',
         name: 'info',
-        components: makeComponents(InfoPage, {
-          parallax: InfoPageParallax,
+        components: makeComponents(() => import('@/pages/InfoPage.vue'), {
+          parallax: () => import('@/pages/InfoPageParallax.vue'),
         }),
         sensitive: true,
         meta: {
@@ -70,9 +63,7 @@ export function createYcRouter() {
       {
         path: '/announcements/',
         name: 'announcements',
-        components: makeComponents(AnnouncementsPage, {
-          sidebar: undefined, // TODO
-        }),
+        components: makeComponents(() => import('@/pages/announcements/AnnouncementsPage.vue')),
         sensitive: true,
         meta: {
           parallaxImage: null,
@@ -91,7 +82,7 @@ export function createYcRouter() {
       {
         path: '/staff/',
         name: 'staff',
-        components: makeComponents(() => import('./pages/StaffPage.vue')),
+        components: makeComponents(() => import('./pages/staff/StaffPage.vue')),
         sensitive: true,
         meta: {
           parallaxImage: 'people',
@@ -136,8 +127,8 @@ export function createYcRouter() {
       {
         path: '/downloads/gensokyo/',
         name: 'download_genso',
-        components: makeComponents(DownloadGenso, {
-          parallax: DownloadGensoParallax,
+        components: makeComponents(() => import('@/pages/downloads/DownloadGensokyo.vue'), {
+          parallax: () => import('@/pages/downloads/DownloadGensoParallax.vue'),
         }),
         sensitive: true,
         meta: {
@@ -147,7 +138,7 @@ export function createYcRouter() {
       {
         path: '/downloads/survival/',
         name: 'download_survival',
-        components: makeComponents(DownloadSurvival),
+        components: makeComponents(() => import('@/pages/downloads/DownloadSurvival.vue')),
         sensitive: true,
         meta: {
           parallaxImage: 'hakurei_inside',
@@ -205,7 +196,7 @@ export function createYcRouter() {
 
         return {
           path: `/announcements/${slug}/`,
-          components: makeComponents(AnnouncementPostPage),
+          components: makeComponents(() => import('@/pages/announcements/AnnouncementPostPage.vue')),
           props: {
             default: {
               post: {

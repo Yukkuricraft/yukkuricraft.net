@@ -19,7 +19,7 @@
         :key="commandGroupId"
         :depth="0"
         :command-group-id="commandGroupId"
-        :command-group="commandGroup"
+        :command-group-arg="commandGroup"
       />
     </div>
   </div>
@@ -29,25 +29,32 @@
 import { BFormGroup, BFormInput } from 'bootstrap-vue-next'
 import { computed, onMounted, onServerPrefetch, ref, watch } from 'vue'
 import queryString from 'query-string'
-
 import { useHead } from '@unhead/vue'
+
+import merge from 'lodash/merge'
+import orderBy from 'lodash/orderBy'
+import {
+  type CommandGroups,
+  type CommandGroup as CommandGroupTpe,
+  type Command,
+} from '../../../content/commands/commandList'
 
 import CommandGroup from './CommandGroup.vue'
 
-import {
-  useCommandsStore,
-  type CommandGroups,
-  type Command,
-  type CommandGroup as CommandGroupTpe,
-} from '@/stores/commands'
 import { makeMeta } from '@/pageHelpers'
 
-function refineType<V>(sources: {[k: string]: V}): Record<string, V> {
+function refineType<V>(sources: { [k: string]: V }): Record<string, V> {
   return sources
 }
-const commandsStore = useCommandsStore()
 
 const filter = ref('')
+const allCommands = ref<CommandGroups>({})
+
+
+async function loadCommands() {
+  const allCommandGroups = await import('../../../content/commands/commandList').then(res => res.default.map((commands,idx) => ({commands, idx})))
+  allCommands.value = merge({}, ...orderBy(allCommandGroups, 'idx').map((c) => c.commands))
+}
 
 const commands = computed<CommandGroups>(() => {
   function matchesQuery(str: string): boolean {
@@ -91,7 +98,7 @@ const commands = computed<CommandGroups>(() => {
   }
 
   function filterSubgroups(subgroups: CommandGroups) {
-    const copy = {...subgroups}
+    const copy = { ...subgroups }
     Object.entries(copy).forEach(([id, subgroup]) => {
       const newSubgroup = filterSubgroup(subgroup)
       if (newSubgroup === null) {
@@ -104,7 +111,7 @@ const commands = computed<CommandGroups>(() => {
     return copy
   }
 
-  return filter.value.length ? filterSubgroups(commandsStore.allCommands) : commandsStore.allCommands
+  return filter.value.length ? filterSubgroups(allCommands.value) : allCommands.value
 })
 
 onMounted(async () => {
@@ -119,8 +126,8 @@ onMounted(async () => {
     })
   }
 
-  if (Object.entries(commandsStore.allCommands).length === 0) {
-    await commandsStore.loadCommands()
+  if (Object.entries(allCommands.value).length === 0) {
+    await loadCommands()
   }
 })
 
@@ -132,7 +139,7 @@ watch(filter, (oldVal, val) => {
   }
 })
 
-onServerPrefetch(() => commandsStore.loadCommands())
+onServerPrefetch(() => loadCommands())
 
 useHead(
   makeMeta({

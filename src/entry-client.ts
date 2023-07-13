@@ -1,5 +1,5 @@
-import { createYcApp } from "@/app";
+import { createYcApp } from '@/app'
 
-const {app, router} = createYcApp()
+const { app, router } = createYcApp()
 
-router.isReady().then(() => app.mount("#app"))
+router.isReady().then(() => app.mount('#app'))

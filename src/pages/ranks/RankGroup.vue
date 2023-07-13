@@ -7,37 +7,31 @@
 
     <markdown-later v-if="group.description" :content="group.description"></markdown-later>
 
-    <b-row v-if="group.ranks" tag="dl">
-      <template v-for="rank in group.ranks" :key='rank.name'>
-        <b-col sm="3" md="2" tag="dt">
-          <i v-if="rank.italics">
-            <b v-if="rank.bold">{{ rank.name }}:</b>
-            <template v-else>{{ rank.name }}:</template>
-          </i>
-          <b v-else-if="rank.bold">{{ rank.name }}:</b>
-          <template v-else>{{ rank.name }}:</template>
-        </b-col>
-        <b-col sm="9" md="10" tag="dd">
-          <markdown-later :content="rank.description" :no-paragraph="true"></markdown-later>
-        </b-col>
-      </template>
+    <b-row v-if="'ranks' in group" tag="dl">
+      <single-rank v-for="rank in group.ranks" :key="group.id + '_' + rank.name" :rank="rank" />
     </b-row>
     <br />
 
-    <rank-group
-      v-for="rankGroup in group.childGroups"
-      :key="rankGroup.id"
-      :group="rankGroup"
-      :heading-level="headingLevel + 1"
-    />
+    <template v-if="'childGroups' in group">
+      <rank-group
+        v-for="rankGroup in group.childGroups"
+        :key="rankGroup.id"
+        :group="rankGroup"
+        :heading-level="headingLevel + 1"
+      />
+    </template>
   </div>
 </template>
 
-<script setup lang='ts'>
-import { BRow, BCol } from 'bootstrap-vue-next'
+<script setup lang="ts">
+import { BRow } from 'bootstrap-vue-next'
 
 import ConfigurableHeading from '@/components/ConfigurableHeading.vue'
 import MarkdownLater from '@/components/MarkdownLater.vue'
+import SingleRank from './SingleRank.vue'
+
+import { type RankGroupTpe } from './RanksPage.vue'
+import { type PropType } from 'vue'
 
 defineProps({
   headingLevel: {
@@ -45,7 +39,7 @@ defineProps({
     required: true,
   },
   group: {
-    type: Object,
+    type: Object as PropType<RankGroupTpe>,
     required: true,
   },
 })

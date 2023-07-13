@@ -1,39 +1,46 @@
 <template>
   <div>
     <configurable-heading :id="'commands-' + commandGroupId" :level="3 + depth">{{
-      commandGroup.displayName
+      commandGroupArg.displayName
     }}</configurable-heading>
-    <markdown-lazy v-if="commandGroup.description" :content="commandGroup.description"></markdown-lazy>
+    <markdown-lazy v-if="commandGroupArg.description" :content="commandGroupArg.description"></markdown-lazy>
 
-    <template v-if="commandGroup.subgroups">
+    <template v-if="'subgroups' in commandGroupArg">
       <command-group
-        v-for="(subCommandGroup, subCommandGroupId) in commandGroup.subgroups"
+        v-for="(subCommandGroup, subCommandGroupId) in refineType<CommandGroupTpe>(commandGroupArg.subgroups)"
         :key="subCommandGroupId"
         :depth="depth + 1"
         :command-group-id="subCommandGroupId"
-        :command-group="subCommandGroup"
+        :command-group-arg="subCommandGroup"
       />
     </template>
     <ul v-else>
-      <li v-for="command in commandGroup.commands" :key="command.aliases.join(' | ') + (command.arguments || '')">
+      <li v-for="command in commandGroupArg.commands" :key="command.aliases.join(' | ') + (command.arguments || '')">
         <command-node :command="command"></command-node>
       </li>
     </ul>
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import CommandNode from './CommandNode.vue'
 import ConfigurableHeading from '@/components/ConfigurableHeading.vue'
 import MarkdownLazy from '@/components/MarkdownLazy.vue'
+
+import { type CommandGroup as CommandGroupTpe } from '../../../content/commands/commandList'
+import { type PropType } from 'vue'
+
+function refineType<V>(sources: { [k: string]: V }): Record<string, V> {
+  return sources
+}
 
 defineProps({
   commandGroupId: {
     type: String,
     required: true,
   },
-  commandGroup: {
-    type: Object,
+  commandGroupArg: {
+    type: Object as PropType<CommandGroupTpe>,
     required: true,
   },
   depth: {

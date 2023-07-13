@@ -5,13 +5,15 @@
   </div>
 </template>
 
-<script setup lang='ts'>
-import { computed } from 'vue'
+<script setup lang="ts">
+import { computed, type PropType } from 'vue'
 import MarkdownLazy from '@/components/MarkdownLazy.vue'
+
+import { type Command } from '../../../content/commands/commandList'
 
 const props = defineProps({
   command: {
-    type: Object,
+    type: Object as PropType<Command>,
     required: true,
   },
 })

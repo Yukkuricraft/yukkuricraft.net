@@ -19,7 +19,7 @@
 import { computed } from 'vue'
 import { useHead } from '@unhead/vue'
 import posters from '../../../content/announcements/posters.yaml'
-import StaffAvatar from '../../components/StaffAvatar.vue'
+import StaffAvatar from '@/components/StaffAvatar.vue'
 import AnnouncementPostContent from './AnnouncementPostContent.vue'
 import { removeExtension } from '@/files'
 import { makeMeta } from '@/pageHelpers'

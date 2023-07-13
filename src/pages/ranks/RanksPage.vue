@@ -17,9 +17,35 @@
 
 <script setup lang='ts'>
 import { useHead } from '@unhead/vue'
-import rankGroups from '../../../content/ranks.yaml'
+import rankGroupsUntyped from '../../../content/ranks.yaml'
 import RankGroup from './RankGroup.vue'
 import { makeMeta } from '@/pageHelpers'
+
+export interface Rank {
+  name: string
+  description: string
+  italics?: boolean
+  bold?: boolean
+}
+
+export interface RankGroupBase {
+  id: string
+  displayName: string
+  description?: string
+}
+
+export interface RankGroupWithChildren extends RankGroupBase {
+  // eslint-disable-next-line no-use-before-define
+  childGroups: RankGroupTpe[]
+}
+
+export interface RankGroupWithRanks extends RankGroupBase {
+  ranks: Rank[]
+}
+
+export type RankGroupTpe = RankGroupWithChildren | RankGroupWithRanks
+
+const rankGroups = rankGroupsUntyped as RankGroupTpe[]
 
 useHead(makeMeta({
   title: 'YukkuriCraft - Ranks',
