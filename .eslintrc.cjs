@@ -51,13 +51,6 @@ module.exports = {
       {
         'x-invalid-end-tag': false,
       },
-    ],
-    'vue/max-attributes-per-line': [
-      'error',
-      {
-        singleline: 5,
-        multiline: 1,
-      },
-    ],
+    ]
   },
 }

@@ -13,13 +13,13 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useHead } from '@unhead/vue'
 
-import staff from '../../../content/staff.yaml'
+import staff from '@cont/staff.yaml'
 
 import StaffMember from './StaffMember.vue'
 import { makeMeta } from '@/pageHelpers'
 import StaffGroup from '@/pages/staff/StaffGroup.vue'
 
-export interface StaffMember {
+export interface StaffMemberTpe {
   name: string
   mcAccounts: { name: string; uuid: string }[]
   discordAccount?: string
@@ -27,13 +27,13 @@ export interface StaffMember {
   description: string
 }
 
-export interface StaffGroup {
+export interface StaffGroupTpe {
   id: string
   displayName: string
-  members: StaffMember[]
+  members: StaffMemberTpe[]
 }
 
-interface Blooper extends StaffMember {
+interface Blooper extends StaffMemberTpe {
   id: string
   key: string
   enabled: boolean

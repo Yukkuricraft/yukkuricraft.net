@@ -7,9 +7,9 @@
 
 <script setup lang="ts">
 import { computed, type PropType } from 'vue'
+import { type Command } from '@cont/commands/commandList'
 import MarkdownLazy from '@/components/MarkdownLazy.vue'
 
-import { type Command } from '../../../content/commands/commandList'
 
 const props = defineProps({
   command: {

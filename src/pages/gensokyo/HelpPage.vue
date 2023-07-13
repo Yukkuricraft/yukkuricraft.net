@@ -1,5 +1,5 @@
 <template>
-  <locations-with-images-page :locations="locations">
+  <locations-content :locations="locations">
     <h2>Meetings</h2>
     <p>
       Builders on YukkuriCraft meet twice a month to plan, give feedback, and build together. The days these meetings
@@ -15,13 +15,13 @@
       get a rundown of the build and a way to contact the person leading it in order to help. Note: If a location
       isn't on this list that doesn't mean you can't help with it. We most likely haven't started on it yet.
     </p>
-  </locations-with-images-page>
+  </locations-content>
 </template>
 
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
-import locations from '../../../content/locations/help_locations.yaml'
-import LocationsWithImagesPage from '../imageLocations/LocationsWithImagesPage.vue'
+import locations from '@cont/locations/help_locations.yaml'
+import LocationsContent from '@/pages/imageLocations/LocationsContent.vue'
 import { makeMeta } from '@/pageHelpers'
 
 useHead(

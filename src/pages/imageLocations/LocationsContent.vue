@@ -12,10 +12,10 @@
   </main>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
+import { type PropType } from 'vue'
+import { type Locations, type Location } from '@cont/locations/locationList'
 import LocationItem from './LocationItem.vue'
-import {type PropType} from "vue";
-import { type Locations, type Location } from '../../../content/locations/locationList'
 
 function refineType<V>(sources: { [k: string]: V }): Record<string, V> {
   return sources

@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
-import announcementPosts from '../../../generated/announcementList.json'
+import announcementPosts from '@gen/announcementList.json'
 import AnnouncementExcerpt from './AnnouncementExcerpt.vue'
 import { makeMeta } from '@/pageHelpers'
 

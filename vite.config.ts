@@ -53,6 +53,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@gen': fileURLToPath(new URL('./generated', import.meta.url)),
+      '@cont': fileURLToPath(new URL('./content', import.meta.url)),
     },
   },
   build: {

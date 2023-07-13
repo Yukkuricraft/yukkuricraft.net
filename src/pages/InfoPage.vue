@@ -130,9 +130,9 @@ import { BCol, BRow } from 'bootstrap-vue-next'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useHead } from '@unhead/vue'
 
-import ServerWidget from '@/components/ServerWidget.vue'
-import announcementPosts from '../../generated/announcementList.json'
+import announcementPosts from '@gen/announcementList.json'
 import AnnouncementExcerpt from './announcements/AnnouncementExcerpt.vue'
+import ServerWidget from '@/components/ServerWidget.vue'
 import { makeMeta } from '@/pageHelpers'
 
 // Test for SSR

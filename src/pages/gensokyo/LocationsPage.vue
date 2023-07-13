@@ -1,6 +1,6 @@
 <template>
-  <locations-with-images-page :locations="locations">
-  </locations-with-images-page>
+  <locations-content :locations="locations">
+  </locations-content>
 </template>
 
 <script setup lang="ts">
@@ -8,7 +8,7 @@ import merge from 'lodash/merge'
 import { useHead } from '@unhead/vue'
 import { computed, onMounted, onServerPrefetch } from 'vue'
 
-import LocationsWithImagesPage from '../imageLocations/LocationsWithImagesPage.vue'
+import LocationsContent from '@/pages/imageLocations/LocationsContent.vue'
 import { useLocationsStore } from '@/stores/locations'
 import { makeMeta } from '@/pageHelpers'
 

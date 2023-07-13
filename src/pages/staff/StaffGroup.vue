@@ -12,12 +12,12 @@
 
 <script setup lang="ts">
 import { type PropType } from 'vue'
-import { type StaffGroup } from '@/pages/staff/StaffPage.vue'
+import { type StaffGroupTpe } from '@/pages/staff/StaffPage.vue'
 import StaffMember from '@/pages/staff/StaffMember.vue'
 
 defineProps({
   staffGroup: {
-    type: Object as PropType<StaffGroup>,
+    type: Object as PropType<StaffGroupTpe>,
     required: true,
   },
 })

@@ -33,7 +33,7 @@
 <script setup lang="ts">
 import { BCard, BCardTitle, BCardSubtitle, BCardBody } from 'bootstrap-vue-next'
 import { computed } from 'vue'
-import posters from '../../../content/announcements/posters.yaml'
+import posters from '@cont/announcements/posters.yaml'
 import StaffAvatar from '@/components/StaffAvatar.vue'
 import FakeMedia from '@/components/FakeMedia.vue'
 

@@ -17,15 +17,15 @@
 </template>
 
 <script setup lang="ts">
+import { type PropType } from 'vue'
 import FakeMedia from '@/components/FakeMedia.vue'
 import StaffAvatar from '@/components/StaffAvatar.vue'
-import { type PropType } from 'vue'
-import { type StaffMember } from '@/pages/staff/StaffPage.vue'
+import { type StaffMemberTpe } from '@/pages/staff/StaffPage.vue'
 import MinecraftAccount from '@/components/MinecraftAccount.vue'
 
 defineProps({
   staffMember: {
-    type: Object as PropType<StaffMember>,
+    type: Object as PropType<StaffMemberTpe>,
     required: true,
   },
 })

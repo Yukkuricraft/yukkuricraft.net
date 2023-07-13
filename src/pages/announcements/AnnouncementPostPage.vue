@@ -18,9 +18,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useHead } from '@unhead/vue'
-import posters from '../../../content/announcements/posters.yaml'
-import StaffAvatar from '@/components/StaffAvatar.vue'
+import posters from '@cont/announcements/posters.yaml'
 import AnnouncementPostContent from './AnnouncementPostContent.vue'
+import StaffAvatar from '@/components/StaffAvatar.vue'
 import { removeExtension } from '@/files'
 import { makeMeta } from '@/pageHelpers'
 

@@ -37,7 +37,7 @@ import {
   type CommandGroups,
   type CommandGroup as CommandGroupTpe,
   type Command,
-} from '../../../content/commands/commandList'
+} from '@cont/commands/commandList'
 
 import CommandGroup from './CommandGroup.vue'
 
@@ -52,7 +52,7 @@ const allCommands = ref<CommandGroups>({})
 
 
 async function loadCommands() {
-  const allCommandGroups = await import('../../../content/commands/commandList').then(res => res.default.map((commands,idx) => ({commands, idx})))
+  const allCommandGroups = await import('@cont/commands/commandList').then(res => res.default.map((commands,idx) => ({commands, idx})))
   allCommands.value = merge({}, ...orderBy(allCommandGroups, 'idx').map((c) => c.commands))
 }
 

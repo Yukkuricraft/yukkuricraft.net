@@ -26,12 +26,12 @@
 <script setup lang="ts">
 import { BRow } from 'bootstrap-vue-next'
 
+import { type PropType } from 'vue'
+import SingleRank from './SingleRank.vue'
+import { type RankGroupTpe } from './RanksPage.vue'
 import ConfigurableHeading from '@/components/ConfigurableHeading.vue'
 import MarkdownLater from '@/components/MarkdownLater.vue'
-import SingleRank from './SingleRank.vue'
 
-import { type RankGroupTpe } from './RanksPage.vue'
-import { type PropType } from 'vue'
 
 defineProps({
   headingLevel: {

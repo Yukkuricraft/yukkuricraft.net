@@ -17,7 +17,7 @@
 
 <script setup lang='ts'>
 import { useHead } from '@unhead/vue'
-import rankGroupsUntyped from '../../../content/ranks.yaml'
+import rankGroupsUntyped from '@cont/ranks.yaml'
 import RankGroup from './RankGroup.vue'
 import { makeMeta } from '@/pageHelpers'
 

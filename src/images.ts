@@ -1,7 +1,7 @@
 import groupBy from 'lodash/groupBy'
 
-import staffAvatars from '../generated/avatars/data'
-import backgrounds from '../generated/backgrounds/data'
+import staffAvatars from '@gen/avatars/data'
+import backgrounds from '@gen/backgrounds/data'
 import faviconUpscaledI from '@/favicon_upscaled.png'
 
 import { isPrerender } from '@/prerender'
@@ -60,12 +60,15 @@ function addPreload(href: string, mimeType: string, media?: string, onLoad?: (ev
   document.head.appendChild(preload)
 }
 
-export interface ImageWithThumbnails {
-  highRes: string
-  highResWebp: string
-  lowRes: string
-  lowResWebp: string
+export interface PictureWithWebp {
+  normal: string
+  webp: string
   loaded: boolean
+}
+
+export interface ImageWithThumbnails {
+  highRes: PictureWithWebp
+  lowRes: PictureWithWebp
 }
 
 export function makeImageWithThumbnails<A extends SingleNestedImageData>(
@@ -74,11 +77,16 @@ export function makeImageWithThumbnails<A extends SingleNestedImageData>(
   thumbnailKey: keyof A = 'thumbnail',
 ): ImageWithThumbnails {
   return {
-    highRes: nonWebpImageExtensionData(obj[largeKey])[1].filename,
-    highResWebp: obj[largeKey].webp.filename,
-    lowRes: nonWebpImageExtensionData(obj[thumbnailKey])[1].filename,
-    lowResWebp: obj[thumbnailKey].webp.filename,
-    loaded: false,
+    highRes: {
+      normal: nonWebpImageExtensionData(obj[largeKey])[1].filename,
+      webp: obj[largeKey].webp.filename,
+      loaded: false
+    },
+    lowRes: {
+      normal: nonWebpImageExtensionData(obj[thumbnailKey])[1].filename,
+      webp: obj[thumbnailKey].webp.filename,
+      loaded: false
+    },
   }
 }
 

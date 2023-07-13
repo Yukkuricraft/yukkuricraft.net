@@ -38,7 +38,7 @@ import chunk from 'lodash/chunk'
 import { computed, ref, watch } from 'vue'
 
 import { parseMCCodes } from '@/colorFormatter'
-import MinecraftAccount from "@/components/MinecraftAccount.vue";
+import MinecraftAccount from '@/components/MinecraftAccount.vue'
 
 const props = defineProps({
   ip: {
@@ -124,7 +124,7 @@ async function loadServerInfo() {
     serverPing.value.description = ping.description
     serverPing.value.players.max = ping.players.max
     serverPing.value.players.online = ping.players.online
-    serverPing.value.players.sample = (ping.players.sample as {name: string}[]).filter((o) => !o.name.includes('§'))
+    serverPing.value.players.sample = (ping.players.sample as { name: string }[]).filter((o) => !o.name.includes('§'))
     serverPing.value.version.name = ping.version.name
   }
 }

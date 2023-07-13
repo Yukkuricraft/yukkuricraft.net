@@ -23,12 +23,12 @@
 </template>
 
 <script setup lang="ts">
+import { type CommandGroup as CommandGroupTpe } from '@cont/commands/commandList'
+import { type PropType } from 'vue'
 import CommandNode from './CommandNode.vue'
 import ConfigurableHeading from '@/components/ConfigurableHeading.vue'
 import MarkdownLazy from '@/components/MarkdownLazy.vue'
 
-import { type CommandGroup as CommandGroupTpe } from '../../../content/commands/commandList'
-import { type PropType } from 'vue'
 
 function refineType<V>(sources: { [k: string]: V }): Record<string, V> {
   return sources

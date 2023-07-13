@@ -5,7 +5,7 @@
     </nav>
 
     <div class="sidebar-content site" :class="{ active: sidebarActive }">
-      <info-header :in-container="false">
+      <info-header :in-container="sidebarActive">
         <template #top>
           <b-button
             class='text-white'
