@@ -5,7 +5,7 @@
   <b-row @click="modalShown = !modalShown">
     <b-col v-for="(image, i) in imageThumbnails" :key="locationId + '_' + i" md="4" sm="6" cols="12">
       <div class="d-block mb-4 h-100" @click="slide = i">
-        <picture-with-webp :image="image.lowRes" @load="image.lowRes.loaded = true" />
+        <picture-with-webp :image="image.lowRes" :title="image.title" @load="image.lowRes.loaded = true" />
       </div>
     </b-col>
   </b-row>
@@ -23,7 +23,7 @@
         :text="image.description"
       >
         <template #img>
-          <picture-with-webp :image="image.highRes" @load="image.highRes.loaded = true" />
+          <picture-with-webp :image="image.highRes" :title="image.title" @load="image.highRes.loaded = true" />
         </template>
       </b-carousel-slide>
     </b-carousel>
@@ -57,7 +57,7 @@ const props = defineProps({
 const modalShown = ref(false)
 const slide = ref(0)
 
-const imageThumbnails = ref<ImageWithThumbnails | null>()
+const imageThumbnails = ref<(LocationImage & ImageWithThumbnails)[] | null>()
 
 watchEffect(() => {
   imageThumbnails.value = reactive(getImagesWithThumbnails(props.images))

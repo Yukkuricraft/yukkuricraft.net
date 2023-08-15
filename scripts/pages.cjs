@@ -13,7 +13,7 @@ module.exports = [
     priority: '0.80',
     mainContent: [...glob.sync('./src/pages/ranks/**/*.*'), './content/ranks.yaml'],
   },
-  { url: '/staff/', priority: '0.80', mainContent: ['./src/pages/StaffPage.vue', './content/staff.yaml'] },
+  { url: '/staff/', priority: '0.80', mainContent: ['./src/pages/staff/StaffPage.vue', './content/staff.yaml'] },
   { url: '/rules/', priority: '0.80', mainContent: ['./content/pages/Rules.md'] },
   {
     url: '/server-activities/survival/',
