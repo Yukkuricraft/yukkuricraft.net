@@ -1,7 +1,8 @@
 <template>
   <div class="mb-3">
     {{ annotation }}
-    <minecraft-account v-if="builders.length === 1"
+    <minecraft-account
+      v-if="builders.length === 1"
       :name="builders[0].name"
       :uuid="builders[0].uuid"
       fetch-username-from-uuid
@@ -10,7 +11,7 @@
     <template v-else>
       <br />
       <ul v-if="builders.length <= 5">
-        <li v-for="builder of builders" class="mb-1">
+        <li v-for="(builder, index) of builders" :key="index" class="mb-1">
           <minecraft-account
             :name="builder.name"
             :uuid="builder.uuid"
@@ -19,7 +20,9 @@
         </li>
       </ul>
       <div v-else class="d-flex flex-wrap">
-        <minecraft-account v-for="builder of builders"
+        <minecraft-account
+          v-for="(builder, index) of builders"
+          :key="index"
           :name="builder.name"
           :uuid="builder.uuid"
           fetch-username-from-uuid

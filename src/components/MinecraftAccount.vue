@@ -8,7 +8,8 @@
       :alt="realName"
       :class="collapse ? 'm-1' : ''"
     />
-    <b-tooltip v-if="collapse"
+    <b-tooltip
+      v-if="collapse"
       :target="() => $refs['mcHead']"
       :title="realName"
       placement="top"
