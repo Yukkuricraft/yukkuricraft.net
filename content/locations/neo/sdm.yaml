@@ -5,6 +5,57 @@ neogenso:
     sdm:
       displayName: Scarlet Devil Mansion
       menuName: SDM
+      builders:
+        - name: Remi_Scarlet
+          uuid: 7e55e238-6225-4b32-9a49-5ad7676ba121
+        - name: nuclearblt
+          uuid: 5f446372-58e4-4eef-ba08-0ac5af2f611b
+        - name: DariruKuro
+          uuid: 80abccf8-faf1-4ce8-ac0c-cefa2825b2c7
+        - name: Shimitty
+          uuid: cfd6cabb-1499-4301-a81d-ae5edea520d9
+        - name: wanderingAviator
+          uuid: daded0ae-3e92-4c0d-868f-35187fff5c4e
+        - name: purpleFinatic
+          uuid: 0093a48d-b26a-4e01-b090-f44ada97573e
+        - name: KokoNuttz
+          uuid: e18aa899-1c62-41ad-acc4-2ef50e46114a
+        - name: Wizard_Megumin
+          uuid: 65062d85-b5d5-4370-9a73-c956869c4746
+        - name: qscgukp_iku
+          uuid: 5b36c645-4582-49fa-a000-4af17399d2cb
+        - name: LunaPixu
+          uuid: 06526838-2df6-425a-a418-b12c5bb6f524
+        - name: Nickstel
+          uuid: 68e24735-d74d-49e5-a2f0-b045aa47840a
+        - name: Yukibara
+          uuid: 6115a433-12e7-4fc4-84f4-9077d8d6ad4b
+        - name: Rightou
+          uuid: 0a5bfa79-9afa-4aa8-a009-aeb18c54481c
+        - name: LazarusSnow
+          uuid: 61414c8b-22ad-4623-ac89-b8c4d8ef2652
+        - name: Eiburine
+          uuid: c1f44a9f-f06c-4700-a78c-001074fb33f2
+        - name: Glennkabob
+          uuid: c246c395-3c4f-40cd-a21b-929deb77c31f
+        - name: SoggyWaffle97
+          uuid: 113017cd-188e-4baa-abe4-65822302b510
+        - name: St_Suts
+          uuid: cf191e2e-c9c8-45d8-9ef6-4318bbf85f89
+        - name: Aka_Izayoi
+          uuid: 4650ed64-86f4-43d7-ae79-bba7b73c6d75
+        - name: Cyros_Lugoth
+          uuid: e48a9755-b091-4b2c-a3ae-98da341924f6
+        - name: Xoutlaw
+          uuid: 9a662948-ae8c-4eba-b945-ddefa459fc5a
+        - name: Krittercon
+          uuid: 9f57d19a-107b-4ca7-acd8-2ca6f34d333e
+        - name: Karuiko
+          uuid: 63cab192-b4b8-4f04-9227-2b0f373120ad
+        - name: Yorhia
+          uuid: 7f220236-3ef2-4e4e-b880-e40c0fdc7e76
+        - name: Seki_Tepes
+          uuid: 69b20e50-7c19-4021-baa9-3c995929bd46
       description: Home to the scarlet devil, Remilia Scarlet, and her servants
       images:
         - name: neo/sdm/front
