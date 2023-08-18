@@ -36,7 +36,7 @@ import MinecraftAccount from '@/components/MinecraftAccount.vue'
 
 interface Builder {
   name: string,
-  uuid: string
+  uuid?: string
 }
 
 const props = defineProps({
