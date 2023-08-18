@@ -15,6 +15,10 @@ export interface LocationImage {
 export interface Location {
   displayName: string
   menuName: string
+  builders?: {
+    name: string
+    uuid: string
+  }[]
   description?: string
   images?: LocationImage[]
   // eslint-disable-next-line no-use-before-define
