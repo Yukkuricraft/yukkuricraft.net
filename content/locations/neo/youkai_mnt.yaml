@@ -8,6 +8,8 @@ neogenso:
       builders:
         - name: Kogasa_Tatara
           uuid: 9c36eef0-c7ed-4eaf-99f7-984ff7c0a794
+        - name: Remi_Scarlet
+          uuid: 7e55e238-6225-4b32-9a49-5ad7676ba121
         - name: Nickstel
           uuid: 68e24735-d74d-49e5-a2f0-b045aa47840a
         - name: wanderingAviator
