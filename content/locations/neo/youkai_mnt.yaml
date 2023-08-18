@@ -5,6 +5,21 @@ neogenso:
     youkai_mnt:
       displayName: Youkai Mountain
       menuName: Youkai Mountain
+      builders:
+        - name: Kogasa_Tatara
+          uuid: 9c36eef0-c7ed-4eaf-99f7-984ff7c0a794
+        - name: Nickstel
+          uuid: 68e24735-d74d-49e5-a2f0-b045aa47840a
+        - name: wanderingAviator
+          uuid: daded0ae-3e92-4c0d-868f-35187fff5c4e
+        - name: qscgukp_iku
+          uuid: 5b36c645-4582-49fa-a000-4af17399d2cb
+        - name: Aka_Izayoi
+          uuid: 4650ed64-86f4-43d7-ae79-bba7b73c6d75
+        - name: SoggyWaffle97
+          uuid: 113017cd-188e-4baa-abe4-65822302b510
+        - name: KokoNuttz
+          uuid: e18aa899-1c62-41ad-acc4-2ef50e46114a
       images:
         - name: neo/youkai_mnt/mountain
           image_taken_by: Katrix
