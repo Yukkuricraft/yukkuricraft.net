@@ -5,6 +5,43 @@ neogenso:
     forest_magic:
       displayName: Forest of Magic
       menuName: Forest of Magic
+      builders:
+        - name: Redleaf64
+          uuid: a06791c1-5ccd-4894-9307-71818e119756
+        - name: Shimitty
+          uuid: cfd6cabb-1499-4301-a81d-ae5edea520d9
+        - name: nuclearblt
+          uuid: 5f446372-58e4-4eef-ba08-0ac5af2f611b
+        - name: wanderingAviator
+          uuid: daded0ae-3e92-4c0d-868f-35187fff5c4e
+        - name: Karuiko
+          uuid: 63cab192-b4b8-4f04-9227-2b0f373120ad
+        - name: purpleFinatic
+          uuid: 0093a48d-b26a-4e01-b090-f44ada97573e
+        - name: Yukibara
+          uuid: 6115a433-12e7-4fc4-84f4-9077d8d6ad4b
+        - name: KokoNuttz
+          uuid: e18aa899-1c62-41ad-acc4-2ef50e46114a
+        - name: Eiburine
+          uuid: c1f44a9f-f06c-4700-a78c-001074fb33f2
+        - name: Nickstel
+          uuid: 68e24735-d74d-49e5-a2f0-b045aa47840a
+        - name: qscgukp_iku
+          uuid: 5b36c645-4582-49fa-a000-4af17399d2cb
+        - name: Aloraichium_Z
+          uuid: 051a4113-9e57-4c9d-a7b7-084d63e15996
+        - name: Alayosho
+          uuid: 8d73b291-4123-4698-b21d-0bc3bdd14e29
+        - name: DariruKuro
+          uuid: 80abccf8-faf1-4ce8-ac0c-cefa2825b2c7
+        - name: BlackCatMira
+          uuid: b101511e-98c5-495e-b444-0f16cbf031d7
+        - name: MoriCT
+          uuid: e02a5272-b907-428e-9aaa-98f3316e7544
+        - name: Kaenbyou_Rin
+          uuid: 84e2cd2e-1f36-4226-b561-1508ebf08312
+        - name: Lucius_Elimine
+          uuid: 032d1436-d4b9-42eb-99f2-c5cd0600271b
       images:
         - name: neo/forest_magic/hakurei_shrine
           image_taken_by: Katrix
