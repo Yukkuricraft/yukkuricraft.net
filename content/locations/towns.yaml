@@ -134,8 +134,11 @@ towns:
     praetoria:
       displayName: Praetoria
       menuName: Praetoria
+      type: town
+      builders:
+        - name: TexasTony
+          uuid: 773534dd-1c03-4408-9ae7-b40460034f18
       description: |-
-        - Owner: TexasTony
         - Type: City
         - Dock: Kagome Airport Dock 2A
 
@@ -159,8 +162,11 @@ towns:
     star_sail_island:
       displayName: Star Sail Island
       menuName: Star Sail Island
+      type: town
+      builders:
+        - name: HERO_Z
+          uuid: fb10cb8d-5008-4143-b33b-caf14f68cf59
       description: |-
-        - Owner: HERO_Z
         - Type: Town
         - Dock: Kagome Airport Dock 1A
 
@@ -184,8 +190,11 @@ towns:
     masquerade:
       displayName: Masquerade
       menuName: Masquerade
+      type: town
+      builders:
+        - name: Seishishou
+          uuid: 53660814-7442-46d3-b887-5488272039be
       description: |-
-        - Owner: Seishishou
         - Type: Town
         - Dock: Kagome Airport Dock 2B
 
@@ -208,8 +217,11 @@ towns:
     flandern:
       displayName: Flandern
       menuName: Flandern
+      type: town
+      builders:
+        - name: Red_Flanders
+          uuid: 2f6484cb-003f-4337-ae74-2f3cc4ca1342
       description: |-
-        - Owner: Red_Flanders
         - Type: Town
         - Dock: Kagome Airport Dock 3B
 
@@ -232,8 +244,11 @@ towns:
     barracuda_wharf:
       displayName: Barracuda Wharf
       menuName: Barracuda Wharf
+      type: town
+      builders:
+        - name: Yukibara
+          uuid: 6115a433-12e7-4fc4-84f4-9077d8d6ad4b
       description: |-
-        - Owner: Yukibara
         - Type: Legacy Town
         - Dock: Kagome Naval Dock 3B
 

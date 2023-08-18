@@ -15,6 +15,7 @@ export interface LocationImage {
 export interface Location {
   displayName: string
   menuName: string
+  type?: string
   builders?: {
     name: string
     uuid: string
