@@ -8,7 +8,8 @@
       class="d-inline"
     />
     <template v-else>
-      <ul>
+      <br />
+      <ul v-if="builders.length <= 5">
         <li v-for="builder of builders" class="mb-1">
           <minecraft-account
             :name="builder.name"
@@ -17,6 +18,14 @@
           />
         </li>
       </ul>
+      <div v-else class="d-flex flex-wrap">
+        <minecraft-account v-for="builder of builders"
+          :name="builder.name"
+          :uuid="builder.uuid"
+          fetch-username-from-uuid
+          collapse
+        />
+      </div>
     </template>
   </div>
 </template>

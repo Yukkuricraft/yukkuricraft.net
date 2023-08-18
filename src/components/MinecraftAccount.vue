@@ -1,16 +1,25 @@
 <template>
-  <img
-    loading="lazy"
-    :src="'https://mc-heads.net/avatar/' + (uuid ?? name) + '/32'"
-    width="32"
-    height="32"
-    :alt="realName"
-  />
-  {{ realName }}
+  <div ref="mcHead">
+    <img
+      loading="lazy"
+      :src="'https://mc-heads.net/avatar/' + (uuid ?? name) + '/32'"
+      width="32"
+      height="32"
+      :alt="realName"
+      :class="collapse ? 'm-1' : ''"
+    />
+    <b-tooltip v-if="collapse"
+      :target="() => $refs['mcHead']"
+      :title="realName"
+      placement="top"
+    />
+    <template v-else>{{ ' ' + realName }}</template>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
+import { BTooltip } from 'bootstrap-vue-next'
 
 const props = defineProps({
   uuid: String,
@@ -19,6 +28,7 @@ const props = defineProps({
     required: true,
   },
   fetchUsernameFromUuid: Boolean,
+  collapse: Boolean,
 })
 
 const realName = ref(props.name)
