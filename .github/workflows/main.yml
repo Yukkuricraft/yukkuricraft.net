@@ -47,7 +47,7 @@ jobs:
 
       - name: Deploy-Info-Dev
         if: steps.extract_branch.outputs.branch == 'dev'
-        uses: s0/git-publish-subdir-action@v2.0.0
+        uses: s0/git-publish-subdir-action@v2.6.0
         env:
           REPO: self
           BRANCH: gh-pages-dev
@@ -56,7 +56,7 @@ jobs:
 
       - name: Deploy-Info-Prod
         if: steps.extract_branch.outputs.branch == 'master'
-        uses: s0/git-publish-subdir-action@v2.0.0
+        uses: s0/git-publish-subdir-action@v2.6.0
         env:
           REPO: self
           BRANCH: gh-pages
