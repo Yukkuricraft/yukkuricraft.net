@@ -5,6 +5,25 @@ neogenso:
     untrodden_valley:
       displayName: Untrodden Valley
       menuName: Untrodden Valley
+      builders:
+        - name: Redleaf64
+          uuid: a06791c1-5ccd-4894-9307-71818e119756
+        - name: Nickstel
+          uuid: 68e24735-d74d-49e5-a2f0-b045aa47840a
+        - name: KokoNuttz
+          uuid: e18aa899-1c62-41ad-acc4-2ef50e46114a
+        - name: Cyros_Lugoth
+          uuid: e48a9755-b091-4b2c-a3ae-98da341924f6
+        - name: Wizard_Megumin
+          uuid: 65062d85-b5d5-4370-9a73-c956869c4746
+        - name: Yukibara
+          uuid: 6115a433-12e7-4fc4-84f4-9077d8d6ad4b
+        - name: wanderingAviator
+          uuid: daded0ae-3e92-4c0d-868f-35187fff5c4e
+        - name: purpleFinatic
+          uuid: 0093a48d-b26a-4e01-b090-f44ada97573e
+        - name: LunaPixu
+          uuid: 06526838-2df6-425a-a418-b12c5bb6f524
       images:
         - name: neo/untrodden_valley/valley
           image_taken_by: Katrix
