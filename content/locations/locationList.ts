@@ -18,7 +18,7 @@ export interface Location {
   type?: string
   builders?: {
     name: string
-    uuid: string
+    uuid?: string
   }[]
   description?: string
   images?: LocationImage[]
