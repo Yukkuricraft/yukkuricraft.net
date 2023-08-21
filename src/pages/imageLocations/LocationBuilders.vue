@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type PropType } from 'vue'
+import { computed, type PropType } from 'vue'
 import MinecraftAccount from '@/components/MinecraftAccount.vue'
 
 interface Builder {
@@ -50,13 +50,15 @@ const props = defineProps({
   type: String
 })
 
-const annotation = ref("")
-switch (props.type) {
-  case 'town':
-    annotation.value = 'Owner'
-    break
-  default:
-    annotation.value = 'Builder'
-}
-annotation.value += props.builders.length > 1 ? 's:' : ':'
+const annotation = computed(() => {
+  let annotateText = ''
+  switch (props.type) {
+    case 'town':
+      annotateText = 'Owner'
+      break
+    default:
+      annotateText = 'Builder'
+  }
+  return annotateText + (props.builders.length > 1 ? 's:' : ':')
+})
 </script>
