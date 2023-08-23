@@ -171,6 +171,18 @@ export function createYcRouter() {
           sidebarTitle: 'Towns',
         },
       },
+      {
+        path: '/server-activites/yukkurikart',
+        name: 'yukkurikart',
+        components: makeComponents(() => import('@/pages/YukkuriKartPage.vue')),
+        sensitive: true,
+        meta: {
+          parallaxImage: 'yukkurikart',
+          parallaxTitle: 'YukkuriKart',
+          parallaxParagraph: 'Experience fast-paced ice boat racing fun in this new minigame.',
+          sidebarTitle: 'YukkuriKart',
+        },
+      },
       ...(mdPages as MdPage[]).map((page) => ({
         path: page.path,
         name: page.vueRouterName,

@@ -68,6 +68,12 @@ export default [
       },
       {
         to: {
+          name: 'yukkurikart',
+        },
+        name: 'YukkuriKart',
+      },
+      {
+        to: {
           name: 'survival_farms',
         },
         name: 'Public Farms',

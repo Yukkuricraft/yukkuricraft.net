@@ -32,6 +32,11 @@ module.exports = [
     mainContent: ['./src/pages/SurvivalTownsPage.vue', './content/locations/towns.yaml'],
   },
   {
+    url: '/server-activities/yukkurikart/',
+    priority: '0.70',
+    mainContent: ['./src/pages/YukkuriKartPage.vue', './content/locations/yukkurikart.yaml'],
+  },
+  {
     url: '/commands/',
     priority: '0.60',
     mainContent: [...glob.sync('./src/pages/commands/**/*.*'), ...glob.sync('./content/commands/**/*.*')],
