@@ -1,0 +1,1 @@
+import{ao as i,ac as t,aD as n,a0 as f}from"./vendor-a8507b7f.js";var l=i,_=t,u=n,p=f;function y(s,r,a){if(!p(a))return!1;var e=typeof r;return(e=="number"?_(a)&&u(r,a.length):e=="string"&&r in a)?l(a[r],s):!1}var m=y;export{m as _};
