@@ -1,1 +1,0 @@
-import{b as t}from"./index-2e89fc31.js";import{o as a,b as r,l as s,j as o}from"./vendor-a8507b7f.js";const c={},n={class:"d-flex"},d={class:"me-3"};function l(e,i){return a(),r("div",n,[s("div",d,[o(e.$slots,"aside")]),s("div",null,[o(e.$slots,"default")])])}const m=t(c,[["render",l]]);export{m as F};
