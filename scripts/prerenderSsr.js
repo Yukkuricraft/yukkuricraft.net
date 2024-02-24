@@ -35,13 +35,13 @@ async function prerenderRoute(render, template, pageDesc) {
 async function run() {
   await fs.cp(toAbsolute('dist/client/'), toAbsolute('dist/prerender'), { recursive: true })
 
-  const manifest = JSON.parse(await fs.readFile(toAbsolute('dist/client/ssr-manifest.json'), 'utf-8'))
+  const manifest = JSON.parse(await fs.readFile(toAbsolute('dist/client/.vite/ssr-manifest.json'), 'utf-8'))
   const template = await fs.readFile(toAbsolute('dist/client/index.html'), 'utf-8')
   const { render } = await import('../dist/server/entry-server.js')
 
   await Promise.all(pages.map((p) => prerenderRoute((url) => render(url, manifest), template, p)))
 
-  await fs.unlink(toAbsolute('dist/prerender/ssr-manifest.json'))
+  await fs.unlink(toAbsolute('dist/prerender/.vite/ssr-manifest.json'))
 
   console.info('Finished prerendering')
 }
