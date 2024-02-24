@@ -89,7 +89,7 @@ const commands = computed<CommandGroups>(() => {
 
   function filterSubgroup(subgroup: CommandGroupTpe): CommandGroupTpe | null {
     function handleSubgroups(subgroup: CommandGroupTpe | null): CommandGroupTpe | null {
-      if (subgroup && 'subgroups' in subgroup) {
+      if (subgroup && 'subgroups' in subgroup && subgroup.subgroups) {
         const subsubgroups = filterSubgroups(subgroup.subgroups)
 
         if (Object.entries(subsubgroups).length) {
