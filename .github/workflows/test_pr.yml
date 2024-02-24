@@ -15,6 +15,9 @@ jobs:
   deploy:
     name: Test PR with yarn
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ 18 ]
     steps:
       - name: Checkout
         uses: actions/checkout@v3.5.3
@@ -32,7 +35,7 @@ jobs:
         run: yarn run setup
 
       - name: Yarn Build
-        run: yarn build
+        run: yarn build:ssr
 
       - name: Yarn Prerender
         run: yarn run prerender:ssr
