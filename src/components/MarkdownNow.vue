@@ -39,7 +39,7 @@ watch(
       }
     }
 
-    if (typeof window === 'undefined') {
+    if (import.meta.env.SSR) {
       import('jsdom').then((p) => {
         processDoc(p.JSDOM.fragment(val))
       })

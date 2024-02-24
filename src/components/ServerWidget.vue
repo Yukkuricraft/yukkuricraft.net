@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-8">
-    <b-card no-body :style="{ height: hasServerPing ? '100%;' : undefined }">
+    <b-card no-body :style="{ height: hasServerPing ? '100%' : undefined }">
       <b-card-header>
         <pre style="display: inline">{{ ip }}</pre>
         &nbsp;
@@ -34,7 +34,6 @@
 
 <script setup lang="ts">
 import { BCard, BCardBody, BCardHeader, BCardText, BCardTitle } from 'bootstrap-vue-next'
-import chunk from 'lodash/chunk'
 import { computed, ref, watch } from 'vue'
 
 import { parseMCCodes } from '@/colorFormatter'
@@ -50,6 +49,28 @@ const props = defineProps({
     default: '25565',
   },
 })
+
+function chunk<A>(arr: A[], size: number): A[][] {
+  const copy = [...arr]
+  const res: A[][] = []
+  let currentArr: A[] = []
+  let idx = 0
+  let obj: A | undefined
+
+  // eslint-disable-next-line no-cond-assign
+  while(obj = copy.shift()) {
+    if (idx === size) {
+      res.push(currentArr)
+      currentArr = []
+      idx = 0
+    }
+
+    currentArr.push(obj)
+  }
+  res.push(currentArr)
+
+  return res
+}
 
 interface ServerPing {
   description: string
@@ -90,7 +111,7 @@ watch(
 async function mcPing() {
   const errorMsg = `Failed to get YC server info`
 
-  if (typeof window === 'undefined') {
+  if (import.meta.env.SSR) {
     return null
   }
 

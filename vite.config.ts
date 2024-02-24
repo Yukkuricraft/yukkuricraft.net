@@ -8,7 +8,7 @@ import markdownIt from 'markdown-it'
 import markdownItAnchor from 'markdown-it-anchor'
 import markdownItHtml5Embed from 'markdown-it-html5-embed'
 import vitePluginFaviconsInject from 'vite-plugin-favicons-inject'
-import visualizer from 'rollup-plugin-visualizer'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 const markdownItObj = markdownIt({ linkify: true, typographer: true })
   .use(markdownItAnchor, {
@@ -32,6 +32,7 @@ export default defineConfig({
     vue(),
     ViteYaml(),
     mdPlugin({ mode: [Mode.VUE], markdownIt: markdownItObj }),
+    // @ts-ignore
     vitePluginFaviconsInject('./src/favicon_upscaled.png', {
       appName: 'YukkuriCraft Info',
       appDescription: 'YukkuriCraft Info page',
@@ -48,7 +49,7 @@ export default defineConfig({
       failGraciously: Boolean(process.env.FAVICONS_OK_NO_FILES)
     }),
     splitVendorChunkPlugin(),
-    // visualizer({ template: 'treemap', open: true, gzipSize: true }),
+    visualizer({ template: 'treemap', open: true, gzipSize: true }),
   ],
   resolve: {
     alias: {

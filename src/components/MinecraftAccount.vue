@@ -2,25 +2,27 @@
   <div ref="mcHead">
     <img
       loading="lazy"
-      :src="'https://mc-heads.net/avatar/' + (uuid ?? name) + '/32'"
+      :src="`https://mc-heads.net/avatar/${uuid ?? name}/32`"
       width="32"
       height="32"
       :alt="realName"
-      :class="collapse ? 'm-1' : ''"
+      class="m-1"
     />
     <b-tooltip
       v-if="collapse"
-      :target="() => $refs['mcHead']"
+      :target="mcHead"
       :title="realName"
       placement="top"
     />
-    <template v-else>{{ ' ' + realName }}</template>
+    <template v-else>{{ realName }}</template>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
 import { BTooltip } from 'bootstrap-vue-next'
+
+const mcHead = ref(null)
 
 const props = defineProps({
   uuid: String,
@@ -39,10 +41,9 @@ watchEffect(async () => {
   const uuid = props.uuid
   const name = props.name
 
+  realName.value = name
   if (uuid && doFetch) {
     realName.value = await fetchMcUsername(uuid, name)
-  } else {
-    realName.value = name
   }
 })
 

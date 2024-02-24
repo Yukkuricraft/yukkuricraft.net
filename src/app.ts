@@ -3,6 +3,7 @@ import { createPinia } from 'pinia'
 import { createHead } from '@unhead/vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+import createBootstrap from 'bootstrap-vue-next'
 import App from '@/App.vue'
 import { createYcRouter } from '@/router'
 
@@ -23,6 +24,8 @@ export function createYcApp() {
     app.use(createPinia())
     app.use(router)
     app.use(head)
+    
+    app.use(createBootstrap())
 
     return {app, router, head}
 }

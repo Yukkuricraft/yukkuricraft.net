@@ -31,8 +31,6 @@ import { computed, onMounted, onServerPrefetch, ref, watch } from 'vue'
 import queryString from 'query-string'
 import { useHead } from '@unhead/vue'
 
-import merge from 'lodash/merge'
-import orderBy from 'lodash/orderBy'
 import {
   type CommandGroups,
   type CommandGroup as CommandGroupTpe,
@@ -53,7 +51,31 @@ const allCommands = ref<CommandGroups>({})
 
 async function loadCommands() {
   const allCommandGroups = await import('@cont/commands/commandList').then(res => res.default.map((commands,idx) => ({commands, idx})))
-  allCommands.value = merge({}, ...orderBy(allCommandGroups, 'idx').map((c) => c.commands))
+  allCommands.value = mergeWithSub<'subgroups', CommandGroupTpe>(allCommandGroups.sort((a, b) => a.idx - b.idx).map((c) => c.commands), 'subgroups')
+}
+
+function mergeWithSub<Sub extends string, A extends {[key in Sub]?: {[name: string]: A}}>(ass: ({[name: string]: A} | undefined)[], sub: Sub): {[name: string]: A} {
+  const res: {[name: string]: A} = {}
+
+  for (const as of ass) {
+    if (!as) {
+      continue
+    }
+
+    for (const [name, a] of Object.entries(as)) {
+      if (!res[name]) {
+        res[name] = a
+      } else {
+        const previousSub = res[name][sub]
+        const currentSub = a[sub]
+
+        res[name] = {...[res[name]], ...a}
+        res[name][sub] = mergeWithSub([previousSub, currentSub], sub) as A[Sub]
+      }
+    }
+  }
+
+  return res
 }
 
 const commands = computed<CommandGroups>(() => {
@@ -115,8 +137,7 @@ const commands = computed<CommandGroups>(() => {
 })
 
 onMounted(async () => {
-  // For SSR
-  if (typeof location !== 'undefined') {
+  if (!import.meta.env.SSR) {
     Object.entries(queryString.parse(location.search)).forEach(([key, value]) => {
       if (value && !Array.isArray(value)) {
         if (key === 'filter') {

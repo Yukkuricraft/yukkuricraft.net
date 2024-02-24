@@ -48,6 +48,19 @@
       ></iframe>
     </b-col>
   </b-row>
+  
+  <h2 id="partners">Partners</h2>
+  A list of communities that are officially partnered with Yukkuricraft
+
+  <BRow v-for="partner in partners" :key="partner.id">
+    <BCol>
+      <h3 :id="partner.id">{{partner.name}}</h3>
+      <p>{{partner.description}}</p>
+    </BCol>
+    <BCol v-if="partner.image" md="6">
+      <BImg :src="partner.image" lazy></BImg>
+    </BCol>
+  </BRow>
 
   <h2 id="subdomains">Our Subdomains and Pages</h2>
   <h3>General</h3>
@@ -125,20 +138,20 @@
 </template>
 
 <script setup lang="ts">
-import { BCol, BRow } from 'bootstrap-vue-next'
+import { BCol, BRow, BImg } from 'bootstrap-vue-next'
 
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useHead } from '@unhead/vue'
 
 import announcementPosts from '@gen/announcementList.json'
+import partners from '@cont/partners.yaml'
 import AnnouncementExcerpt from './announcements/AnnouncementExcerpt.vue'
 import ServerWidget from '@/components/ServerWidget.vue'
 import { makeMeta } from '@/pageHelpers'
 
-// Test for SSR
 // noinspection JSUnusedLocalSymbols
 const useDarkTheme =
-  typeof window !== 'undefined'
+  !import.meta.env.SSR
     ? window.matchMedia('(prefers-color-scheme: dark)')
     : {
         matches: false,

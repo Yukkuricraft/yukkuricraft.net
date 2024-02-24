@@ -8,28 +8,25 @@
       fetch-username-from-uuid
       class="d-inline"
     />
-    <template v-else>
-      <br />
-      <ul v-if="builders.length <= 5">
-        <li v-for="(builder, index) of builders" :key="index" class="mb-1">
-          <minecraft-account
-            :name="builder.name"
-            :uuid="builder.uuid"
-            fetch-username-from-uuid
-          />
-        </li>
-      </ul>
-      <div v-else class="d-flex flex-wrap">
+    <ul v-else-if="builders.length <= 5">
+      <li v-for="builder of builders" :key="builder.uuid" class="mb-1">
         <minecraft-account
-          v-for="(builder, index) of builders"
-          :key="index"
           :name="builder.name"
           :uuid="builder.uuid"
           fetch-username-from-uuid
-          collapse
         />
-      </div>
-    </template>
+      </li>
+    </ul>
+    <div v-else class="d-flex flex-wrap">
+      <minecraft-account
+        v-for="builder of builders"
+        :key="builder.uuid"
+        :name="builder.name"
+        :uuid="builder.uuid"
+        fetch-username-from-uuid
+        collapse
+      />
+    </div>
   </div>
 </template>
 
