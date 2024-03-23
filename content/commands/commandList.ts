@@ -26,6 +26,8 @@ export interface CommandGroupWithSubgroups extends CommandGroupBase {
 
 export interface CommandGroupWithCommands extends CommandGroupBase {
   commands: Command[]
+  // eslint-disable-next-line no-use-before-define
+  subgroups?: CommandGroups
 }
 
 export type CommandGroup = CommandGroupWithSubgroups | CommandGroupWithCommands

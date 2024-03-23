@@ -172,7 +172,7 @@ export function createYcRouter() {
         },
       },
       {
-        path: '/server-activites/yukkurikart',
+        path: '/server-activities/yukkurikart/',
         name: 'yukkurikart',
         components: makeComponents(() => import('@/pages/YukkuriKartPage.vue')),
         sensitive: true,

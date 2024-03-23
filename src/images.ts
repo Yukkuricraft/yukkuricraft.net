@@ -1,5 +1,3 @@
-import groupBy from 'lodash/groupBy'
-
 import staffAvatars from '@gen/avatars/data'
 import backgrounds from '@gen/backgrounds/data'
 import faviconUpscaledI from '@/favicon_upscaled.png'
@@ -24,6 +22,20 @@ interface ImageData {
   webp: ImageExtensionData
 }
 
+function groupBy<A>(arr: A[], by: (a: A) => string): {[group: string]: A[]} {
+  const res: {[group: string]: A[]} = {}
+  for (const a of arr) {
+    const group = by(a)
+    if (!res[group]) {
+      res[group] = []
+    }
+
+    res[group].push(a)
+  }
+
+  return res
+}
+
 function nonWebpImageExtensionData(data: ImageData): [string, ImageExtensionData] {
   if (!data) {
     return ['unknown', data]
@@ -40,8 +52,7 @@ export type NestedImageData = { [k: string]: NestedImageData | ImageData }
 export type SingleNestedImageData = { [k: string]: ImageData }
 
 function addPreload(href: string, mimeType: string, media?: string, onLoad?: (ev: Event) => void) {
-  // Document check for SSR
-  if (addedPreload.includes(href) || typeof document === 'undefined') {
+  if (addedPreload.includes(href) || import.meta.env.SSR) {
     return
   }
   addedPreload.push(href)

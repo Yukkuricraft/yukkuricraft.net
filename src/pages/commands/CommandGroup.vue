@@ -5,7 +5,12 @@
     }}</configurable-heading>
     <markdown-lazy v-if="commandGroupArg.description" :content="commandGroupArg.description"></markdown-lazy>
 
-    <template v-if="'subgroups' in commandGroupArg">
+    <ul v-if="'commands' in commandGroupArg">
+      <li v-for="command in commandGroupArg.commands" :key="command.aliases.join(' | ') + (command.arguments || '')">
+        <command-node :command="command"></command-node>
+      </li>
+    </ul>
+    <template v-if="commandGroupArg.subgroups">
       <command-group
         v-for="(subCommandGroup, subCommandGroupId) in refineType<CommandGroupTpe>(commandGroupArg.subgroups)"
         :key="subCommandGroupId"
@@ -14,11 +19,6 @@
         :command-group-arg="subCommandGroup"
       />
     </template>
-    <ul v-else>
-      <li v-for="command in commandGroupArg.commands" :key="command.aliases.join(' | ') + (command.arguments || '')">
-        <command-node :command="command"></command-node>
-      </li>
-    </ul>
   </div>
 </template>
 
