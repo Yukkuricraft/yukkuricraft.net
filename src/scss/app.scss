@@ -59,26 +59,6 @@ html {
   min-height: 100%;
 }
 
-/*
-$primary: #e56a00;
-$primary-alt: #c65000;
-
-$body-bg-dark: #222;
-$body-color-dark: #e1e1e1;
-
-$enable-responsive-font-sizes: true;
-$font-size-base: 1.2rem;
-$color-mode-type: media-query;
-
-$tooltip-bg: $primary-alt;
-$tooltip-color: white;
-
-@import "/node_modules/bootstrap/scss/bootstrap";
-//@import "/node_modules/bootstrap-vue-next/src/styles/styles";
-
-
-*/
-
 *[id]:before {
   display: block;
   content: ' ';
@@ -86,26 +66,6 @@ $tooltip-color: white;
   height: 52px;
   visibility: hidden;
 }
-
-/*
-.text-no-underline {
-  text-decoration: none;
-}
-
-a:not([class]) {
-  text-decoration: none;
-}
-
-a:not([class]):hover {
-  text-decoration: underline;
-}
-
-html {
-  scroll-behavior: smooth;
-  position: relative;
-  min-height: 100%;
-}
-*/
 
 .command {
   color: hsl(0, 0%, 60%);
@@ -156,9 +116,9 @@ html {
 }
 
 .parallax-text {
-  //@extend .alert;
   background-color: #4c4c4c3f;
   color: white;
+  border-radius: var(--bulma-radius);
 }
 
 @media (max-width: 576px) {
@@ -190,14 +150,6 @@ html {
 .site-content {
   flex: 1;
 }
-
-/*
-.container-pad {
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-top: 10px;
-}
-*/
 
 .markdown-formatting {
   img {
