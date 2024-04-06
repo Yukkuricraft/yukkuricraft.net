@@ -45,14 +45,14 @@ neogenso:
         - name: Lucius_Elimine
           uuid: 032d1436-d4b9-42eb-99f2-c5cd0600271b
       images:
-        - name: neo/forest_magic/hakurei_shrine
+        - name: neo_genso/forest_magic/hakurei_shrine
           image_taken_by: Katrix
 
-        - name: neo/forest_magic/alice
+        - name: neo_genso/forest_magic/alice
           image_taken_by: Katrix
 
-        - name: neo/forest_magic/marisa
+        - name: neo_genso/forest_magic/marisa
           image_taken_by: Katrix
 
-        - name: neo/forest_magic/kourindu
+        - name: neo_genso/forest_magic/kourindu
           image_taken_by: Katrix

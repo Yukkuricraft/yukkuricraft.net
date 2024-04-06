@@ -1,7 +1,7 @@
 <template>
-  <h3 :id="staffGroup.id" class="mt-5">{{ staffGroup.displayName }}</h3>
+  <h3 :id="staffGroup.id" class="title is-size-3">{{ staffGroup.displayName }}</h3>
 
-  <ul class="list-unstyled">
+  <ul>
     <staff-member
       v-for="member in staffGroup.members"
       :key="staffGroup.id + member.name"

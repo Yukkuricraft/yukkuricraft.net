@@ -1,12 +1,12 @@
 <template>
   <div class="mb-3">
-    {{ annotation }}
+    <span>{{ annotation }}</span>
     <minecraft-account
       v-if="builders.length === 1"
       :name="builders[0].name"
       :uuid="builders[0].uuid"
       fetch-username-from-uuid
-      class="d-inline"
+      class="is-display-inline"
     />
     <ul v-else-if="builders.length <= 5">
       <li v-for="builder of builders" :key="builder.uuid" class="mb-1">
@@ -17,7 +17,7 @@
         />
       </li>
     </ul>
-    <div v-else class="d-flex flex-wrap">
+    <div v-else class="is-flex is-flex-wrap-wrap">
       <minecraft-account
         v-for="builder of builders"
         :key="builder.uuid"

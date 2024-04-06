@@ -1,14 +1,13 @@
 <template>
   <div>
     <strong class="command">{{ commandStr }}</strong>
-    <markdown-lazy :content="command.description" />
+    <div class="content markdown-formatting" v-html="command.description"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, type PropType } from 'vue'
-import { type Command } from '@cont/commands/commandList'
-import MarkdownLazy from '@/components/MarkdownLazy.vue'
+import { type Command } from '@gen/commands/commandList'
 
 
 const props = defineProps({

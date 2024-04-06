@@ -1,6 +1,6 @@
 <template>
-  <h1>Announcements</h1>
-  <ul class="list-unstyled">
+  <h1 class="title is-size-1">Announcements</h1>
+  <ul>
     <li v-for="post in announcementPosts" :key="post.file" class="mb-3">
       <announcement-excerpt :heading-level="2" :post="post" />
     </li>

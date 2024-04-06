@@ -1,17 +1,21 @@
 <template>
-  <h2 id="commands">Command List</h2>
-  <div id="commandsSection">
+  <h2 id="commands" class="title is-size-2">Command List</h2>
+  <div class="subtitle">
     <p style="font-size: 18px; color: #aaafad">
       Arguments in "[" and "]" are optional. Arguments in "&lt;" and "&gt;" are required for the command to work!
     </p>
     <p style="font-size: 12px; color: #aaafad">
       This is nowhere near a complete list of commands, just some of the basics!
     </p>
+  </div>
 
-    <b-form-group>
-      <label for="commandsSearch">Search:</label>
-      <b-form-input id="commandsSearch" v-model="filter" type="text" placeholder="Search commands..." />
-    </b-form-group>
+  <div id="commandsSection">
+    <div class="field">
+      <label for="commandsSearch" class="label">Search:</label>
+      <div class="control">
+        <input id="commandsSearch" class="input" type="text" placeholder="Search commands..." />
+      </div>
+    </div>
 
     <div id="commandGroups">
       <command-group
@@ -26,16 +30,11 @@
 </template>
 
 <script setup lang="ts">
-import { BFormGroup, BFormInput } from 'bootstrap-vue-next'
 import { computed, onMounted, onServerPrefetch, ref, watch } from 'vue'
 import queryString from 'query-string'
 import { useHead } from '@unhead/vue'
 
-import {
-  type CommandGroups,
-  type CommandGroup as CommandGroupTpe,
-  type Command,
-} from '@cont/commands/commandList'
+import { type CommandGroups, type CommandGroup as CommandGroupTpe, type Command } from '@gen/commands/commandList'
 
 import CommandGroup from './CommandGroup.vue'
 
@@ -48,14 +47,21 @@ function refineType<V>(sources: { [k: string]: V }): Record<string, V> {
 const filter = ref('')
 const allCommands = ref<CommandGroups>({})
 
-
 async function loadCommands() {
-  const allCommandGroups = await import('@cont/commands/commandList').then(res => res.default.map((commands,idx) => ({commands, idx})))
-  allCommands.value = mergeWithSub<'subgroups', CommandGroupTpe>(allCommandGroups.sort((a, b) => a.idx - b.idx).map((c) => c.commands), 'subgroups')
+  const allCommandGroups = await import('@gen/commands/commandList').then((res) =>
+    res.default.map((commands, idx) => ({ commands, idx })),
+  )
+  allCommands.value = mergeWithSub<'subgroups', CommandGroupTpe>(
+    allCommandGroups.sort((a, b) => a.idx - b.idx).map((c) => c.commands),
+    'subgroups',
+  )
 }
 
-function mergeWithSub<Sub extends string, A extends {[key in Sub]?: {[name: string]: A}}>(ass: ({[name: string]: A} | undefined)[], sub: Sub): {[name: string]: A} {
-  const res: {[name: string]: A} = {}
+function mergeWithSub<Sub extends string, A extends { [key in Sub]?: { [name: string]: A } }>(
+  ass: ({ [name: string]: A } | undefined)[],
+  sub: Sub,
+): { [name: string]: A } {
+  const res: { [name: string]: A } = {}
 
   for (const as of ass) {
     if (!as) {
@@ -69,7 +75,7 @@ function mergeWithSub<Sub extends string, A extends {[key in Sub]?: {[name: stri
         const previousSub = res[name][sub]
         const currentSub = a[sub]
 
-        res[name] = {...[res[name]], ...a}
+        res[name] = { ...[res[name]], ...a }
         res[name][sub] = mergeWithSub([previousSub, currentSub], sub) as A[Sub]
       }
     }

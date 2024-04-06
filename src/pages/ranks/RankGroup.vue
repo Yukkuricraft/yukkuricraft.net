@@ -1,15 +1,15 @@
 <template>
   <div>
-    <configurable-heading :id="group.id" :level="headingLevel">
+    <configurable-heading :id="group.id" :level="headingLevel" class="title" :class="'is-size-' + headingLevel">
       <a :href="'#' + group.id"><font-awesome-icon :icon="['fas', 'link']" style="font-size: 0.5em" /></a>
       {{ group.displayName }}
     </configurable-heading>
 
-    <markdown-later v-if="group.description" :content="group.description"></markdown-later>
+    <div v-if="group.description" class="subtitle content markdown-formatting" v-html="group.description"></div>
 
-    <b-row v-if="'ranks' in group" tag="dl">
+    <dl v-if="'ranks' in group" class="columns is-multiline">
       <single-rank v-for="rank in group.ranks" :key="group.id + '_' + rank.name" :rank="rank" />
-    </b-row>
+    </dl>
     <br />
 
     <template v-if="'childGroups' in group">
@@ -24,14 +24,10 @@
 </template>
 
 <script setup lang="ts">
-import { BRow } from 'bootstrap-vue-next'
-
 import { type PropType } from 'vue'
 import SingleRank from './SingleRank.vue'
 import { type RankGroupTpe } from './RanksPage.vue'
 import ConfigurableHeading from '@/components/ConfigurableHeading.vue'
-import MarkdownLater from '@/components/MarkdownLater.vue'
-
 
 defineProps({
   headingLevel: {

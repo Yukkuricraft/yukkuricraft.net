@@ -3,7 +3,14 @@
     <source :srcset="image.webp" type="image/webp" />
     <source :srcset="image.normal" type="image/jpeg" />
 
-    <img class="img-fluid img-thumbnail" loading="lazy" :src="image.normal" :alt="title" @load="$emit('load')" />
+    <img
+      style="border-radius: var(--bulma-radius)"
+      class="image is-16by9"
+      loading="lazy"
+      :src="image.normal"
+      :alt="title"
+      @load="$emit('load')"
+    />
   </picture>
   <font-awesome-icon v-if="!image.loaded" :icon="['fas', 'spinner']" spin size="3x"></font-awesome-icon>
 </template>
@@ -20,7 +27,7 @@ defineProps({
   title: {
     type: String,
     required: false,
-  }
+  },
 })
 
 defineEmits(['load'])

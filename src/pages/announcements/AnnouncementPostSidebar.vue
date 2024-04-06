@@ -1,13 +1,9 @@
 <template>
-  <div class="sidebar-header">
-    <p>Announcements</p>
-  </div>
+  <p class="menu-label m-3">Announcements</p>
 
-  <ul>
+  <ul class="menu-list">
     <li v-for="post in announcementPosts" :key="post.file">
-      <router-link class="text-no-underline" :to="{ path: postPath(post) }">{{
-        post.title
-      }}</router-link>
+      <router-link :to="{ path: postPath(post) }">{{ post.title }}</router-link>
     </li>
   </ul>
 </template>

@@ -1,28 +1,23 @@
 <template>
-  <div ref="mcHead">
+  <span
+    v-tippy="collapse ? { content: realName, theme: 'yukkuricraft' } : null"
+    class="m-1"
+  >
     <img
       loading="lazy"
       :src="`https://mc-heads.net/avatar/${uuid ?? name}/32`"
       width="32"
       height="32"
       :alt="realName"
-      class="m-1"
+      style="vertical-align: middle"
     />
-    <b-tooltip
-      v-if="collapse"
-      :target="mcHead"
-      :title="realName"
-      placement="top"
-    />
-    <template v-else>{{ realName }}</template>
-  </div>
+  </span>
+  <span v-if="!collapse">{{ realName }}</span>
 </template>
 
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
-import { BTooltip } from 'bootstrap-vue-next'
-
-const mcHead = ref(null)
+import { directive as vTippy } from 'vue-tippy'
 
 const props = defineProps({
   uuid: String,
