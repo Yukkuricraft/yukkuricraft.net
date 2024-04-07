@@ -48,7 +48,6 @@ module.exports = [
     priority: '0.85',
     mainContent: [
       ...glob.sync('./src/pages/gensokyo/**/*.*'),
-      './content/locations/locationList.ts',
       ...glob.sync('./content/locations/neo_genso/**/*.*'),
     ],
   },
