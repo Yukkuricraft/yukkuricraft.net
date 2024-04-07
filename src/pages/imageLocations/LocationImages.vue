@@ -16,7 +16,7 @@
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides">
             <li v-for="image in imageThumbnails" :key="image.name" class="glide__slide">
-              <picture-with-webp :image="image.highRes" :title="image.title" @load="image.highRes.loaded = true" />
+              <picture-with-webp :image="image.highRes" :title="image.title" @load="imageLoaded(image.highRes)" />
             </li>
           </ul>
 
@@ -46,6 +46,7 @@ import {
   makeImageWithThumbnails,
   type NestedImageData,
   type SingleNestedImageData,
+  type PictureWithWebp as PictureWithWebpTpe
 } from '@/images'
 
 const props = defineProps({
@@ -103,6 +104,13 @@ function openModalOnSlide(i: number) {
   modalShown.value = true
 
   glideObj.value?.mount({ Images, Controls, Keyboard, Swipe })
+  setTimeout(() => {
+    glideObj.value?.update()
+  }, 50)
+}
+
+function imageLoaded(image: PictureWithWebpTpe) {
+  image.loaded = true
   setTimeout(() => {
     glideObj.value?.update()
   }, 50)
