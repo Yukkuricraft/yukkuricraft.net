@@ -11,7 +11,6 @@
   <div class="modal" :class="{ 'is-active': modalShown }">
     <div class="modal-background" @click="modalShown = false"></div>
     <div class="modal-content" style="max-height: 100%; width: 80vw">
-      -->
       <div :id="'locationCarousel-' + locationId" ref="carousel" class="glide">
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides">

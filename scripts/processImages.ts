@@ -1,16 +1,27 @@
 /* eslint-disable no-console */
-const fs = require('fs')
-const path = require('path')
-const sharp = require('sharp')
-const glob = require('glob')
-const imageOptions = require('./images.cjs')
+import fs from 'fs'
+import path from 'node:path'
+import sharp from 'sharp'
+import { glob } from 'glob'
 
-const work = []
+import imageOptions, { type ImageOptions, type Qualities, type Size } from './images'
+
+const work: Promise<any>[] = []
 let processed = 0
 let proccessAmount = 0
 
-function addInfoToObject(file, sizeName, size, minWidth, queryOptions, extension, outputFile, outDir, obj) {
-  const pathParts = file.replaceAll('\\', '/').split('/')
+function addInfoToObject(
+  file: string,
+  sizeName: string | undefined,
+  size: number | Size,
+  minWidth: number | undefined,
+  queryOptions: string | undefined,
+  extension: string,
+  outputFile: string,
+  outDir: string,
+  obj,
+) {
+  const pathParts: string[] = file.replaceAll('\\', '/').split('/')
   if (pathParts[0] === '') {
     pathParts.shift()
   }
@@ -38,26 +49,26 @@ function addInfoToObject(file, sizeName, size, minWidth, queryOptions, extension
   }
 }
 
-async function processImage(image, globalOptions, infoObject) {
+async function processImage(image: string, globalOptions: ImageOptions, infoObject) {
   const file = path.parse(path.relative(globalOptions.dir, image))
   const outputFileBase = globalOptions.outDir + file.dir + '/' + file.name
   fs.mkdirSync(globalOptions.outDir + file.dir, { recursive: true })
 
-  function callIfFunction(val) {
-    return typeof val === 'function' ? val(image) : val
+  function callIfFunction<A>(val: ((image: string) => A) | A) {
+    return typeof val === 'function' ? (val as (image: string) => A)(image) : val
   }
 
-  function getQuality(options) {
+  function getQuality(options: { quality?: Qualities }) {
     return callIfFunction(options.quality || globalOptions.quality)
   }
 
-  function types(options) {
+  function types(options: { quality?: Qualities }) {
     const quality = getQuality(options)
 
     return typeof quality === 'object' ? Object.keys(quality) : [quality === true ? 'png' : 'jpeg', 'webp']
   }
 
-  function base(type, options) {
+  function base(type: string, options: { quality?: Qualities }) {
     const base = sharp(image)
     const quality = getQuality(options)
 
@@ -72,20 +83,19 @@ async function processImage(image, globalOptions, infoObject) {
   const res = []
   if (globalOptions.sizes) {
     for (const [sizeName, sizeOptions] of Object.entries(globalOptions.sizes)) {
-      for (const type of types(sizeOptions)) {
+      const sizeOptionsObj = typeof sizeOptions === 'number' ? {} : sizeOptions
+      for (const type of types(sizeOptionsObj)) {
         const outputFile = outputFileBase + (sizeName !== '' ? '_' : '') + sizeName + '.' + type
-        res.push(
-          base(type, sizeOptions)
-            .resize(callIfFunction(sizeOptions.size) || sizeOptions)
-            .toFile(outputFile),
-        )
+        const sizeNum = typeof sizeOptions === 'object' ? sizeOptions.size : sizeOptions
+        const sizeObj: Size | undefined = typeof sizeOptions === 'object' ? sizeOptions : undefined
+        res.push(base(type, sizeOptionsObj).resize(sizeNum).toFile(outputFile))
 
         addInfoToObject(
           file.dir + '/' + file.name,
           sizeName,
-          typeof sizeOptions === 'number' ? sizeOptions : sizeOptions.size,
-          sizeOptions.minWidth,
-          sizeOptions.queryOptions,
+          sizeNum,
+          sizeObj?.minWidth,
+          sizeObj?.queryOptions,
           type,
           outputFile,
           globalOptions.outDir,
@@ -107,6 +117,7 @@ async function processImage(image, globalOptions, infoObject) {
         undefined,
         type,
         outputFile,
+        globalOptions.outDir,
         infoObject,
       )
     }
@@ -122,10 +133,10 @@ async function processImage(image, globalOptions, infoObject) {
   return ret
 }
 
-function makeInfoFile(outDir, infoObject) {
+function makeInfoFile(outDir: string, infoObject) {
   const importRegex = /"import\(\\"([^)]+)\\"\)"/gm
   let ids = 0
-  const imports = []
+  const imports: [string, string][] = []
 
   const json =
     'export default ' +
@@ -163,7 +174,7 @@ interface ImageData {
   return Promise.all([writeFile, writeDefinition])
 }
 
-function processFiles(options) {
+function processFiles(options: ImageOptions) {
   console.log('Starting image processing')
 
   fs.mkdirSync(options.outDir, { recursive: true })
@@ -178,7 +189,7 @@ function processFiles(options) {
   work.push(makeInfoFile(options.outDir, infoObject))
 }
 
-module.exports = function () {
+export function processImages() {
   imageOptions.forEach(processFiles)
 
   Promise.all(work)

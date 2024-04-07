@@ -1,15 +1,15 @@
 import { basename } from 'node:path'
-import { renderToString } from 'vue/server-renderer'
-import { renderSSRHead } from '@unhead/ssr'
+import { renderToString, type SSRContext } from 'vue/server-renderer'
+import { renderSSRHead, type SSRHeadPayload } from '@unhead/ssr'
 import { createYcApp } from '@/app'
 
-export async function render(url, manifest) {
+export async function render(url: string, manifest: {[k: string]: string[]}): Promise<[string, string, SSRHeadPayload]> {
   const { app, router, head } = createYcApp()
 
   await router.push(url)
   await router.isReady()
 
-  const ctx = {}
+  const ctx: SSRContext = {}
   const html = await renderToString(app, ctx)
   const headPayload = await renderSSRHead(head)
 
@@ -17,11 +17,11 @@ export async function render(url, manifest) {
   return [html, preloadLinks, headPayload]
 }
 
-function renderPreloadLinks(modules, manifest) {
+function renderPreloadLinks(modules: string[], manifest: {[k: string]: string[]}) {
   let links = ''
   const seen = new Set()
   modules.forEach((id) => {
-    const files = manifest[id]
+    const files: string[] | undefined = manifest[id]
     if (files) {
       files.forEach((file) => {
         if (!seen.has(file)) {
@@ -41,7 +41,7 @@ function renderPreloadLinks(modules, manifest) {
   return links
 }
 
-function renderPreloadLink(file) {
+function renderPreloadLink(file: string) {
   if (file.endsWith('.js')) {
     return `<link rel="modulepreload" crossorigin href="${file}">`
   } else if (file.endsWith('.css')) {

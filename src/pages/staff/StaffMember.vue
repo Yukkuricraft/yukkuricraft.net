@@ -11,7 +11,7 @@
       <div class="block">
         <h5 class="is-size-5">{{accountsHeader}}</h5>
         <ul>
-          <li v-for="mcAccount in staffMember.mcAccounts" :key="mcAccount.uuid">
+          <li v-for="mcAccount in staffMember.mcAccounts" :key="mcAccount.uuid" class="m-1">
             <minecraft-account :name="mcAccount.name" :uuid="mcAccount.uuid" fetch-username-from-uuid />
           </li>
         </ul>

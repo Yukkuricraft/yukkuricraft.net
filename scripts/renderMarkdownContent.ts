@@ -1,10 +1,10 @@
-const fs = require('fs')
-const path = require('node:path')
-const yaml = require('yaml')
-const glob = require('glob')
-const markdownIt = require('markdown-it')
-const markdownItAnchor = require('markdown-it-anchor')
-const { JSDOM } = require('jsdom')
+import fs from 'fs'
+import path from 'node:path'
+import yaml from 'yaml'
+import { glob } from 'glob'
+import markdownIt from 'markdown-it'
+import markdownItAnchor from 'markdown-it-anchor'
+import { JSDOM } from 'jsdom'
 
 const md = markdownIt({ linkify: true, typographer: true }).use(markdownItAnchor, {
   slugify(s) {
@@ -16,7 +16,7 @@ const md = markdownIt({ linkify: true, typographer: true }).use(markdownItAnchor
   }),
 })
 
-function renderMarkdown(str) {
+function renderMarkdown(str: string | undefined) {
   if (str === undefined) {
     return undefined
   }
@@ -31,7 +31,7 @@ function renderMarkdown(str) {
   }
 }
 
-function partsFromFilename(root, fileName) {
+function partsFromFilename(root: string, fileName: string): string[] {
   const relMatch = path.relative(root, fileName)
   const parts = relMatch.split(path.sep)
   const init = parts.slice(0, -1)
@@ -41,7 +41,7 @@ function partsFromFilename(root, fileName) {
   return [...init, lastWithoutExtension]
 }
 
-function fileNameToVarName(root, fileName) {
+function fileNameToVarName(root: string, fileName: string): string {
   return partsFromFilename(root, fileName).join('_')
 }
 
@@ -68,7 +68,7 @@ function processRanks() {
 }
 
 function processCommands() {
-  const contentsTuple = glob.sync('./content/commands/**/*.yaml').map((commandsFile) => {
+  const contentsTuple: [string, string][] = glob.sync('./content/commands/**/*.yaml').map((commandsFile) => {
     const rawContents = fs.readFileSync(commandsFile, { encoding: 'utf8' })
     const contents = yaml.parse(rawContents)
 
@@ -143,33 +143,35 @@ export type CommandGroups = {[k: string]: CommandGroup}`
 }
 
 function processLocations() {
-  const contentsTuple = glob.sync('./content/locations/**/*.yaml').map((locationsFile) => {
-    const rawContents = fs.readFileSync(locationsFile, { encoding: 'utf8' })
-    const contents = yaml.parse(rawContents)
+  const contentsTuple: [string, string[], string][] = glob
+    .sync('./content/locations/**/*.yaml')
+    .map((locationsFile) => {
+      const rawContents = fs.readFileSync(locationsFile, { encoding: 'utf8' })
+      const contents = yaml.parse(rawContents)
 
-    function processLocation(location) {
-      return {
-        ...location,
-        description: renderMarkdown(location.description),
-        sublocations: processLocations(location.sublocations),
-      }
-    }
-
-    function processLocations(groups) {
-      if (groups === undefined) {
-        return undefined
+      function processLocation(location) {
+        return {
+          ...location,
+          description: renderMarkdown(location.description),
+          sublocations: processLocations(location.sublocations),
+        }
       }
 
-      return Object.fromEntries(Object.entries(groups).map(([k, v]) => [k, processLocation(v)]))
-    }
+      function processLocations(groups) {
+        if (groups === undefined) {
+          return undefined
+        }
 
-    const varName = fileNameToVarName('./content/locations', locationsFile) + 'Internal'
-    const parts = partsFromFilename('./content/locations', locationsFile)
+        return Object.fromEntries(Object.entries(groups).map(([k, v]) => [k, processLocation(v)]))
+      }
 
-    const varDef = `const ${varName}: Locations = ${JSON.stringify(processLocations(contents))}`
+      const varName = fileNameToVarName('./content/locations', locationsFile) + 'Internal'
+      const parts = partsFromFilename('./content/locations', locationsFile)
 
-    return [varName, parts, varDef]
-  })
+      const varDef = `const ${varName}: Locations = ${JSON.stringify(processLocations(contents))}`
+
+      return [varName, parts, varDef]
+    })
 
   const varDefs = contentsTuple.map((t) => t[2]).join('\n\n')
 
@@ -224,12 +226,8 @@ export type Locations = {[k: string]: Location}`
   fs.writeFileSync('./generated/locations/locationList.ts', `${interfaces}\n\n${varDefs}\n\n${exports.join('\n')}`)
 }
 
-function processMarkdownFiles() {
+export function processMarkdownFiles() {
   processRanks()
   processCommands()
   processLocations()
 }
-
-module.exports = processMarkdownFiles
-
-processMarkdownFiles()

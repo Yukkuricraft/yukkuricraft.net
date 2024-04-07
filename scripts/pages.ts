@@ -1,12 +1,18 @@
-const glob = require('glob')
+import { glob } from 'glob'
+import announcementList from '../generated/announcementList.json'
 
-const announcementList = require('../generated/announcementList.json')
-
-function removeMdSuffix(file) {
+function removeMdSuffix(file: string): string {
   return file.endsWith('.md') ? file.substring(0, file.length - 3) : file
 }
 
-module.exports = [
+export interface Page {
+  url: string
+  priority: string
+  mainContent: string[]
+  htmlFilename?: string
+}
+
+export default [
   { url: '/', priority: '1.0', mainContent: ['./src/pages/InfoPage.vue'] },
   {
     url: '/ranks/',
@@ -46,10 +52,7 @@ module.exports = [
   {
     url: '/gensokyo/',
     priority: '0.85',
-    mainContent: [
-      ...glob.sync('./src/pages/gensokyo/**/*.*'),
-      ...glob.sync('./content/locations/neo_genso/**/*.*'),
-    ],
+    mainContent: [...glob.sync('./src/pages/gensokyo/**/*.*'), ...glob.sync('./content/locations/neo_genso/**/*.*')],
   },
   {
     url: '/gensokyo/help/',
@@ -62,9 +65,9 @@ module.exports = [
     mainContent: [...glob.sync('./src/pages/announcements/**/*.*'), ...glob.sync('./content/announcements/**/*.*')],
   },
   ...announcementList.map((post) => ({
-    url: `/announcements/${post.slug || removeMdSuffix(post.file)}/`,
+    url: `/announcements/${'slug' in post && post.slug ? post.slug : removeMdSuffix(post.file)}/`,
     priority: '0.60',
     mainContent: [`./content/announcements/${post.file}`],
   })),
   { url: '/404', noSitemap: true, htmlFilename: '/404.html' },
-]
+] as Page[]
