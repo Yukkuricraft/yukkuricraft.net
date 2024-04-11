@@ -87,7 +87,7 @@
     "bootstrap": "^5.3.3",
     "bootstrap-vue-next": "^0.16.6",
     "css.escape": "^1.5.1",
-    "markdown-it": "^14.0.0",
+    "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^8.6.7",
     "pinia": "^2.1.7",
     "query-string": "^8.2.0",
