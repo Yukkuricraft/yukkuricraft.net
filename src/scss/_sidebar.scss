@@ -1,101 +1,75 @@
-//https://bootstrapious.com/p/bootstrap-sidebar
-@import "/node_modules/bootstrap/scss/functions";
-@import "/node_modules/bootstrap/scss/mixins";
-@import "/node_modules/bootstrap/scss/variables";
+@use 'bulma/sass/components/menu';
+@use 'bulma/sass/utilities/mixins';
 
 $sidebar-width: 250px;
 
-$sidebar-background: #d45c00; //chromatic-color-darken($primary, 0.3)
-$sidebar-header-background: #c85300; //chromatic-color-darken($primary, 0.5);
-$sidebar-active-background: #ce5700; //chromatic-color-darken($primary, 0.4);
+@keyframes hide-sidebar {
+  from {
+    display: inherit;
+    width: $sidebar-width;
+  }
+  to {
+    display: none;
+    width: 0;
+  }
+}
+
+@keyframes show-sidebar {
+  from {
+    display: none;
+    width: 0;
+  }
+  to {
+    display: inherit;
+    width: $sidebar-width;
+  }
+}
 
 .sidebar-wrapper {
   display: flex;
-  width: 100%;
+  @media (prefers-color-scheme: dark) {
+    --bulma-shadow-l: 80%;
+    --bulma-shadow: 0 0.33em 0.66em -0.125em hsla(var(--bulma-shadow-h), var(--bulma-shadow-s), var(--bulma-shadow-l), 0.1),
+      0 0px 0 1px hsla(var(--bulma-shadow-h), var(--bulma-shadow-s), var(--bulma-shadow-l), 0.02);
+  }
 }
 
 .sidebar {
+  @extend .menu;
   width: $sidebar-width;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  overflow-y: auto;
+  z-index: 29;
 
-  background: $sidebar-background;
-  color: #fff;
-  transition: all 0.3s;
-
-  a {
-    color: #fff;
+  @include mixins.touch {
+    display: none;
+    width: 0;
   }
 }
 
-.sidebar.active {
-  margin-left: -$sidebar-width
+.sidebar-menu {
+  @extend .menu;
+  height: calc(100vh - var(--bulma-navbar-height));
+  overflow: auto;
+
+  --bulma-menu-item-h: 28;
+  --bulma-menu-item-s: 100%;
+  --bulma-menu-item-color-l: 90%;
+  --bulma-menu-item-background-l: 35%;
+  --bulma-menu-label-color: #fff;
+  --bulma-menu-list-border-left: 1px solid
+    hsl(var(--bulma-menu-item-h), var(--bulma-menu-item-s), calc(var(--bulma-menu-item-background-l) - 20%));
+  background-color: hsl(var(--bulma-menu-item-h), var(--bulma-menu-item-s), var(--bulma-menu-item-background-l));
+}
+
+.sidebar.is-sidebar-hidden {
+  display: inherit;
+  animation: hide-sidebar 0.3s ease-out forwards;
+}
+
+.sidebar.is-sidebar-active {
+  display: inherit;
+  animation: show-sidebar 0.3s ease-in forwards;
 }
 
 .sidebar-content {
-  width: calc(100% - #{$sidebar-width});
-  min-height: 100vh;
-  transition: all 0.3s;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.sidebar-content.active {
-  width: 100%;
-}
-
-@include media-breakpoint-down(md) {
-  .sidebar {
-    margin-left: -$sidebar-width;
-  }
-  .sidebar.active {
-    margin-left: 0;
-  }
-  .sidebar-content {
-    width: 100%;
-  }
-  .sidebar-content.active {
-    width: calc(100% - #{$sidebar-width});
-  }
-}
-
-.sidebar .sidebar-header {
-  padding: 0.07rem 1rem;
-  background: $sidebar-header-background;
-  font-size: 1.8rem;
-}
-
-@include media-breakpoint-up(lg) {
-  .sidebar .sidebar-header {
-    padding: 0.05rem 1rem;
-  }
-}
-
-.sidebar .sidebar-header p {
-  margin: 0.5rem 0;
-}
-
-.sidebar ul p {
-  color: #fff;
-  padding: 0.35rem;
-}
-
-.sidebar ul li a {
-  padding: 0.35rem;
-  font-size: 1em;
-  display: block;
-}
-.sidebar ul li a:hover {
-  color: $primary;
-  background: #fff;
-}
-
-.sidebar ul li.active > a, a[aria-expanded="true"] {
-  color: #fff;
-  background: $sidebar-active-background;
+  flex-grow: 1;
 }

@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
-import locations from '@cont/locations/yukkurikart.yaml'
+import { yukkurikart as locations } from '@gen/locations/locationList'
 import LocationsContent from './imageLocations/LocationsContent.vue'
 import { makeMeta } from '@/pageHelpers'
 

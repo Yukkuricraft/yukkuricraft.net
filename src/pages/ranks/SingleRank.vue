@@ -1,21 +1,19 @@
 <template>
-  <b-col sm="3" md="2" tag="dt">
-    <i v-if="rank.italics">
-      <b v-if="rank.bold">{{ rank.name }}:</b>
+  <dt class="column is-2 pb-0">
+    <i v-if="rank.italics" class="is-italic">
+      <b v-if="rank.bold" class="is-bold">{{ rank.name }}:</b>
       <template v-else>{{ rank.name }}:</template>
     </i>
-    <b v-else-if="rank.bold">{{ rank.name }}:</b>
+    <b v-else-if="rank.bold" class="is-bold">{{ rank.name }}:</b>
     <template v-else>{{ rank.name }}:</template>
-  </b-col>
-  <b-col sm="9" md="10" tag="dd">
-    <markdown-later :content="rank.description" :no-paragraph="true"></markdown-later>
-  </b-col>
+  </dt>
+  <dd class="column is-10 pt-0">
+    <div class="content markdown-formatting" v-html="rank.description"></div>
+  </dd>
 </template>
 
 <script setup lang="ts">
-import { BCol } from 'bootstrap-vue-next'
 import { type PropType } from 'vue'
-import MarkdownLater from '@/components/MarkdownLater.vue'
 import { type Rank } from '@/pages/ranks/RanksPage.vue'
 
 defineProps({

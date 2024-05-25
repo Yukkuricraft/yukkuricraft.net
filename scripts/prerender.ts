@@ -1,24 +1,14 @@
 /* eslint-disable no-console */
-const fs = require('fs/promises')
-const path = require('path')
-const process = require('process')
-const readline = require('readline')
-const express = require('express')
-const puppeteer = require('puppeteer')
-const { JSDOM } = require('jsdom')
-const pages = require('./pages.cjs')
+import fs from 'fs/promises'
+import path from 'path'
+import process from 'process'
+import readline from 'readline'
+import express, { type Express } from 'express'
+import puppeteer, { type Browser } from 'puppeteer'
+import { JSDOM } from 'jsdom'
+import pages from './pages'
 
-async function writeContentToDisk(page, html) {
-  const dist = path.join(__dirname, '..', 'dist', 'prerender')
-  const destination = page.htmlFilename ?? `${page.url}index.html`
-  const completePath = dist + destination
-
-  console.log(`Writing ${page.url} to disk at ${completePath}`)
-  await fs.mkdir(path.join(completePath, '..'), { recursive: true })
-  await fs.writeFile(completePath, postProcess(html))
-}
-
-function postProcess(content) {
+function postProcess(content: string): string {
   let htmlContent = content
   htmlContent = htmlContent.replace('http://localhost:8080', 'https://yukkuricraft.net')
 
@@ -36,29 +26,39 @@ function postProcess(content) {
   return dom.serialize()
 }
 
-async function prerenderRoute(browser, pageDesc) {
+async function writeContentToDisk(page, html: string) {
+  const dist = path.join(__dirname, '..', 'dist', 'prerender')
+  const destination = page.htmlFilename ?? `${page.url}index.html`
+  const completePath = dist + destination
+
+  console.log(`Writing ${page.url} to disk at ${completePath}`)
+  await fs.mkdir(path.join(completePath, '..'), { recursive: true })
+  await fs.writeFile(completePath, postProcess(html))
+}
+
+async function prerenderRoute(browser: Browser, pageDesc) {
   console.log('Prerendering ' + pageDesc.url)
   const page = await browser.newPage()
 
   page.evaluateOnNewDocument(function () {
-    window.__PRERENDER_DONE = false
-    window.__PRERENDER_INJECTED = {
+    ;(window as any).__PRERENDER_DONE = false
+    ;(window as any).__PRERENDER_INJECTED = {
       prerendered: true,
     }
     document.addEventListener('render-event', () => {
-      window.__PRERENDER_DONE = true
+      ;(window as any).__PRERENDER_DONE = true
     })
   })
 
   await page.goto(`http://localhost:8080${pageDesc.url}`, { waitUntil: 'networkidle0' })
 
   await page.evaluate(function () {
-    return new Promise((resolve) => {
+    return new Promise<void>((resolve) => {
       // Catch quick renders
-      if (window.__PRERENDER_DONE) {
+      if ((window as any).__PRERENDER_DONE) {
         resolve()
       } else {
-        document.addEventListener('render-event', resolve())
+        document.addEventListener('render-event' as keyof DocumentEventMap, () => resolve())
       }
     })
   })
@@ -74,7 +74,7 @@ async function run() {
 
   const distPath = path.join(__dirname, '..', 'dist')
   const baseHtmlFile = await fs.readFile(path.join(distPath, 'client', 'index.html'), { encoding: 'utf8' })
-  const app = express()
+  const app: Express = express()
 
   app.use(express.static(path.join(distPath, 'client')))
   app.get('*', (req, res) => res.send(baseHtmlFile))
@@ -96,8 +96,6 @@ async function run() {
       await browser.close()
     }
   }
-
-  // await new Promise((resolve) => stdIO.question('Press enter to close', () => resolve()))
 
   console.log('Closing webserver')
   await server.close()

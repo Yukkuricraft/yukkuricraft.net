@@ -1,6 +1,6 @@
 <template>
-  <h1>{{ defaultTitle }}</h1>
-  <p v-if="route.meta.parallaxParagraph">{{ route.meta.parallaxParagraph }}</p>
+  <h1 class="title is-size-2 has-text-white">{{ defaultTitle }}</h1>
+  <p v-if="route.meta.parallaxParagraph" class="subtitle has-text-white">{{ route.meta.parallaxParagraph }}</p>
 </template>
 
 <script setup lang="ts">

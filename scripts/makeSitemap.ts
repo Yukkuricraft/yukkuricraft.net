@@ -1,6 +1,7 @@
-const fs = require('fs')
-const { create } = require('xmlbuilder2')
-const pages = require('./pages.cjs')
+import fs from 'fs'
+import { create } from 'xmlbuilder2'
+import pages from './pages'
+
 const nowTime = new Date().toISOString()
 
 function makeEntry(obj) {
@@ -19,7 +20,7 @@ function makeEntry(obj) {
   }
 }
 
-module.exports = function () {
+export function makeSitemap() {
   const doc = create({ encoding: 'UTF-8' }).ele({
     urlset: {
       '@xmlns': 'http://www.sitemaps.org/schemas/sitemap/0.9',

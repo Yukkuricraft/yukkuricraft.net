@@ -1,5 +1,5 @@
 <template>
-  <main class="markdown-formatting">
+  <main class="markdown-formatting content">
     <slot></slot>
     <component :is="usedComponent.VueComponent" v-if="usedComponent"></component>
     <font-awesome-icon v-else :icon="['fas', 'spinner']" spin size="6x"></font-awesome-icon>

@@ -1,6 +1,5 @@
 <template>
-  <locations-content :locations="locations">
-  </locations-content>
+  <locations-content :locations="locations"></locations-content>
 </template>
 
 <script setup lang="ts">

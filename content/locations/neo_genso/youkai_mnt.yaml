@@ -23,20 +23,20 @@ neogenso:
         - name: KokoNuttz
           uuid: e18aa899-1c62-41ad-acc4-2ef50e46114a
       images:
-        - name: neo/youkai_mnt/mountain
+        - name: neo_genso/youkai_mnt/mountain
           image_taken_by: Katrix
 
-        - name: neo/youkai_mnt/bridge
+        - name: neo_genso/youkai_mnt/bridge
           image_taken_by: Katrix
 
-        - name: neo/youkai_mnt/entrance
+        - name: neo_genso/youkai_mnt/entrance
           image_taken_by: Katrix
 
-        - name: neo/youkai_mnt/shrine
+        - name: neo_genso/youkai_mnt/shrine
           image_taken_by: Katrix
 
-        - name: neo/youkai_mnt/lake
+        - name: neo_genso/youkai_mnt/lake
           image_taken_by: Katrix
 
-        - name: neo/youkai_mnt/pond
+        - name: neo_genso/youkai_mnt/pond
           image_taken_by: Katrix

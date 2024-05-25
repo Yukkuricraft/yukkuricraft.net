@@ -33,21 +33,25 @@ export default defineConfig({
     ViteYaml(),
     mdPlugin({ mode: [Mode.VUE], markdownIt: markdownItObj }),
     // @ts-ignore
-    vitePluginFaviconsInject('./src/favicon_upscaled.png', {
-      appName: 'YukkuriCraft Info',
-      appDescription: 'YukkuriCraft Info page',
-      developerName: 'Katrix',
-      developerURL: null,
-      background: '#fff',
-      theme_color: '#e56a00',
-      icons: {
-        coast: false,
-        firefox: false,
-        yandex: false,
+    vitePluginFaviconsInject(
+      './src/favicon_upscaled.png',
+      {
+        appName: 'YukkuriCraft Info',
+        appDescription: 'YukkuriCraft Info page',
+        developerName: 'Katrix',
+        developerURL: null,
+        background: '#fff',
+        theme_color: '#e56a00',
+        icons: {
+          coast: false,
+          firefox: false,
+          yandex: false,
+        },
       },
-    }, {
-      failGraciously: Boolean(process.env.FAVICONS_OK_NO_FILES)
-    }),
+      {
+        failGraciously: Boolean(process.env.FAVICONS_OK_NO_FILES),
+      },
+    ),
     splitVendorChunkPlugin(),
     visualizer({ template: 'treemap', open: true, gzipSize: true }),
   ],
@@ -84,8 +88,10 @@ export default defineConfig({
         },
         manualChunks: (id) => {
           if (id.includes('node_modules')) {
-            if (id.includes('markdown-it')) {
-              return 'vendor_markdown-it'
+            if (id.includes('@egjs')) {
+              return 'vendor_egjs'
+            } else if (id.includes('tippy')) {
+              return 'vendor_tippy'
             }
           } else if (id.includes('generated/avatars/data.js')) {
             return 'avatar_image_data'

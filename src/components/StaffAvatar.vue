@@ -1,30 +1,46 @@
 <template>
-  <b-avatar :variant="staffAvatar ? null : 'primary'" :size="size + 'px'" rounded='circle'>
-
-    <picture v-if="staffAvatar" class='rounded-circle'>
-      <source v-for="(srcset, type) in refineType<string>(staffAvatar.srcsets)" :key="type" :type="type" :srcset="srcset" />
+  <div
+    class="image has-text-centered"
+    :style="{
+      'background-color': staffAvatar
+        ? undefined
+        : 'hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l))',
+    }"
+    :class="'is-' + size + 'x' + size"
+    style="
+      border-radius: var(--bulma-radius-rounded);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    "
+  >
+    <picture v-if="staffAvatar">
+      <source
+        v-for="(srcset, type) in refineType<string>(staffAvatar.srcsets)"
+        :key="type"
+        :type="type"
+        :srcset="srcset"
+      />
       <img
         loading="lazy"
-        class="b-avatar-img"
+        class="is-rounded"
         :width="size"
         :height="size"
         :src="staffAvatar.default"
         :alt="staffMember"
       />
     </picture>
-    <span v-else class="b-avatar-text" style="font-size: 40px">
+    <span v-else style="font-size: 40px">
       {{ staffMember.substring(0, 1) }}
     </span>
-  </b-avatar>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { BAvatar } from 'bootstrap-vue-next'
-
 import { onServerPrefetch, ref, watch } from 'vue'
 import { staffAvatar as loadStaffAvatar } from '@/images'
 
-function refineType<V>(sources: {[k: string]: V}): Record<string, V> {
+function refineType<V>(sources: { [k: string]: V }): Record<string, V> {
   return sources
 }
 
