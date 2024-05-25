@@ -1,5 +1,5 @@
 <template>
-  <article v-if="postComponent" class="frontmatter-markdown">
+  <article v-if="postComponent" class="frontmatter-markdown content">
     <component :is="postComponent"></component>
   </article>
   <font-awesome-icon v-else :icon="['fas', 'spinner']" spin size="4x" />

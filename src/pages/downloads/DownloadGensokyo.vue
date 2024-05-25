@@ -1,19 +1,23 @@
 <template>
-  <b-alert :model-value='true' variant="warning" class="mt-3" style="font-size: 85%">
-    <h2 class="alert-heading h5">Missing and broken features in Vanilla</h2>
-    <p class="mb-2">
-      While we try as best we can to give you a great experience, some things might not work correctly. Our
-      recommendation is always to explore the map on the server for the best experience. Some things that might break
-      include (not an exclusive list):
-    </p>
-    <ul>
-      <li>Grass growing on dirt</li>
-      <li>Monsters spawning</li>
-      <li>Ice/snow forming and melting</li>
-      <li>Portals/teleportation not working</li>
-      <li>Vegetation growing</li>
-    </ul>
-  </b-alert>
+  <div class="message is-primary mt-3">
+    <div class="message-header">
+      <h2 class="is-size-5">Missing and broken features in Vanilla</h2>
+    </div>
+    <div class="message-body content">
+      <p>
+        While we try as best we can to give you a great experience, some things might not work correctly. Our
+        recommendation is always to explore the map on the server for the best experience. Some things that might break
+        include (not an exclusive list):
+      </p>
+      <ul>
+        <li>Grass growing on dirt</li>
+        <li>Monsters spawning</li>
+        <li>Ice/snow forming and melting</li>
+        <li>Portals/teleportation not working</li>
+        <li>Vegetation growing</li>
+      </ul>
+    </div>
+  </div>
 
   <p>
     <strong>CHROME USERS</strong> - Mega is known to have issues downloading on Chrome. If you are using Chrome and
@@ -23,8 +27,6 @@
 </template>
 
 <script setup lang="ts">
-import { BAlert } from 'bootstrap-vue-next'
-
 import { useHead } from '@unhead/vue'
 import { makeMeta } from '@/pageHelpers'
 

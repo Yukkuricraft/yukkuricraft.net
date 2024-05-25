@@ -1,39 +1,40 @@
 <template>
-  <div class="col-md-8">
-    <b-card no-body :style="{ height: hasServerPing ? '100%' : undefined }">
-      <b-card-header>
-        <pre style="display: inline">{{ ip }}</pre>
+  <div class="column">
+    <div class="card" :style="{ height: hasServerPing ? '100%' : undefined }">
+      <div class="card-header">
+        <p class="card-header-title is-family-monospace">{{ ip }}</p>
         &nbsp;
-        <span class="bg-success dot" :class="hasServerPing ? 'bg-success' : 'bg-danger'"></span>
-        {{ hasServerPing ? 'Online' : 'Offline' }}
-      </b-card-header>
-      <b-card-body v-if="hasServerPing">
+        <div class="card-header-icon" style="cursor: inherit">
+          <span class="dot mr-2" :class="hasServerPing ? 'has-background-success' : 'has-background-danger'"></span>
+          {{ hasServerPing ? 'Online' : 'Offline' }}
+        </div>
+      </div>
+      <div v-if="hasServerPing" class="card-content">
         <!-- eslint-disable-next-line vue/no-v-html vue/no-v-text-v-html-on-component -->
-        <b-card-title class="h5" v-html="parseMCCodes(serverPing.description).raw"></b-card-title>
-        <b-card-text>
+        <h5 class="title is-size-4 is-family-monospace" v-html="parseMCCodes(serverPing.description).raw"></h5>
+        <div>
           <br />
           Players: {{ serverPing.players.online }} / {{ serverPing.players.max }}
-          <div class="row">
+          <div class="columns">
             <div
               v-for="playerChunk in chunk(serverPing.players.sample, 8)"
               :key="'Chunk' + playerChunk[0].name"
-              class="col-xl-4 col-lg-6 col-md-12"
+              class="column"
             >
-              <ul class="list-unstyled">
+              <ul>
                 <li v-for="player in playerChunk" :key="player.name">
                   <minecraft-account v-if="player.name" :name="player.name" />
                 </li>
               </ul>
             </div>
           </div>
-        </b-card-text>
-      </b-card-body>
-    </b-card>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { BCard, BCardBody, BCardHeader, BCardText, BCardTitle } from 'bootstrap-vue-next'
 import { computed, ref, watch } from 'vue'
 
 import { parseMCCodes } from '@/colorFormatter'
@@ -58,7 +59,7 @@ function chunk<A>(arr: A[], size: number): A[][] {
   let obj: A | undefined
 
   // eslint-disable-next-line no-cond-assign
-  while(obj = copy.shift()) {
+  while ((obj = copy.shift())) {
     if (idx === size) {
       res.push(currentArr)
       currentArr = []

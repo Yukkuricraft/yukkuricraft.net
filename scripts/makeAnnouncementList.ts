@@ -1,9 +1,9 @@
-const fs = require('fs')
-const path = require('node:path')
-const glob = require('glob')
-const fm = require('front-matter')
+import fs from 'fs'
+import path from 'path'
+import { glob } from 'glob'
+import fm from 'front-matter'
 
-function makeAnnouncementList() {
+export function makeAnnouncementList() {
   const announcementListData = glob
     .sync('./content/announcements/**/*.md')
     .map((match) => {
@@ -30,7 +30,11 @@ function makeAnnouncementList() {
       }
 
       const announcement = fs.readFileSync(match, { encoding: 'utf-8' })
-      const data = fm(announcement).attributes
+      const data: {
+        title?: string
+        time?: string
+        poster?: string
+      } = fm(announcement).attributes
 
       if (!data.title || !data.time || !data.poster) {
         throw Error(`Missing required frontmatter data for ${match}`)
@@ -51,6 +55,3 @@ function makeAnnouncementList() {
   fs.mkdirSync('./generated', { recursive: true })
   fs.writeFileSync('./generated/announcementList.json', JSON.stringify(announcementListData))
 }
-makeAnnouncementList()
-
-module.exports = makeAnnouncementList

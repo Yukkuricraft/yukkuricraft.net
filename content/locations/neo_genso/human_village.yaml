@@ -75,11 +75,11 @@ neogenso:
         - name: Yukibara
           uuid: 6115a433-12e7-4fc4-84f4-9077d8d6ad4b
       images:
-        - name: neo/human_village/top
+        - name: neo_genso/human_village/top
           image_taken_by: Katrix
 
-        - name: neo/human_village/statue
+        - name: neo_genso/human_village/statue
           image_taken_by: Katrix
 
-        - name: neo/human_village/fighting_stage
+        - name: neo_genso/human_village/fighting_stage
           image_taken_by: Katrix

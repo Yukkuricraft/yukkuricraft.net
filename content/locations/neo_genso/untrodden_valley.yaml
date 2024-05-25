@@ -25,17 +25,17 @@ neogenso:
         - name: LunaPixu
           uuid: 06526838-2df6-425a-a418-b12c5bb6f524
       images:
-        - name: neo/untrodden_valley/valley
+        - name: neo_genso/untrodden_valley/valley
           image_taken_by: Katrix
 
-        - name: neo/untrodden_valley/aki_farm
+        - name: neo_genso/untrodden_valley/aki_farm
           image_taken_by: Katrix
 
-        - name: neo/untrodden_valley/river_1
+        - name: neo_genso/untrodden_valley/river_1
           image_taken_by: Katrix
 
-        - name: neo/untrodden_valley/river_2
+        - name: neo_genso/untrodden_valley/river_2
           image_taken_by: Katrix
 
-        - name: neo/untrodden_valley/waterfall
+        - name: neo_genso/untrodden_valley/waterfall
           image_taken_by: Katrix

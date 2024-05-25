@@ -1,17 +1,17 @@
 <template>
-  <b-row class="mt-5">
-    <b-col md="6">
-      <h2 id='whoAreWe'>Who are we</h2>
+  <div class="columns">
+    <div class="column">
+      <h2 id="whoAreWe" class="title is-size-2">Who are we</h2>
       <p>
-        Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of Touhou
-        Project fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all players to join the
-        fun!
+        Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of Touhou Project
+        fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all players to join the fun!
       </p>
-    </b-col>
-    <b-col md="6">
+    </div>
+    <div class="column">
       <!-- https://css-tricks.com/lazy-load-embedded-youtube-videos/ -->
       <iframe
-        class='yt-embed'
+        class="image is-16by9"
+        style="width: 100%"
         type="iframe"
         title="YC trailer"
         src="https://www.youtube-nocookie.com/embed/FI07wDxl5T8"
@@ -20,24 +20,26 @@
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       />
-    </b-col>
-  </b-row>
+    </div>
+  </div>
 
-  <h2 id='latestAnnouncements'>Latest announcements</h2>
-  <div class="mb-5">
-    <ul class="list-unstyled">
+  <h2 id="latestAnnouncements" class="title is-size-2">Latest announcements</h2>
+  <div class="block">
+    <ul>
       <li v-for="post in announcementPosts.slice(0, 3)" :key="post.file" class="mb-3">
-        <announcement-excerpt :heading-level="3" :post="post" />
+        <AnnouncementExcerpt :heading-level="3" :post="post" />
       </li>
     </ul>
 
-    <router-link class="btn btn-primary text-white" :to="{ name: 'announcements' }">More announcements</router-link>
+    <router-link class="button is-primary has-text-white" :to="{ name: 'announcements' }"
+      >More announcements</router-link
+    >
   </div>
 
-  <h2 id='serverAndDiscord'>Server and Discord</h2>
-  <b-row>
+  <h2 id="serverAndDiscord" class="title is-size-2">Server and Discord</h2>
+  <div class="columns">
     <server-widget ip="mc.yukkuricraft.net" />
-    <b-col md="4">
+    <div class="is-one-third">
       <iframe
         :src="'https://discordapp.com/widget?id=201938197171798017&theme=' + discordTheme"
         loading="lazy"
@@ -46,100 +48,105 @@
         allowtransparency="true"
         frameborder="0"
       ></iframe>
-    </b-col>
-  </b-row>
-  
-  <h2 id="partners">Partners</h2>
-  A list of communities that are officially partnered with Yukkuricraft
+    </div>
+  </div>
 
-  <BRow v-for="partner in partners" :key="partner.id">
-    <BCol>
-      <h3 :id="partner.id">{{partner.name}}</h3>
-      <p>{{partner.description}}</p>
-    </BCol>
-    <BCol v-if="partner.image" md="6">
-      <BImg :src="partner.image" lazy></BImg>
-    </BCol>
-  </BRow>
+  <h2 id="partners" class="title is-size-2">Partners</h2>
+  <p class="subtitle">A list of communities that are officially partnered with Yukkuricraft</p>
 
-  <h2 id="subdomains">Our Subdomains and Pages</h2>
-  <h3>General</h3>
-  <ul>
-    <li>
-      <router-link :to="{ name: 'info' }">https://yukkuricraft.net</router-link>
-      - You're looking at it right now! This is our main homepage.
-    </li>
-    <li>mc.yukkuricraft.net - Join this IP to play on our server!</li>
-    <li>
-      <a href="https://discord.yukkuricraft.net/" target="noopener">https://discord.yukkuricraft.net/</a> - Our
-      Discord server
-    </li>
-    <li>
-      <a href="http://mc.yukkuricraft.net:18123" target="noopener">https://mc.yukkuricraft.net:18123</a> - Our dynmap!
-    </li>
-    <li>
-      <a href="https://bugs.yukkuricraft.net" target="noopener">https://bugs.yukkuricraft.net</a> - This will take you
-      to a page where you can submit a bug report for anything that needs to be fixed! No login required!
-    </li>
-    <li>
-      <a href="https://forums.yukkuricraft.net" target="noopener">https://forums.yukkuricraft.net</a> - Our forums!
-    </li>
-  </ul>
+  <div v-for="partner in partners" :key="partner.id" class="columns">
+    <div class="column">
+      <h3 :id="partner.id" class="is-size-3">{{ partner.name }}</h3>
+      <p>{{ partner.description }}</p>
+    </div>
+    <div v-if="partner.image" class="column">
+      <img :src="partner.image" :alt="partner.id" loading="lazy" />
+    </div>
+  </div>
 
-  <h3 id='subdomainsSocialMedia'>Social media</h3>
-  <ul>
-    <li>
-      <a href="https://www.instagram.com/yukkuricraft/" target="noopener">https://www.instagram.com/yukkuricraft/</a>
-      - Instagram Page
-    </li>
-    <li>
-      <a href="https://www.youtube.com/c/Yukkuricraft" target="noopener">https://www.youtube.com/c/Yukkuricraft</a>
-      - Youtube Channel
-    </li>
-    <li>
-      <a href="https://www.facebook.com/yukkuricraft" target="noopener">https://www.facebook.com/yukkuricraft</a>
-      - Facebook Page
-    </li>
-    <li>
-      <a href="https://www.facebook.com/groups/yukkuricraft" target="noopener">
-        https://www.facebook.com/groups/yukkuricraft
-      </a>
-      - Facebook Group
-    </li>
-    <li>
-      <a href="https://steamcommunity.com/groups/yukkuricraft" target="noopener">
-        https://steamcommunity.com/groups/yukkuricraft
-      </a>
-      - Steam Group
-    </li>
-  </ul>
+  <h2 id="subdomains" class="title is-size-2">Our Subdomains and Pages</h2>
+  <div class="block">
+    <h3 class="is-size-4">General</h3>
+    <ul>
+      <li>
+        <router-link :to="{ name: 'info' }">https://yukkuricraft.net</router-link>
+        - You're looking at it right now! This is our main homepage.
+      </li>
+      <li>mc.yukkuricraft.net - Join this IP to play on our server!</li>
+      <li>
+        <a href="https://discord.yukkuricraft.net/" target="noopener">https://discord.yukkuricraft.net/</a> - Our
+        Discord server
+      </li>
+      <li>
+        <a href="http://mc.yukkuricraft.net:18123" target="noopener">https://mc.yukkuricraft.net:18123</a> - Our dynmap!
+      </li>
+      <li>
+        <a href="https://bugs.yukkuricraft.net" target="noopener">https://bugs.yukkuricraft.net</a> - This will take you
+        to a page where you can submit a bug report for anything that needs to be fixed! No login required!
+      </li>
+      <li>
+        <a href="https://forums.yukkuricraft.net" target="noopener">https://forums.yukkuricraft.net</a> - Our forums!
+      </li>
+    </ul>
+  </div>
 
-  <h3 id='subdomainsOther'>Other</h3>
-  <ul>
-    <li><a href="https://forms.gle/gwFiECrDKNiJwLzH8">Ban appeals</a></li>
-  </ul>
+  <div class="block">
+    <h3 id="subdomainsSocialMedia" class="is-size-4">Social media</h3>
+    <ul>
+      <li>
+        <a href="https://www.instagram.com/yukkuricraft/" target="noopener">https://www.instagram.com/yukkuricraft/</a>
+        - Instagram Page
+      </li>
+      <li>
+        <a href="https://www.youtube.com/c/Yukkuricraft" target="noopener">https://www.youtube.com/c/Yukkuricraft</a>
+        - Youtube Channel
+      </li>
+      <li>
+        <a href="https://www.facebook.com/yukkuricraft" target="noopener">https://www.facebook.com/yukkuricraft</a>
+        - Facebook Page
+      </li>
+      <li>
+        <a href="https://www.facebook.com/groups/yukkuricraft" target="noopener">
+          https://www.facebook.com/groups/yukkuricraft
+        </a>
+        - Facebook Group
+      </li>
+      <li>
+        <a href="https://steamcommunity.com/groups/yukkuricraft" target="noopener">
+          https://steamcommunity.com/groups/yukkuricraft
+        </a>
+        - Steam Group
+      </li>
+    </ul>
+  </div>
 
-  <h2 id="contact">Contact Us</h2>
-  <p>
+  <div class="block">
+    <h3 id="subdomainsOther" class="is-size-4">Other</h3>
+    <ul>
+      <li><a href="https://forms.gle/gwFiECrDKNiJwLzH8">Ban appeals</a></li>
+    </ul>
+  </div>
+
+  <h2 id="contact" class="title is-size-2">Contact Us</h2>
+  <p class="subtitle">
     Honestly, there isn't much to say. This is Remi_Scarlet's contact information. Contact me with your preferred
     method.
   </p>
-  <ol>
-    <li><strong>Email: </strong>remi (@) yukkuricraft.net</li>
-    <li><strong>Discord: </strong>Remi#5619</li>
-    <li><strong>Steam: </strong>Mr. Bromilia Amatsukaze Scarlet</li>
-  </ol>
+  <div class="block">
+    <ol>
+      <li><strong>Email: </strong>remi (@) yukkuricraft.net</li>
+      <li><strong>Discord: </strong>Remi#5619</li>
+      <li><strong>Steam: </strong>Mr. Bromilia Amatsukaze Scarlet</li>
+    </ol>
+  </div>
 
-  <p>
+  <p class="block">
     Consider following our <a href="https://www.instagram.com/yukkuricraft/">Instagram</a> and liking our
     <a href="https://facebook.com/yukkuricraft">Facebook Page</a>!
   </p>
-  <br />
 </template>
 
 <script setup lang="ts">
-import { BCol, BRow, BImg } from 'bootstrap-vue-next'
-
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useHead } from '@unhead/vue'
 
@@ -150,28 +157,27 @@ import ServerWidget from '@/components/ServerWidget.vue'
 import { makeMeta } from '@/pageHelpers'
 
 // noinspection JSUnusedLocalSymbols
-const useDarkTheme =
-  !import.meta.env.SSR
-    ? window.matchMedia('(prefers-color-scheme: dark)')
-    : {
-        matches: false,
-        addEventListener<K extends keyof MediaQueryListEventMap>(
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          type: K,
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          listener: (this: MediaQueryList, ev: MediaQueryListEventMap[K]) => any,
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          options?: boolean | AddEventListenerOptions,
-        ) {},
-        removeEventListener<K extends keyof MediaQueryListEventMap>(
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          type: K,
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          listener: (this: MediaQueryList, ev: MediaQueryListEventMap[K]) => any,
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          options?: boolean | EventListenerOptions,
-        ) {},
-      }
+const useDarkTheme = !import.meta.env.SSR
+  ? window.matchMedia('(prefers-color-scheme: dark)')
+  : {
+      matches: false,
+      addEventListener<K extends keyof MediaQueryListEventMap>(
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        type: K,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        listener: (this: MediaQueryList, ev: MediaQueryListEventMap[K]) => any,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        options?: boolean | AddEventListenerOptions,
+      ) {},
+      removeEventListener<K extends keyof MediaQueryListEventMap>(
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        type: K,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        listener: (this: MediaQueryList, ev: MediaQueryListEventMap[K]) => any,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        options?: boolean | EventListenerOptions,
+      ) {},
+    }
 
 const discordTheme = ref(useDarkTheme.matches ? 'dark' : 'light')
 
@@ -191,9 +197,12 @@ useHead({
   title: 'YukkuriCraft',
 })
 
-useHead(makeMeta({
-  title: 'YukkuriCraft',
-  description: 'Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of Touhou Project fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all players to join the fun!',
-  url: '',
-}))
+useHead(
+  makeMeta({
+    title: 'YukkuriCraft',
+    description:
+      'Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of Touhou Project fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all players to join the fun!',
+    url: '',
+  }),
+)
 </script>

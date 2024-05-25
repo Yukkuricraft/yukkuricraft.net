@@ -1,11 +1,16 @@
 <template>
   <article>
     <header>
-      <h1>{{ post.title }}</h1>
+      <h1 class="heading is-size-1">{{ post.title }}</h1>
       <div class="byline">
         <p>
-          By: {{ post.poster }}
-          <staff-avatar :size="32" :staff-member="post.poster" :avatar-loc="posters[post.poster].avatar"></staff-avatar>
+          <span class="mr-2">By: {{ post.poster }}</span>
+          <staff-avatar
+            :size="32"
+            :staff-member="post.poster"
+            :avatar-loc="posters[post.poster].avatar"
+            style="vertical-align: middle"
+          ></staff-avatar>
         </p>
         <p>Posted: {{ localizedPostedTime }}</p>
       </div>

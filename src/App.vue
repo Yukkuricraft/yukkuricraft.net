@@ -1,25 +1,38 @@
 <template>
-  <div class="sidebar-wrapper">
-    <nav class="sidebar" :class="{ active: sidebarActive }">
-      <router-view name="sidebar" />
-    </nav>
+  <div
+    class="sidebar-wrapper"
+  >
+    <aside style="overflow: initial">
+      <div
+        ref="sidebar"
+        class="sidebar"
+        :class="{
+          'is-sidebar-hidden': sidebarHidden && sidebarChanged,
+          'is-sidebar-active': !sidebarHidden && sidebarChanged,
+        }"
+        style="position: sticky; top: 52px"
+      >
+        <div class="sidebar-menu">
+          <div><router-view name="sidebar" /></div>
+        </div>
+      </div>
+    </aside>
 
-    <div class="sidebar-content site" :class="{ active: sidebarActive }">
-      <info-header :in-container="sidebarActive">
+    <div class="sidebar-content site">
+      <InfoHeader>
         <template #top>
-          <b-button
-            class='text-white'
+          <button
+            class="has-text-white p-2 ml-5"
             aria-controls="sidebar-nav"
             type="button"
-            variant="link"
-            aria-expanded="false"
+            :aria-expanded="!sidebarHidden"
             aria-label="Toggle sidebar"
-            @click="sidebarActive = !sidebarActive"
+            @click="toggleSidebar()"
           >
             <font-awesome-icon :icon="['fas', 'align-left']" />
-          </b-button>
+          </button>
         </template>
-      </info-header>
+      </InfoHeader>
 
       <parallax-image
         v-if="route.meta.parallaxImage"
@@ -29,26 +42,40 @@
         <router-view name="parallax" />
       </parallax-image>
 
-      <b-container id="contentRoot" class="container-pad site-content" :class="route.meta.isError ? 'container-error' : ''">
-        <router-view />
+      <div class="section site-content">
+        <div id="contentRoot" class="container" :class="route.meta.isError ? 'container-error' : ''">
+          <router-view />
+        </div>
+      </div>
 
-      </b-container>
-
-      <info-footer />
+      <info-footer class="mt-5" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { BContainer, BButton } from 'bootstrap-vue-next'
-import { ref } from 'vue'
+import { ref, watchPostEffect } from 'vue'
 
 import { useRoute } from 'vue-router'
-import InfoHeader from '@/components/InfoHeader.vue'
+import InfoHeader from '@/components/navbar/InfoHeader.vue'
 import InfoFooter from '@/components/InfoFooter.vue'
 import ParallaxImage from '@/components/ParallaxImage.vue'
 
-const sidebarActive = ref(false)
+const sidebar = ref<HTMLElement | null>(null)
+const sidebarHidden = ref(false)
+const sidebarChanged = ref(false)
+
+watchPostEffect(() => {
+  if (sidebar.value && !sidebarChanged.value) {
+    sidebarHidden.value = getComputedStyle(sidebar.value).display === 'none'
+    console.log(`Recalculating sidebar hidden to ${sidebarHidden.value}`)
+  }
+})
+
+function toggleSidebar() {
+  sidebarHidden.value = !sidebarHidden.value
+  sidebarChanged.value = true
+}
 
 const route = useRoute()
 </script>

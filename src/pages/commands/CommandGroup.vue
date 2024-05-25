@@ -1,15 +1,25 @@
 <template>
   <div>
-    <configurable-heading :id="'commands-' + commandGroupId" :level="3 + depth">{{
-      commandGroupArg.displayName
-    }}</configurable-heading>
-    <markdown-lazy v-if="commandGroupArg.description" :content="commandGroupArg.description"></markdown-lazy>
+    <configurable-heading
+      :id="'commands-' + commandGroupId"
+      :level="3 + depth"
+      class="title"
+      :class="'is-size-' + (3 + depth)"
+      >{{ commandGroupArg.displayName }}</configurable-heading
+    >
+    <div
+      v-if="commandGroupArg.description"
+      class="content markdown-formatting"
+      v-html="commandGroupArg.description"
+    ></div>
 
-    <ul v-if="'commands' in commandGroupArg">
-      <li v-for="command in commandGroupArg.commands" :key="command.aliases.join(' | ') + (command.arguments || '')">
-        <command-node :command="command"></command-node>
-      </li>
-    </ul>
+    <div class="content">
+      <ul v-if="'commands' in commandGroupArg">
+        <li v-for="command in commandGroupArg.commands" :key="command.aliases.join(' | ') + (command.arguments || '')">
+          <command-node :command="command"></command-node>
+        </li>
+      </ul>
+    </div>
     <template v-if="commandGroupArg.subgroups">
       <command-group
         v-for="(subCommandGroup, subCommandGroupId) in refineType<CommandGroupTpe>(commandGroupArg.subgroups)"
@@ -23,12 +33,10 @@
 </template>
 
 <script setup lang="ts">
-import { type CommandGroup as CommandGroupTpe } from '@cont/commands/commandList'
+import { type CommandGroup as CommandGroupTpe } from '@gen/commands/commandList'
 import { type PropType } from 'vue'
 import CommandNode from './CommandNode.vue'
 import ConfigurableHeading from '@/components/ConfigurableHeading.vue'
-import MarkdownLazy from '@/components/MarkdownLazy.vue'
-
 
 function refineType<V>(sources: { [k: string]: V }): Record<string, V> {
   return sources

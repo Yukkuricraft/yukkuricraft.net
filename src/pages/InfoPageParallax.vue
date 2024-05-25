@@ -1,13 +1,16 @@
 <template>
-  <h1>Yukkuricraft</h1>
-  <p>The largest english Touhou Minecraft server.</p>
-  <p class="lead">Server IP: mc.yukkuricraft.net</p>
-  <p>MC Version: 1.14 - 1.18</p>
+  <h1 class="title is-size-2 has-text-white">Yukkuricraft</h1>
+  <p class="subtitle has-text-white">The largest english Touhou Minecraft server.</p>
+  <p class="block">Server IP: mc.yukkuricraft.net</p>
+  <p class="block">MC Version: 1.14 - 1.18</p>
 
-  <b-button class='text-white' :to="{ name: 'download_genso' }" variant="primary">Map download</b-button>&nbsp;
-  <b-button class='text-white' :to="{ name: 'download_survival' }" variant="primary">Survival download</b-button>
+  <div class="block">
+    <router-link class="has-text-white button is-primary" :to="{ name: 'download_genso' }"> Map download </router-link
+    >&nbsp;
+    <router-link class="has-text-white button is-primary" :to="{ name: 'download_survival' }">
+      Survival download
+    </router-link>
+  </div>
 </template>
 
-<script setup lang="ts">
-import { BButton } from 'bootstrap-vue-next'
-</script>
+<script setup lang="ts"></script>

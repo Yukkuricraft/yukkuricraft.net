@@ -2,16 +2,16 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import url from 'node:url'
-import pages from './pages.cjs'
+import { type SSRHeadPayload } from '@unhead/ssr'
+import pages, { type Page } from './pages'
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 
-const toAbsolute = (p) => path.resolve(__dirname, '..', p)
+const toAbsolute = (p: string) => path.resolve(__dirname, '..', p)
 
-async function writeContentToDisk(page, html) {
+async function writeContentToDisk(page: Page, html: string) {
   const dist = path.join(toAbsolute('dist/prerender'))
-  const destination =
-    page.htmlFilename ?? `${page.url}index.html`
+  const destination = page.htmlFilename ?? `${page.url}index.html`
   const completePath = dist + destination
 
   console.log(`Writing ${page.url} to disk at ${completePath}`)
@@ -19,7 +19,11 @@ async function writeContentToDisk(page, html) {
   await fs.writeFile(completePath, html)
 }
 
-async function prerenderRoute(render, template, pageDesc) {
+async function prerenderRoute(
+  render: (url: string) => [html: string, preloadLinks: string, head: SSRHeadPayload],
+  template: string,
+  pageDesc: Page,
+) {
   console.log('Prerendering ' + pageDesc.url)
   const [appHtml, preloadLinks, headPayload] = await render(pageDesc.url)
 
@@ -37,7 +41,7 @@ async function run() {
 
   const manifest = JSON.parse(await fs.readFile(toAbsolute('dist/client/.vite/ssr-manifest.json'), 'utf-8'))
   const template = await fs.readFile(toAbsolute('dist/client/index.html'), 'utf-8')
-  const { render } = await import('../dist/server/entry-server.js')
+  const { render } = await import('../dist/server/entry-server')
 
   await Promise.all(pages.map((p) => prerenderRoute((url) => render(url, manifest), template, p)))
 

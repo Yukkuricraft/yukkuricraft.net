@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { type PropType } from 'vue'
-import { type Locations, type Location } from '@cont/locations/locationList'
+import { type Locations, type Location } from '@gen/locations/locationList'
 import LocationItem from './LocationItem.vue'
 
 function refineType<V>(sources: { [k: string]: V }): Record<string, V> {

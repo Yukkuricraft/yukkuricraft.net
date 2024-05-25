@@ -1,4 +1,21 @@
-const backgroundOptions = {
+export type Qualities = { [extension: string]: number }
+
+export interface Size {
+  size: number
+  quality: number | Qualities
+  minWidth?: number
+  queryOptions?: string
+}
+
+export interface ImageOptions {
+  dir?: string
+  pattern?: string
+  outDir: string
+  sizes: { [sizeName: string]: Size | number }
+  quality?: number | true
+}
+
+const backgroundOptions: ImageOptions = {
   dir: './content/images/backgrounds/',
   outDir: './generated/backgrounds/',
   sizes: {
@@ -13,12 +30,12 @@ const backgroundOptions = {
         webp: 1,
         jpeg: 7,
       },
-      queryOptions: 'inline'
+      queryOptions: 'inline',
     },
   },
 }
 
-const buildOptions = {
+const buildOptions: ImageOptions = {
   dir: './content/images/locations/',
   outDir: './generated/builds/',
   sizes: {
@@ -27,11 +44,11 @@ const buildOptions = {
   },
 }
 
-const avatarOptions = {
+const avatarOptions: ImageOptions = {
   dir: './content/images/avatars/',
   outDir: './generated/avatars/',
   sizes: { '': 192, normal: 96, author: 64, icon: 32 },
   quality: true,
 }
 
-module.exports = [backgroundOptions, buildOptions, avatarOptions]
+export default [backgroundOptions, buildOptions, avatarOptions] as ImageOptions[]

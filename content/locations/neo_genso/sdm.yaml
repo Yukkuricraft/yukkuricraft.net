@@ -58,20 +58,20 @@ neogenso:
           uuid: 69b20e50-7c19-4021-baa9-3c995929bd46
       description: Home to the scarlet devil, Remilia Scarlet, and her servants
       images:
-        - name: neo/sdm/front
+        - name: neo_genso/sdm/front
           image_taken_by: Katrix
 
-        - name: neo/sdm/front_side
+        - name: neo_genso/sdm/front_side
           image_taken_by: Katrix
 
-        - name: neo/sdm/center
+        - name: neo_genso/sdm/center
           image_taken_by: Katrix
 
-        - name: neo/sdm/kitchen
+        - name: neo_genso/sdm/kitchen
           image_taken_by: Katrix
 
-        - name: neo/sdm/greenhouse
+        - name: neo_genso/sdm/greenhouse
           image_taken_by: Katrix
 
-        - name: neo/sdm/back
+        - name: neo_genso/sdm/back
           image_taken_by: Katrix

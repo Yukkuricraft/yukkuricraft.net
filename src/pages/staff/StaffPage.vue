@@ -1,8 +1,10 @@
 <template>
-  <h2>Staff members</h2>
-  <p>Get to know our staff members a bit more.</p>
+  <h2 class="title is-size-2">Staff members</h2>
+  <p class="subtitle">Get to know our staff members a bit more.</p>
 
-  <staff-group v-for="staffGroup in staff" :key="staffGroup.id" :staff-group="staffGroup"></staff-group>
+  <div v-for="staffGroup in staff" :key="staffGroup.id" class="block">
+    <staff-group :staff-group="staffGroup"></staff-group>
+  </div>
 
   <template v-for="blooper in bloopers">
     <staff-member v-if="blooper.enabled" :key="blooper.id" :staff-member="blooper"></staff-member>

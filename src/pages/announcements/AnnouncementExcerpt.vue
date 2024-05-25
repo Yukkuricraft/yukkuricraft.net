@@ -1,43 +1,48 @@
 <template>
-  <b-card no-body class="bg-secondary-subtle">
-    <fake-media>
-      <template #aside>
-        <staff-avatar
-          class="m-2"
-          :size="96"
-          :staff-member="post.poster"
-          :avatar-loc="posters[post.poster].avatar"
-        ></staff-avatar>
-      </template>
+  <div class="card">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <staff-avatar
+            class="m-2"
+            :size="96"
+            :staff-member="post.poster"
+            :avatar-loc="posters[post.poster].avatar"
+          ></staff-avatar>
+        </div>
 
-      <b-card-body>
-        <b-card-title :id="'post' + (post.slug || removeExtension(post.file, '.md'))" :tag="'h' + headingLevel" class="card-title h4">
-          <router-link :to="{ path: `/announcements/${post.slug || removeExtension(post.file, '.md')}/` }">
-            {{ post.title }}
-          </router-link>
-        </b-card-title>
+        <div class="media-content">
+          <ConfigurableHeading
+            :id="'post' + (post.slug || removeExtension(post.file, '.md'))"
+            :level="headingLevel"
+            class="is-size-3"
+          >
+            <router-link :to="{ path: `/announcements/${post.slug || removeExtension(post.file, '.md')}/` }">
+              {{ post.title }}
+            </router-link>
+          </ConfigurableHeading>
 
-        <b-card-subtitle tag="span" class="byline">
-          <p>By: {{ post.poster }}</p>
-          <p>Posted: {{ localizedPostedTime }}</p>
-        </b-card-subtitle>
+          <div class="byline">
+            <p>By: {{ post.poster }}</p>
+            <p>Posted: {{ localizedPostedTime }}</p>
+          </div>
 
-        <p>
-          {{ post.excerpt }}
-        </p>
-      </b-card-body>
-    </fake-media>
-  </b-card>
+          <p class="block">
+            {{ post.excerpt }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { BCard, BCardTitle, BCardSubtitle, BCardBody } from 'bootstrap-vue-next'
 import { computed } from 'vue'
 import posters from '@cont/announcements/posters.yaml'
 import StaffAvatar from '@/components/StaffAvatar.vue'
-import FakeMedia from '@/components/FakeMedia.vue'
 
 import { removeExtension } from '@/files'
+import ConfigurableHeading from '@/components/ConfigurableHeading.vue'
 
 const props = defineProps({
   headingLevel: {
