@@ -37,7 +37,7 @@ jobs:
           cache: 'yarn'
 
       - name: Yarn Install
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Yarn Setup
         run: yarn run setup
