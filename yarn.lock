@@ -2056,12 +2056,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bulma@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "bulma@npm:1.0.0"
-  dependencies:
-    sass: "npm:^1.71.1"
-  checksum: 10c0/a7c8370e359a2f89cca6dfd9e9c696e3b5f5d430f3b2b68b0f33ef8bbb4d6879644d416f90887404853582732170ce73064ec7f577c541fb61e99b47edc18ce7
+"bulma@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "bulma@npm:1.0.1"
+  checksum: 10c0/f6fc28167edf8b227c1406d54f72d14ab9e77c0303ba502bef70d93912dcf4b46aa26bcf14060712526785d9828e382e791f8ee7a7209ed7b85d755a85acc307
   languageName: node
   linkType: hard
 
@@ -4539,7 +4537,7 @@ __metadata:
     "@vue/tsconfig": "npm:^0.5.1"
     ajv-cli: "npm:^5.0.0"
     autoprefixer: "npm:^10.4.17"
-    bulma: "npm:^1.0.0"
+    bulma: "npm:^1.0.1"
     compression: "npm:^1.7.4"
     css.escape: "npm:^1.5.1"
     eslint: "npm:^8.57.0"

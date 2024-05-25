@@ -2,35 +2,28 @@
   <h5 class="title is-size-5">Images</h5>
   <div class="columns is-multiline">
     <div v-for="(image, i) in imageThumbnails" :key="locationId + '_' + i" class="column is-6-tablet is-4-desktop">
-      <div class="mb-4 is-display-block is-clickable" style="height: 100%" @click="openModalOnSlide(i)">
+      <div class="mb-4 is-display-block is-clickable" style="height: 100%" @click="gotoSlide(i)">
         <picture-with-webp :image="image.lowRes" :title="image.title" @load="image.lowRes.loaded = true" />
       </div>
     </div>
   </div>
 
-  <div class="modal" :class="{ 'is-active': modalShown }">
-    <div class="modal-background" @click="modalShown = false"></div>
-    <div class="modal-content" style="max-height: 100%; width: 80vw">
-      <div :id="'locationCarousel-' + locationId" ref="carousel" class="glide">
-        <div class="glide__track" data-glide-el="track">
-          <ul class="glide__slides">
-            <li v-for="image in imageThumbnails" :key="image.name" class="glide__slide">
-              <picture-with-webp :image="image.highRes" :title="image.title" @load="imageLoaded(image.highRes)" />
-            </li>
-          </ul>
+  <div :id="'locationCarousel-' + locationId" ref="carousel" class="glide">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+        <li v-for="image in imageThumbnails" :key="image.name" class="glide__slide">
+          <picture-with-webp :image="image.highRes" :title="image.title" @load="imageLoaded(image.highRes)" />
+        </li>
+      </ul>
 
-          <div class="glide__arrows" data-glide-el="controls">
-            <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-            <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+      <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
 
-            <div class="glide-caption">{{ imageThumbnails && imageThumbnails[slide].title }}</div>
-            <div class="has-text-centered">{{ imageThumbnails && imageThumbnails[slide].description }}</div>
-          </div>
-        </div>
+        <div class="glide-caption">{{ imageThumbnails && imageThumbnails[slide].title }}</div>
+        <div class="has-text-centered">{{ imageThumbnails && imageThumbnails[slide].description }}</div>
       </div>
     </div>
-
-    <button type="button" class="modal-close is-large" aria-label="close" @click="modalShown = false"></button>
   </div>
 </template>
 
@@ -45,7 +38,7 @@ import {
   makeImageWithThumbnails,
   type NestedImageData,
   type SingleNestedImageData,
-  type PictureWithWebp as PictureWithWebpTpe
+  type PictureWithWebp as PictureWithWebpTpe,
 } from '@/images'
 
 const props = defineProps({
@@ -76,11 +69,11 @@ watch(carousel, (v) => {
   g.on('run', () => {
     slide.value = g.index
   })
+  g.mount({ Images, Controls, Keyboard, Swipe })
 
   glideObj.value = g
 })
 
-const modalShown = ref(false)
 const slide = ref(0)
 
 onUnmounted(() => {
@@ -98,21 +91,12 @@ watchEffect(() => {
   imageThumbnails.value = reactive(getImagesWithThumbnails(props.images))
 })
 
-function openModalOnSlide(i: number) {
+function gotoSlide(i: number) {
   slide.value = i
-  modalShown.value = true
-
-  glideObj.value?.mount({ Images, Controls, Keyboard, Swipe })
-  setTimeout(() => {
-    glideObj.value?.update()
-  }, 50)
 }
 
 function imageLoaded(image: PictureWithWebpTpe) {
   image.loaded = true
-  setTimeout(() => {
-    glideObj.value?.update()
-  }, 50)
 }
 
 function buildImagesForPath(path: string) {

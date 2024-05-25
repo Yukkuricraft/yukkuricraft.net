@@ -90,7 +90,7 @@
     "@popperjs/core": "^2.11.8",
     "@unhead/ssr": "^1.8.10",
     "@unhead/vue": "^1.8.10",
-    "bulma": "^1.0.0",
+    "bulma": "^1.0.1",
     "css.escape": "^1.5.1",
     "pinia": "^2.1.7",
     "query-string": "^8.2.0",

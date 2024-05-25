@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="block">
     <configurable-heading
       :id="'location-' + locationId"
       :level="3 + depth"
