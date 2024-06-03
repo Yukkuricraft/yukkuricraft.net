@@ -33,8 +33,7 @@ deactivated, or otherwise non-functioning_ Chunkloaders are still in violation.
 Once again, ask staff if you have any questions about these rule changes or
 about any rules in general. Most of our work is done case by case so it wouldn't
 hurt to get ahead of us if you think you or someone could be potentially
-violating the rules without knowing. That should be all, take it easy
-<:RumiWave:690907279586754571>
+violating the rules without knowing. That should be all, take it easy!
 
 _P.S. - We will not retroactively punish anyone even though these rules were
 already against these things. Again, it wasn't clearly defined and we can't
