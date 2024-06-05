@@ -54,9 +54,9 @@
         technical support and MC datapack and command developer. I'm also one of
         the devs on this website. I love flowers, cuddles, things that shine in
         the night sky, and just having fun. You'll often see me swing by the
-        server to check up on what may be going down, build something in creative
-        or for Gensokyo, or simply hang out. Feel free to message me if you need
-        any help on the server or if you want to chat.
+        server to check up on what may be going down, build something in
+        creative or for Gensokyo, or simply hang out. Feel free to message me if
+        you need any help on the server or if you want to chat.
 
     - name: Teshno
       mcAccounts:
@@ -154,6 +154,26 @@
         I'm more of a researcher than an inventor. I'm situated in SEA, but if
         you need me, feel free to leave a message anytime. I'll try and get back
         to you if I'm not busy with work or sleep.
+
+    - name: DanClypse
+      mcAccounts:
+        - name: DanClypse
+          uuid: 0fd9b9cc-95b9-4f26-8527-534378063c66
+        - name: MayumiJoutouguu
+          uuid: bdf0893e-ebde-41da-b62e-bf798eb0b17b
+        - name: BitenBlast
+          uuid: 7cda9ffe-048b-4863-8edb-c4b57ca7204e
+        - name: KeikiHaniyasushi
+          uuid: 91d66e6f-c716-4549-806c-53428ae3f1a5
+      discordAccount: '975881964093575260'
+      avatar: 'dan_avatar.png'
+      description: >-
+        Hey, I'm Dan, local Momoyo fan and a community mediator. I hang around
+        in survival almost every day, and I love making new friends, partaking
+        in big projects, and overall helping the server grow with welcoming
+        vibes. I enjoy a wide variety of games, music, art, and tech-related
+        stuff, like plugin and mod programming. Hit me up if you need help with
+        anything - I'm always happy to lend a hand!
 
 - id: builder
   displayName: Builders
