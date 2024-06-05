@@ -203,7 +203,7 @@ export function createYcRouter() {
       })),
       ...announcementList.map((post) => {
         const file = removeExtension(post.file, '.md')
-        // @ts-ignore
+        // @ts-expect-error No idea
         const slug = post.slug || file
         const [postYear, postMonth, postFilename] = file.split('/')
 

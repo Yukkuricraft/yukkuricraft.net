@@ -6,7 +6,7 @@ import { glob } from 'glob'
 
 import imageOptions, { type ImageOptions, type Qualities, type Size } from './images'
 
-const work: Promise<any>[] = []
+const work: Promise<unknown>[] = []
 let processed = 0
 let proccessAmount = 0
 

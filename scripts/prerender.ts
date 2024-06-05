@@ -41,12 +41,17 @@ async function prerenderRoute(browser: Browser, pageDesc) {
   const page = await browser.newPage()
 
   page.evaluateOnNewDocument(function () {
-    ;(window as any).__PRERENDER_DONE = false
-    ;(window as any).__PRERENDER_INJECTED = {
+    const castedWindow = window as typeof window & {
+      __PRERENDER_DONE: boolean
+      __PRERENDER_INJECTED: unknown
+      }
+
+    castedWindow.__PRERENDER_DONE = false
+    castedWindow.__PRERENDER_INJECTED = {
       prerendered: true,
     }
     document.addEventListener('render-event', () => {
-      ;(window as any).__PRERENDER_DONE = true
+      castedWindow.__PRERENDER_DONE = true
     })
   })
 
@@ -55,7 +60,7 @@ async function prerenderRoute(browser: Browser, pageDesc) {
   await page.evaluate(function () {
     return new Promise<void>((resolve) => {
       // Catch quick renders
-      if ((window as any).__PRERENDER_DONE) {
+      if ((window as typeof window & {__PRERENDER_DONE: boolean}).__PRERENDER_DONE) {
         resolve()
       } else {
         document.addEventListener('render-event' as keyof DocumentEventMap, () => resolve())

@@ -161,20 +161,22 @@ const useDarkTheme = !import.meta.env.SSR
   ? window.matchMedia('(prefers-color-scheme: dark)')
   : {
       matches: false,
+    // eslint-disable-next-line no-undef
       addEventListener<K extends keyof MediaQueryListEventMap>(
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         type: K,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        listener: (this: MediaQueryList, ev: MediaQueryListEventMap[K]) => any,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-undef
+        listener: (this: MediaQueryList, ev: MediaQueryListEventMap[K]) => unknown,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-undef
         options?: boolean | AddEventListenerOptions,
       ) {},
+    // eslint-disable-next-line no-undef
       removeEventListener<K extends keyof MediaQueryListEventMap>(
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         type: K,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        listener: (this: MediaQueryList, ev: MediaQueryListEventMap[K]) => any,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-undef
+        listener: (this: MediaQueryList, ev: MediaQueryListEventMap[K]) => unknown,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-undef
         options?: boolean | EventListenerOptions,
       ) {},
     }

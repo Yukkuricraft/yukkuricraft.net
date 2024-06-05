@@ -271,7 +271,7 @@ export function backgroundImage(key: BackgroundKeys | string[]): ImageForPicture
   if (Array.isArray(key)) {
     const copy = [...key]
 
-    // @ts-ignore
+    // @ts-expect-error No idea
     let obj = backgrounds as NestedImageData
 
     while (copy.length) {
@@ -280,13 +280,13 @@ export function backgroundImage(key: BackgroundKeys | string[]): ImageForPicture
 
     return autoImage(obj as SingleNestedImageData)
   } else {
-    // @ts-ignore
+    // @ts-expect-error No idea
     return autoImage(backgrounds[key] as SingleNestedImageData)
   }
 }
 
 export function staffAvatar(contentAvatarFile: string, shownSize = 192): { default: string; srcsets: { [p: string]: string } } {
-  // @ts-ignore
+  // @ts-expect-error No idea
   const avatar = staffAvatars[removeExtension(contentAvatarFile, '.png')] as SingleNestedImageData
 
   const sources = Object.values(avatar)

@@ -71,7 +71,7 @@ export async function createServer(
         render = (await vite.ssrLoadModule('/src/entry-server.js')).render
       } else {
         template = indexProd
-        // @ts-ignore
+        // @ts-error
         render = (await import('./dist/server/entry-server.ts')).render
       }
 

@@ -32,7 +32,7 @@ export default defineConfig({
     vue(),
     ViteYaml(),
     mdPlugin({ mode: [Mode.VUE], markdownIt: markdownItObj }),
-    // @ts-ignore
+    // @ts-expect-error No idea
     vitePluginFaviconsInject(
       './src/favicon_upscaled.png',
       {
