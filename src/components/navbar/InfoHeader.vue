@@ -37,8 +37,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import NavbarLink from './NavbarLink.vue'
 import navlinks from '../navlinks'
+import NavbarLink from './NavbarLink.vue'
 
 const burgerExpanded = ref(false)
 </script>

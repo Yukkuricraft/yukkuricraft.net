@@ -68,7 +68,6 @@ const sidebarChanged = ref(false)
 watchPostEffect(() => {
   if (sidebar.value && !sidebarChanged.value) {
     sidebarHidden.value = getComputedStyle(sidebar.value).display === 'none'
-    console.log(`Recalculating sidebar hidden to ${sidebarHidden.value}`)
   }
 })
 

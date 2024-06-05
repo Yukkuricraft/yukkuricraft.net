@@ -8,6 +8,7 @@
     <template v-else>{{ rank.name }}:</template>
   </dt>
   <dd class="column is-10 pt-0">
+    <!-- eslint-disable vue/no-v-html -->
     <div class="content markdown-formatting" v-html="rank.description"></div>
   </dd>
 </template>

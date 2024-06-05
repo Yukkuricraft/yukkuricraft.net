@@ -1,6 +1,7 @@
 <template>
   <div>
     <strong class="command">{{ commandStr }}</strong>
+    <!-- eslint-disable vue/no-v-html -->
     <div class="content markdown-formatting" v-html="command.description"></div>
   </div>
 </template>

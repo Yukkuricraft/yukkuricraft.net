@@ -8,6 +8,7 @@
       >{{ location.displayName }}</configurable-heading
     >
     <location-builders v-if="location.builders" :builders="location.builders" :type="location.type" />
+    <!-- eslint-disable vue/no-v-html -->
     <div v-if="location.description" class="content markdown-formatting" v-html="location.description"></div>
     <location-images v-if="location.images" :images="location.images" :location-id="locationId" />
 

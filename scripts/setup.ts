@@ -1,9 +1,6 @@
-import { makeAnnouncementList } from './makeAnnouncementList'
-import { makeSitemap } from './makeSitemap'
-import { processImages } from './processImages'
-import { processMarkdownFiles } from './renderMarkdownContent'
-
-makeAnnouncementList()
-makeSitemap()
-processImages()
-processMarkdownFiles()
+(async () => {
+  (await import('./makeAnnouncementList')).makeAnnouncementList();
+  (await import('./makeSitemap')).makeSitemap();
+  (await import('./processImages')).processImages();
+  (await import('./renderMarkdownContent')).processMarkdownFiles();
+})()

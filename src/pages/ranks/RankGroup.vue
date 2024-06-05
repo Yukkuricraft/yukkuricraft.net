@@ -5,6 +5,7 @@
       {{ group.displayName }}
     </configurable-heading>
 
+    <!-- eslint-disable vue/no-v-html -->
     <div v-if="group.description" class="subtitle content markdown-formatting" v-html="group.description"></div>
 
     <dl v-if="'ranks' in group" class="columns is-multiline">

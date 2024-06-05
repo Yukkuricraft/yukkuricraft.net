@@ -7,6 +7,7 @@
       :class="'is-size-' + (3 + depth)"
       >{{ commandGroupArg.displayName }}</configurable-heading
     >
+    <!-- eslint-disable vue/no-v-html -->
     <div
       v-if="commandGroupArg.description"
       class="content markdown-formatting"
