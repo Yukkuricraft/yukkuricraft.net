@@ -87,7 +87,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Run linting
-        run: yarn run lint:js
+        run: yarn run lint
 
       - name: Run YAML verification
         run: yarn run yaml-validate
