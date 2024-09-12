@@ -1,7 +1,7 @@
 {
-  "name": "YukkuriCraft Info",
-  "short_name": "YukkuriCraft Info",
-  "description": "YukkuriCraft Info page",
+  "name": "Yukkuricraft Info",
+  "short_name": "Yukkuricraft Info",
+  "description": "Yukkuricraft Info page",
   "dir": "auto",
   "lang": "en-US",
   "display": "standalone",
