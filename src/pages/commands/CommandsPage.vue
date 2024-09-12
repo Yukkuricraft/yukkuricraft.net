@@ -170,8 +170,8 @@ onServerPrefetch(() => loadCommands())
 
 useHead(
   makeMeta({
-    title: 'YukkuriCraft - Commands',
-    description: 'Search through the commands found on YukkuriCraft.',
+    title: 'Yukkuricraft - Commands',
+    description: 'Search through the commands found on Yukkuricraft.',
     url: 'commands/',
   }),
 )

@@ -59,7 +59,7 @@ const bloopers = ref<Blooper[]>([
     enabled: false,
     idx: 0,
     description:
-      "Remi Hi, I'm Koko. I'm the server or anything else feel free to help out on Yukuricraft. I basically make sure the server, or just mainly slacking around the Mediators on Yukuricraft. I basically make sure the server builds, such as Paintball and deal with people, Warframe, drawing, and just chat, don't feel free to check up on your best behavior. I lurk around the server. I'm one of other things, and just tag me anything, I'm Redleaf, an old builder for about a W.I.P). If there's any help of YukkuriCraft. Whether it's server or issues, feel free to keep our community moving forward, so if I’m online and you need anything let me or one of other probably won't hesitate to oversee the Minecraft communities for Gensokyo, or one that region, you'll most likely be happy to hang out who needs it so please remain playful and other things! Feel free to ask. Birb Hi! I'm Koko. I'm a team in Yukkuricraft. These days, I mostly work on the one of the daily technical side of the paintball minigame, and you want!\n",
+      "Remi Hi, I'm Koko. I'm the server or anything else feel free to help out on Yukuricraft. I basically make sure the server, or just mainly slacking around the Mediators on Yukuricraft. I basically make sure the server builds, such as Paintball and deal with people, Warframe, drawing, and just chat, don't feel free to check up on your best behavior. I lurk around the server. I'm one of other things, and just tag me anything, I'm Redleaf, an old builder for about a W.I.P). If there's any help of Yukkuricraft. Whether it's server or issues, feel free to keep our community moving forward, so if I’m online and you need anything let me or one of other probably won't hesitate to oversee the Minecraft communities for Gensokyo, or one that region, you'll most likely be happy to hang out who needs it so please remain playful and other things! Feel free to ask. Birb Hi! I'm Koko. I'm a team in Yukkuricraft. These days, I mostly work on the one of the daily technical side of the paintball minigame, and you want!\n",
     mcAccounts: [],
   },
 ])
@@ -92,8 +92,8 @@ function processBloopers(event: KeyboardEvent) {
 
 useHead(
   makeMeta({
-    title: 'YukkuriCraft - Staff',
-    description: 'The staff of YukkuriCraft.',
+    title: 'Yukkuricraft - Staff',
+    description: 'The staff of Yukkuricraft.',
     url: 'staff/',
   }),
 )

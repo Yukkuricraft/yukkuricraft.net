@@ -31,7 +31,7 @@ const description = computed(() => (usedComponent.value?.attributes?.description
 
 useHead(
   makeMeta({
-    title: computed(() => 'YukkuriCraft - ' + title.value),
+    title: computed(() => 'Yukkuricraft - ' + title.value),
     description,
     url: computed(() => props.canonicalUrl),
   }),

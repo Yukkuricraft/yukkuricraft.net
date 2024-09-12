@@ -32,7 +32,7 @@ import { makeMeta } from '@/pageHelpers'
 
 useHead(
   makeMeta({
-    title: 'YukkuriCraft - Downloads',
+    title: 'Yukkuricraft - Downloads',
     description: 'Download our Gensokyo maps.',
     url: 'downloads/gensokyo/',
   }),

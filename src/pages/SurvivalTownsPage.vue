@@ -10,7 +10,7 @@ import { makeMeta } from '@/pageHelpers'
 
 useHead(
   makeMeta({
-    title: 'YukkuriCraft - Towns',
+    title: 'Yukkuricraft - Towns',
     description: 'Explore the various public towns and cities in Survival.',
     url: 'server-activities/survival/towns/',
   }),

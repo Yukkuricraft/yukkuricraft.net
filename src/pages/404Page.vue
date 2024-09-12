@@ -17,7 +17,7 @@ import { makeMeta } from '@/pageHelpers'
 
 useHead(
   makeMeta({
-    title: 'YukkuriCraft - 404 Not found',
+    title: 'Yukkuricraft - 404 Not found',
     description: "We couldn't find what you were looing for.",
     url: null,
   }),

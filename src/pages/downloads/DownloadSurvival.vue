@@ -42,7 +42,7 @@ import { makeMeta } from '@/pageHelpers'
 
 useHead(
   makeMeta({
-    title: 'YukkuriCraft - Survival Downloads',
+    title: 'Yukkuricraft - Survival Downloads',
     description: 'Download our survival maps.',
     url: 'downloads/survival/',
   }),

@@ -26,7 +26,7 @@ not expect that user to assist you as their rank should.
 
 While this change is meant to be used for people going on a break, it is not to
 be used by people who simply do not have the time to properly live up to their
-responsibilities here. Remember; YukkuriCraft is just a community, it should
+responsibilities here. Remember; Yukkuricraft is just a community, it should
 never take priority over IRL matters. There's a difference between just needing
 a bit of time vs outright not having time for us and it's entirely okay if the
 latter is the case, just don't expect an indefinite On-Leave rank to compensate.

@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://yukkuricraft.net/schemas/locations.schema.json",
-  "title": "YukkuriCraft locations",
-  "description": "A schema for YukkuriCraft's locations documents",
+  "title": "Yukkuricraft locations",
+  "description": "A schema for Yukkuricraft's locations documents",
   "type": "object",
   "additionalProperties": {
     "$ref": "#/definitions/location"

@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://yukkuricraft.net/schemas/staff.schema.json",
-  "title": "YukkuriCraft staff",
-  "description": "A schema for YukkuriCraft's staff document",
+  "title": "Yukkuricraft staff",
+  "description": "A schema for Yukkuricraft's staff document",
   "type": "array",
   "items": {
     "type": "object",

@@ -1,6 +1,6 @@
 ---
 title: 'A tour of Survival'
-description: 'Get to know the Survival world of YukkuriCraft.'
+description: 'Get to know the Survival world of Yukkuricraft.'
 ---
 
 ## A tour of Survival
@@ -144,7 +144,7 @@ from a bookshelf!
 #### Fewer chores, more fun
 
 Some things in Vanilla just feels like a drag. For example, finding just the
-right painting more your room. On YukkuriCraft, you can just right-click on the
+right painting more your room. On Yukkuricraft, you can just right-click on the
 painting instead to scroll through different paintings. Copying and editing
 signs is another painful experience. If you want to copy a sign here, just
 right-click it with an ink sac. If you instead want to edit it, just use the

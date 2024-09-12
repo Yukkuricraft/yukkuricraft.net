@@ -49,7 +49,7 @@ const localizedPostedTime = computed(() =>
 
 useHead(
   makeMeta({
-    title: computed(() => 'YukkuriCraft - ' + props.post.title),
+    title: computed(() => 'Yukkuricraft - ' + props.post.title),
     description: computed(() => props.post.excerpt),
     url: computed(() => `announcements/${postSlug.value}/`),
   }),

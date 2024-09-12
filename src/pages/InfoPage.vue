@@ -196,12 +196,12 @@ onUnmounted(() => {
 })
 
 useHead({
-  title: 'YukkuriCraft',
+  title: 'Yukkuricraft',
 })
 
 useHead(
   makeMeta({
-    title: 'YukkuriCraft',
+    title: 'Yukkuricraft',
     description:
       'Yukkuricraft is the online community that brought you a fully explorable rendition of Gensokyo of Touhou Project fame in Minecraft! Our Gensokyo project is a community-led effort - we welcome all players to join the fun!',
     url: '',

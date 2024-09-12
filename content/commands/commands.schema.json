@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://yukkuricraft.net/schemas/commands.schema.json",
-  "title": "YukkuriCraft commands",
-  "description": "A schema for YukkuriCraft's command documents",
+  "title": "Yukkuricraft commands",
+  "description": "A schema for Yukkuricraft's command documents",
   "type": "object",
   "additionalProperties": {
     "$ref": "#/definitions/commandGroup"

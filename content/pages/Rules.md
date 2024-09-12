@@ -1,7 +1,7 @@
 ---
 title: Rules
 description:
-  All the different rules for YukkuriCraft on it's different platforms.
+  All the different rules for Yukkuricraft on it's different platforms.
 ---
 
 ## Rules

@@ -48,7 +48,7 @@ onMounted(async () => {
 
 useHead(
   makeMeta({
-    title: 'YukkuriCraft - Gensokyo',
+    title: 'Yukkuricraft - Gensokyo',
     description: 'Look at all the different places in our Gensokyo.',
     url: 'gensokyo/',
   }),

@@ -15,7 +15,7 @@ import { makeMeta } from '@/pageHelpers'
 
 useHead(
   makeMeta({
-    title: 'YukkuriCraft - Announcements',
+    title: 'Yukkuricraft - Announcements',
     description: "See what's happening in the community.",
     url: 'announcements/',
   }),

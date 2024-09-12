@@ -3,7 +3,7 @@ title: 'Paintball'
 description: 'Play some paintball together with the community'
 ---
 
-## YukkuriCraft Paintball
+## Yukkuricraft Paintball
 
 Want to take a break from exploring Gensokyo, building, or surviving? Want to
 duel someone on some battlements or have a full out battle? Want to just destroy

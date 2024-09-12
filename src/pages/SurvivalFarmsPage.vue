@@ -10,7 +10,7 @@ import { makeMeta } from '@/pageHelpers'
 
 useHead(
   makeMeta({
-    title: 'YukkuriCraft - Public Farms',
+    title: 'Yukkuricraft - Public Farms',
     description: 'Discover and enjoy our public farms in Survival.',
     url: 'server-activities/survival/farms/',
   }),

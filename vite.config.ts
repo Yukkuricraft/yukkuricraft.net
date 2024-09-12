@@ -36,8 +36,8 @@ export default defineConfig({
     vitePluginFaviconsInject(
       './src/favicon_upscaled.png',
       {
-        appName: 'YukkuriCraft Info',
-        appDescription: 'YukkuriCraft Info page',
+        appName: 'Yukkuricraft Info',
+        appDescription: 'Yukkuricraft Info page',
         developerName: 'Katrix',
         developerURL: null,
         background: '#fff',

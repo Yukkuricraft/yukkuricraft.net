@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://yukkuricraft.net/schemas/ranks.schema.json",
-  "title": "YukkuriCraft ranks",
-  "description": "A schema for YukkuriCraft's rank document",
+  "title": "Yukkuricraft ranks",
+  "description": "A schema for Yukkuricraft's rank document",
   "type": "array",
   "items": {
     "$ref": "#/definitions/rankGroup"

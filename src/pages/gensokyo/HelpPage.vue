@@ -3,7 +3,7 @@
     <div class="content">
       <h2>Meetings</h2>
       <p>
-        Builders on YukkuriCraft meet twice a month to plan, give feedback, and build together. The days these meetings
+        Builders on Yukkuricraft meet twice a month to plan, give feedback, and build together. The days these meetings
         happens on is the first and third Saturday of every month at 4PM EST(EDT if Daylight saving applies). At those
         times you can find us on our Discord in the Building Room. No matter your skill, Gensokyo is a community project
         so please come and build with us! You can also always contact a Lead Builder at any time if you want to work on
@@ -28,7 +28,7 @@ import { makeMeta } from '@/pageHelpers'
 
 useHead(
   makeMeta({
-    title: 'YukkuriCraft - Help us build!',
+    title: 'Yukkuricraft - Help us build!',
     description: 'Take a look at our ongoing projects in Gensokyo.',
     url: 'gensokyo/help/',
   }),

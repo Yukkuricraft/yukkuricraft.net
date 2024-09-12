@@ -48,8 +48,8 @@ export type RankGroupTpe = RankGroupWithChildren | RankGroupWithRanks
 const rankGroups = rankGroupsUntyped as RankGroupTpe[]
 
 useHead(makeMeta({
-  title: 'YukkuriCraft - Ranks',
-  description: 'The different ranks found on YukkuriCraft.',
+  title: 'Yukkuricraft - Ranks',
+  description: 'The different ranks found on Yukkuricraft.',
   url: 'ranks/'
 }))
 </script>
