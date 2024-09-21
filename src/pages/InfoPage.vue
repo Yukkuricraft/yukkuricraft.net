@@ -94,28 +94,40 @@
     <h3 id="subdomainsSocialMedia" class="is-size-4">Social media</h3>
     <ul>
       <li>
-        <a href="https://www.instagram.com/yukkuricraft/" target="noopener">https://www.instagram.com/yukkuricraft/</a>
-        - Instagram Page
-      </li>
-      <li>
         <a href="https://www.youtube.com/c/Yukkuricraft" target="noopener">https://www.youtube.com/c/Yukkuricraft</a>
         - Youtube Channel
+      </li>
+      <li>
+        <a href="https://linktr.ee/yukkuricraft" target="noopener">
+          https://linktr.ee/yukkuricraft
+        </a>
+        - Linktree
+      </li>
+      <li>
+        <a href="https://www.instagram.com/yukkuricraft/" target="noopener">https://www.instagram.com/yukkuricraft/</a>
+        - Instagram Page
       </li>
       <li>
         <a href="https://www.facebook.com/yukkuricraft" target="noopener">https://www.facebook.com/yukkuricraft</a>
         - Facebook Page
       </li>
       <li>
-        <a href="https://www.facebook.com/groups/yukkuricraft" target="noopener">
-          https://www.facebook.com/groups/yukkuricraft
+        <a href="https://x.com/YukkuriCraft" target="noopener">
+          https://twitter.com/YukkuriCraft
         </a>
-        - Facebook Group
+        - Twitter Page
       </li>
       <li>
-        <a href="https://steamcommunity.com/groups/yukkuricraft" target="noopener">
-          https://steamcommunity.com/groups/yukkuricraft
+        <a href="https://www.tumblr.com/yukkuricraft" target="noopener">
+          https://www.tumblr.com/yukkuricraft
         </a>
-        - Steam Group
+        - Tumblr Page
+      </li>
+      <li>
+        <a href="https://github.com/yukkuricraft" target="noopener">
+          https://github.com/yukkuricraft
+        </a>
+        - Github organization
       </li>
     </ul>
   </div>
@@ -135,7 +147,7 @@
   <div class="block">
     <ol>
       <li><strong>Email: </strong>remi (@) yukkuricraft.net</li>
-      <li><strong>Discord: </strong>Remi#5619</li>
+      <li><strong>Discord: </strong>remiscarlet</li>
       <li><strong>Steam: </strong>Mr. Bromilia Amatsukaze Scarlet</li>
     </ol>
   </div>
