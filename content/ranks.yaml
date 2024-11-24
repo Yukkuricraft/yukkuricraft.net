@@ -2,45 +2,45 @@
   displayName: Public ranks
   description: These are ranks most commonly seen on members of the community.
   ranks:
-    - name: Infant
+    - name: Outsider
       description: >-
-        Just joined the server, has not completed the quiz. This is a new person
-        who has not yet mentally involved themselves with the server or the
-        community.
+        Just joined the server, has not accepted the rules. This is a new
+        person who has not yet mentally involved themselves with the server
+        or the community.
 
-    - name: Child
+    - name: Wanderer
       description: >-
-        Someone who's completed the quiz. This is the rank that people will go
-        through during their first few days on the server. Children can set up
-        to 3 homes.
+        Someone who's accepted the rules and is a part of the community.
+        This is the rank that people will go through during their first few
+        days on the server. Wanderers can set up to 3 homes.
 
-    - name: Adult
+    - name: Resident
       description: >-
         Someone who has at least a total of 4 days (96 hours) worth of activity
         on the server. This person has devoted a lot of their time on the server
-        and is now considered an active member of the community. Adults and up
-        are allowed to use items like fire and lava. Adults can set up to 5
+        and is now considered an active member of the community. Residents and up
+        are allowed to use items like fire and lava. Residents can set up to 5
         homes.
 
-    - name: Senior
+    - name: Noble
       description: >-
         Someone who has at least a total of **10** days (240 hours) worth of
         activity. Can set up to 10 homes at once.
 
-    - name: Elder
+    - name: Sage
       description: >-
         This rank represents dedication and big positive involvement with the
-        community and staff. Elders are specifically chosen and voted on by the
-        staff. If you are an Elder, that means you're a positive force within
+        community and staff. Sages are specifically chosen and voted on by the
+        staff. If you are a Sage, that means you're a positive force within
         the community, and have been noticed for your actions. You're one of the
-        community leaders. Inactive and troublesome elders can be demoted. This
-        is mostly just a pretty title! Elders can set up to 15 homes.
+        community leaders. Inactive and troublesome sages can be demoted. This
+        is mostly just a pretty title! Sages can set up to 15 homes.
 
 - id: staff_ranks_and_titles
   displayName: Staff ranks
   description:
     The staff are the ones that make all the decisions on the server, and name
-    new staff and elders.
+    new staff and sages.
   childGroups:
     - id: staff_titles
       displayName: Titles

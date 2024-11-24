@@ -27,8 +27,8 @@ feelings:
         Express your feelings to the target.
 
         Some feelings are gated behind certain ranks:  
-        **Senior+:** Slap, bite, punch, scorn, stalk  
-        **Elder+:** Lick, Stab, Kiss, Murder, Yell  
+        **Noble+:** Slap, bite, punch, scorn, stalk  
+        **Sage+:** Lick, Stab, Kiss, Murder, Yell  
         **Staff+:** Has access to all feelings (Spook is the only staff restricted feeling currently)
 
         This list might be out of date. Check `/feelings` for an up to date list of all feelings.

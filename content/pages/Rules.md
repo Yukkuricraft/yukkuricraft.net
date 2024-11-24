@@ -44,7 +44,7 @@ Rules that apply across all of Yukkuricraft
 4) **Do not ask for promotions**
 
    Promotions to staff are administered as per the server's requirement. The
-   highest non-staff rank attainable is Elder, which is obtained by being a
+   highest non-staff rank attainable is Sage, which is obtained by being a
    continuing positive contributor to the server's social development. While
    asking for information or offering to help is fine, demanding a promotion
    will reflect poorly on your character.
@@ -111,8 +111,8 @@ to claim abandoned builds in the survival world.
 If a user has not logged on in over 90 days, their builds become viable for
 Remicare. You can request staff to investigate the build and confirm the user
 has been inactive for the timeframe, then give ownership of the build to you.
-Logging in exclusively to avoid Remicare will not be counted. Elders and up are
-entirely immune to Remicare. If a user below Elder rank suspects they will be
+Logging in exclusively to avoid Remicare will not be counted. Sages and up are
+entirely immune to Remicare. If a user below Sage rank suspects they will be
 gone for longer than the 90 day period, they can inform staff and they will be
 protected for the estimated time period. These protections can be overridden
 under specific circumstances. Remicare is not guaranteed under any
