@@ -15,16 +15,19 @@
     <ul>
       <li>
         <a href="https://mega.nz/file/4kdnXZxB#m3v01SsD_ZKmjRdQBxnCdHBnvaG8wzcXKZuciJ1z7hw"
-        >Survival 1: 1.6 (2012-2014)</a
+        >Survival 1 (Minecraft 1.6) (2012-2014)</a
         >
       </li>
       <li>
         <a href="https://mega.nz/file/QgtwhbwJ#5nxZBAWxpCAjk4el5nuVDylCs1RqWzQT3WFtQj8mIOo"
-        >Survival 2 (Neo Survival): 1.8 (2014-2016)</a
+        >Survival 2 (Neo Survival) (Minecraft 1.8) (2014-2016)</a
         >
       </li>
       <li>
-        <a href="https://mega.nz/folder/89dTzKTT#H-PpWty0lNUwaQi9lRFOlw">Survival 3 (Nova Survival): 1.12 (2016-2019)</a>
+        <a href="https://mega.nz/folder/89dTzKTT#H-PpWty0lNUwaQi9lRFOlw">Survival 3 (Nova Survival) (Minecraft 1.12) (2016-2019)</a>
+      </li>
+      <li>
+        <a href="https://mega.nz/folder/ph9wyaZQ#C1wycLR6deKP9aeIQYLJTw">Survival 4 (Minecraft 1.18) (2019-2024)</a>
       </li>
     </ul>
 
