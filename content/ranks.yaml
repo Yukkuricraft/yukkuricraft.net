@@ -25,7 +25,8 @@
     - name: Noble
       description: >-
         Someone who has at least a total of **10** days (240 hours) worth of
-        activity. Can set up to 10 homes at once.
+        activity. Can set up to 10 homes at once. Nobles can request a custom
+        nickname from staff.
 
     - name: Sage
       description: >-

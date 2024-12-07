@@ -76,19 +76,27 @@ communication, connecting with the rest of the community is a walk in the park.
 
 Made a friend here and want to visit their place on the other side of the map?
 Teleportation commands allow players to teleport to one another instantly
-anytime.
+anytime. To teleport to someone, simply type `/tpa <username>`. If you want to
+bring someone to you, you can type `/tpahere <username>` instead.
 
-#### A Better Chat
+#### Express Yourself
 
-Being social through text alone is hard, but we try to make it easier. Want to
-show some emotions? Our large pool of commands can undoubtedly help with that.
-From pats to hugs and more, we probably have it. Note that for the comfort of
-everyone, we lock some actions behind higher ranks.
+Of course, simply typing in chat isn't always enough to express yourself.
+A good way to help express yourself to others is through emotes. Our large pool
+of commands provide a suite of expressions to help spice up your chatter. From
+pats to hugs and more, we probably have it. Note that, for the comfort of
+everyone, we lock some actions like kissing or jumpscares behind higher ranks.
 
-Not entirely happy with your username? Getting a nickname is super easy. Just
-notify one of our friendly staff members, and should it pass the approval phase,
-you can go around in style with your new nickname! Need to do something? Dropped
-off? Set yourself to AFK to notify other players that you are not present.
+Wish to be referred by something other than your username? Want it shortened?
+At Noble rank, you can request a nickname. Just notify one of our friendly staff
+members and, should it pass the approval phase, you can go around in style with
+your new nickname!  
+***Note: Touhou nicknames are subject to heavy scrutiny and will only be given to
+popular players who are closely associated with a character.***
+
+Need to do something? Dropped off? Set yourself to AFK to notify other players
+that you are not present. This command will also let the server know to ignore
+you when other players try to skip the night in survival.
 
 #### Simple Cross-Platform Communication
 
