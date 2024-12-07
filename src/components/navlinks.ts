@@ -27,7 +27,7 @@ export default [
     name: 'Announcements',
   },
   {
-    name: 'Community guide',
+    name: 'Community Guide',
     id: 'community_guide',
     subpages: [
       {
@@ -58,7 +58,7 @@ export default [
         to: {
           name: 'survivalTour',
         },
-        name: 'Survival tour',
+        name: 'Survival Tour',
       },
       {
         to: {
@@ -106,7 +106,7 @@ export default [
         to: {
           name: 'gensokyo_help',
         },
-        name: 'Help us build!',
+        name: 'Help Us Build!',
       },
     ],
   },
