@@ -165,7 +165,19 @@ export function createYcRouter() {
         components: makeComponents(() => import('@/pages/SurvivalTownsPage.vue')),
         sensitive: true,
         meta: {
-          parallaxImage: 'kagome_airships',
+          parallaxImage: 'kagome_marina',
+          parallaxTitle: 'Towns',
+          parallaxParagraph: 'Explore the various public towns and cities in Survival.',
+          sidebarTitle: 'Towns',
+        },
+      },
+      {
+        path: '/archive/s4towns/',
+        name: 'survival4_towns_archive',
+        components: makeComponents(() => import('@/pages/S4TownsPage.vue')),
+        sensitive: true,
+        meta: {
+          parallaxImage: 'kagome4_airships',
           parallaxTitle: 'Towns',
           parallaxParagraph: 'Explore the various public towns and cities in Survival.',
           sidebarTitle: 'Towns',

@@ -60,6 +60,11 @@ export default [
     mainContent: [...glob.sync('./src/pages/gensokyo/**/*.*'), './content/locations/help_locations.yaml'],
   },
   {
+    url: '/archive/s4towns/',
+    priority: '0.60',
+    mainContent: ['./src/pages/S4TownsPage.vue', './content/locations/s4towns.yaml'],
+  },
+  {
     url: '/announcements/',
     priority: '0.70',
     mainContent: [...glob.sync('./src/pages/announcements/**/*.*'), ...glob.sync('./content/announcements/**/*.*')],

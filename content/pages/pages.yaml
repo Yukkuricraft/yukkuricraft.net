@@ -1,7 +1,7 @@
 - vueRouterName: survivalTour
   canonicalUrl: 'https://yukkuricraft.net/server-activities/survival/'
   path: '/server-activities/survival/'
-  parallaxImages: kagome_marina
+  parallaxImages: kagome_sunset
   parallaxTitle: A Tour of Survival
   contents: SurvivalGuide.md
 
