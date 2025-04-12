@@ -78,10 +78,29 @@ towns:
     Feel free to visit any one of them. You might find a nice to place to live or hang out.
 
   sublocations:
-    notowns:
-      displayName: Sorry, No Towns Yet
-      menuName: No Towns
+    imperium:
+      displayName: Imperium
+      menuName: Imperium
+      type: town
+      builders:
+        - name: TexasTony
+          uuid: 773534dd-1c03-4408-9ae7-b40460034f18
       description: |-
-        Sorry. Our new survival world recently started, so no towns have been added to
-        this page just yet. Check this place again soon and we will likely have some
-        hotspots for you to check out.
+        - Dock: Kagome Airport Platform 2
+
+        Hailing from the Praetorians of the past, Imperium, meaning "Empire", sits at where the
+        sun never sets. This impressive city took a total of 5 months to complete, and upholds
+        the legacy of its predecessor by being a testament of determination and tenacity. The
+        city-state, with its approximately 120 buildings, contains various POIs and structures,
+        from functional buildings and state parks, to residential complexes and modern facilities.
+        Two world wonders also call the city home; the Infinity Gate and Imperial Palace highlight
+        the peak of Imperial architecture with their signature ornate designs. Imperium is a
+        must-visit for all, and welcomes you to this proud jewel of civilisation, for everything
+        in the world, even the tides of time, shall not overshadow the accomplishments of the city.
+      images:
+        - name: towns_farms/towns/Imperium1
+          image_taken_by: TexasTony
+        - name: towns_farms/towns/Imperium2
+          image_taken_by: TexasTony
+        - name: towns_farms/towns/Imperium3
+          image_taken_by: TexasTony
