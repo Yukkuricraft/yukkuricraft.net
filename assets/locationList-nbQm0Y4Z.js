@@ -110,7 +110,7 @@ town/city dock (staff will not cover expenses for construction). Once done, they
 contact staff again. The ship or carriage will then be copied and pasted at Kagome’s
 docks, airport, or train station, and the proper commands implemented.</p>
 `}}},towns:{displayName:"List of Towns",menuName:"Towns",description:`Below are a list of towns that have been officially recognised by our server’s staff.<br>
-Feel free to visit any one of them. You might find a nice to place to live or hang out.`,sublocations:{imperium:{displayName:"Imperium",menuName:"Imperium",type:"town",builders:[{name:"TexasTony",uuid:"773534dd-1c03-4408-9ae7-b40460034f18"}],description:`<ul>
+Feel free to visit any one of them. You might find a nice to place to live or hang out.`,sublocations:{imperium:{displayName:"Imperium",menuName:"Imperium",type:"town",builders:[{name:"TexasTony",uuid:"773534dd-1c03-4408-9ae7-b40460034f18"},{name:"Alliaya",uuid:"06987f17-5c7f-4b04-a7de-671b10b69a3b"}],description:`<ul>
 <li>Dock: Kagome Airport Platform 2</li>
 </ul>
 <p>Hailing from the Praetorians of the past, Imperium, meaning “Empire”, sits at where the
