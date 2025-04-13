@@ -85,6 +85,8 @@ towns:
       builders:
         - name: TexasTony
           uuid: 773534dd-1c03-4408-9ae7-b40460034f18
+        - name: Alliaya
+          uuid: 06987f17-5c7f-4b04-a7de-671b10b69a3b
       description: |-
         - Dock: Kagome Airport Platform 2
 
