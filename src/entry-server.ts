@@ -1,23 +1,28 @@
 import { basename } from 'node:path'
 import { renderToString, type SSRContext } from 'vue/server-renderer'
-import { renderSSRHead, type SSRHeadPayload } from '@unhead/ssr'
+import { createHead } from '@unhead/vue/server'
 import { createYcApp } from '@/app'
+import { type VueHeadClient } from '@unhead/vue'
 
-export async function render(url: string, manifest: {[k: string]: string[]}): Promise<[string, string, SSRHeadPayload]> {
-  const { app, router, head } = createYcApp()
+export async function render(
+  url: string,
+  manifest: { [k: string]: string[] },
+): Promise<[string, string, VueHeadClient]> {
+  const { app, router } = createYcApp()
+  const head = createHead()
+  app.use(head)
 
   await router.push(url)
   await router.isReady()
 
   const ctx: SSRContext = {}
   const html = await renderToString(app, ctx)
-  const headPayload = await renderSSRHead(head)
 
   const preloadLinks = renderPreloadLinks(ctx.modules, manifest)
-  return [html, preloadLinks, headPayload]
+  return [html, preloadLinks, head]
 }
 
-function renderPreloadLinks(modules: string[], manifest: {[k: string]: string[]}) {
+function renderPreloadLinks(modules: string[], manifest: { [k: string]: string[] }) {
   let links = ''
   const seen = new Set()
   modules.forEach((id) => {
@@ -59,7 +64,6 @@ function renderPreloadLink(file: string) {
   } else if (file.endsWith('.webp')) {
     return ` <link rel="preload" href="${file}" as="image" type="image/webp">`
   } else {
-    // eslint-disable-next-line no-console
     console.warn("Tried to render file but don't know how: " + file)
   }
 }

@@ -84,7 +84,6 @@ const observer = ref()
 
 onMounted(() => {
   observer.value = new MutationObserver(() => {
-    console.log('MutationObserver')
     updateToc() // TODO: Be smarter here
   })
 

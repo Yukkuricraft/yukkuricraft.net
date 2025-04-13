@@ -3,24 +3,15 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import express from 'express'
+import { transformHtmlTemplate } from 'unhead/server'
 
-export async function createServer(
-    root = process.cwd(),
-    isProd = process.env.NODE_ENV === 'production',
-    hmrPort,
-) {
+export async function createServer(root = process.cwd(), isProd = process.env.NODE_ENV === 'production', hmrPort) {
   const __dirname = path.dirname(fileURLToPath(import.meta.url))
   const resolve = (p) => path.resolve(__dirname, p)
 
-  const indexProd = isProd
-      ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
-      : ''
+  const indexProd = isProd ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8') : ''
 
-  const manifest = isProd
-      ? JSON.parse(
-          fs.readFileSync(resolve('dist/client/.vite/ssr-manifest.json'), 'utf-8'),
-      )
-      : {}
+  const manifest = isProd ? JSON.parse(fs.readFileSync(resolve('dist/client/.vite/ssr-manifest.json'), 'utf-8')) : {}
 
   const app = express()
 
@@ -30,7 +21,7 @@ export async function createServer(
   let vite
   if (!isProd) {
     vite = await (
-        await import('vite')
+      await import('vite')
     ).createServer({
       base: '/',
       root,
@@ -51,15 +42,15 @@ export async function createServer(
     app.use(vite.middlewares)
   } else {
     app.use((await import('compression')).default())
-    app.use(
-        '/',
-        (await import('serve-static')).default(resolve('dist/client'), {
-          index: false,
-        }),
+    app.get(
+      '/',
+      (await import('serve-static')).default(resolve('dist/client'), {
+        index: false,
+      }),
     )
   }
 
-  app.use('*', async (req, res) => {
+  app.get('*glob', async (req, res) => {
     try {
       const url = req.originalUrl
 
@@ -75,19 +66,17 @@ export async function createServer(
         render = (await import('./dist/server/entry-server.ts')).render
       }
 
-      const [appHtml, preloadLinks, headPayload] = await render(url, manifest)
+      const [appHtml, preloadLinks, head] = await render(url, manifest)
 
-      let html = template
-          .replace(`<!--preload-links-->`, preloadLinks)
-          .replace(`<!--app-html-->`, appHtml)
+      let html = template.replace(`<!--preload-links-->`, preloadLinks).replace(`<!--app-html-->`, appHtml)
 
-      Object.entries(headPayload).forEach(([key, value]) => {
-        html = html.replace(`<!--${key}-->`, value)
-      })
+      html = await transformHtmlTemplate(head, html)
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
     } catch (e) {
-      vite && vite.ssrFixStacktrace(e)
+      if (vite) {
+        vite.ssrFixStacktrace(e)
+      }
       console.log(e.stack)
       res.status(500).end(e.stack)
     }
@@ -96,8 +85,8 @@ export async function createServer(
   return { app, vite }
 }
 
-createServer().then(({app}) =>
-    app.listen(6173, () => {
-      console.log('http://localhost:6173')
-    }),
+createServer().then(({ app }) =>
+  app.listen(6173, () => {
+    console.log('http://localhost:6173')
+  }),
 )

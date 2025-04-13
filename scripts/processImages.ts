@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import fs from 'fs'
 import path from 'node:path'
 import sharp from 'sharp'

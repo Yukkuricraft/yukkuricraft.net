@@ -58,7 +58,6 @@ function chunk<A>(arr: A[], size: number): A[][] {
   let idx = 0
   let obj: A | undefined
 
-  // eslint-disable-next-line no-cond-assign
   while ((obj = copy.shift())) {
     if (idx === size) {
       res.push(currentArr)
@@ -120,14 +119,12 @@ async function mcPing() {
     const res = await fetch(`https://api.minetools.eu/ping/${props.ip}/${props.port}`)
 
     if (res.status !== 200) {
-      // eslint-disable-next-line no-console
       console.warn(errorMsg)
       return null
     } else {
       const json = await res.json()
 
       if (typeof json.error !== 'undefined') {
-        // eslint-disable-next-line no-console
         console.warn(errorMsg + '. Error: ' + json.error)
         return null
       } else {
@@ -135,7 +132,6 @@ async function mcPing() {
       }
     }
   } catch (e) {
-    // eslint-disable-next-line no-console
     console.warn(errorMsg + '. Error: ' + e)
     return null
   }

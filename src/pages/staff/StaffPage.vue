@@ -84,7 +84,6 @@ function processBloopers(event: KeyboardEvent) {
 
       b.enabled = b.key.length === b.idx
       if (b.enabled) {
-        // eslint-disable-next-line no-console
         console.log(`Secret ${b.name} unlocked`)
       }
     })

@@ -46,14 +46,12 @@ async function fetchMcUsername(uuid: string, fallback: string) {
     const res = await fetch('https://api.minetools.eu/uuid/' + uuid.replaceAll('-', ''))
 
     if (res.status !== 200) {
-      // eslint-disable-next-line no-console
       console.warn(errorMsg)
       return fallback
     } else {
       const profile = await res.json()
 
       if (typeof profile.error !== 'undefined') {
-        // eslint-disable-next-line no-console
         console.warn(errorMsg + '. Error: ' + profile.error)
         return fallback
       } else {
@@ -61,7 +59,6 @@ async function fetchMcUsername(uuid: string, fallback: string) {
       }
     }
   } catch (e) {
-    // eslint-disable-next-line no-console
     console.warn(errorMsg + '. Error: ' + e)
     return fallback
   }

@@ -1,8 +1,7 @@
-/* eslint-disable no-console */
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import url from 'node:url'
-import { type SSRHeadPayload } from '@unhead/ssr'
+import { type VueHeadClient } from '@unhead/vue'
 import pages, { type Page } from './pages'
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
@@ -20,7 +19,7 @@ async function writeContentToDisk(page: Page, html: string) {
 }
 
 async function prerenderRoute(
-  render: (url: string) => [html: string, preloadLinks: string, head: SSRHeadPayload],
+  render: (url: string) => [html: string, preloadLinks: string, head: VueHeadClient],
   template: string,
   pageDesc: Page,
 ) {

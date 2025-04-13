@@ -63,7 +63,7 @@ watch(carousel, (v) => {
   }
 
   if (splideObj.value) {
-    splideObj.value.destroy()
+    splideObj.value.destroy(true)
   }
 
   const s = new Splide(v, { rewind: true })
@@ -71,13 +71,14 @@ watch(carousel, (v) => {
     slide.value = newIndex
   })
   s.mount()
+  console.log('Splide mounted', s)
 
   splideObj.value = s
 })
 
 onBeforeUnmount(() => {
   if (splideObj.value) {
-    splideObj.value.destroy()
+    splideObj.value.destroy(true)
     splideObj.value = null
   }
 })
