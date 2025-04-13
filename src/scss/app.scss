@@ -13,9 +13,6 @@ $yukkuricraft-primary: #e56a00;
 @import 'tippy.js/dist/tippy.css';
 @import 'tippy.js/themes/material.css';
 
-@import "@glidejs/glide/src/assets/sass/glide.core";
-@import "@glidejs/glide/src/assets/sass/glide.theme";
-
 .tippy-box[data-theme~='yukkuricraft'] {
   background-color: $yukkuricraft-primary;
   font-weight: 600;
@@ -43,15 +40,6 @@ $yukkuricraft-primary: #e56a00;
 
 .tippy-box[data-theme~='yukkuricraft'] > .tippy-svg-arrow {
   fill: $yukkuricraft-primary;
-}
-
-.glide-caption {
-  position: absolute;
-  left: 0;
-  bottom: 45px;
-  width: 100%;
-  text-align: center;
-  z-index: 2;
 }
 
 html {

@@ -1,8 +1,5 @@
 <template>
-  <span
-    v-tippy="collapse ? { content: realName, theme: 'yukkuricraft' } : null"
-    class="m-1"
-  >
+  <span v-tippy="collapse ? { content: realName, theme: 'yukkuricraft' } : null" class="m-1">
     <img
       loading="lazy"
       :src="`https://mc-heads.net/avatar/${uuid ?? name}/32`"
@@ -10,9 +7,9 @@
       height="32"
       :alt="realName"
       style="vertical-align: middle"
-    />
+    />&nbsp;
+    <span v-if="!collapse">{{ realName }}</span>
   </span>
-  <span v-if="!collapse">{{ realName }}</span>
 </template>
 
 <script setup lang="ts">

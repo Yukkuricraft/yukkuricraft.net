@@ -7,6 +7,7 @@ import App from '@/App.vue'
 import { createYcRouter } from '@/router'
 
 import '@/scss/app.scss'
+import '@splidejs/splide/dist/css/themes/splide-default.min.css'
 
 import 'css.escape'
 

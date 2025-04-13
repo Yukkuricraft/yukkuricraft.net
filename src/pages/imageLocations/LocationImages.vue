@@ -8,30 +8,29 @@
     </div>
   </div>
 
-  <div :id="'locationCarousel-' + locationId" ref="carousel" class="glide">
-    <div class="glide__track" data-glide-el="track">
-      <ul class="glide__slides">
-        <li v-for="image in imageThumbnails" :key="image.name" class="glide__slide">
+  <div :id="'locationCarousel-' + locationId" ref="carousel" class="splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li v-for="image in imageThumbnails" :key="image.name" class="splide__slide">
           <picture-with-webp :image="image.highRes" :title="image.title" @load="imageLoaded(image.highRes)" />
         </li>
       </ul>
-
-      <div class="glide__arrows" data-glide-el="controls">
-        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
-
-        <div class="glide-caption">{{ imageThumbnails && imageThumbnails[slide].title }}</div>
-        <div class="has-text-centered">{{ imageThumbnails && imageThumbnails[slide].description }}</div>
-      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onUnmounted, type PropType, reactive, ref, watch, watchEffect } from 'vue'
+import {
+  onBeforeUnmount,
+  type PropType,
+  reactive,
+  ref,
+  useTemplateRef,
+  watch,
+  watchEffect,
+} from 'vue'
 import { type LocationImage } from '@gen/locations/locationList'
 import buildImages from '@gen/builds/data'
-import Glide, { Images, Controls, Keyboard, Swipe } from '@glidejs/glide/dist/glide.modular.esm'
 import PictureWithWebp from '@/pages/imageLocations/PictureWithWebp.vue'
 import {
   type ImageWithThumbnails,
@@ -40,6 +39,7 @@ import {
   type SingleNestedImageData,
   type PictureWithWebp as PictureWithWebpTpe,
 } from '@/images'
+import Splide from '@splidejs/splide'
 
 const props = defineProps({
   images: {
@@ -52,37 +52,38 @@ const props = defineProps({
   },
 })
 
-const carousel = ref<HTMLElement | null>(null)
-const glideObj = ref<Glide | null>(null)
+const carousel = useTemplateRef<HTMLDivElement>('carousel')
+const splideObj = ref<Splide | null>(null)
+
+const slide = ref(0)
 
 watch(carousel, (v) => {
   if (!v) {
     return
   }
 
-  if (glideObj.value) {
-    glideObj.value.destroy()
+  if (splideObj.value) {
+    splideObj.value.destroy()
   }
 
-  const g = new Glide(v, { perView: 1, autoplay: false })
-
-  g.on('run', () => {
-    slide.value = g.index
+  const s = new Splide(v, { rewind: true })
+  s.on('moved', (newIndex: number) => {
+    slide.value = newIndex
   })
-  g.mount({ Images, Controls, Keyboard, Swipe })
+  s.mount()
 
-  glideObj.value = g
+  splideObj.value = s
 })
 
-const slide = ref(0)
-
-onUnmounted(() => {
-  glideObj.value?.destroy()
-  glideObj.value = null
+onBeforeUnmount(() => {
+  if (splideObj.value) {
+    splideObj.value.destroy()
+    splideObj.value = null
+  }
 })
 
 watch(slide, (v) => {
-  glideObj.value?.go(`=${v}`)
+  splideObj.value?.go(v)
 })
 
 const imageThumbnails = ref<(LocationImage & ImageWithThumbnails)[] | null>()

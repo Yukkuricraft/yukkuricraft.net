@@ -84,10 +84,12 @@ const observer = ref()
 
 onMounted(() => {
   observer.value = new MutationObserver(() => {
+    console.log('MutationObserver')
     updateToc() // TODO: Be smarter here
   })
 
   observer.value.observe(document.getElementById('contentRoot'), { childList: true, subtree: true })
+  updateToc()
 })
 onUnmounted(() => {
   observer.value.disconnect()
