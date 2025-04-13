@@ -8,7 +8,7 @@
       "@gen/*": ["./generated/*"],
       "@cont/*": ["./content/*"]
     },
-    "types": ["@modyfi/vite-plugin-yaml/modules"],
+    "types": ["@modyfi/vite-plugin-yaml/modules", "node"],
     "lib": ["ES2021", "DOM", "DOM.Iterable"]
   }
 }
