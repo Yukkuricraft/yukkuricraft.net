@@ -68,7 +68,25 @@ summary:
         link, they should double-check with a staff member, and then build the vehicle at their
         town/city dock (staff will not cover expenses for construction). Once done, they must
         contact staff again. The ship or carriage will then be copied and pasted at Kagome's
-        docks, airport, or train station, and the proper commands implemented.
+        docks, airport, or train station, and the proper commands implemented.  
+        If a town loses its official status, the vehicle will be removed from Kagome to make
+        space for any other hopeful towns.
+        
+      sublocations:
+        link:
+          displayName: Town-to-Town Connections
+          menuName: Connecting Towns
+          description: |-
+            As an additional perk of being officially recognised, towns may request direct
+            connections to each other via the same warp system. To set up a connection, ***both***
+            ends need to be officially recognised by staff. Furthermore, both towns must build the
+            vehicle on each side of the connection; staff will only install the warp itself. Unlike
+            Kagome, should either side lose their status, the towns may still keep their connection.
+            Connecting vehicles are also not restricted to Kagome's size limits, however we do ask
+            that you keep them sensibly-sized and like a vehicle you might see in Kagome.  
+            Staff reserves the right to refuse a connection for any vehicles that aren't fit for
+            purpose or may be an attempt to abuse this town-to-town connection perk.
+            
 
 towns:
   displayName: List of Towns
@@ -106,3 +124,25 @@ towns:
           image_taken_by: TexasTony
         - name: towns_farms/towns/Imperium3
           image_taken_by: TexasTony
+    luminaria:
+      displayName: Luminaria Sundial
+      menuName: Luminaria Sundial
+      type: town
+      builders:
+        - name: HERO_Z
+          uuid: fb10cb8d-5008-4143-b33b-caf14f68cf59
+      description: |-
+        - Dock: Kagome Airport Platform 3
+
+        *<Description and screenshots coming soon!>*
+    nekomura:
+      displayName: Nekomura
+      menuName: Nekomura
+      type: town
+      builders:
+        - name: MeowReturn
+          uuid: f7b5261a-3742-4284-8a7f-ba492c3ae081
+      description: |-
+        - Dock: Kagome Airport Platform 4
+
+        *<Description and screenshots coming soon!>*
