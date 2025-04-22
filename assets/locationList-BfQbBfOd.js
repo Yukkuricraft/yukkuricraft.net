@@ -108,8 +108,18 @@ method for it.</li>
 link, they should double-check with a staff member, and then build the vehicle at their
 town/city dock (staff will not cover expenses for construction). Once done, they must
 contact staff again. The ship or carriage will then be copied and pasted at Kagome’s
-docks, airport, or train station, and the proper commands implemented.</p>
-`}}},towns:{displayName:"List of Towns",menuName:"Towns",description:`Below are a list of towns that have been officially recognised by our server’s staff.<br>
+docks, airport, or train station, and the proper commands implemented.<br>
+If a town loses its official status, the vehicle will be removed from Kagome to make
+space for any other hopeful towns.</p>
+`,sublocations:{link:{displayName:"Town-to-Town Connections",menuName:"Connecting Towns",description:`As an additional perk of being officially recognised, towns may request direct
+connections to each other via the same warp system. To set up a connection, <em><strong>both</strong></em>
+ends need to be officially recognised by staff. Furthermore, both towns must build the
+vehicle on each side of the connection; staff will only install the warp itself. Unlike
+Kagome, should either side lose their status, the towns may still keep their connection.
+Connecting vehicles are also not restricted to Kagome’s size limits, however we do ask
+that you keep them sensibly-sized and like a vehicle you might see in Kagome.<br>
+Staff reserves the right to refuse a connection for any vehicles that aren’t fit for
+purpose or may be an attempt to abuse this town-to-town connection perk.`}}}}},towns:{displayName:"List of Towns",menuName:"Towns",description:`Below are a list of towns that have been officially recognised by our server’s staff.<br>
 Feel free to visit any one of them. You might find a nice to place to live or hang out.`,sublocations:{imperium:{displayName:"Imperium",menuName:"Imperium",type:"town",builders:[{name:"TexasTony",uuid:"773534dd-1c03-4408-9ae7-b40460034f18"},{name:"Alliaya",uuid:"06987f17-5c7f-4b04-a7de-671b10b69a3b"}],description:`<ul>
 <li>Dock: Kagome Airport Platform 2</li>
 </ul>
@@ -122,7 +132,15 @@ Two world wonders also call the city home; the Infinity Gate and Imperial Palace
 the peak of Imperial architecture with their signature ornate designs. Imperium is a
 must-visit for all, and welcomes you to this proud jewel of civilisation, for everything
 in the world, even the tides of time, shall not overshadow the accomplishments of the city.</p>
-`,images:[{name:"towns_farms/towns/Imperium1",image_taken_by:"TexasTony"},{name:"towns_farms/towns/Imperium2",image_taken_by:"TexasTony"},{name:"towns_farms/towns/Imperium3",image_taken_by:"TexasTony"}]}}}},n={summary:{displayName:"Towns",menuName:"Summary",description:`<p>Want to live with other players? Find it too boring not having neighbors?<br>
+`,images:[{name:"towns_farms/towns/Imperium1",image_taken_by:"TexasTony"},{name:"towns_farms/towns/Imperium2",image_taken_by:"TexasTony"},{name:"towns_farms/towns/Imperium3",image_taken_by:"TexasTony"}]},luminaria:{displayName:"Luminaria Sundial",menuName:"Luminaria Sundial",type:"town",builders:[{name:"HERO_Z",uuid:"fb10cb8d-5008-4143-b33b-caf14f68cf59"}],description:`<ul>
+<li>Dock: Kagome Airport Platform 3</li>
+</ul>
+<p><em>&lt;Description and screenshots coming soon!&gt;</em></p>
+`},nekomura:{displayName:"Nekomura",menuName:"Nekomura",type:"town",builders:[{name:"MeowReturn",uuid:"f7b5261a-3742-4284-8a7f-ba492c3ae081"}],description:`<ul>
+<li>Dock: Kagome Airport Platform 4</li>
+</ul>
+<p><em>&lt;Description and screenshots coming soon!&gt;</em></p>
+`}}}},n={summary:{displayName:"Towns",menuName:"Summary",description:`<p>Want to live with other players? Find it too boring not having neighbors?<br>
 Our survival map has towns that range from close community neighborhoods
 connected by a single road to massive cities with distinct cultures and styles.</p>
 <p>Towns usually accept any and all community members to live in them.<br>
