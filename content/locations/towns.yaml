@@ -145,4 +145,23 @@ towns:
       description: |-
         - Dock: Kagome Airport Platform 4
 
-        *<Description and screenshots coming soon!>*
+        Calm and relaxing; the two word that comes to mind upon visiting this vibrant town.
+        Nekomura is essentially an island village that sits to the East of Kagome, providing
+        shelter to its feline residents and fellow travelers. The island, believed to have aged
+        over a decade, was once said to be a colourless island that would wither away any sign of
+        life until recent rulership by a cat king. The town also holds pride into the overall
+        aesthetic of its nature, allowing cat or man made build to co-exist with its surrounding.
+        The residents are also capable of conversing in human language, paired with their
+        friendliness and endless curiousity.
+        
+        For those who seeks a peaceful and calming living quality, Nekomura gladly invites you for
+        a visit, or simply as a vacation spot!
+      images:
+        - name: towns_farms/towns/Nekomura1
+          image_taken_by: MeowReturn
+        - name: towns_farms/towns/Nekomura2
+          image_taken_by: MeowReturn
+        - name: towns_farms/towns/Nekomura3
+          image_taken_by: MeowReturn
+        - name: towns_farms/towns/Nekomura4
+          image_taken_by: MeowReturn
