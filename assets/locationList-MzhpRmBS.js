@@ -139,8 +139,17 @@ in the world, even the tides of time, shall not overshadow the accomplishments o
 `},nekomura:{displayName:"Nekomura",menuName:"Nekomura",type:"town",builders:[{name:"MeowReturn",uuid:"f7b5261a-3742-4284-8a7f-ba492c3ae081"}],description:`<ul>
 <li>Dock: Kagome Airport Platform 4</li>
 </ul>
-<p><em>&lt;Description and screenshots coming soon!&gt;</em></p>
-`}}}},n={summary:{displayName:"Towns",menuName:"Summary",description:`<p>Want to live with other players? Find it too boring not having neighbors?<br>
+<p>Calm and relaxing; the two word that comes to mind upon visiting this vibrant town.
+Nekomura is essentially an island village that sits to the East of Kagome, providing
+shelter to its feline residents and fellow travelers. The island, believed to have aged
+over a decade, was once said to be a colourless island that would wither away any sign of
+life until recent rulership by a cat king. The town also holds pride into the overall
+aesthetic of its nature, allowing cat or man made build to co-exist with its surrounding.
+The residents are also capable of conversing in human language, paired with their
+friendliness and endless curiousity.</p>
+<p>For those who seeks a peaceful and calming living quality, Nekomura gladly invites you for
+a visit, or simply as a vacation spot!</p>
+`,images:[{name:"towns_farms/towns/Nekomura1",image_taken_by:"MeowReturn"},{name:"towns_farms/towns/Nekomura2",image_taken_by:"MeowReturn"},{name:"towns_farms/towns/Nekomura3",image_taken_by:"MeowReturn"},{name:"towns_farms/towns/Nekomura4",image_taken_by:"MeowReturn"}]}}}},n={summary:{displayName:"Towns",menuName:"Summary",description:`<p>Want to live with other players? Find it too boring not having neighbors?<br>
 Our survival map has towns that range from close community neighborhoods
 connected by a single road to massive cities with distinct cultures and styles.</p>
 <p>Towns usually accept any and all community members to live in them.<br>
