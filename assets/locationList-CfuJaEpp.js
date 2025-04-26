@@ -135,8 +135,19 @@ in the world, even the tides of time, shall not overshadow the accomplishments o
 `,images:[{name:"towns_farms/towns/Imperium1",image_taken_by:"TexasTony"},{name:"towns_farms/towns/Imperium2",image_taken_by:"TexasTony"},{name:"towns_farms/towns/Imperium3",image_taken_by:"TexasTony"}]},luminaria:{displayName:"Luminaria Sundial",menuName:"Luminaria Sundial",type:"town",builders:[{name:"HERO_Z",uuid:"fb10cb8d-5008-4143-b33b-caf14f68cf59"}],description:`<ul>
 <li>Dock: Kagome Airport Platform 3</li>
 </ul>
-<p><em>&lt;Description and screenshots coming soon!&gt;</em></p>
-`},nekomura:{displayName:"Nekomura",menuName:"Nekomura",type:"town",builders:[{name:"MeowReturn",uuid:"f7b5261a-3742-4284-8a7f-ba492c3ae081"}],description:`<ul>
+<p>Emerging from the mists of a forgotten age, a towering relic with advanced technology from
+a long-lost civilization stands proudly on the edge of a radiant frontier.<br>
+a futuristic sanctuary where shimmering lights weave above a vibrant, close-knit community.<br>
+Here, diverse cultures intertwine, and the spirit of endless exploration flourishes.<br>
+Welcoming voyagers from across the sea and sky, this haven stands beyond the bounds of
+time,<br>
+offering a refuge from the chaos of the modern world.<br>
+More than a destination, Luminaria Sundial is where the past meets the present, a living
+portal to an extraordinary future.</p>
+<p>Continuously enhanced with vision and care, Luminaria Sundial stands prepared to receive
+all who venture across distant seas and skies, offering an enduring haven where past
+brilliance shapes tomorrow’s promise.</p>
+`,images:[{name:"towns_farms/towns/Luminaria1",image_taken_by:"HERO_Z"},{name:"towns_farms/towns/Luminaria2",image_taken_by:"HERO_Z"},{name:"towns_farms/towns/Luminaria3",image_taken_by:"HERO_Z"},{name:"towns_farms/towns/Luminaria4",image_taken_by:"HERO_Z"}]},nekomura:{displayName:"Nekomura",menuName:"Nekomura",type:"town",builders:[{name:"MeowReturn",uuid:"f7b5261a-3742-4284-8a7f-ba492c3ae081"}],description:`<ul>
 <li>Dock: Kagome Airport Platform 4</li>
 </ul>
 <p>Calm and relaxing; the two word that comes to mind upon visiting this vibrant town.
