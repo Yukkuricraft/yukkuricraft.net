@@ -134,7 +134,28 @@ towns:
       description: |-
         - Dock: Kagome Airport Platform 3
 
-        *<Description and screenshots coming soon!>*
+        Emerging from the mists of a forgotten age, a towering relic with advanced technology from
+        a long-lost civilization stands proudly on the edge of a radiant frontier.  
+        a futuristic sanctuary where shimmering lights weave above a vibrant, close-knit community.  
+        Here, diverse cultures intertwine, and the spirit of endless exploration flourishes.  
+        Welcoming voyagers from across the sea and sky, this haven stands beyond the bounds of
+        time,  
+        offering a refuge from the chaos of the modern world.  
+        More than a destination, Luminaria Sundial is where the past meets the present, a living
+        portal to an extraordinary future.
+
+        Continuously enhanced with vision and care, Luminaria Sundial stands prepared to receive
+        all who venture across distant seas and skies, offering an enduring haven where past
+        brilliance shapes tomorrow's promise.
+      images:
+      - name: towns_farms/towns/Luminaria1
+        image_taken_by: HERO_Z
+      - name: towns_farms/towns/Luminaria2
+        image_taken_by: HERO_Z
+      - name: towns_farms/towns/Luminaria3
+        image_taken_by: HERO_Z
+      - name: towns_farms/towns/Luminaria4
+        image_taken_by: HERO_Z
     nekomura:
       displayName: Nekomura
       menuName: Nekomura
