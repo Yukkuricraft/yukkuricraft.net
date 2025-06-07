@@ -186,3 +186,30 @@ towns:
           image_taken_by: MeowReturn
         - name: towns_farms/towns/Nekomura4
           image_taken_by: MeowReturn
+    neoarcana:
+      displayName: Neo Arcana
+      menuName: Neo Arcana
+      type: town
+      builders:
+        - name: Cipher_II
+          uuid: b99adb22-64a6-4c2a-9366-840392ae3938
+      description: |-
+        - Train: Yukkuri Western Main - Car 1
+
+        Risen from the ashes of Survival 4's Arcana, Neo Arcana was founded by Cipher_II on the
+        idea of a railway company to connect settlements of all sizes across YC. With help of a
+        few interested players, they began setting up shop in a jungle north west of Kagome with
+        a nearby mineshaft as their station. Over time as more peopled settled in, they slowly
+        shaped the town into what it is today. From our small local bar run by one of our resident
+        to another resident running a shop in Kagome to the railway company in the forefront,  Neo
+        Acrana despite it's many different building aesthetic, is a small town that strives to
+        connect any towns far and wide via one railway and the creativity of the towns folk.
+      images:
+        - name: towns_farms/towns/NeoArcana1
+          image_taken_by: Cipher_II
+        - name: towns_farms/towns/NeoArcana2
+          image_taken_by: Cipher_II
+        - name: towns_farms/towns/NeoArcana3
+          image_taken_by: Cipher_II
+        - name: towns_farms/towns/NeoArcana4
+          image_taken_by: Cipher_II

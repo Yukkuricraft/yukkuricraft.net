@@ -29,13 +29,11 @@ Cheating at its most basic fundamental core is "Gaining an unfair advantage
 against other players." A vanilla client can't recreate Printer, there is no
 legitimate way to recreate something like placing blocks outside of your
 crosshair. There is a really fat line between _convenience_ and _cheating._ (God
-I said that word alot but gotta get the point across
-<:AliceSad:710727021709361162>)
+I said that word alot but gotta get the point across)
 
 If you're still bummed out about this policy, please ask about some of our
 historical big-build gurus like Tony or Aka who never had these tools. It'll be
 quite the humbling experience. That should be all for now, take it easy
-<:RumiaSleep:619028578725789706>
 
 _P.S. - Like I said at the start, this is the end of the discussion. Please do
 not further strongarm, fearmonger, or otherwise try to harass staff or fellow
