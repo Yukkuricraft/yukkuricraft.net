@@ -5,4 +5,6 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 library.add(faAlignLeft, faLink, faSpinner, faSignal, faTimes)
 
-dom.watch()
+if (typeof window !== 'undefined') {
+  dom.watch()
+}
