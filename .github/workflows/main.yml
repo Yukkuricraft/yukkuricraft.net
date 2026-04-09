@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - dev
     paths:
       - '*'
       - '!README.md'
@@ -14,27 +13,31 @@ on:
       - 'content/**'
       - '.github/workflows/main.yml'
 
-jobs:
-  deploy:
-    name: Build and deploy yukkuricraft.net
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [ 18 ]
-    steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build yukkuricraft.net
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout
-        uses: actions/checkout@v3.5.3
+        uses: actions/checkout@v4
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 24
           cache: 'yarn'
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Yarn Install
         run: yarn install --immutable
@@ -48,43 +51,40 @@ jobs:
       - name: Yarn Prerender
         run: yarn run prerender:ssr
 
-      - name: Deploy-Info-Dev
-        if: steps.extract_branch.outputs.branch == 'dev'
-        uses: s0/git-publish-subdir-action@v2.6.0
-        env:
-          REPO: self
-          BRANCH: gh-pages-dev
-          FOLDER: dist/prerender
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/prerender
 
-      - name: Deploy-Info-Prod
-        if: steps.extract_branch.outputs.branch == 'master'
-        uses: s0/git-publish-subdir-action@v2.6.0
-        env:
-          REPO: self
-          BRANCH: gh-pages
-          FOLDER: dist/prerender
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
   lint:
+    name: Linting
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node: [18]
-
-    name: Linting (Node ${{ matrix.node }})
     steps:
-      - uses: actions/checkout@v3.5.3
+      - uses: actions/checkout@v4
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 24
           cache: 'yarn'
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Yarn Install
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Run linting
         run: yarn run lint

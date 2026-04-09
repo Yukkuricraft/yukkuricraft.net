@@ -32,7 +32,6 @@ This is a github hosted page parked on our subdomain.
    it's own line. Everything between those two lines is
    [YAML](https://rollout.io/blog/yaml-tutorial-everything-you-need-get-started/).
    There are 3 required fields.
-
    - `title`: The title of your post. Do not include a heading in the
      announcement itself.
    - `time`: When the post was created. This is an ISO-8601 date. Get the
@@ -41,7 +40,6 @@ This is a github hosted page parked on our subdomain.
    - `poster`: This is your name.
 
    You should also add these fields, but they are not required.
-
    - `excerpt`: A summary/excerpt of the post that users see before they click
      on the post itself.
    - `slug`: If you want a different slug (URL part that identifies the

@@ -35,7 +35,6 @@ export interface RankGroupBase {
 }
 
 export interface RankGroupWithChildren extends RankGroupBase {
-  // eslint-disable-next-line no-use-before-define
   childGroups: RankGroupTpe[]
 }
 

@@ -1,9 +1,10 @@
-module.exports = {
+import autoprefixer from 'autoprefixer'
+import purgecss from '@fullhuman/postcss-purgecss'
+
+export default {
   plugins: [
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require('autoprefixer'),
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require('@fullhuman/postcss-purgecss').purgeCSSPlugin({
+    autoprefixer,
+    purgecss({
       content: ['./index.html', './src/**/*.vue'],
       variables: true,
       defaultExtractor(content) {

@@ -7,13 +7,12 @@ excerpt:
   practices that previously fell into a gray area.
 ---
 
-Hey everyone 
+Hey everyone
 
-Just taking a second to let y'all know that we're going to update
-Server Rules 3's and 5's wording soon. This is to more clearly define a few
-things that _aren't allowed_ and _haven't been allowed_ but weren't properly
-listed in them, leading to a grey area where it wasn't clear with neither staff
-nor community.
+Just taking a second to let y'all know that we're going to update Server Rules
+3's and 5's wording soon. This is to more clearly define a few things that
+_aren't allowed_ and _haven't been allowed_ but weren't properly listed in them,
+leading to a grey area where it wasn't clear with neither staff nor community.
 
 ~~Server Rule 3 `[Do not cheat.]` will soon explicitly mention building
 blueprint mods such as Litematica. These mods are only allowed for visual

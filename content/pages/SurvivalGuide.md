@@ -46,8 +46,8 @@ within or too close to an obvious claimed land border.
 
 Our chest locks give players a safe and secure way of accessing their
 containers. When you place a chest, it will be automatically locked to you.
-Locks are also fully customizable, such as allowing access only to a
-select group of people. Type `/lwc` for more info.
+Locks are also fully customizable, such as allowing access only to a select
+group of people. Type `/lwc` for more info.
 
 #### Set Your Homes
 
@@ -81,18 +81,18 @@ bring someone to you, you can type `/tpahere <username>` instead.
 
 #### Express Yourself
 
-Of course, simply typing in chat isn't always enough to express yourself.
-A good way to help express yourself to others is through emotes. Our large pool
-of commands provide a suite of expressions to help spice up your chatter. From
-pats to hugs and more, we probably have it. Note that, for the comfort of
-everyone, we lock some actions like kissing or jumpscares behind higher ranks.
+Of course, simply typing in chat isn't always enough to express yourself. A good
+way to help express yourself to others is through emotes. Our large pool of
+commands provide a suite of expressions to help spice up your chatter. From pats
+to hugs and more, we probably have it. Note that, for the comfort of everyone,
+we lock some actions like kissing or jumpscares behind higher ranks.
 
-Wish to be referred by something other than your username? Want it shortened?
-At Noble rank, you can request a nickname. Just notify one of our friendly staff
+Wish to be referred by something other than your username? Want it shortened? At
+Noble rank, you can request a nickname. Just notify one of our friendly staff
 members and, should it pass the approval phase, you can go around in style with
 your new nickname!  
-***Note: Touhou nicknames are subject to heavy scrutiny and will only be given to
-popular players who are closely associated with a character.***
+**_Note: Touhou nicknames are subject to heavy scrutiny and will only be given
+to popular players who are closely associated with a character._**
 
 Need to do something? Dropped off? Set yourself to AFK to notify other players
 that you are not present. This command will also let the server know to ignore
@@ -133,12 +133,12 @@ between torches and redstone torches.
 #### Better Redstone
 
 If you do want to work with redstone, don't be alarmed. We have several
-quality-of-life features to make your life easier as well! One example is
-using coals to measure redstone power. Want to make easy hidden switches? We
-have those! There is also the option of better control over lighting. Turn
-glass to glowstone and pumpkins to jack-o-lanterns with some redstone just
-as easily as you power a normal lamp. You can even turn the fire on a
-netherrack block on and off.
+quality-of-life features to make your life easier as well! One example is using
+coals to measure redstone power. Want to make easy hidden switches? We have
+those! There is also the option of better control over lighting. Turn glass to
+glowstone and pumpkins to jack-o-lanterns with some redstone just as easily as
+you power a normal lamp. You can even turn the fire on a netherrack block on and
+off.
 
 #### A More Immersive Experience with Furniture
 
@@ -152,8 +152,8 @@ to lay down wherever you feel like.
 Some things in Vanilla just feels like a drag. For example, finding just the
 right painting more your room. On Yukkuricraft, you can just right-click on the
 painting instead to scroll through different paintings. Our Sages also have the
-ability to easily edit armor stands to their liking. No more struggling to
-equip or unequip items or find the right rotation or pose.
+ability to easily edit armor stands to their liking. No more struggling to equip
+or unequip items or find the right rotation or pose.
 
 #### Mass Deforestation Imminent
 

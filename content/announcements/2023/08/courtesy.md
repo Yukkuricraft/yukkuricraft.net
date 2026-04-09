@@ -28,6 +28,8 @@ platforms. Be nice to one another, we don't save a seat for people like this.
 That should be all, take it easy!  
 (wow an actually short PSA for once lol)
 
-*P.S. - No, "mentle" issues do not absolve you of responsibility for shitty
-behavior. An asshole is an asshole no matter whose cheeks its sitting between.*  
-*P.S.S. - If you know who got banned, I left their name out of this for a reason.*
+_P.S. - No, "mentle" issues do not absolve you of responsibility for shitty
+behavior. An asshole is an asshole no matter whose cheeks its sitting
+between._  
+_P.S.S. - If you know who got banned, I left their name out of this for a
+reason._

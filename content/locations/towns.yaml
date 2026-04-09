@@ -71,7 +71,7 @@ summary:
         docks, airport, or train station, and the proper commands implemented.  
         If a town loses its official status, the vehicle will be removed from Kagome to make
         space for any other hopeful towns.
-        
+
       sublocations:
         link:
           displayName: Town-to-Town Connections
@@ -86,7 +86,6 @@ summary:
             that you keep them sensibly-sized and like a vehicle you might see in Kagome.  
             Staff reserves the right to refuse a connection for any vehicles that aren't fit for
             purpose or may be an attempt to abuse this town-to-town connection perk.
-            
 
 towns:
   displayName: List of Towns
@@ -148,14 +147,14 @@ towns:
         all who venture across distant seas and skies, offering an enduring haven where past
         brilliance shapes tomorrow's promise.
       images:
-      - name: towns_farms/towns/Luminaria1
-        image_taken_by: HERO_Z
-      - name: towns_farms/towns/Luminaria2
-        image_taken_by: HERO_Z
-      - name: towns_farms/towns/Luminaria3
-        image_taken_by: HERO_Z
-      - name: towns_farms/towns/Luminaria4
-        image_taken_by: HERO_Z
+        - name: towns_farms/towns/Luminaria1
+          image_taken_by: HERO_Z
+        - name: towns_farms/towns/Luminaria2
+          image_taken_by: HERO_Z
+        - name: towns_farms/towns/Luminaria3
+          image_taken_by: HERO_Z
+        - name: towns_farms/towns/Luminaria4
+          image_taken_by: HERO_Z
     nekomura:
       displayName: Nekomura
       menuName: Nekomura
@@ -174,7 +173,7 @@ towns:
         aesthetic of its nature, allowing cat or man made build to co-exist with its surrounding.
         The residents are also capable of conversing in human language, paired with their
         friendliness and endless curiousity.
-        
+
         For those who seeks a peaceful and calming living quality, Nekomura gladly invites you for
         a visit, or simply as a vacation spot!
       images:

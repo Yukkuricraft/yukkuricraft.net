@@ -1,12 +1,14 @@
 import { fileURLToPath, URL } from 'node:url'
 
-import { defineConfig, splitVendorChunkPlugin } from 'vite'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import ViteYaml from '@modyfi/vite-plugin-yaml'
 import { plugin as mdPlugin, Mode } from 'vite-plugin-markdown'
 import markdownIt from 'markdown-it'
 import markdownItAnchor from 'markdown-it-anchor'
+// @ts-expect-error No types
 import markdownItHtml5Embed from 'markdown-it-html5-embed'
+// @ts-expect-error No types
 import vitePluginFaviconsInject from 'vite-plugin-favicons-inject'
 import { visualizer } from 'rollup-plugin-visualizer'
 
@@ -32,7 +34,6 @@ export default defineConfig({
     vue(),
     ViteYaml(),
     mdPlugin({ mode: [Mode.VUE], markdownIt: markdownItObj }),
-    // @ts-expect-error No idea
     vitePluginFaviconsInject(
       './src/favicon_upscaled.png',
       {
@@ -52,7 +53,6 @@ export default defineConfig({
         failGraciously: Boolean(process.env.FAVICONS_OK_NO_FILES),
       },
     ),
-    splitVendorChunkPlugin(),
     visualizer({ template: 'treemap', open: true, gzipSize: true }),
   ],
   resolve: {
@@ -66,10 +66,10 @@ export default defineConfig({
     outDir: './dist/client',
     target: 'es2021',
     assetsInlineLimit: 1024,
-    rollupOptions: {
+    rolldownOptions: {
       output: {
         assetFileNames: (assetInfo) => {
-          const extension = assetInfo.name.split('.').at(-1)
+          const extension = assetInfo.names[0].split('.').at(-1) ?? ''
           if (/png|jpe?g|webp/i.test(extension)) {
             return `assets/images/[name]-[hash][extname]`
           } else if (/wav|mp3/i.test(extension)) {
@@ -86,20 +86,15 @@ export default defineConfig({
             return `assets/[name]-[hash].js`
           }
         },
-        manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            if (id.includes('@egjs')) {
-              return 'vendor_egjs'
-            } else if (id.includes('tippy')) {
-              return 'vendor_tippy'
-            }
-          } else if (id.includes('generated/avatars/data.js')) {
-            return 'avatar_image_data'
-          } else if (id.includes('generated/backgrounds/data.js')) {
-            return 'backgrounds_image_data'
-          } else if (id.includes('generated/builds/data.js')) {
-            return 'builds_image_data'
-          }
+        codeSplitting: {
+          groups: [
+            { name: 'vendor_egjs', test: /node_modules\/@egjs/, priority: 20 },
+            { name: 'vendor_tippy', test: /node_modules\/.*tippy/, priority: 20 },
+            { name: 'vendor', test: /node_modules/, priority: 10 },
+            { name: 'avatar_image_data', test: /generated\/avatars\/data\.js/, priority: 10 },
+            { name: 'backgrounds_image_data', test: /generated\/backgrounds\/data\.js/, priority: 10 },
+            { name: 'builds_image_data', test: /generated\/builds\/data\.js/, priority: 10 },
+          ],
         },
       },
     },

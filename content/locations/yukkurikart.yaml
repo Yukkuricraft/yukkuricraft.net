@@ -120,7 +120,7 @@ tracks:
         Take big risks by boosting along the patches of blue ice, avoid the
         pitfalls that dot the map, and stake your claim as YukkuriKart's
         greatest racer!
-      images: 
+      images:
         - name: yukkurikart/yc_rainbow1
           image_taken_by: LunaPixu
         - name: yukkurikart/yc_rainbow2
