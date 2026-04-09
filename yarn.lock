@@ -5104,7 +5104,7 @@ __metadata:
     tsx: "npm:^4.19.3"
     typescript: "npm:^5.8.3"
     typescript-eslint: "npm:^8.29.1"
-    unhead: "npm:^2.1.11"
+    unhead: "npm:^2.1.13"
     vite: "npm:^6.4.2"
     vite-plugin-favicons-inject: "npm:^2.2.0"
     vite-plugin-markdown: "npm:^2.2.0"
@@ -8932,12 +8932,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unhead@npm:^2.1.11":
-  version: 2.1.12
-  resolution: "unhead@npm:2.1.12"
+"unhead@npm:^2.1.13":
+  version: 2.1.13
+  resolution: "unhead@npm:2.1.13"
   dependencies:
     hookable: "npm:^6.0.1"
-  checksum: 10c0/fb5afcab73ea28176f854462e976f5f953e995563f3d9c7e5af42259af5fe1cbbc3111e54118e932c9d2673d641dd2f0c59656c9cc3e34505d2322564cfcd0e8
+  checksum: 10c0/69244dcf8d9a23edbaed1a6115e97ac5c49ec68446e88cf7ec0ac82e1cdbdacef44fc017913622e454da3e30ad6b8b17ebef30bc47c765ecc73cb363739a847a
   languageName: node
   linkType: hard
 
