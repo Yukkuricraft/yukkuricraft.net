@@ -3,4 +3,5 @@
   (await import('./makeSitemap')).makeSitemap();
   (await import('./processImages')).processImages();
   (await import('./renderMarkdownContent')).processMarkdownFiles();
+  (await import('./generateFavicons')).generateFavicons();
 })()

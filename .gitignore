@@ -23,5 +23,6 @@ dist/
 dist/!CNAME
 dist/!.nojekyll
 public/sitemap.xml
+public/assets/
 
 .vscode

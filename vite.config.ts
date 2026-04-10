@@ -8,8 +8,6 @@ import markdownIt from 'markdown-it'
 import markdownItAnchor from 'markdown-it-anchor'
 // @ts-expect-error No types
 import markdownItHtml5Embed from 'markdown-it-html5-embed'
-// @ts-expect-error No types
-import vitePluginFaviconsInject from 'vite-plugin-favicons-inject'
 import { visualizer } from 'rollup-plugin-visualizer'
 
 const markdownItObj = markdownIt({ linkify: true, typographer: true })
@@ -34,25 +32,6 @@ export default defineConfig({
     vue(),
     ViteYaml(),
     mdPlugin({ mode: [Mode.VUE], markdownIt: markdownItObj }),
-    vitePluginFaviconsInject(
-      './src/favicon_upscaled.png',
-      {
-        appName: 'Yukkuricraft Info',
-        appDescription: 'Yukkuricraft Info page',
-        developerName: 'Katrix',
-        developerURL: null,
-        background: '#fff',
-        theme_color: '#e56a00',
-        icons: {
-          coast: false,
-          firefox: false,
-          yandex: false,
-        },
-      },
-      {
-        failGraciously: Boolean(process.env.FAVICONS_OK_NO_FILES),
-      },
-    ),
     visualizer({ template: 'treemap', open: true, gzipSize: true }),
   ],
   resolve: {
