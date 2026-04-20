@@ -43,7 +43,7 @@ async function fetchMcUsername(uuid: string, fallback: string) {
   const errorMsg = `Failed to get name for uuid ${uuid}, using fallback ${fallback} instead`
 
   try {
-    const res = await fetch('https://api.minetools.eu/uuid/' + uuid.replaceAll('-', ''))
+    const res = await fetch('https://api.yukkuricraft.net/minecraft/uuid/' + uuid.replaceAll('-', ''))
 
     if (res.status !== 200) {
       console.warn(errorMsg)

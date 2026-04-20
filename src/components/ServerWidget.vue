@@ -116,7 +116,7 @@ async function mcPing() {
   }
 
   try {
-    const res = await fetch(`https://api.minetools.eu/ping/${props.ip}/${props.port}`)
+    const res = await fetch(`https://api.yukkuricraft.net/minecraft/ping/${props.ip}/${props.port}`)
 
     if (res.status !== 200) {
       console.warn(errorMsg)
